@@ -1,0 +1,78 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+.modal-dialog {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 440px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 6px;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--psp-text);
+  cursor: pointer;
+}
+
+.modal-illustration {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--psp-text);
+}
+
+.modal-text {
+  font-size: 15px;
+  color: var(--psp-text-muted);
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-actions .btn-outline {
+  background: #fff;
+  color: var(--psp-primary);
+  border: 2px solid var(--psp-primary);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.modal-actions .btn-outline:hover {
+  background: #f5f3ff;
+}
+
+.modal-actions .btn-continue {
+  padding: 12px 20px;
+}

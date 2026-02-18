@@ -1,0 +1,51 @@
+:root {
+  --psp-primary: #6B4EFF;
+  --psp-primary-hover: #5a3eeb;
+  --psp-accent: #E85D04;
+  --psp-footer: #2d2d2d;
+  --psp-text: #1a1a1a;
+  --psp-text-muted: #6b7280;
+  --psp-border: #e5e7eb;
+  --psp-bg: #ffffff;
+  --psp-card-hover: #f5f3ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--psp-text);
+  background: var(--psp-bg);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--psp-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input, select {
+  font-family: inherit;
+}
+
+input::placeholder {
+  color: var(--psp-text-muted);
+}

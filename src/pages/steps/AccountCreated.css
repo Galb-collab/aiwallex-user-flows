@@ -1,0 +1,37 @@
+.account-created {
+  max-width: 480px;
+}
+
+.account-created-text {
+  font-size: 16px;
+  color: var(--psp-text-muted);
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+
+.account-created-actions {
+  max-width: 360px;
+}
+
+.account-created-actions .or {
+  text-align: center;
+  margin: 16px 0;
+  color: var(--psp-text-muted);
+  font-size: 14px;
+}
+
+.btn-outline {
+  background: #fff;
+  color: var(--psp-primary);
+  border: 2px solid var(--psp-primary);
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-outline:hover {
+  background: #f5f3ff;
+}
