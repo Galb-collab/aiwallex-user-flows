@@ -11,7 +11,7 @@ import { CreateAccount2 } from './steps/CreateAccount2'
 import { VerifyPhone } from './steps/VerifyPhone'
 import { AccountCreated } from './steps/AccountCreated'
 import { VerifyBusiness } from './steps/VerifyBusiness'
-import { LeaveModal } from './components/LeaveModal'
+import { LeaveModal } from '../components/LeaveModal'
 import './OnboardingFlow.css'
 
 const STEP_COMPONENTS = {
