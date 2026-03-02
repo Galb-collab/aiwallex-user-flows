@@ -23,15 +23,29 @@ const AIRWALLEX_FLOWS = [
   { path: '/flow/settings', icon: '⚙', title: 'Settings', description: 'Connections, Creating a user, Developer, Plan & billing, Updating card expenses approvals.' },
 ]
 
-// Revolut Business flows
+// Revolut Business flows (from all 563 screens)
 const REVOLUT_FLOWS = [
+  { path: '/flow/revolut-splash', icon: '⏳', title: 'Splash', description: 'Revolut R logo on dark background.' },
   { path: '/flow/revolut-landing', icon: '🏠', title: 'Landing', description: 'Go beyond business as usual. Get started, Log in, Sign up.' },
-  { path: '/flow/revolut-login', icon: '🔐', title: 'Log in', description: 'Enter email or log in with Google/Apple.' },
+  { path: '/flow/revolut-login', icon: '🔐', title: 'Log in', description: 'Welcome back, email, Google/Apple, QR code login.' },
   { path: '/flow/revolut-signup', icon: '📝', title: 'Sign up', description: 'Country, email, verify email, phone, verify phone, passcode, business type.' },
-  { path: '/flow/revolut-dashboard', icon: '📊', title: 'Dashboard', description: 'Main balance, Add money, Transfers, My receipts.' },
-  { path: '/flow/revolut-add-money', icon: '💰', title: 'Add money', description: 'Revtag transfer, Account details, Exchange from another account.' },
-  { path: '/flow/revolut-transfer', icon: '🔄', title: 'Transfer', description: 'New transfer: amount, recipient, review.' },
-  { path: '/flow/revolut-receipts', icon: '🧾', title: 'My receipts', description: 'Upload receipts to match expenses or request reimbursements.' },
+  { path: '/flow/revolut-onboarding/verify-details', icon: '📋', title: 'Business onboarding', description: 'Name, citizenship, monthly volume, website, tax residency, corporate personnel, verify details.' },
+  { path: '/flow/revolut-onboarding/residence-permit', icon: '📄', title: 'Residence permit', description: 'Document upload for KYC verification.' },
+  { path: '/flow/revolut-dashboard', icon: '📊', title: 'Dashboard', description: 'Home, balance, widgets, transactions, finish setup.' },
+  { path: '/flow/revolut-add-money', icon: '💰', title: 'Add money', description: 'Revtag (share modal), Account details, Exchange.' },
+  { path: '/flow/revolut-account-details', icon: '🏦', title: 'Account details', description: 'IBAN, BIC/SWIFT, bank name for transfers.' },
+  { path: '/flow/revolut-exchange', icon: '💱', title: 'Exchange', description: 'Sell/buy currency, rate, confirmation, allowance.' },
+  { path: '/flow/revolut-transfer', icon: '🔄', title: 'Transfer', description: 'To Revolut (Revtag), bank account, or international.' },
+  { path: '/flow/revolut-bank-account-details', icon: '🏦', title: 'Bank account details', description: 'Business/Individual, Country, Currency, BIC/SWIFT.' },
+  { path: '/flow/revolut-transfer-revtag', icon: 'R', title: 'Enter Revtag', description: 'Name and @revtag for Revolut transfer.' },
+  { path: '/flow/revolut-transfer-review', icon: '✅', title: 'Review transfer', description: 'Reference, amount, fees, recipient, Send, success.' },
+  { path: '/flow/revolut-recipient-address', icon: '📍', title: 'Recipient address', description: 'Address form with receipt/invoice viewer.' },
+  { path: '/flow/revolut-receipts', icon: '🧾', title: 'My receipts', description: 'Upload, drag-and-drop, receipt list with Match found.' },
+  { path: '/flow/revolut-billing-details', icon: '🏠', title: 'Billing details', description: 'Country, address, ZIP, town/city.' },
+  { path: '/flow/revolut-spending-controls', icon: '⚙', title: 'Spending controls', description: 'Limits, categories, merchants, expenses, autofreeze.' },
+  { path: '/flow/revolut-accounting-software', icon: '📊', title: 'Accounting software', description: 'Select Xero, QuickBooks, etc.' },
+  { path: '/flow/revolut-card-selection', icon: '💳', title: 'Card selection', description: 'Plastic/Metal, Gold, Get Metal Gold.' },
+  { path: '/flow/revolut-card-request', icon: '📝', title: 'Card request', description: 'Add note for approver.' },
 ]
 
 export function FlowSelector() {

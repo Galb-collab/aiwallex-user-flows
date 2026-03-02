@@ -11,7 +11,7 @@ export function RevolutSignupBusinessType() {
 
   const handleContinue = (e) => {
     e.preventDefault()
-    navigate(flowPath('/flow/revolut-dashboard'))
+    navigate(flowPath('/flow/revolut-onboarding/name'))
   }
 
   return (

@@ -1,15 +1,26 @@
-/* Revolut Business dark theme */
+/* Revolut Business dark theme - consistent resolution & alignment */
+:root {
+  --revolut-step-width: 480px;
+  --revolut-dashboard-width: 1280px;
+}
+
 .revolut-flow-layout {
   min-height: 100vh;
   background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .revolut-step {
+  width: 100%;
+  max-width: var(--revolut-step-width);
   min-height: 100vh;
-  padding: 24px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .revolut-step-back {
@@ -43,8 +54,9 @@
 
 .revolut-input {
   width: 100%;
-  max-width: 400px;
+  max-width: 100%;
   padding: 16px 20px;
+  box-sizing: border-box;
   background: #1e2a38;
   border: 1px solid #2d3d4f;
   border-radius: 12px;
@@ -85,8 +97,9 @@
 
 .revolut-btn-primary {
   width: 100%;
-  max-width: 400px;
+  max-width: 100%;
   padding: 16px 24px;
+  box-sizing: border-box;
   background: #fff;
   color: #0f1419;
   border: none;
@@ -121,7 +134,7 @@
   font-size: 12px;
   color: #6b7b8c;
   margin-top: 24px;
-  max-width: 400px;
+  width: 100%;
 }
 
 .revolut-divider {
@@ -129,7 +142,7 @@
   align-items: center;
   gap: 16px;
   margin: 24px 0;
-  max-width: 400px;
+  width: 100%;
 }
 
 .revolut-divider::before,
@@ -147,8 +160,9 @@
 
 .revolut-btn-social {
   width: 100%;
-  max-width: 400px;
+  max-width: 100%;
   padding: 16px 24px;
+  box-sizing: border-box;
   background: #1e2a38;
   border: 1px solid #2d3d4f;
   border-radius: 12px;
@@ -168,6 +182,8 @@
 
 /* Landing */
 .revolut-landing {
+  width: 100%;
+  max-width: var(--revolut-dashboard-width);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -176,7 +192,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 32px;
+  padding: 20px 24px;
   border-bottom: 1px solid #2d3d4f;
 }
 .revolut-landing-logo {
@@ -220,7 +236,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 64px 32px;
+  padding: 48px 24px;
   gap: 48px;
 }
 .revolut-landing-content h1 {
@@ -251,11 +267,14 @@
 
 /* Dashboard */
 .revolut-dashboard {
+  width: 100%;
+  max-width: var(--revolut-dashboard-width);
   display: flex;
   min-height: 100vh;
 }
 .revolut-sidebar {
-  width: 240px;
+  width: 220px;
+  min-width: 220px;
   border-right: 1px solid #2d3d4f;
   padding: 24px;
 }
@@ -348,11 +367,12 @@
 }
 
 /* Add money */
-.revolut-add-money-options {
+.revolut-add-money-options,
+.revolut-transfer-options {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 480px;
+  width: 100%;
 }
 .revolut-add-option {
   display: flex;
@@ -394,12 +414,12 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 400px;
+  width: 100%;
 }
 
 /* Receipts */
 .revolut-receipt-upload {
-  max-width: 400px;
+  width: 100%;
 }
 .revolut-receipt-dropzone {
   border: 2px dashed #2d3d4f;
@@ -422,3 +442,536 @@
   font-size: 12px;
   margin-top: 8px;
 }
+
+/* Splash */
+.revolut-splash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.revolut-splash-logo {
+  width: 80px;
+  height: 80px;
+  background: #282828;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.revolut-splash-r {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Login with QR */
+.revolut-login-page {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  min-height: 100vh;
+  gap: 48px;
+  padding: 32px 24px;
+  box-sizing: border-box;
+}
+.revolut-login-form {
+  flex: 1;
+  min-width: 0;
+  max-width: 400px;
+}
+.revolut-login-logo { margin-bottom: 32px; }
+.revolut-login-lost { display: block; margin-bottom: 16px; }
+.revolut-login-signup { margin: 16px 0 8px; font-size: 14px; color: #8b98a5; }
+.revolut-btn-secondary {
+  background: #1e2a38 !important;
+  color: #fff !important;
+  border: 1px solid #2d3d4f;
+}
+.revolut-login-qr {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.revolut-qr-placeholder {
+  width: 200px;
+  height: 200px;
+  background: #1e2a38;
+  border: 2px solid #2d3d4f;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.revolut-qr-hint { font-size: 12px; color: #6b7b8c; }
+.revolut-qr-title { font-size: 18px; font-weight: 600; margin: 16px 0 8px; }
+.revolut-qr-desc { font-size: 14px; color: #8b98a5; }
+
+@media (max-width: 768px) {
+  .revolut-login-page { flex-direction: column; align-items: center; }
+  .revolut-login-qr { order: -1; }
+  .revolut-landing-hero { flex-direction: column; text-align: center; }
+  .revolut-landing-nav { display: none; }
+  .revolut-dashboard { flex-direction: column; }
+  .revolut-sidebar {
+    width: 100%;
+    min-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #2d3d4f;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .revolut-sidebar-nav { flex-direction: row; flex-wrap: wrap; }
+  .revolut-step.revolut-split-layout { flex-direction: column; }
+}
+
+/* Onboarding */
+.revolut-hint { font-size: 12px; color: #6b7b8c; margin: -8px 0 16px; display: block; }
+.revolut-option-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+.revolut-option-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #1e2a38;
+  border: 1px solid #2d3d4f;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+.revolut-option-item:hover, .revolut-option-item.selected { background: #2d3d4f; }
+.revolut-option-chevron { color: #8b98a5; }
+.revolut-citizenship-list { margin-bottom: 24px; }
+.revolut-list-label { font-size: 12px; color: #6b7b8c; margin: 16px 0 8px; }
+.revolut-country-item {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.revolut-country-item:hover { background: #1e2a38; }
+.revolut-country-item.selected { background: #2d3d4f; }
+.revolut-search { padding-left: 40px; }
+.revolut-step-centered { align-items: center; text-align: center; }
+.revolut-flag-large { font-size: 80px; margin: 24px 0; }
+.revolut-yes-no-buttons { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.revolut-personnel-list { margin-bottom: 24px; }
+.revolut-add-personnel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #1e2a38;
+  border: 1px dashed #2d3d4f;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+.revolut-add-personnel:hover { background: #2d3d4f; }
+.revolut-personnel-icon { font-size: 24px; }
+.revolut-add-icon { margin-left: auto; font-size: 20px; }
+.revolut-personnel-item { display: flex; align-items: center; gap: 12px; padding: 12px; color: #fff; }
+.revolut-personnel-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0075eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* Modal */
+.revolut-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.revolut-modal {
+  background: #1e2a38;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 440px;
+  width: 90%;
+  position: relative;
+}
+.revolut-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #8b98a5;
+  font-size: 24px;
+  cursor: pointer;
+}
+.revolut-modal-title { font-size: 20px; font-weight: 700; margin: 0 0 8px; }
+.revolut-modal-subtitle { font-size: 14px; color: #8b98a5; margin: 0 0 24px; }
+.revolut-revtag-modal .revolut-revtag-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.revolut-copied-badge { background: #2d3d4f; padding: 6px 12px; border-radius: 8px; font-size: 12px; }
+
+/* Verify details */
+.revolut-verify-section { margin-bottom: 24px; }
+.revolut-section-title { font-size: 14px; color: #8b98a5; margin: 0 0 12px; }
+.revolut-verify-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #1e2a38;
+  border: 1px solid #2d3d4f;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.revolut-verify-item:hover { background: #2d3d4f; }
+.revolut-verify-icon { font-size: 20px; }
+.revolut-verify-item p { flex: 1; margin: 0; }
+.revolut-status-badge { font-size: 12px; padding: 4px 8px; border-radius: 6px; }
+.revolut-status-badge.requires { background: rgba(255,140,0,0.2); color: #ff8c00; }
+.revolut-status-badge.verified { background: rgba(0,200,0,0.2); color: #00c800; }
+.revolut-verify-chevron { color: #8b98a5; }
+
+/* Residence permit / Upload */
+.revolut-upload-area { margin-bottom: 24px; }
+.revolut-file-input { display: none; }
+.revolut-upload-label {
+  display: block;
+  padding: 48px 24px;
+  border: 2px dashed #2d3d4f;
+  border-radius: 12px;
+  text-align: center;
+  color: #8b98a5;
+  cursor: pointer;
+}
+.revolut-upload-label:hover { border-color: #0075eb; color: #fff; }
+.revolut-uploaded-file {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #1e2a38;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+.revolut-file-icon { font-size: 20px; }
+.revolut-file-name { flex: 1; }
+.revolut-file-size { font-size: 12px; color: #8b98a5; }
+.revolut-file-delete { background: none; border: none; color: #8b98a5; cursor: pointer; }
+
+/* Spending controls */
+.revolut-spend-section { margin-bottom: 24px; }
+.revolut-spend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #1e2a38;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+.revolut-spend-item span:first-child { flex: 0 0 180px; }
+.revolut-spend-value { flex: 1; font-size: 14px; color: #8b98a5; }
+.revolut-edit-icon { background: none; border: none; color: #8b98a5; cursor: pointer; font-size: 14px; }
+.revolut-toggle { position: relative; display: inline-block; width: 44px; height: 24px; }
+.revolut-toggle input { opacity: 0; width: 0; height: 0; }
+.revolut-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #2d3d4f;
+  border-radius: 24px;
+  transition: 0.3s;
+}
+.revolut-toggle-slider::before {
+  content: '';
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.revolut-toggle input:checked + .revolut-toggle-slider { background: #0075eb; }
+.revolut-toggle input:checked + .revolut-toggle-slider::before { transform: translateX(20px); }
+.revolut-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e2a38;
+  padding: 12px 24px;
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Accounting software */
+.revolut-radio-list { max-height: 300px; overflow-y: auto; margin-bottom: 24px; }
+.revolut-radio-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+.revolut-radio-item input { margin: 0; }
+.revolut-modal-style { width: 100%; max-width: 440px; margin: 0 auto; }
+
+/* Segmented control */
+.revolut-segmented {
+  display: flex;
+  gap: 0;
+  margin-bottom: 24px;
+  background: #1e2a38;
+  border-radius: 12px;
+  padding: 4px;
+}
+.revolut-segmented button {
+  flex: 1;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  color: #8b98a5;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.revolut-segmented button.active { background: #2d3d4f; color: #fff; }
+
+/* Transfer review */
+.revolut-transfer-review-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.revolut-transfer-review-header .revolut-step-back { margin: 0; }
+.revolut-transfer-review-header .revolut-step-title { flex: 1; margin: 0; }
+.revolut-transfer-warning {
+  background: rgba(255,140,0,0.2);
+  border: 1px solid #ff8c00;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 24px;
+  color: #fff;
+  font-size: 14px;
+}
+.revolut-warning-icon { margin-right: 8px; }
+.revolut-transfer-details { margin-bottom: 24px; }
+.revolut-detail-row { display: flex; justify-content: space-between; padding: 8px 0; }
+.revolut-recipient-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #1e2a38;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+/* Revtag light theme */
+.revolut-light-theme {
+  background: #f5f5f5 !important;
+  color: #1a1a1a !important;
+}
+.revolut-light-theme .revolut-step-subtitle,
+.revolut-light-theme .revolut-label { color: #666 !important; }
+.revolut-light-theme .revolut-input {
+  background: #fff !important;
+  color: #1a1a1a !important;
+  border-color: #ddd !important;
+}
+.revolut-revtag-signup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: #e8eaed;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+.revolut-revtag-signup .revolut-splash-r {
+  width: 48px;
+  height: 48px;
+  background: #0075eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
+}
+.revolut-revtag-signup p { margin: 0 0 4px; color: #1a1a1a; }
+
+/* Recipient address - wider layout for form + receipt */
+.revolut-step.revolut-split-layout {
+  max-width: 900px;
+}
+.revolut-split-layout {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  padding: 24px 20px;
+}
+.revolut-split-form { flex: 1; min-width: 0; max-width: 440px; }
+.revolut-optional { font-size: 12px; color: #6b7b8c; font-weight: normal; }
+.revolut-attachment-preview { padding: 12px; background: #1e2a38; border-radius: 8px; margin-bottom: 16px; }
+.revolut-receipt-viewer {
+  flex: 1;
+  background: #1e2a38;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.revolut-receipt-viewer-header { display: flex; align-items: center; gap: 12px; padding: 16px; border-bottom: 1px solid #2d3d4f; }
+.revolut-receipt-content { padding: 24px; font-size: 14px; color: #8b98a5; line-height: 1.6; }
+
+/* Exchange */
+.revolut-exchange-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.revolut-exchange-amount { font-size: 24px; font-weight: 700; }
+.revolut-exchange-label { font-size: 14px; color: #8b98a5; }
+.revolut-exchange-flags { font-size: 24px; margin-left: auto; }
+.revolut-exchange-details { margin-bottom: 24px; }
+.revolut-exchange-success { text-align: center; }
+.revolut-success-icon {
+  width: 64px;
+  height: 64px;
+  background: #0075eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #fff;
+  margin: 0 auto 24px;
+}
+.revolut-exchange-allowance { font-size: 14px; color: #8b98a5; margin: 16px 0; }
+.revolut-success-modal .revolut-success-icon { margin-bottom: 24px; }
+.revolut-success-note { font-size: 14px; color: #8b98a5; }
+
+/* Account details */
+.revolut-account-details-card {
+  background: #1e2a38;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.revolut-account-details-card .revolut-detail-row { padding: 12px 0; border-bottom: 1px solid #2d3d4f; }
+.revolut-account-details-card .revolut-detail-row:last-of-type { border-bottom: none; }
+
+/* Card selection */
+.revolut-card-display { margin-bottom: 24px; }
+.revolut-card-visual {
+  width: 100%;
+  max-width: 360px;
+  height: 220px;
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  border: 1px solid #2d3d4f;
+}
+.revolut-card-gold { background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%); }
+.revolut-card-black { background: #1a1a1a; }
+.revolut-card-chip { width: 40px; height: 30px; background: #c0c0c0; border-radius: 4px; display: block; margin-bottom: 16px; }
+.revolut-card-brand { font-size: 14px; font-weight: 600; margin-bottom: 8px; display: block; }
+.revolut-card-company { font-size: 12px; opacity: 0.8; position: absolute; bottom: 24px; }
+.revolut-card-mastercard { position: absolute; top: 24px; right: 24px; font-size: 12px; }
+.revolut-card-type { font-size: 20px; font-weight: 700; margin: 0 0 8px; }
+.revolut-card-options { margin-bottom: 24px; }
+.revolut-color-swatches { display: flex; gap: 12px; margin-top: 16px; }
+.revolut-swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  border: 2px solid #2d3d4f;
+  cursor: pointer;
+}
+.revolut-swatch.selected { border-color: #0075eb; }
+.revolut-swatch.gold { background: linear-gradient(135deg, #d4af37, #b8860b); }
+
+/* Receipt list */
+.revolut-receipt-list { margin-top: 24px; }
+.revolut-receipt-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #1e2a38;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+.revolut-receipt-file-icon { font-size: 24px; }
+.revolut-receipt-info { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.revolut-receipt-name { font-size: 14px; }
+.revolut-receipt-meta { font-size: 12px; color: #8b98a5; }
+.revolut-receipt-status { color: #ff8c00; }
+.revolut-receipt-delete { background: none; border: none; color: #8b98a5; cursor: pointer; }
+
+/* Dashboard widgets */
+.revolut-balance-actions { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; align-items: center; }
+.revolut-balance-actions button,
+.revolut-balance-btn {
+  background: #2d3d4f;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+}
+.revolut-balance-btn:hover { background: #3d4d5f; color: #fff; }
+.revolut-widget-links { display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+.revolut-widget-link { cursor: pointer; text-decoration: none; color: #8b98a5; }
+.revolut-widget-link:hover { color: #0075eb; }
+.revolut-widget-card {
+  background: #1e2a38;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid #2d3d4f;
+}
+.revolut-widget-progress { font-size: 14px; color: #0075eb; margin-bottom: 8px; }
+.revolut-widget-card h3 { margin: 0 0 16px; font-size: 16px; }
+.revolut-widget-total { font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+.revolut-widget-item { font-size: 14px; color: #8b98a5; margin-bottom: 8px; }
+.revolut-transactions { margin-top: 24px; }
+.revolut-transactions h3 { margin: 0 0 16px; font-size: 16px; }
+.revolut-transaction-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #2d3d4f;
+  font-size: 14px;
+}
+.revolut-transaction-item span:first-child { flex: 1; }
+.revolut-transaction-item span:last-child { font-weight: 600; }
+
+.revolut-textarea { min-height: 120px; resize: vertical; }

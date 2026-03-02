@@ -144,6 +144,7 @@ import { EmployeeChangePasswordPage } from './pages/employee/EmployeeChangePassw
 import { EmployeeProfilePlaceholder } from './pages/employee/EmployeeProfilePlaceholder'
 import { CompanySelector } from './pages/CompanySelector'
 import { RevolutLanding } from './pages/revolut/RevolutLanding'
+import { RevolutSplash } from './pages/revolut/RevolutSplash'
 import { RevolutLogin } from './pages/revolut/RevolutLogin'
 import { RevolutSignupFlow } from './pages/revolut/RevolutSignupFlow'
 import { RevolutSignupCountry } from './pages/revolut/RevolutSignupCountry'
@@ -154,10 +155,30 @@ import { RevolutSignupVerifyPhone } from './pages/revolut/RevolutSignupVerifyPho
 import { RevolutSignupPasscode } from './pages/revolut/RevolutSignupPasscode'
 import { RevolutSignupConfirmPasscode } from './pages/revolut/RevolutSignupConfirmPasscode'
 import { RevolutSignupBusinessType } from './pages/revolut/RevolutSignupBusinessType'
+import { RevolutOnboardingFlow } from './pages/revolut/RevolutOnboardingFlow'
+import { RevolutOnboardingName } from './pages/revolut/RevolutOnboardingName'
+import { RevolutOnboardingCitizenship } from './pages/revolut/RevolutOnboardingCitizenship'
+import { RevolutOnboardingMonthlyVolume } from './pages/revolut/RevolutOnboardingMonthlyVolume'
+import { RevolutOnboardingWebsite } from './pages/revolut/RevolutOnboardingWebsite'
+import { RevolutOnboardingTaxResidency } from './pages/revolut/RevolutOnboardingTaxResidency'
+import { RevolutOnboardingCorporatePersonnel } from './pages/revolut/RevolutOnboardingCorporatePersonnel'
+import { RevolutVerifyDetails } from './pages/revolut/RevolutVerifyDetails'
+import { RevolutResidencePermit } from './pages/revolut/RevolutResidencePermit'
 import { RevolutDashboard } from './pages/revolut/RevolutDashboard'
 import { RevolutAddMoney } from './pages/revolut/RevolutAddMoney'
+import { RevolutAccountDetails } from './pages/revolut/RevolutAccountDetails'
+import { RevolutExchange } from './pages/revolut/RevolutExchange'
 import { RevolutTransfer } from './pages/revolut/RevolutTransfer'
+import { RevolutBankAccountDetails } from './pages/revolut/RevolutBankAccountDetails'
+import { RevolutTransferRevtag } from './pages/revolut/RevolutTransferRevtag'
+import { RevolutTransferReview } from './pages/revolut/RevolutTransferReview'
+import { RevolutRecipientAddress } from './pages/revolut/RevolutRecipientAddress'
 import { RevolutReceipts } from './pages/revolut/RevolutReceipts'
+import { RevolutBillingDetails } from './pages/revolut/RevolutBillingDetails'
+import { RevolutSpendingControls } from './pages/revolut/RevolutSpendingControls'
+import { RevolutAccountingSoftware } from './pages/revolut/RevolutAccountingSoftware'
+import { RevolutCardSelection } from './pages/revolut/RevolutCardSelection'
+import { RevolutCardRequest } from './pages/revolut/RevolutCardRequest'
 
 function CompanyGate() {
   const { company } = useParams()
@@ -188,6 +209,7 @@ function App() {
       <Route path=":company" element={<CompanyGate />}>
         <Route index element={<FlowSelector />} />
         <Route path="flow" element={<FlowRouteGuard />}>
+          <Route path="revolut-splash" element={<RevolutSplash />} />
           <Route path="revolut-landing" element={<RevolutLanding />} />
           <Route path="revolut-login" element={<RevolutLogin />} />
           <Route path="revolut-signup" element={<RevolutSignupFlow />}>
@@ -201,10 +223,32 @@ function App() {
             <Route path="confirm-passcode" element={<RevolutSignupConfirmPasscode />} />
             <Route path="business-type" element={<RevolutSignupBusinessType />} />
           </Route>
+          <Route path="revolut-onboarding" element={<RevolutOnboardingFlow />}>
+            <Route index element={<Navigate to="name" replace />} />
+            <Route path="name" element={<RevolutOnboardingName />} />
+            <Route path="citizenship" element={<RevolutOnboardingCitizenship />} />
+            <Route path="monthly-volume" element={<RevolutOnboardingMonthlyVolume />} />
+            <Route path="website" element={<RevolutOnboardingWebsite />} />
+            <Route path="tax-residency" element={<RevolutOnboardingTaxResidency />} />
+            <Route path="corporate-personnel" element={<RevolutOnboardingCorporatePersonnel />} />
+            <Route path="verify-details" element={<RevolutVerifyDetails />} />
+            <Route path="residence-permit" element={<RevolutResidencePermit />} />
+          </Route>
           <Route path="revolut-dashboard" element={<RevolutDashboard />} />
           <Route path="revolut-add-money" element={<RevolutAddMoney />} />
+          <Route path="revolut-account-details" element={<RevolutAccountDetails />} />
+          <Route path="revolut-exchange" element={<RevolutExchange />} />
           <Route path="revolut-transfer" element={<RevolutTransfer />} />
+          <Route path="revolut-bank-account-details" element={<RevolutBankAccountDetails />} />
+          <Route path="revolut-transfer-revtag" element={<RevolutTransferRevtag />} />
+          <Route path="revolut-transfer-review" element={<RevolutTransferReview />} />
+          <Route path="revolut-recipient-address" element={<RevolutRecipientAddress />} />
           <Route path="revolut-receipts" element={<RevolutReceipts />} />
+          <Route path="revolut-billing-details" element={<RevolutBillingDetails />} />
+          <Route path="revolut-spending-controls" element={<RevolutSpendingControls />} />
+          <Route path="revolut-accounting-software" element={<RevolutAccountingSoftware />} />
+          <Route path="revolut-card-selection" element={<RevolutCardSelection />} />
+          <Route path="revolut-card-request" element={<RevolutCardRequest />} />
           <Route path="logging-in" element={<LoggingInFlow />}>
             <Route index element={<LoginPage />} />
             <Route path="forgot-password" element={<ForgotPasswordPage />} />
