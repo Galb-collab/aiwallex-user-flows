@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, Navigate, Outlet, useParams } from 'react-router-dom'
+import { Routes, Route, Navigate, Outlet, useParams, useLocation } from 'react-router-dom'
 import { CompanyProvider, useCompany, COMPANY } from './context/CompanyContext'
 import { OnboardingProvider } from './context/OnboardingContext'
 import { BusinessDetailsProvider } from './context/BusinessDetailsContext'
@@ -143,6 +143,21 @@ import { EmployeeSecurityPage } from './pages/employee/EmployeeSecurityPage'
 import { EmployeeChangePasswordPage } from './pages/employee/EmployeeChangePasswordPage'
 import { EmployeeProfilePlaceholder } from './pages/employee/EmployeeProfilePlaceholder'
 import { CompanySelector } from './pages/CompanySelector'
+import { RevolutLanding } from './pages/revolut/RevolutLanding'
+import { RevolutLogin } from './pages/revolut/RevolutLogin'
+import { RevolutSignupFlow } from './pages/revolut/RevolutSignupFlow'
+import { RevolutSignupCountry } from './pages/revolut/RevolutSignupCountry'
+import { RevolutSignupEmail } from './pages/revolut/RevolutSignupEmail'
+import { RevolutSignupVerifyEmail } from './pages/revolut/RevolutSignupVerifyEmail'
+import { RevolutSignupPhone } from './pages/revolut/RevolutSignupPhone'
+import { RevolutSignupVerifyPhone } from './pages/revolut/RevolutSignupVerifyPhone'
+import { RevolutSignupPasscode } from './pages/revolut/RevolutSignupPasscode'
+import { RevolutSignupConfirmPasscode } from './pages/revolut/RevolutSignupConfirmPasscode'
+import { RevolutSignupBusinessType } from './pages/revolut/RevolutSignupBusinessType'
+import { RevolutDashboard } from './pages/revolut/RevolutDashboard'
+import { RevolutAddMoney } from './pages/revolut/RevolutAddMoney'
+import { RevolutTransfer } from './pages/revolut/RevolutTransfer'
+import { RevolutReceipts } from './pages/revolut/RevolutReceipts'
 
 function CompanyGate() {
   const { company } = useParams()
@@ -158,7 +173,9 @@ function CompanyGate() {
 
 function FlowRouteGuard() {
   const { company, basePath } = useCompany()
-  if (company === COMPANY.REVOLUT) {
+  const { pathname } = useLocation()
+  const isRevolutFlow = pathname.includes('/flow/revolut')
+  if (company === COMPANY.REVOLUT && !isRevolutFlow) {
     return <Navigate to={basePath()} replace />
   }
   return <Outlet />
@@ -171,6 +188,23 @@ function App() {
       <Route path=":company" element={<CompanyGate />}>
         <Route index element={<FlowSelector />} />
         <Route path="flow" element={<FlowRouteGuard />}>
+          <Route path="revolut-landing" element={<RevolutLanding />} />
+          <Route path="revolut-login" element={<RevolutLogin />} />
+          <Route path="revolut-signup" element={<RevolutSignupFlow />}>
+            <Route index element={<Navigate to="country" replace />} />
+            <Route path="country" element={<RevolutSignupCountry />} />
+            <Route path="email" element={<RevolutSignupEmail />} />
+            <Route path="verify-email" element={<RevolutSignupVerifyEmail />} />
+            <Route path="phone" element={<RevolutSignupPhone />} />
+            <Route path="verify-phone" element={<RevolutSignupVerifyPhone />} />
+            <Route path="passcode" element={<RevolutSignupPasscode />} />
+            <Route path="confirm-passcode" element={<RevolutSignupConfirmPasscode />} />
+            <Route path="business-type" element={<RevolutSignupBusinessType />} />
+          </Route>
+          <Route path="revolut-dashboard" element={<RevolutDashboard />} />
+          <Route path="revolut-add-money" element={<RevolutAddMoney />} />
+          <Route path="revolut-transfer" element={<RevolutTransfer />} />
+          <Route path="revolut-receipts" element={<RevolutReceipts />} />
           <Route path="logging-in" element={<LoggingInFlow />}>
             <Route index element={<LoginPage />} />
             <Route path="forgot-password" element={<ForgotPasswordPage />} />

@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useCompany, COMPANY } from '../context/CompanyContext'
 import './FlowSelector.css'
 
-// Flows in the order they were added (thumbnails: 4 per row)
-const FLOW_PATHS = [
+// Airwallex flows (thumbnails: 4 per row)
+const AIRWALLEX_FLOWS = [
   { path: '/flow/logging-in', icon: '🔐', title: 'Logging in', description: 'Log in with email or mobile, Forgot password flow (request reset link, reset password), and 2FA verification with authenticator app.' },
   { path: '/flow/employee', icon: '👤', title: 'Employee Flow', description: 'Employee onboarding, Expenses (with Add bank details), Requests, Profile (with Security and Change password), and Switching to personal view.' },
   { path: '/flow/web-onboarding', icon: '🌐', title: 'Web onboarding', description: 'Full sign-up and onboarding: company size, volume, interests, account creation, phone verification, and dashboard.' },
@@ -23,11 +23,23 @@ const FLOW_PATHS = [
   { path: '/flow/settings', icon: '⚙', title: 'Settings', description: 'Connections, Creating a user, Developer, Plan & billing, Updating card expenses approvals.' },
 ]
 
+// Revolut Business flows
+const REVOLUT_FLOWS = [
+  { path: '/flow/revolut-landing', icon: '🏠', title: 'Landing', description: 'Go beyond business as usual. Get started, Log in, Sign up.' },
+  { path: '/flow/revolut-login', icon: '🔐', title: 'Log in', description: 'Enter email or log in with Google/Apple.' },
+  { path: '/flow/revolut-signup', icon: '📝', title: 'Sign up', description: 'Country, email, verify email, phone, verify phone, passcode, business type.' },
+  { path: '/flow/revolut-dashboard', icon: '📊', title: 'Dashboard', description: 'Main balance, Add money, Transfers, My receipts.' },
+  { path: '/flow/revolut-add-money', icon: '💰', title: 'Add money', description: 'Revtag transfer, Account details, Exchange from another account.' },
+  { path: '/flow/revolut-transfer', icon: '🔄', title: 'Transfer', description: 'New transfer: amount, recipient, review.' },
+  { path: '/flow/revolut-receipts', icon: '🧾', title: 'My receipts', description: 'Upload receipts to match expenses or request reimbursements.' },
+]
+
 export function FlowSelector() {
   const navigate = useNavigate()
   const { flowPath, basePath, info, company } = useCompany()
   const [viewMode, setViewMode] = useState('thumbnails') // 'thumbnails' | 'list'
-  const hasFlows = company === COMPANY.AIRWALLEX
+  const flows = company === COMPANY.AIRWALLEX ? AIRWALLEX_FLOWS : company === COMPANY.REVOLUT ? REVOLUT_FLOWS : []
+  const hasFlows = flows.length > 0
 
   return (
     <div className="flow-selector">
@@ -69,7 +81,7 @@ export function FlowSelector() {
         </div>
         {hasFlows ? (
           <div className={`flow-cards flow-cards--${viewMode}`}>
-            {FLOW_PATHS.map((flow) => (
+            {flows.map((flow) => (
               <button
                 key={flow.path}
                 type="button"
