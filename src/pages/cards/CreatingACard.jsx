@@ -1,22 +1,24 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../bills/BillsFlow.css'
 import './CardsFlow.css'
 
 export function CreatingACard() {
+  const { flowPath } = useCompany()
   const navigate = useNavigate()
   const [created, setCreated] = useState(false)
 
   const handleCreate = () => {
     setCreated(true)
-    setTimeout(() => navigate('/flow/cards/card-details/2'), 2500)
+    setTimeout(() => navigate(flowPath('/flow/cards/card-details/2')), 2500)
   }
 
   return (
     <div className="bills-content">
       <div className="bills-add-header">
         <h1 className="bills-add-title">Create card (employee card)</h1>
-        <Link to="/flow/cards" className="bills-modal-close" aria-label="Close">×</Link>
+        <Link to={flowPath('/flow/cards')} className="bills-modal-close" aria-label="Close">×</Link>
       </div>
 
       {!created && (
@@ -66,7 +68,7 @@ export function CreatingACard() {
           </div>
 
           <div className="bills-add-actions" style={{ marginTop: '32px' }}>
-            <Link to="/flow/cards" className="bills-btn bills-btn-secondary">Cancel</Link>
+            <Link to={flowPath('/flow/cards')} className="bills-btn bills-btn-secondary">Cancel</Link>
             <button type="button" className="bills-btn bills-btn-primary" onClick={handleCreate}>Create</button>
           </div>
         </>

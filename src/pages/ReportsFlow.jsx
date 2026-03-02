@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import { DashboardHeader } from '../components/DashboardHeader'
 import './Dashboard.css'
 import './SpendGeneralFlow.css'
@@ -21,29 +22,30 @@ const DOWNLOADS_ROWS = [
 ]
 
 export function ReportsLayout() {
+  const { flowPath, info } = useCompany()
   return (
     <div className="dashboard reports-flow">
       <aside className="sidebar">
         <div className="sidebar-org">{BUSINESS_NAME}</div>
         <nav className="sidebar-nav">
-          <Link to="/flow/dashboard">Dashboard</Link>
+          <Link to={flowPath('/flow/dashboard')}>Dashboard</Link>
           <a href="#spend">Spend <span className="tag">New</span></a>
-          <Link to="/flow/billing">Billing <span className="tag">New</span></Link>
-          <Link to="/flow/reports" className="active">Reports</Link>
-          <Link to="/flow/settings">Settings</Link>
+          <Link to={flowPath('/flow/billing')}>Billing <span className="tag">New</span></Link>
+          <Link to={flowPath('/flow/reports')} className="active">Reports</Link>
+          <Link to={flowPath('/flow/settings')}>Settings</Link>
         </nav>
         <div className="sidebar-section">
           <div className="sidebar-section-title">{BUSINESS_NAME} Account | {BUSINESS_NAME}</div>
           <a href="#wallet">Wallet</a>
-          <Link to="/flow/transfers">Transfers</Link>
+          <Link to={flowPath('/flow/transfers')}>Transfers</Link>
           <a href="#cards">Cards</a>
           <a href="#payments">Payments</a>
-          <Link to="/flow/rewards">Rewards</Link>
-          <Link to="/flow/rewards/security">Security</Link>
+          <Link to={flowPath('/flow/rewards')}>Rewards</Link>
+          <Link to={flowPath('/flow/rewards/security')}>Security</Link>
         </div>
         <div className="sidebar-footer">
-          <span className="logo-icon small">A</span>
-          <span>AIwallex</span>
+          <span className="logo-icon small" style={{ background: info.primaryColor }}>{info.logoLetter}</span>
+          <span>{info.name}</span>
         </div>
       </aside>
       <div className="dashboard-main">
@@ -51,8 +53,8 @@ export function ReportsLayout() {
         <Outlet />
       </div>
       <footer className="spend-footer">
-        <span className="footer-logo"><span className="logo-icon small">A</span> aiwallex</span>
-        <span>AIwallex User Flows · Reports</span>
+        <span className="footer-logo"><span className="logo-icon small" style={{ background: info.primaryColor }}>{info.logoLetter}</span> {info.name.toLowerCase()}</span>
+        <span>{info.displayName} User Flows · Reports</span>
       </footer>
     </div>
   )
@@ -60,6 +62,7 @@ export function ReportsLayout() {
 
 export function ReportsIndex() {
   const [tab, setTab] = useState('reports')
+  const { flowPath } = useCompany()
   return (
     <div className="reports-content">
       <div className="reports-tabs">
@@ -74,7 +77,7 @@ export function ReportsIndex() {
               <h3 className="reports-card-title">{card.title}</h3>
               <span className="reports-card-tag">{card.tag}</span>
               <p className="reports-card-desc">{card.desc}</p>
-              {card.path ? <Link to={card.path} className="reports-card-generate">Generate</Link> : <button type="button" className="reports-card-generate" disabled>Generate</button>}
+              {card.path ? <Link to={flowPath(card.path)} className="reports-card-generate">Generate</Link> : <button type="button" className="reports-card-generate" disabled>Generate</button>}
             </div>
           ))}
         </div>

@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import { LoginFeaturesPanel } from './LoginFeaturesPanel'
 import './LoggingInFlow.css'
 
 export function ResetPasswordPage() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [email] = useState('samlee@content-mobbin.com')
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -14,7 +16,7 @@ export function ResetPasswordPage() {
   const handleConfirm = (e) => {
     e.preventDefault()
     if (newPassword && confirmPassword && newPassword === confirmPassword) {
-      navigate('/flow/logging-in')
+      navigate(flowPath('/flow/logging-in'))
     }
   }
 

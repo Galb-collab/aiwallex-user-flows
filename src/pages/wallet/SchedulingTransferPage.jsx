@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const TRANSFER_TYPES = [
   { id: 'domestic', title: 'Domestic bank transfer', subtitle: 'Transfer SGD to a Singapore bank account', icon: '🏦' },
@@ -8,11 +9,12 @@ const TRANSFER_TYPES = [
 ]
 
 export function SchedulingTransferPage() {
+  const { flowPath } = useCompany()
   const navigate = useNavigate()
   const [step, setStep] = useState('choose')
   const [showScheduleModal, setShowScheduleModal] = useState(false)
 
-  const handleClose = () => navigate('/flow/wallet')
+  const handleClose = () => navigate(flowPath('/flow/wallet'))
 
   if (step === 'choose') {
     return (

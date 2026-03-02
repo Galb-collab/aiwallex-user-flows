@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import './EmployeeCreateRequest.css'
 
 export function EmployeeCreateRequestPage() {
+  const { flowPath, info } = useCompany()
   const navigate = useNavigate()
 
   return (
@@ -13,7 +15,7 @@ export function EmployeeCreateRequestPage() {
           <span className="logo-icon">A</span>
           Airwallex Create request
         </div>
-        <Link to="/flow/employee/requests" className="employee-create-request-close" aria-label="Close">×</Link>
+        <Link to={flowPath('/flow/employee/requests')} className="employee-create-request-close" aria-label="Close">×</Link>
       </header>
 
       <main className="employee-create-request-main">
@@ -22,7 +24,7 @@ export function EmployeeCreateRequestPage() {
           <button
             type="button"
             className="employee-create-request-option"
-            onClick={() => navigate('/flow/employee/requests')}
+            onClick={() => navigate(flowPath('/flow/employee/requests'))}
           >
             <span className="option-icon">💳</span>
             <div className="option-content">
@@ -33,7 +35,7 @@ export function EmployeeCreateRequestPage() {
           <button
             type="button"
             className="employee-create-request-option"
-            onClick={() => navigate('/flow/employee/requests')}
+            onClick={() => navigate(flowPath('/flow/employee/requests'))}
           >
             <span className="option-icon">📄</span>
             <div className="option-content">

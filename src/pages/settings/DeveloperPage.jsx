@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function DeveloperPage() {
+  const { flowPath } = useCompany()
   return (
     <div className="settings-content">
       <div className="wallet-content">
-        <Link to="/flow/settings" className="wallet-back-link">← Back to Settings</Link>
+        <Link to={flowPath('/flow/settings')} className="wallet-back-link">← Back to Settings</Link>
         <h1 className="wallet-section-title">Developer</h1>
         <p className="global-accounts-desc">Manage API keys, webhooks, and developer resources.</p>
 
@@ -14,7 +16,7 @@ export function DeveloperPage() {
           <p style={{ fontSize: 14, color: 'var(--psp-text-muted)', margin: '0 0 16px' }}>
             Use API keys to authenticate requests to the AIwallex API. Keep your keys secure and never share them publicly.
           </p>
-          <Link to="/flow/settings/developer/creating-an-api-key" className="wallet-btn wallet-btn-primary">
+          <Link to={flowPath('/flow/settings/developer/creating-an-api-key')} className="wallet-btn wallet-btn-primary">
             Create API key
           </Link>
         </div>

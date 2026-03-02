@@ -1,16 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import './EmployeeProfilePage.css'
 
 export function EmployeeProfilePage() {
+  const { flowPath } = useCompany()
   return (
     <div className="employee-profile-page">
       <nav className="employee-profile-nav">
-        <Link to="/flow/employee/profile" className="active">Profile</Link>
-        <Link to="/flow/employee/profile/security">Security</Link>
-        <Link to="/flow/employee/profile/notifications">Notifications</Link>
-        <Link to="/flow/employee/profile/accounts">Accounts</Link>
-        <Link to="/flow/employee/profile/assistants">Assistants</Link>
+        <Link to={flowPath('/flow/employee/profile')} className="active">Profile</Link>
+        <Link to={flowPath('/flow/employee/profile/security')}>Security</Link>
+        <Link to={flowPath('/flow/employee/profile/notifications')}>Notifications</Link>
+        <Link to={flowPath('/flow/employee/profile/accounts')}>Accounts</Link>
+        <Link to={flowPath('/flow/employee/profile/assistants')}>Assistants</Link>
       </nav>
 
       <div className="employee-profile-cards">
@@ -54,7 +56,7 @@ export function EmployeeProfilePage() {
         <div className="employee-profile-card">
           <div className="employee-profile-card-header">
             <h2>Personal bank details</h2>
-            <Link to="/flow/employee/expenses/add-bank-details" className="edit-btn">Add bank details</Link>
+            <Link to={flowPath('/flow/employee/expenses/add-bank-details')} className="edit-btn">Add bank details</Link>
           </div>
           <div className="employee-profile-card-body">
             <p className="profile-desc">Your bank details will be used to receive payments such as reimbursements for out-of-pocket expenses.</p>

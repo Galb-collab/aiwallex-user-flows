@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import './EmployeeChangePassword.css'
 
 export function EmployeeChangePasswordPage() {
+  const { flowPath, info } = useCompany()
   const navigate = useNavigate()
   const [currentPassword, setCurrentPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
@@ -23,7 +25,7 @@ export function EmployeeChangePasswordPage() {
       setError('Passwords do not match')
       return
     }
-    navigate('/flow/employee/profile/security')
+    navigate(flowPath('/flow/employee/profile/security'))
   }
 
   return (
@@ -34,7 +36,7 @@ export function EmployeeChangePasswordPage() {
           <span className="logo-icon">A</span>
           Airwallex Change password
         </div>
-        <Link to="/flow/employee/profile/security" className="employee-change-password-close" aria-label="Close">×</Link>
+        <Link to={flowPath('/flow/employee/profile/security')} className="employee-change-password-close" aria-label="Close">×</Link>
       </header>
 
       <main className="employee-change-password-main">
@@ -84,7 +86,7 @@ export function EmployeeChangePasswordPage() {
             </div>
           </div>
           <div className="employee-change-password-actions">
-            <Link to="/flow/employee/profile/security" className="btn-cancel">Cancel</Link>
+            <Link to={flowPath('/flow/employee/profile/security')} className="btn-cancel">Cancel</Link>
             <button type="submit" className="btn-primary">Save</button>
           </div>
         </form>

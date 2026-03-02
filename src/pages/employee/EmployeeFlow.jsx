@@ -1,17 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import './EmployeeFlow.css'
 
 const EMAIL = 'alexsmith@mobbin.com'
 
 export function EmployeeFlow() {
+  const { flowPath, basePath, info } = useCompany()
   const location = useLocation()
   const navigate = useNavigate()
   const path = location.pathname
-  const isOnboarding = path.includes('/onboarding')
-  const isAddBankDetails = path.includes('/add-bank-details')
-  const isCreateRequest = path.includes('/create')
-  const isChangePassword = path.includes('/change-password')
+  const isOnboarding = path.includes(flowPath('/flow/employee/onboarding'))
+  const isAddBankDetails = path.includes(flowPath('/flow/employee/expenses/add-bank-details'))
+  const isCreateRequest = path.includes(flowPath('/flow/employee/requests/create'))
+  const isChangePassword = path.includes(flowPath('/flow/employee/profile/security/change-password'))
 
   const [viewMode, setViewMode] = useState('organisation') // 'organisation' | 'personal'
   const [profileOpen, setProfileOpen] = useState(false)
@@ -25,10 +27,10 @@ export function EmployeeFlow() {
     return () => document.removeEventListener('click', handleClickOutside)
   }, [profileOpen])
 
-  if (isOnboarding && !path.includes('/verify-phone')) {
+  if (isOnboarding && !path.includes(flowPath('/flow/employee/onboarding/verify-phone'))) {
     return <Outlet />
   }
-  if (isOnboarding && path.includes('/verify-phone')) {
+  if (isOnboarding && path.includes(flowPath('/flow/employee/onboarding/verify-phone'))) {
     return <Outlet />
   }
   if (isAddBankDetails || isCreateRequest || isChangePassword) {
@@ -49,24 +51,24 @@ export function EmployeeFlow() {
           </button>
         </div>
         <nav className="employee-sidebar-nav">
-          <Link to="/flow/employee/expenses" className={path.includes('/expenses') ? 'active' : ''}>
+          <Link to={flowPath('/flow/employee/expenses')} className={path.includes(flowPath('/flow/employee/expenses')) ? 'active' : ''}>
             <span className="employee-nav-icon">📋</span>
             Expenses
           </Link>
-          <Link to="/flow/employee/bills" className={path.includes('/bills') ? 'active' : ''}>
+          <Link to={flowPath('/flow/employee/bills')} className={path.includes(flowPath('/flow/employee/bills')) ? 'active' : ''}>
             <span className="employee-nav-icon">📄</span>
             Bills
           </Link>
-          <Link to="/flow/employee/requests" className={path.includes('/requests') ? 'active' : ''}>
+          <Link to={flowPath('/flow/employee/requests')} className={path.includes(flowPath('/flow/employee/requests')) ? 'active' : ''}>
             <span className="employee-nav-icon">✈️</span>
             Requests
           </Link>
         </nav>
         <div className="employee-sidebar-footer">
-          <Link to="/" className="employee-back-flows">← Flows</Link>
+          <Link to={basePath()} className="employee-back-flows">← Flows</Link>
           <div className="employee-footer-brand">
-            <span className="logo-icon small">A</span>
-            <span>AIwallex</span>
+            <span className="logo-icon small" style={{ background: info.primaryColor }}>{info.logoLetter}</span>
+            <span>{info.name}</span>
           </div>
         </div>
       </aside>
@@ -97,7 +99,7 @@ export function EmployeeFlow() {
               {profileOpen && (
                 <div className="employee-profile-menu">
                   <div className="employee-profile-email">{EMAIL}</div>
-                  <Link to="/flow/employee/profile" className="employee-profile-item" onClick={() => setProfileOpen(false)}>
+                  <Link to={flowPath('/flow/employee/profile')} className="employee-profile-item" onClick={() => setProfileOpen(false)}>
                     Profile
                   </Link>
                   <a href="#help" className="employee-profile-item" onClick={() => setProfileOpen(false)}>Help</a>

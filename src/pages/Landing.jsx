@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useOnboarding } from '../context/OnboardingContext'
+import { useCompany } from '../context/CompanyContext'
 import './Landing.css'
 
 export function Landing() {
   const navigate = useNavigate()
   const { updateData, goToStep, FLOW_STEPS } = useOnboarding()
+  const { flowPath, basePath, info } = useCompany()
   const [email, setEmail] = useState('')
 
   const handleGetStarted = (e) => {
@@ -19,14 +21,14 @@ export function Landing() {
   return (
     <div className="landing">
       <div className="landing-banner">
-        Limited offer — Earn 10% cashback with AIwallex cards. <button type="button">Claim offer</button>
+        Limited offer — Earn 10% cashback with {info.name} cards. <button type="button">Claim offer</button>
       </div>
       <header className="landing-header">
         <div className="landing-header-left">
-          <Link to="/" className="back-to-flows">← Flows</Link>
+          <Link to={basePath()} className="back-to-flows">← Flows</Link>
           <span className="logo">
-            <span className="logo-icon">A</span>
-            AIwallex
+            <span className="logo-icon" style={{ background: info.primaryColor }}>{info.logoLetter}</span>
+            {info.name}
           </span>
         </div>
         <nav>
@@ -37,7 +39,7 @@ export function Landing() {
           <a href="#company">Company</a>
         </nav>
         <div className="landing-actions">
-          <Link to="/flow/logging-in" className="btn-ghost">Log in</Link>
+          <Link to={flowPath('/flow/logging-in')} className="btn-ghost">Log in</Link>
           <button type="button" className="btn-primary">See a demo</button>
         </div>
       </header>
@@ -47,7 +49,7 @@ export function Landing() {
             The global <span className="highlight">payments</span> and <span className="highlight">banking</span> platform for growing businesses.
           </h1>
           <p>
-            Over 150,000 companies around the world trust AIwallex to grow their revenue. Open global business accounts, accept payments, manage company spend, and much more — all on one unified platform.
+            Over 150,000 companies around the world trust {info.name} to grow their revenue. Open global business accounts, accept payments, manage company spend, and much more — all on one unified platform.
           </p>
           <a href="#tour" className="product-tour">Take a product tour &gt;</a>
           <form onSubmit={handleGetStarted} className="hero-form">
@@ -61,13 +63,13 @@ export function Landing() {
             <button type="submit" className="btn-primary btn-large">Get started</button>
           </form>
           <p className="hero-disclaimer">
-            By continuing, you agree to receive AIwallex's marketing communications. You may unsubscribe any time. See Privacy Policy.
+            By continuing, you agree to receive {info.name}'s marketing communications. You may unsubscribe any time. See Privacy Policy.
           </p>
         </div>
       </section>
       <footer className="landing-footer">
-        <span className="logo small"><span className="logo-icon">A</span> aiwallex</span>
-        <span>AIwallex User Flows · Web Onboarding</span>
+        <span className="logo small"><span className="logo-icon" style={{ background: info.primaryColor }}>{info.logoLetter}</span> {info.name.toLowerCase()}</span>
+        <span>{info.displayName} User Flows · Web Onboarding</span>
       </footer>
     </div>
   )

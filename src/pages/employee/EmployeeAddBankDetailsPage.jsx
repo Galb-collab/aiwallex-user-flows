@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import './EmployeeAddBankDetails.css'
 
 export function EmployeeAddBankDetailsPage() {
+  const { flowPath, info } = useCompany()
   const navigate = useNavigate()
   const [step, setStep] = useState(1)
   const [firstName, setFirstName] = useState('Alex')
@@ -24,7 +26,7 @@ export function EmployeeAddBankDetailsPage() {
     e.preventDefault()
     if (step === 1) setStep(2)
     else {
-      navigate('/flow/employee/expenses')
+      navigate(flowPath('/flow/employee/expenses'))
     }
   }
 
@@ -36,7 +38,7 @@ export function EmployeeAddBankDetailsPage() {
           <span className="logo-icon">A</span>
           Airwallex Add bank details
         </div>
-        <Link to="/flow/employee/expenses" className="employee-add-bank-close" aria-label="Close">×</Link>
+        <Link to={flowPath('/flow/employee/expenses')} className="employee-add-bank-close" aria-label="Close">×</Link>
       </header>
 
       <main className="employee-add-bank-main">
@@ -117,7 +119,7 @@ export function EmployeeAddBankDetailsPage() {
                   </section>
 
                   <div className="employee-add-bank-actions">
-                    <Link to="/flow/employee/expenses" className="btn-cancel">Cancel</Link>
+                    <Link to={flowPath('/flow/employee/expenses')} className="btn-cancel">Cancel</Link>
                     <button type="submit" className="btn-primary">Save & Continue</button>
                   </div>
                 </form>

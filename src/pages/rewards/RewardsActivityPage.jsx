@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const MOCK_ACTIVITY = [
   { id: '1', date: '2025-02-18', description: 'Software subscription', amount: '12.50', status: 'Earned' },
@@ -9,10 +10,11 @@ const MOCK_ACTIVITY = [
 ]
 
 export function RewardsActivityPage() {
+  const { flowPath } = useCompany()
   return (
     <div className="rewards-content">
       <div className="wallet-content">
-        <Link to="/flow/rewards" className="wallet-back-link">← Back to Rewards</Link>
+        <Link to={flowPath('/flow/rewards')} className="wallet-back-link">← Back to Rewards</Link>
         <h1 className="wallet-section-title">Rewards activity</h1>
         <p className="global-accounts-desc">View your cashback earnings and redemptions.</p>
 

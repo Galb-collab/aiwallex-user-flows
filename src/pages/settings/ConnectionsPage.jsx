@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const MOCK_CONNECTIONS = [
   { id: '1', name: 'Xero', category: 'Accounting', status: 'Connected', lastSync: '2 hours ago' },
@@ -8,10 +9,11 @@ const MOCK_CONNECTIONS = [
 ]
 
 export function ConnectionsPage() {
+  const { flowPath } = useCompany()
   return (
     <div className="settings-content">
       <div className="wallet-content">
-        <Link to="/flow/settings" className="wallet-back-link">← Back to Settings</Link>
+        <Link to={flowPath('/flow/settings')} className="wallet-back-link">← Back to Settings</Link>
         <h1 className="wallet-section-title">Connections</h1>
         <p className="global-accounts-desc">Connect your accounting software, banks, and other tools to sync data automatically.</p>
 

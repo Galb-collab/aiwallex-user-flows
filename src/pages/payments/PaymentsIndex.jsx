@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function PaymentsIndex() {
+  const { flowPath } = useCompany()
   return (
     <div className="payments-content">
       <div className="wallet-content">
@@ -13,22 +15,22 @@ export function PaymentsIndex() {
         </div>
 
         <div className="scheduling-transfer-options conversions-options">
-          <Link to="/flow/payments/activating-payment-methods" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/payments/activating-payment-methods')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">✓</span>
             <span className="scheduling-transfer-card-title">Activating payment methods</span>
             <span className="scheduling-transfer-card-subtitle">Enable and configure card payments, local payment methods, and more.</span>
           </Link>
-          <Link to="/flow/payments/payment-links" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/payments/payment-links')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">🔗</span>
             <span className="scheduling-transfer-card-title">Payment links</span>
             <span className="scheduling-transfer-card-subtitle">Create and manage shareable payment links for your customers.</span>
           </Link>
-          <Link to="/flow/payments/updating-company-profile" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/payments/updating-company-profile')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">🏢</span>
             <span className="scheduling-transfer-card-title">Updating a company profile</span>
             <span className="scheduling-transfer-card-subtitle">Edit your business details, branding, and payment preferences.</span>
           </Link>
-          <Link to="/flow/payments/updating-email-notification" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/payments/updating-email-notification')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">✉</span>
             <span className="scheduling-transfer-card-title">Updating an email notification</span>
             <span className="scheduling-transfer-card-subtitle">Configure email notifications for payments and receipts.</span>

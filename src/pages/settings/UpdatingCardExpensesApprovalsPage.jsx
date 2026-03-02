@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const MOCK_RULES = [
   { id: '1', name: 'Expenses above 500 SGD', threshold: '500 SGD', status: 'Active' },
@@ -7,12 +8,13 @@ const MOCK_RULES = [
 ]
 
 export function UpdatingCardExpensesApprovalsPage() {
+  const { flowPath } = useCompany()
   const [rules] = useState(MOCK_RULES)
 
   return (
     <div className="settings-content">
       <div className="wallet-content">
-        <Link to="/flow/settings" className="wallet-back-link">← Back to Settings</Link>
+        <Link to={flowPath('/flow/settings')} className="wallet-back-link">← Back to Settings</Link>
         <h1 className="wallet-section-title">Updating card expenses approvals</h1>
         <p className="global-accounts-desc">Configure when card expenses require approval before they can be submitted.</p>
 

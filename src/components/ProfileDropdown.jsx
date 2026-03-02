@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import './ProfileDropdown.css'
 
 export function ProfileDropdown({ email = 'samlee@content-mobbin.com' }) {
+  const { flowPath } = useCompany()
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
 
@@ -36,16 +38,16 @@ export function ProfileDropdown({ email = 'samlee@content-mobbin.com' }) {
 
       {open && (
         <div className="profile-dropdown-menu">
-          <Link to="/flow/profile" className="profile-dropdown-item" onClick={() => setOpen(false)}>
+          <Link to={flowPath('/flow/profile')} className="profile-dropdown-item" onClick={() => setOpen(false)}>
             Profile
           </Link>
-          <Link to="/flow/profile/security" className="profile-dropdown-item" onClick={() => setOpen(false)}>
+          <Link to={flowPath('/flow/profile/security')} className="profile-dropdown-item" onClick={() => setOpen(false)}>
             Security
           </Link>
-          <Link to="/flow/profile/adding-an-assistant" className="profile-dropdown-item" onClick={() => setOpen(false)}>
+          <Link to={flowPath('/flow/profile/adding-an-assistant')} className="profile-dropdown-item" onClick={() => setOpen(false)}>
             Adding an assistant
           </Link>
-          <Link to="/flow/profile/updating-notifications" className="profile-dropdown-item" onClick={() => setOpen(false)}>
+          <Link to={flowPath('/flow/profile/updating-notifications')} className="profile-dropdown-item" onClick={() => setOpen(false)}>
             Updating notifications
           </Link>
           <div className="profile-dropdown-divider" />

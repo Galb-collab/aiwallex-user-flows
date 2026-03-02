@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import './EmployeeExpensesPage.css'
 
 const REPORTS = [
@@ -8,6 +9,7 @@ const REPORTS = [
 ]
 
 export function EmployeeExpensesPage() {
+  const { flowPath } = useCompany()
   const [subTab, setSubTab] = useState('reimbursements')
   const [hasBankDetails, setHasBankDetails] = useState(false)
 
@@ -48,7 +50,7 @@ export function EmployeeExpensesPage() {
               <span className="employee-expenses-bank-icon">🏦</span>
               <div>
                 <strong>Please provide your bank details in order to submit your out-of-pocket expenses for reimbursement.</strong>
-                <Link to="/flow/employee/expenses/add-bank-details" className="employee-expenses-bank-btn">Add bank details</Link>
+                <Link to={flowPath('/flow/employee/expenses/add-bank-details')} className="employee-expenses-bank-btn">Add bank details</Link>
               </div>
             </div>
           )}
@@ -72,7 +74,7 @@ export function EmployeeExpensesPage() {
                 <span className="employee-expenses-empty-icon">🏦</span>
                 <h2>Add your personal bank details to get reimbursed</h2>
                 <p>Made a purchase using a personal card? You are able to create reimbursements prior to adding bank details, but will not be able to submit until you have added them.</p>
-                <Link to="/flow/employee/expenses/add-bank-details" className="employee-expenses-btn primary">Add bank details</Link>
+                <Link to={flowPath('/flow/employee/expenses/add-bank-details')} className="employee-expenses-btn primary">Add bank details</Link>
               </div>
             ) : (
               <table className="employee-expenses-table">

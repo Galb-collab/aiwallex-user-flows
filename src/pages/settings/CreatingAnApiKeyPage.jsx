@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const MOCK_API_KEY = 'awx_demo_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 
 export function CreatingAnApiKeyPage() {
+  const { flowPath } = useCompany()
   const [name, setName] = useState('')
   const [permissions, setPermissions] = useState(['read'])
   const [created, setCreated] = useState(false)
@@ -59,7 +61,7 @@ export function CreatingAnApiKeyPage() {
                 {copied ? 'Copied!' : 'Copy'}
               </button>
             </div>
-            <Link to="/flow/settings/developer" className="wallet-btn wallet-btn-primary">
+            <Link to={flowPath('/flow/settings/developer')} className="wallet-btn wallet-btn-primary">
               Back to Developer
             </Link>
           </div>
@@ -71,7 +73,7 @@ export function CreatingAnApiKeyPage() {
   return (
     <div className="settings-content">
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/settings/developer" className="wallet-back-link">← Back to Developer</Link>
+        <Link to={flowPath('/flow/settings/developer')} className="wallet-back-link">← Back to Developer</Link>
         <h1 className="wallet-section-title">Creating an API key</h1>
         <p className="creating-conversion-desc">
           Create a new API key to authenticate requests. Use a descriptive name to identify this key later.
@@ -105,7 +107,7 @@ export function CreatingAnApiKeyPage() {
         </div>
 
         <div className="scheduling-transfer-footer" style={{ marginTop: 24 }}>
-          <Link to="/flow/settings/developer" className="wallet-btn">Cancel</Link>
+          <Link to={flowPath('/flow/settings/developer')} className="wallet-btn">Cancel</Link>
           <button
             type="button"
             className="wallet-btn wallet-btn-primary"

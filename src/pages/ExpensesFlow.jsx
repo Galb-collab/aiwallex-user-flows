@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import { DashboardHeader } from '../components/DashboardHeader'
 import './Dashboard.css'
 import './SpendGeneralFlow.css'
@@ -22,6 +23,7 @@ const SETTINGS_FIELDS = [
 ]
 
 export function ExpensesFlow() {
+  const { info } = useCompany()
   const [tab, setTab] = useState('summary')
   const [subTab, setSubTab] = useState('card-expenses')
 

@@ -59,6 +59,24 @@
   margin: 0 0 20px;
 }
 
+.flow-selector-empty {
+  text-align: center;
+  padding: 80px 24px;
+}
+
+.flow-selector-empty-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--psp-text, #1a1a1a);
+  margin: 0 0 8px;
+}
+
+.flow-selector-empty-subtext {
+  font-size: 16px;
+  color: var(--psp-text-muted, #6b7280);
+  margin: 0;
+}
+
 .flow-view-toggle {
   display: flex;
   gap: 0;

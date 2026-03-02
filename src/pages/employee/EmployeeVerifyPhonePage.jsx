@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import './EmployeeVerifyPhone.css'
 
 export function EmployeeVerifyPhonePage() {
+  const { flowPath, info } = useCompany()
   const navigate = useNavigate()
   const [code, setCode] = useState('')
   const [resendTimer, setResendTimer] = useState(56)
@@ -15,7 +17,7 @@ export function EmployeeVerifyPhonePage() {
       setError('Please enter the 6 digit code for verification.')
       return
     }
-    navigate('/flow/employee/expenses')
+    navigate(flowPath('/flow/employee/expenses'))
   }
 
   return (
@@ -30,7 +32,7 @@ export function EmployeeVerifyPhonePage() {
       <main className="employee-verify-main">
         <div className="employee-verify-layout">
           <div className="employee-verify-form">
-            <Link to="/flow/employee/onboarding" className="employee-verify-back">← Back</Link>
+            <Link to={flowPath('/flow/employee/onboarding')} className="employee-verify-back">← Back</Link>
             <h1 className="employee-verify-title">We&apos;ve sent you an SMS</h1>
             <p className="employee-verify-desc">
               Please enter the 6-digit code sent to your phone ending in ***4567

@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { DashboardHeader } from '../components/DashboardHeader'
+import { useCompany } from '../context/CompanyContext'
 import './Dashboard.css'
 import './SpendGeneralFlow.css'
 import './ReportsFlow.css'
 import './GeneratingBalanceActivityFlow.css'
 
-const BUSINESS_NAME = 'SLMobbin'
 const EMAIL = 'samlee@content-mobbin.com'
 
 export function GeneratingBalanceActivityFlow() {
+  const { flowPath } = useCompany()
   const navigate = useNavigate()
   const [dateFrom, setDateFrom] = useState('2025-10-27')
   const [dateTo, setDateTo] = useState('2025-11-27')
@@ -21,72 +21,29 @@ export function GeneratingBalanceActivityFlow() {
   const filename = `Balance_Activity_Report_${dateTo}.${ext}`
 
   const handleGenerate = () => setGenerated(true)
-  const handleClose = () => navigate('/flow/reports')
-
-  const sidebar = (
-    <aside className="sidebar">
-      <div className="sidebar-org">{BUSINESS_NAME}</div>
-      <nav className="sidebar-nav">
-        <Link to="/flow/dashboard">Dashboard</Link>
-        <a href="#spend">Spend <span className="tag">New</span></a>
-        <Link to="/flow/billing">Billing <span className="tag">New</span></Link>
-        <Link to="/flow/reports" className="active">Reports</Link>
-        <Link to="/flow/settings">Settings</Link>
-      </nav>
-      <div className="sidebar-section">
-        <div className="sidebar-section-title">{BUSINESS_NAME} Account | {BUSINESS_NAME}</div>
-        <a href="#wallet">Wallet</a>
-        <Link to="/flow/transfers">Transfers</Link>
-        <a href="#cards">Cards</a>
-        <a href="#payments">Payments</a>
-        <Link to="/flow/rewards">Rewards</Link>
-        <Link to="/flow/rewards/security">Security</Link>
-      </div>
-      <div className="sidebar-footer">
-        <span className="logo-icon small">A</span>
-        <span>AIwallex</span>
-      </div>
-    </aside>
-  )
+  const handleClose = () => navigate(flowPath('/flow/reports'))
 
   if (generated) {
     return (
-      <div className="dashboard reports-flow generating-balance-flow">
-        {sidebar}
-        <div className="dashboard-main">
-          <DashboardHeader email={EMAIL} className="reports-header" />
-          <div className="gba-success-wrap">
-            <div className="gba-success-modal">
-              <button type="button" className="gba-modal-close" onClick={handleClose} aria-label="Close">x</button>
-              <h2 className="gba-success-title">Generation completed</h2>
-              <div className="gba-success-illus">Done</div>
-              <p className="gba-success-desc">Your download should have started automatically, otherwise you can click <Link to="/flow/reports" className="gba-success-link">here</Link>.</p>
-              <Link to="/flow/reports" className="gba-btn gba-btn-primary">Back to Reports</Link>
-            </div>
+      <div className="generating-balance-flow">
+        <div className="gba-success-wrap">
+          <div className="gba-success-modal">
+            <button type="button" className="gba-modal-close" onClick={handleClose} aria-label="Close">x</button>
+            <h2 className="gba-success-title">Generation completed</h2>
+            <div className="gba-success-illus">Done</div>
+            <p className="gba-success-desc">Your download should have started automatically, otherwise you can click <Link to={flowPath('/flow/reports')} className="gba-success-link">here</Link>.</p>
+            <Link to={flowPath('/flow/reports')} className="gba-btn gba-btn-primary">Back to Reports</Link>
           </div>
-          <footer className="spend-footer">
-            <span className="footer-logo"><span className="logo-icon small">A</span> aiwallex</span>
-            <span>AIwallex User Flows - Reports</span>
-          </footer>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="dashboard reports-flow generating-balance-flow">
-      {sidebar}
-      <div className="dashboard-main">
-        <header className="dashboard-header reports-header">
-          <div className="dashboard-header-right">
-            <Link to="/" className="dashboard-back-flows">← Flows</Link>
-            <span className="user-email">{EMAIL}</span>
-            <div className="user-avatar" />
-          </div>
-        </header>
-        <div className="gba-content">
+    <div className="generating-balance-flow">
+      <div className="gba-content">
           <div className="gba-back-row">
-            <Link to="/flow/reports" className="gba-back-link">← Reports</Link>
+            <Link to={flowPath('/flow/reports')} className="gba-back-link">← Reports</Link>
           </div>
           <div className="gba-form-card">
             <div className="gba-form-header">
@@ -145,11 +102,6 @@ export function GeneratingBalanceActivityFlow() {
             </div>
           </div>
         </div>
-        <footer className="spend-footer">
-          <span className="footer-logo"><span className="logo-icon small">A</span> aiwallex</span>
-          <span>AIwallex User Flows - Reports</span>
-        </footer>
       </div>
-    </div>
   )
 }

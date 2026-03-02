@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, NavLink, Outlet } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import { DashboardHeader } from '../../components/DashboardHeader'
 import '../Dashboard.css'
 import '../SpendGeneralFlow.css'
@@ -9,6 +10,7 @@ const BUSINESS_NAME = 'SLMobbin'
 const EMAIL = 'samlee@content-mobbin.com'
 
 export function BillsFlow() {
+  const { info } = useCompany()
   return (
     <div className="dashboard spend-general bills-flow">
       <aside className="sidebar">

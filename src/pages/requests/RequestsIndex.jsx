@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../bills/BillsFlow.css'
 import './RequestsFlow.css'
 
@@ -10,6 +11,7 @@ const SUB_FLOWS = [
 ]
 
 export function RequestsIndex() {
+  const { flowPath } = useCompany()
   return (
     <div className="bills-content">
       <div className="bills-title-row">
@@ -17,7 +19,7 @@ export function RequestsIndex() {
           <h1 className="bills-page-title">Spend requests</h1>
           <p className="bills-page-subtitle">Create spend requests and manage their progress.</p>
         </div>
-        <Link to="/flow/requests/creating-requests" className="bills-btn bills-btn-primary">+ Create request</Link>
+        <Link to={flowPath('/flow/requests/creating-requests')} className="bills-btn bills-btn-primary">+ Create request</Link>
       </div>
 
       <div className="bills-cards">
@@ -40,13 +42,13 @@ export function RequestsIndex() {
         <div className="requests-empty-state-icon">📄</div>
         <p style={{ margin: '0 0 8px', fontSize: '16px', color: 'var(--psp-text)' }}>No requests yet</p>
         <p style={{ margin: '0 0 20px', fontSize: '14px' }}>Create a spend request to get started.</p>
-        <Link to="/flow/requests/creating-requests" className="bills-btn bills-btn-primary">Create request</Link>
+        <Link to={flowPath('/flow/requests/creating-requests')} className="bills-btn bills-btn-primary">Create request</Link>
       </div>
 
       <p className="bills-choose-sub" style={{ marginTop: '32px' }}>Choose a sub-flow to run:</p>
       <div className="bills-subflow-cards">
         {SUB_FLOWS.map((f) => (
-          <Link key={f.path} to={f.path} className="bills-subflow-card">
+          <Link key={f.path} to={flowPath(f.path)} className="bills-subflow-card">
             <span className="bills-subflow-icon">{f.icon}</span>
             <h2 className="bills-subflow-title">{f.title}</h2>
             <p className="bills-subflow-desc">{f.description}</p>

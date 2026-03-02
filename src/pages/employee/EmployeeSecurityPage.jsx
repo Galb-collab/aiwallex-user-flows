@@ -1,16 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import './EmployeeSecurityPage.css'
 
 export function EmployeeSecurityPage() {
+  const { flowPath } = useCompany()
   return (
     <div className="employee-security-page">
       <nav className="employee-profile-nav">
-        <Link to="/flow/employee/profile">Profile</Link>
-        <Link to="/flow/employee/profile/security" className="active">Security</Link>
-        <Link to="/flow/employee/profile/notifications">Notifications</Link>
-        <Link to="/flow/employee/profile/accounts">Accounts</Link>
-        <Link to="/flow/employee/profile/assistants">Assistants</Link>
+        <Link to={flowPath('/flow/employee/profile')}>Profile</Link>
+        <Link to={flowPath('/flow/employee/profile/security')} className="active">Security</Link>
+        <Link to={flowPath('/flow/employee/profile/notifications')}>Notifications</Link>
+        <Link to={flowPath('/flow/employee/profile/accounts')}>Accounts</Link>
+        <Link to={flowPath('/flow/employee/profile/assistants')}>Assistants</Link>
       </nav>
 
       <div className="employee-security-cards">
@@ -20,7 +22,7 @@ export function EmployeeSecurityPage() {
               <h2>Password</h2>
               <p className="card-desc">Choose a strong password to keep your account safe.</p>
             </div>
-            <Link to="/flow/employee/profile/security/change-password" className="edit-btn">Change</Link>
+            <Link to={flowPath('/flow/employee/profile/security/change-password')} className="edit-btn">Change</Link>
           </div>
         </div>
 

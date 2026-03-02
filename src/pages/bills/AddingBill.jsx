@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import './BillsFlow.css'
 
 export function AddingBill() {
+  const { flowPath } = useCompany()
   const [submitted, setSubmitted] = useState(false)
   const [showToast, setShowToast] = useState(false)
 
@@ -18,7 +20,7 @@ export function AddingBill() {
       <>
       <div className="bills-add-header">
         <h1 className="bills-add-title">Add new bill</h1>
-        <Link to="/flow/bills" className="bills-modal-close" aria-label="Close">×</Link>
+        <Link to={flowPath('/flow/bills')} className="bills-modal-close" aria-label="Close">×</Link>
       </div>
 
       <div className="bills-add-body">
@@ -93,7 +95,7 @@ export function AddingBill() {
               <h1 className="bills-page-title">Bills</h1>
               <p className="bills-page-subtitle">Create and manage bills and payments.</p>
             </div>
-            <Link to="/flow/bills/adding-a-bill" className="bills-btn bills-btn-primary">+ New bill</Link>
+            <Link to={flowPath('/flow/bills/adding-a-bill')} className="bills-btn bills-btn-primary">+ New bill</Link>
           </div>
           <div className="bills-cards">
             <div className="bills-card">

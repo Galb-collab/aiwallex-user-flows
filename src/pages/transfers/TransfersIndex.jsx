@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function TransfersIndex() {
+  const { flowPath } = useCompany()
   return (
     <div className="transfers-content">
       <div className="wallet-content">
@@ -13,22 +15,22 @@ export function TransfersIndex() {
         </div>
 
         <div className="scheduling-transfer-options conversions-options">
-          <Link to="/flow/transfers/transfer-details/1" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/transfers/transfer-details/1')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">📋</span>
             <span className="scheduling-transfer-card-title">Transfer details</span>
             <span className="scheduling-transfer-card-subtitle">View transfer details and cancel pending transfers.</span>
           </Link>
-          <Link to="/flow/transfers/create-batch-transfer" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/transfers/create-batch-transfer')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">📄</span>
             <span className="scheduling-transfer-card-title">Create a batch transfer file</span>
             <span className="scheduling-transfer-card-subtitle">Upload or create a batch file to process multiple transfers at once.</span>
           </Link>
-          <Link to="/flow/transfers/transfer-approval-workflow" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/transfers/transfer-approval-workflow')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">✅</span>
             <span className="scheduling-transfer-card-title">Setting up transfer approval workflow</span>
             <span className="scheduling-transfer-card-subtitle">Configure approval rules and approvers for transfers.</span>
           </Link>
-          <Link to="/flow/transfers/deactivating-workflow" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/transfers/deactivating-workflow')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">⏸</span>
             <span className="scheduling-transfer-card-title">Deactivating a workflow</span>
             <span className="scheduling-transfer-card-subtitle">Turn off an existing transfer approval workflow.</span>

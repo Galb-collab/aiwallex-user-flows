@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../bills/BillsFlow.css'
 import './VendorsFlow.css'
 
@@ -11,6 +12,7 @@ const SUB_FLOWS = [
 ]
 
 export function VendorsIndex() {
+  const { flowPath } = useCompany()
   return (
     <div className="bills-content">
       <div className="bills-connect-banner">
@@ -27,7 +29,7 @@ export function VendorsIndex() {
           <h1 className="bills-page-title">Vendors</h1>
           <p className="bills-page-subtitle">Create and manage approved vendors for your organisation.</p>
         </div>
-        <Link to="/flow/vendors/adding-a-vendor" className="bills-btn bills-btn-primary">+ New Vendor</Link>
+        <Link to={flowPath('/flow/vendors/adding-a-vendor')} className="bills-btn bills-btn-primary">+ New Vendor</Link>
       </div>
 
       <div className="bills-cards">
@@ -63,14 +65,14 @@ export function VendorsIndex() {
           <tbody>
             <tr>
               <td><input type="checkbox" aria-label="Select" /></td>
-              <td><Link to="/flow/vendors/vendor-details" className="vendors-name-link">Alex Smith</Link></td>
+              <td><Link to={flowPath('/flow/vendors/vendor-details')} className="vendors-name-link">Alex Smith</Link></td>
               <td>-</td>
               <td>Local</td>
               <td><span className="vendors-status-active">Active</span></td>
             </tr>
             <tr>
               <td><input type="checkbox" aria-label="Select" /></td>
-              <td><Link to="/flow/vendors/vendor-details" className="vendors-name-link">ASMobbin</Link></td>
+              <td><Link to={flowPath('/flow/vendors/vendor-details')} className="vendors-name-link">ASMobbin</Link></td>
               <td>-</td>
               <td><span className="vendors-payment-missing">⚠ Missing</span></td>
               <td><span className="vendors-status-active">Active</span></td>
@@ -82,7 +84,7 @@ export function VendorsIndex() {
       <p className="bills-choose-sub">Choose a sub-flow to run:</p>
       <div className="bills-subflow-cards">
         {SUB_FLOWS.map((f) => (
-          <Link key={f.path} to={f.path} className="bills-subflow-card">
+          <Link key={f.path} to={flowPath(f.path)} className="bills-subflow-card">
             <span className="bills-subflow-icon">{f.icon}</span>
             <h2 className="bills-subflow-title">{f.title}</h2>
             <p className="bills-subflow-desc">{f.description}</p>

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Routes, Route, Navigate, Outlet } from 'react-router-dom'
+import { Routes, Route, Navigate, Outlet, useParams } from 'react-router-dom'
+import { CompanyProvider, useCompany, COMPANY } from './context/CompanyContext'
 import { OnboardingProvider } from './context/OnboardingContext'
 import { BusinessDetailsProvider } from './context/BusinessDetailsContext'
 import { FlowSelector } from './pages/FlowSelector'
@@ -141,18 +142,42 @@ import { EmployeeProfilePage } from './pages/employee/EmployeeProfilePage'
 import { EmployeeSecurityPage } from './pages/employee/EmployeeSecurityPage'
 import { EmployeeChangePasswordPage } from './pages/employee/EmployeeChangePasswordPage'
 import { EmployeeProfilePlaceholder } from './pages/employee/EmployeeProfilePlaceholder'
+import { CompanySelector } from './pages/CompanySelector'
+
+function CompanyGate() {
+  const { company } = useParams()
+  if (company !== 'airwallex' && company !== 'revolut') {
+    return <Navigate to="/" replace />
+  }
+  return (
+    <CompanyProvider>
+      <Outlet />
+    </CompanyProvider>
+  )
+}
+
+function FlowRouteGuard() {
+  const { company, basePath } = useCompany()
+  if (company === COMPANY.REVOLUT) {
+    return <Navigate to={basePath()} replace />
+  }
+  return <Outlet />
+}
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<FlowSelector />} />
-      <Route path="flow/logging-in" element={<LoggingInFlow />}>
-        <Route index element={<LoginPage />} />
-        <Route path="forgot-password" element={<ForgotPasswordPage />} />
-        <Route path="reset-password" element={<ResetPasswordPage />} />
-        <Route path="verify-2fa" element={<Verify2FAPage />} />
-      </Route>
-      <Route path="flow/employee" element={<EmployeeFlow />}>
+      <Route path="/" element={<CompanySelector />} />
+      <Route path=":company" element={<CompanyGate />}>
+        <Route index element={<FlowSelector />} />
+        <Route path="flow" element={<FlowRouteGuard />}>
+          <Route path="logging-in" element={<LoggingInFlow />}>
+            <Route index element={<LoginPage />} />
+            <Route path="forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="reset-password" element={<ResetPasswordPage />} />
+            <Route path="verify-2fa" element={<Verify2FAPage />} />
+          </Route>
+          <Route path="employee" element={<EmployeeFlow />}>
         <Route index element={<Navigate to="onboarding" replace />} />
         <Route path="onboarding" element={<EmployeeOnboardingPage />} />
         <Route path="onboarding/verify-phone" element={<EmployeeVerifyPhonePage />} />
@@ -167,13 +192,13 @@ function App() {
         <Route path="profile/notifications" element={<EmployeeProfilePlaceholder title="Notifications" />} />
         <Route path="profile/accounts" element={<EmployeeProfilePlaceholder title="Accounts" />} />
         <Route path="profile/assistants" element={<EmployeeProfilePlaceholder title="Assistants" />} />
-      </Route>
-      <Route path="flow/web-onboarding" element={<OnboardingProvider><Outlet /></OnboardingProvider>}>
+          </Route>
+          <Route path="web-onboarding" element={<OnboardingProvider><Outlet /></OnboardingProvider>}>
         <Route index element={<Landing />} />
         <Route path="onboarding/*" element={<OnboardingFlow />} />
         <Route path="dashboard" element={<Dashboard />} />
-      </Route>
-      <Route path="flow/completing-business-details" element={<BusinessDetailsProvider><Outlet /></BusinessDetailsProvider>}>
+          </Route>
+          <Route path="completing-business-details" element={<BusinessDetailsProvider><Outlet /></BusinessDetailsProvider>}>
         <Route index element={<CompletingBusinessDetailsFlow />} />
         <Route path="completing-business-profile/*" element={
           <BusinessProfileProvider>
@@ -202,13 +227,13 @@ function App() {
             <TwoFactorFlow />
           </TwoFactorAuthProvider>
         } />
-      </Route>
-      <Route path="flow/requesting-director-authorisation/*" element={
+          </Route>
+          <Route path="requesting-director-authorisation/*" element={
         <DirectorAuthorisationProvider>
           <DirectorAuthorisationFlow />
         </DirectorAuthorisationProvider>
       } />
-      <Route path="flow/dashboard" element={<OnboardingProvider><Outlet /></OnboardingProvider>}>
+          <Route path="dashboard" element={<OnboardingProvider><Outlet /></OnboardingProvider>}>
         <Route index element={<Dashboard />} />
         <Route path="adding-funds/*" element={
           <AddingFundsProvider>
@@ -219,12 +244,12 @@ function App() {
           <Route index element={<Navigate to="accepting-a-payment" replace />} />
           <Route path="accepting-a-payment" element={<AcceptingPaymentFlow />} />
         </Route>
-      </Route>
-      <Route path="flow/reports" element={<ReportsLayout />}>
+          </Route>
+          <Route path="reports" element={<ReportsLayout />}>
         <Route index element={<ReportsIndex />} />
         <Route path="generating-balance-activity" element={<GeneratingBalanceActivityFlow />} />
-      </Route>
-      <Route path="flow/spend-general" element={<Outlet />}>
+          </Route>
+          <Route path="spend-general" element={<Outlet />}>
         <Route index element={<SpendGeneralFlow />} />
         <Route path="expenses-spend" element={<Outlet />}>
           <Route index element={<ExpensesFlow />} />
@@ -234,19 +259,19 @@ function App() {
           <Route path="uploading-a-receipt/adding-items" element={<AddingItemsFlow />} />
         </Route>
         <Route path="purchase-orders" element={<PurchaseOrdersFlow />} />
-      </Route>
-      <Route path="flow/payments-overview" element={<PaymentOverviewFlow />}>
+          </Route>
+          <Route path="payments-overview" element={<PaymentOverviewFlow />}>
         <Route index element={<PaymentActivityPage />} />
         <Route path="disputes" element={<DisputesPage />} />
-      </Route>
-      <Route path="flow/transfers" element={<TransfersFlow />}>
+          </Route>
+          <Route path="transfers" element={<TransfersFlow />}>
         <Route index element={<TransfersIndex />} />
         <Route path="transfer-details/:transferId" element={<TransferDetailsPage />} />
         <Route path="create-batch-transfer" element={<CreateBatchTransferFilePage />} />
         <Route path="transfer-approval-workflow" element={<SettingUpTransferApprovalWorkflowPage />} />
         <Route path="deactivating-workflow" element={<DeactivatingWorkflowPage />} />
-      </Route>
-      <Route path="flow/wallet" element={<WalletFlow />}>
+          </Route>
+          <Route path="wallet" element={<WalletFlow />}>
         <Route index element={<WalletBalancesPage />} />
         <Route path="balance/:currency" element={<CashBalanceDetailsPage />} />
         <Route path="display-currencies" element={<EditingCurrencyDisplayPage />} />
@@ -264,8 +289,8 @@ function App() {
         <Route path="transactions" element={<WalletTransactionsPage />} />
         <Route path="linked-accounts" element={<WalletLinkedAccountsPage />} />
         <Route path="settings" element={<WalletSettingsPage />} />
-      </Route>
-      <Route path="flow/billing" element={<BillingFlow />}>
+          </Route>
+          <Route path="billing" element={<BillingFlow />}>
         <Route index element={<BillingIndex />} />
         <Route path="customers" element={<BillingCustomers />} />
         <Route path="customer-details" element={<CustomerDetails />} />
@@ -277,54 +302,54 @@ function App() {
         <Route path="invoices" element={<BillingInvoices />} />
         <Route path="subscriptions" element={<BillingSubscriptions />} />
         <Route path="billing-settings" element={<BillingSettings />} />
-      </Route>
-      <Route path="flow/bills" element={<BillsFlow />}>
+          </Route>
+          <Route path="bills" element={<BillsFlow />}>
         <Route index element={<BillsIndex />} />
         <Route path="approving-a-bill" element={<ApprovingBill />} />
         <Route path="bill-details" element={<BillDetails />} />
         <Route path="deleting-a-bill" element={<DeletingBill />} />
         <Route path="adding-a-bill" element={<AddingBill />} />
-      </Route>
-      <Route path="flow/vendors" element={<VendorsFlow />}>
+          </Route>
+          <Route path="vendors" element={<VendorsFlow />}>
         <Route index element={<VendorsIndex />} />
         <Route path="adding-a-vendor" element={<AddingVendor />} />
         <Route path="vendor-details" element={<VendorDetails />} />
         <Route path="uploading-a-file" element={<UploadingAFile />} />
         <Route path="adding-bank-account-details" element={<AddingBankAccountDetails />} />
-      </Route>
-      <Route path="flow/requests" element={<RequestsFlow />}>
+          </Route>
+          <Route path="requests" element={<RequestsFlow />}>
         <Route index element={<RequestsIndex />} />
         <Route path="creating-requests" element={<CreatingRequests />} />
         <Route path="requesting-a-submission" element={<RequestingASubmission />} />
         <Route path="approving-a-request" element={<ApprovingARequest />} />
-      </Route>
-      <Route path="flow/cards" element={<CardsFlow />}>
+          </Route>
+          <Route path="cards" element={<CardsFlow />}>
         <Route index element={<CardsIndex />} />
         <Route path="card-details/:cardId" element={<CardDetailsPage />} />
         <Route path="creating-a-card-company" element={<CreatingACardCompany />} />
         <Route path="creating-a-card" element={<CreatingACard />} />
-      </Route>
-      <Route path="flow/payments" element={<PaymentsFlow />}>
+          </Route>
+          <Route path="payments" element={<PaymentsFlow />}>
         <Route index element={<PaymentsIndex />} />
         <Route path="activating-payment-methods" element={<ActivatingPaymentMethodsPage />} />
         <Route path="payment-links" element={<PaymentLinksPage />} />
         <Route path="updating-company-profile" element={<UpdatingCompanyProfilePage />} />
         <Route path="updating-email-notification" element={<UpdatingEmailNotificationPage />} />
-      </Route>
-      <Route path="flow/rewards" element={<RewardsFlow />}>
+          </Route>
+          <Route path="rewards" element={<RewardsFlow />}>
         <Route index element={<RewardsIndex />} />
         <Route path="redeem-rewards" element={<RedeemRewardsPage />} />
         <Route path="rewards-activity" element={<RewardsActivityPage />} />
         <Route path="security" element={<SecurityPage />} />
         <Route path="disabling-two-factor-authentication" element={<DisablingTwoFactorAuthenticationPage />} />
-      </Route>
-      <Route path="flow/profile" element={<ProfileFlow />}>
+          </Route>
+          <Route path="profile" element={<ProfileFlow />}>
         <Route index element={<ProfilePage />} />
         <Route path="security" element={<ProfileSecurityPage />} />
         <Route path="adding-an-assistant" element={<AddingAssistantPage />} />
         <Route path="updating-notifications" element={<UpdatingNotificationsPage />} />
-      </Route>
-      <Route path="flow/settings" element={<SettingsFlow />}>
+          </Route>
+          <Route path="settings" element={<SettingsFlow />}>
         <Route index element={<SettingsIndex />} />
         <Route path="connections" element={<ConnectionsPage />} />
         <Route path="creating-a-user" element={<Outlet />}>
@@ -342,12 +367,14 @@ function App() {
         </Route>
         <Route path="plan-billing" element={<PlanAndBillingPage />} />
         <Route path="updating-card-expenses-approvals" element={<UpdatingCardExpensesApprovalsPage />} />
-      </Route>
-      <Route path="flow/completing-setup-spend/*" element={
+          </Route>
+          <Route path="completing-setup-spend/*" element={
         <CompletingSetupSpendProvider>
           <CompletingSetupSpendFlow />
         </CompletingSetupSpendProvider>
       } />
+        </Route>
+      </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )

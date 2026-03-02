@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function AddingACustomRolePage() {
+  const { flowPath } = useCompany()
   const [name, setName] = useState('')
   const [permissions, setPermissions] = useState([])
   const [saved, setSaved] = useState(false)
@@ -20,7 +22,7 @@ export function AddingACustomRolePage() {
             <p className="creating-conversion-success-text">
               The role &quot;{name}&quot; has been added. You can assign it to users when creating or editing them.
             </p>
-            <Link to="/flow/settings/creating-a-user" className="wallet-btn wallet-btn-primary">Back to Creating a user</Link>
+            <Link to={flowPath('/flow/settings/creating-a-user')} className="wallet-btn wallet-btn-primary">Back to Creating a user</Link>
           </div>
         </div>
       </div>
@@ -30,7 +32,7 @@ export function AddingACustomRolePage() {
   return (
     <div className="settings-content">
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/settings/creating-a-user" className="wallet-back-link">← Back to Creating a user</Link>
+        <Link to={flowPath('/flow/settings/creating-a-user')} className="wallet-back-link">← Back to Creating a user</Link>
         <h1 className="wallet-section-title">Adding a custom role</h1>
         <p className="creating-conversion-desc">Create a custom role with specific permissions for your organisation.</p>
 
@@ -53,7 +55,7 @@ export function AddingACustomRolePage() {
         </div>
 
         <div className="scheduling-transfer-footer" style={{ marginTop: 24 }}>
-          <Link to="/flow/settings/creating-a-user" className="wallet-btn">Cancel</Link>
+          <Link to={flowPath('/flow/settings/creating-a-user')} className="wallet-btn">Cancel</Link>
           <button type="button" className="wallet-btn wallet-btn-primary" onClick={() => setSaved(true)} disabled={!name.trim()}>
             Create role
           </button>

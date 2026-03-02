@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import './EmployeeOnboarding.css'
 
 function passwordRequirements(pwd) {
@@ -11,6 +12,7 @@ function passwordRequirements(pwd) {
 }
 
 export function EmployeeOnboardingPage() {
+  const { flowPath, info } = useCompany()
   const navigate = useNavigate()
   const [firstName, setFirstName] = useState('')
   const [middleName, setMiddleName] = useState('')
@@ -37,7 +39,7 @@ export function EmployeeOnboardingPage() {
       setError('Your password needs to be minimum 8 characters long, with at least one uppercase letter, one lowercase letter and one number.')
       return
     }
-    navigate('/flow/employee/onboarding/verify-phone')
+    navigate(flowPath('/flow/employee/onboarding/verify-phone'))
   }
 
   return (

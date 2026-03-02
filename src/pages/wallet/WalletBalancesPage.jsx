@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import { DiscoverAirwallexPayModal } from './DiscoverAirwallexPayModal'
 
 const CURRENCIES = [
@@ -10,6 +11,7 @@ const CURRENCIES = [
 ]
 
 export function WalletBalancesPage() {
+  const { flowPath } = useCompany()
   const [yieldDismissed, setYieldDismissed] = useState(false)
   const [displayCurrency, setDisplayCurrency] = useState('SGD')
   const [showAirwallexPayModal, setShowAirwallexPayModal] = useState(false)
@@ -50,8 +52,8 @@ export function WalletBalancesPage() {
       <div className="wallet-cash-actions">
         <button type="button" className="wallet-btn-link" onClick={() => setShowAirwallexPayModal(true)}>Discover Airwallex Pay</button>
         <button type="button" className="wallet-btn">Add funds</button>
-        <Link to="/flow/wallet/new-conversion" className="wallet-btn">Convert</Link>
-        <Link to="/flow/wallet/new-transfer" className="wallet-btn wallet-btn-primary">New transfer ▾</Link>
+        <Link to={flowPath('/flow/wallet/new-conversion')} className="wallet-btn">Convert</Link>
+        <Link to={flowPath('/flow/wallet/new-transfer')} className="wallet-btn wallet-btn-primary">New transfer ▾</Link>
       </div>
 
       <div className="wallet-table-wrap">
@@ -70,7 +72,7 @@ export function WalletBalancesPage() {
             {CURRENCIES.map((row) => (
               <tr key={row.code}>
                 <td>
-                  <Link to={`/flow/wallet/balance/${row.code}`} className="wallet-currency-cell wallet-currency-cell-link">
+                  <Link to={flowPath(`/flow/wallet/balance/${row.code}`)} className="wallet-currency-cell wallet-currency-cell-link">
                     <span className="wallet-currency-flag">{row.flag}</span>
                     <div className="wallet-currency-name">{row.name}</div>
                   </Link>
@@ -80,14 +82,14 @@ export function WalletBalancesPage() {
                 <td>{row.scheduledOut}</td>
                 <td>{row.available}</td>
                 <td>
-                  <Link to={`/flow/wallet/balance/${row.code}`} className="wallet-row-menu" aria-label={`More for ${row.code}`}>⋮</Link>
+                  <Link to={flowPath(`/flow/wallet/balance/${row.code}`)} className="wallet-row-menu" aria-label={`More for ${row.code}`}>⋮</Link>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <Link to="/flow/wallet/display-currencies" className="wallet-edit-link">✎ Edit currency display</Link>
+      <Link to={flowPath('/flow/wallet/display-currencies')} className="wallet-edit-link">✎ Edit currency display</Link>
 
       <section className="wallet-yield-section">
         <div className="wallet-yield-section-header">

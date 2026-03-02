@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import { LoginFeaturesPanel } from './LoginFeaturesPanel'
 import './LoggingInFlow.css'
 
 export function LoginPage() {
+  const { flowPath, info } = useCompany()
   const navigate = useNavigate()
   const [method, setMethod] = useState('email')
   const [email, setEmail] = useState('')
@@ -21,7 +23,7 @@ export function LoginPage() {
     if (!password) {
       return
     }
-    navigate('/flow/logging-in/verify-2fa')
+    navigate(flowPath('/flow/logging-in/verify-2fa'))
   }
 
   return (
@@ -59,7 +61,7 @@ export function LoginPage() {
           <div className="logging-in-field">
             <div className="logging-in-field-header">
               <label>Password</label>
-              <Link to="/flow/logging-in/forgot-password" className="logging-in-forgot">Forgot password?</Link>
+              <Link to={flowPath('/flow/logging-in/forgot-password')} className="logging-in-forgot">Forgot password?</Link>
             </div>
             <div className="input-with-icon">
               <input
@@ -79,10 +81,10 @@ export function LoginPage() {
             </div>
           </div>
           <button type="submit" className="logging-in-btn-primary">Log in</button>
-          <Link to="/flow/web-onboarding" className="logging-in-btn-secondary">New to Airwallex? Sign up</Link>
+          <Link to={flowPath('/flow/web-onboarding')} className="logging-in-btn-secondary">New to {info.displayName}? Sign up</Link>
         </form>
         <p className="logging-in-sandbox">
-          Looking for the sandbox environment? <Link to="/flow/logging-in">Log in to sandbox</Link>
+          Looking for the sandbox environment? <Link to={flowPath('/flow/logging-in')}>Log in to sandbox</Link>
         </p>
       </div>
       <LoginFeaturesPanel />

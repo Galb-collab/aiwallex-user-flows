@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import { DashboardHeader } from '../components/DashboardHeader'
 import './Dashboard.css'
 import './SpendGeneralFlow.css'
@@ -17,6 +18,7 @@ const SPEND_FEATURES = [
 ]
 
 export function SpendGeneralFlow() {
+  const { info } = useCompany()
   return (
     <div className="dashboard spend-general">
       <aside className="sidebar">

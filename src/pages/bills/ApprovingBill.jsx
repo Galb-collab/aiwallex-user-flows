@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import './BillsFlow.css'
 
 const BILL = { vendor: 'ASMobbin', dueDate: '25 Nov 2025', description: 'Team Subscription INV0001', amount: '1.00 SGD', status: 'Pending your approval', overdue: true }
 
 export function ApprovingBill() {
+  const { flowPath } = useCompany()
   const [showReview, setShowReview] = useState(false)
   const [approved, setApproved] = useState(false)
   const [showToast, setShowToast] = useState(false)
@@ -29,7 +31,7 @@ export function ApprovingBill() {
           <h1 className="bills-page-title">Bills</h1>
           <p className="bills-page-subtitle">Create and manage bills and payments.</p>
         </div>
-        <Link to="/flow/bills/adding-a-bill" className="bills-btn bills-btn-primary">+ New bill</Link>
+        <Link to={flowPath('/flow/bills/adding-a-bill')} className="bills-btn bills-btn-primary">+ New bill</Link>
       </div>
 
       <div className="bills-cards">

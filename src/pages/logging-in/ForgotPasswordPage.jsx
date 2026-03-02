@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import { LoginFeaturesPanel } from './LoginFeaturesPanel'
 import './LoggingInFlow.css'
 
 export function ForgotPasswordPage() {
+  const { flowPath, info } = useCompany()
   const [method, setMethod] = useState('email')
   const [email, setEmail] = useState('')
   const [sent, setSent] = useState(false)
@@ -18,10 +20,10 @@ export function ForgotPasswordPage() {
     return (
       <div className="logging-in-layout">
         <div className="logging-in-form-wrap">
-          <Link to="/flow/logging-in" className="logging-in-back">← Back</Link>
+          <Link to={flowPath('/flow/logging-in')} className="logging-in-back">← Back</Link>
           <h1 className="logging-in-title">Forgot password?</h1>
           <p className="logging-in-desc">
-            Please enter the email or mobile number you used to register with Airwallex to request a password reset.
+            Please enter the email or mobile number you used to register with {info.displayName} to request a password reset.
           </p>
           <div className="logging-in-success-box">
             <span className="logging-in-success-icon">✓</span>
@@ -31,7 +33,7 @@ export function ForgotPasswordPage() {
             </div>
           </div>
           <Link
-            to="/flow/logging-in/reset-password"
+            to={flowPath('/flow/logging-in/reset-password')}
             className="logging-in-btn-primary"
             style={{ display: 'block', textAlign: 'center', marginTop: 24 }}
           >
@@ -46,10 +48,10 @@ export function ForgotPasswordPage() {
   return (
     <div className="logging-in-layout">
       <div className="logging-in-form-wrap">
-        <Link to="/flow/logging-in" className="logging-in-back">← Back</Link>
+        <Link to={flowPath('/flow/logging-in')} className="logging-in-back">← Back</Link>
         <h1 className="logging-in-title">Forgot password?</h1>
         <p className="logging-in-desc">
-          Please enter the email or mobile number you used to register with Airwallex to request a password reset.
+          Please enter the email or mobile number you used to register with {info.displayName} to request a password reset.
         </p>
         <div className="logging-in-tabs">
           <button

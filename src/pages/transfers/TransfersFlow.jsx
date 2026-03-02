@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import { DashboardHeader } from '../../components/DashboardHeader'
 import '../Dashboard.css'
 import '../SpendGeneralFlow.css'
@@ -9,6 +10,7 @@ const BUSINESS_NAME = 'SLMobbin'
 const EMAIL = 'samlee@content-mobbin.com'
 
 export function TransfersFlow() {
+  const { info } = useCompany()
   const location = useLocation()
   const path = location.pathname
   const isIndex = path === '/flow/transfers' || path.endsWith('/transfers')

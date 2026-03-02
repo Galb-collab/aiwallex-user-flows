@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useOnboarding } from '../context/OnboardingContext'
+import { useCompany } from '../context/CompanyContext'
 import { DashboardHeader } from '../components/DashboardHeader'
 import './Dashboard.css'
 
 export function Dashboard() {
   const { data } = useOnboarding()
+  const { flowPath, info } = useCompany()
   const email = data.email || 'samlee@content-mobbin.com'
   const businessName = data.businessName || 'SLMobbin'
 
@@ -15,33 +17,33 @@ export function Dashboard() {
         <div className="sidebar-org">{businessName}</div>
         <nav className="sidebar-nav">
           <a href="#dashboard" className="active">Dashboard</a>
-          <Link to="/flow/dashboard/adding-funds">Add funds</Link>
+          <Link to={flowPath('/flow/dashboard/adding-funds')}>Add funds</Link>
           <a href="#spend">Spend <span className="tag">New</span></a>
-          <Link to="/flow/billing">Billing <span className="tag">New</span></Link>
-          <Link to="/flow/reports">Reports</Link>
-          <Link to="/flow/settings">Settings</Link>
+          <Link to={flowPath('/flow/billing')}>Billing <span className="tag">New</span></Link>
+          <Link to={flowPath('/flow/reports')}>Reports</Link>
+          <Link to={flowPath('/flow/settings')}>Settings</Link>
         </nav>
         <div className="sidebar-section">
           <div className="sidebar-section-title">{businessName} Account | {businessName}</div>
-          <Link to="/flow/wallet">Wallet</Link>
-          <Link to="/flow/transfers">Transfers</Link>
-          <Link to="/flow/cards">Cards</Link>
-          <Link to="/flow/dashboard/payments">Payments</Link>
-          <Link to="/flow/rewards">Rewards</Link>
+          <Link to={flowPath('/flow/wallet')}>Wallet</Link>
+          <Link to={flowPath('/flow/transfers')}>Transfers</Link>
+          <Link to={flowPath('/flow/cards')}>Cards</Link>
+          <Link to={flowPath('/flow/dashboard/payments')}>Payments</Link>
+          <Link to={flowPath('/flow/rewards')}>Rewards</Link>
           <a href="#developer">Developer</a>
-          <Link to="/flow/rewards/security">Security</Link>
+          <Link to={flowPath('/flow/rewards/security')}>Security</Link>
           <a href="#statements">Statements</a>
         </div>
         <div className="sidebar-footer">
-          <span className="logo-icon small">A</span>
-          <span>AIwallex</span>
+          <span className="logo-icon small" style={{ background: info.primaryColor }}>{info.logoLetter}</span>
+          <span>{info.name}</span>
         </div>
       </aside>
       <div className="dashboard-main">
         <DashboardHeader email={email} />
         <div className="dashboard-content">
           <div className="banner-pending">
-            <p>We just need a few more details from you. Complete these tasks to unlock the full potential of your AIwallex account.</p>
+            <p>We just need a few more details from you. Complete these tasks to unlock the full potential of your {info.name} account.</p>
             <button type="button" className="btn-primary">See pending tasks</button>
           </div>
           <div className="dashboard-cards">
@@ -80,9 +82,9 @@ export function Dashboard() {
             </div>
             <div className="feature-card case-study">
               <span className="card-tag">Case study</span>
-              <h3>AIwallex powers Bird's global payments infrastructure.</h3>
+              <h3>{info.name} powers Bird's global payments infrastructure.</h3>
               <a href="#read" className="card-link">Read more</a>
-              <div className="case-study-logos">Bird · AIwallex</div>
+              <div className="case-study-logos">Bird · {info.name}</div>
             </div>
           </div>
         </div>

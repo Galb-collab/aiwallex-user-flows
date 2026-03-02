@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../bills/BillsFlow.css'
 import './RequestsFlow.css'
 
 export function RequestingASubmission() {
+  const { flowPath } = useCompany()
   return (
     <div className="bills-content">
       <div className="bills-title-row">
@@ -11,7 +13,7 @@ export function RequestingASubmission() {
           <h1 className="bills-page-title">Spend requests</h1>
           <p className="bills-page-subtitle">Create spend requests and manage their progress.</p>
         </div>
-        <Link to="/flow/requests/creating-requests" className="bills-btn bills-btn-primary">+ Create request</Link>
+        <Link to={flowPath('/flow/requests/creating-requests')} className="bills-btn bills-btn-primary">+ Create request</Link>
       </div>
 
       <div className="bills-cards">

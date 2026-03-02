@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import './LoggingInFlow.css'
 
 export function Verify2FAPage() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [code, setCode] = useState('')
   const [rememberBrowser, setRememberBrowser] = useState(false)
 
   const handleContinue = (e) => {
     e.preventDefault()
     if (code.length === 6) {
-      navigate('/flow/dashboard')
+      navigate(flowPath('/flow/dashboard'))
     }
   }
 
@@ -36,7 +38,7 @@ export function Verify2FAPage() {
             />
           </div>
           <div className="logging-in-2fa-actions">
-            <button type="button" className="logging-in-link" onClick={() => navigate('/flow/logging-in')}>
+            <button type="button" className="logging-in-link" onClick={() => navigate(flowPath('/flow/logging-in'))}>
               Choose a different method
             </button>
             <button
