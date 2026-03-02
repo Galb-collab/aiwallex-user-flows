@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const MOCK_API_KEY = 'sk_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+const MOCK_API_KEY = 'awx_demo_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 
 export function CreatingAnApiKeyPage() {
   const [name, setName] = useState('')
