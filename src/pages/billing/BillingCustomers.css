@@ -1,0 +1,327 @@
+.billing-customers-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.billing-customers-subtitle {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  margin: 4px 0 0;
+}
+
+.billing-customers-search {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 14px 10px 36px;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%239ca3af' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E") no-repeat 12px center;
+}
+
+.billing-customers-table-wrap {
+  background: #fff;
+  border: 1px solid var(--psp-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.billing-customers-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.billing-customers-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: var(--psp-text-muted);
+  background: #fafafa;
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.billing-customers-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--psp-border);
+  color: var(--psp-text);
+}
+
+.billing-customers-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.billing-customer-name-link {
+  color: var(--psp-primary);
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+}
+
+.billing-customer-name-link:hover {
+  text-decoration: underline;
+}
+
+.billing-customer-id {
+  font-size: 12px;
+  color: var(--psp-text-muted);
+  margin-top: 2px;
+}
+
+.billing-customer-row-menu {
+  padding: 4px 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--psp-text-muted);
+  line-height: 1;
+}
+
+/* Customer details drawer (shared with CustomerDetails page) */
+.billing-customer-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+.billing-customer-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 480px;
+  max-width: 100%;
+  height: 100%;
+  background: #fff;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.billing-customer-drawer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.billing-customer-drawer-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.billing-customer-drawer-icon {
+  font-size: 24px;
+}
+
+.billing-customer-drawer-label {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  margin: 0;
+}
+
+.billing-customer-drawer-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 2px 0 0;
+  color: var(--psp-text);
+}
+
+.billing-customer-drawer-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.billing-customer-drawer-tab {
+  padding: 14px 4px;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  color: var(--psp-text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.billing-customer-drawer-tab.active {
+  color: var(--psp-primary);
+  font-weight: 600;
+  border-bottom-color: var(--psp-primary);
+}
+
+.billing-customer-drawer-body {
+  padding: 24px;
+  overflow: auto;
+  flex: 1;
+}
+
+.billing-customer-drawer-section {
+  margin-bottom: 24px;
+}
+
+.billing-customer-drawer-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--psp-text);
+  margin: 0 0 12px;
+}
+
+.billing-customer-drawer-dl {
+  margin: 0;
+  font-size: 14px;
+}
+
+.billing-customer-drawer-dl dt {
+  color: var(--psp-text-muted);
+  font-weight: 500;
+  margin: 12px 0 4px;
+}
+
+.billing-customer-drawer-dl dt:first-child {
+  margin-top: 0;
+}
+
+.billing-customer-drawer-dl dd {
+  margin: 0;
+  color: var(--psp-text);
+}
+
+.billing-customer-drawer-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 4px;
+  padding: 2px 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--psp-text-muted);
+}
+
+.billing-customer-drawer-copy:hover {
+  color: var(--psp-primary);
+}
+
+.billing-customer-drawer-empty {
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px dashed var(--psp-border);
+}
+
+.billing-customer-drawer-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid var(--psp-border);
+}
+
+.billing-customer-drawer-create-wrap {
+  position: relative;
+}
+
+.billing-customer-drawer-create-dropdown {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 4px;
+  min-width: 180px;
+  background: #fff;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.billing-customer-drawer-create-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  background: none;
+  text-align: left;
+  font-size: 14px;
+  color: var(--psp-text);
+  cursor: pointer;
+}
+
+.billing-customer-drawer-create-dropdown button:hover,
+.billing-customer-drawer-create-item:hover {
+  background: #f5f5f5;
+  color: var(--psp-primary);
+}
+
+.billing-customer-drawer-create-item {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 14px;
+  color: var(--psp-text);
+  text-decoration: none;
+}
+
+.billing-customers-subscriptions-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.billing-customers-subscriptions-search {
+  flex: 1;
+  min-width: 180px;
+  padding: 8px 12px;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.billing-customers-subscriptions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.billing-customers-subscriptions-table th {
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 600;
+  color: var(--psp-text-muted);
+  background: #fafafa;
+  border: 1px solid var(--psp-border);
+}
+
+.billing-customers-subscriptions-table td {
+  padding: 12px;
+  border: 1px solid var(--psp-border);
+  color: var(--psp-text);
+}
+
+.billing-customers-empty-state {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--psp-text-muted);
+  font-size: 14px;
+}
+
+.billing-customers-empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}

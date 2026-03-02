@@ -1,0 +1,81 @@
+.employee-security-page {
+  max-width: 720px;
+}
+
+.employee-security-card-body h2,
+.employee-profile-card-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--psp-text);
+}
+
+.card-desc {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.employee-security-card-body .card-desc {
+  margin-bottom: 20px;
+}
+
+.employee-2fa-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.employee-2fa-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.employee-2fa-option strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.employee-2fa-option p {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.employee-sessions-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.employee-sessions-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--psp-text-muted);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.employee-sessions-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--psp-border);
+  font-size: 14px;
+}
+
+.employee-session-current {
+  background: #f5f3ff;
+  color: var(--psp-primary);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+}

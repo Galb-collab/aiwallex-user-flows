@@ -1,0 +1,207 @@
+/* Billing Invoices list and detail */
+
+.billing-invoices-toolbar {
+  flex-wrap: wrap;
+}
+
+.billing-invoices-row-selected {
+  background: #faf5ff;
+}
+
+.billing-invoice-customer-name {
+  font-weight: 500;
+  color: var(--psp-text);
+}
+
+.billing-invoice-status-finalised {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.billing-invoice-status-unpaid {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.billing-invoice-status-paid {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #d1fae5;
+  color: #059669;
+}
+
+.billing-invoice-status-voided {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #e5e7eb;
+  color: #6b7280;
+}
+
+.billing-invoice-drawer .billing-customer-drawer-name {
+  margin-bottom: 8px;
+}
+
+.billing-invoice-drawer-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.billing-invoice-drawer-billed {
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: var(--psp-text);
+}
+
+.billing-invoice-marked-paid {
+  color: var(--psp-text-muted);
+  font-weight: 500;
+}
+
+.billing-invoice-line-items {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.billing-invoice-line-items th {
+  text-align: left;
+  padding: 8px 0;
+  font-weight: 600;
+  color: var(--psp-text-muted);
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.billing-invoice-line-items td {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--psp-border);
+  color: var(--psp-text);
+}
+
+.billing-invoice-summary {
+  padding-top: 8px;
+}
+
+.billing-invoice-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 4px 0;
+  color: var(--psp-text);
+}
+
+.billing-invoice-summary-total {
+  font-weight: 700;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--psp-border);
+}
+
+.billing-invoice-drawer-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.billing-invoice-manage-wrap {
+  position: relative;
+}
+
+.billing-invoice-manage-dropdown {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 8px;
+  min-width: 220px;
+  background: #fff;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.billing-invoice-manage-item {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  background: none;
+  text-align: left;
+  font-size: 14px;
+  color: var(--psp-text);
+  cursor: pointer;
+}
+
+.billing-invoice-manage-item:hover {
+  background: #f5f5f5;
+  color: var(--psp-primary);
+}
+
+/* Mark as paid confirmation modal (reuse deactivate modal pattern) */
+.billing-invoices .billing-deactivate-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.billing-invoices .billing-deactivate-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 440px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+}
+
+.billing-invoices .billing-deactivate-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.billing-invoices .billing-deactivate-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--psp-text);
+}
+
+.billing-invoices .billing-deactivate-modal-message {
+  margin: 0;
+  padding: 24px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--psp-text);
+}
+
+.billing-invoices .billing-deactivate-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid var(--psp-border);
+}

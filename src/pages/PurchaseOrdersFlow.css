@@ -1,0 +1,264 @@
+/* Purchase orders – Grow feature page, Purchase orders sidebar active */
+
+.purchase-orders-flow .po-content {
+  flex: 1;
+  padding: 32px;
+  max-width: 1200px;
+}
+
+/* Sidebar: Purchase orders sub-item active */
+.purchase-orders-flow .sidebar-sub a.active {
+  background: var(--psp-accent);
+  color: #fff;
+}
+
+.purchase-orders-flow .sidebar-nav-item.active-wrap a:first-of-type {
+  color: rgba(255, 255, 255, 0.9);
+  background: transparent;
+}
+
+/* Header with Grow banner */
+.po-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  border-bottom: 1px solid var(--psp-border);
+  background: #fff;
+}
+
+.po-grow-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #fef3c7;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #92400e;
+}
+
+.po-grow-icon {
+  font-size: 16px;
+}
+
+/* Hero */
+.po-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--psp-text);
+}
+
+.po-subtitle {
+  font-size: 17px;
+  color: var(--psp-text-muted);
+  line-height: 1.5;
+  margin: 0 0 28px;
+  max-width: 640px;
+}
+
+.po-upgrade-btn {
+  padding: 14px 28px;
+  background: var(--psp-primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 48px;
+}
+
+.po-upgrade-btn:hover {
+  background: var(--psp-primary-hover);
+}
+
+/* Feature cards grid */
+.po-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.po-feature-card {
+  background: #fff;
+  border: 1px solid var(--psp-border);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+}
+
+.po-feature-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: var(--psp-text);
+}
+
+.po-feature-desc {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  line-height: 1.5;
+  margin: 0 0 14px;
+}
+
+.po-feature-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--psp-primary);
+}
+
+.po-feature-link:hover {
+  text-decoration: underline;
+}
+
+.po-feature-preview {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--psp-border);
+}
+
+/* Preview card (Track company spend) */
+.po-preview-card {
+  background: #f9fafb;
+  border: 1px solid var(--psp-border);
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 13px;
+}
+
+.po-preview-title {
+  font-weight: 600;
+  color: var(--psp-text);
+  margin-bottom: 6px;
+}
+
+.po-preview-total {
+  color: var(--psp-text-muted);
+  margin-bottom: 10px;
+}
+
+.po-preview-badges {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.po-preview-paid {
+  color: #059669;
+  font-weight: 500;
+}
+
+.po-preview-pending {
+  color: #d97706;
+  font-weight: 500;
+}
+
+.po-preview-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.po-preview-table th {
+  text-align: left;
+  padding: 6px 8px;
+  font-weight: 600;
+  color: var(--psp-text-muted);
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.po-preview-table td {
+  padding: 8px;
+  border-bottom: 1px solid var(--psp-border);
+  color: var(--psp-text);
+}
+
+.po-preview-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Simple preview (Track planned vs. actual, Match line items) */
+.po-preview-simple {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px;
+  background: #f9fafb;
+  border: 1px solid var(--psp-border);
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.po-preview-id {
+  font-weight: 600;
+  color: var(--psp-text);
+}
+
+.po-preview-amount {
+  font-weight: 600;
+  color: var(--psp-text);
+}
+
+.po-preview-label {
+  font-size: 12px;
+  color: var(--psp-text-muted);
+}
+
+.po-preview-match {
+  max-width: 160px;
+}
+
+/* NetSuite sync preview */
+.po-preview-sync {
+  padding: 14px;
+  background: #f9fafb;
+  border: 1px solid var(--psp-border);
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.po-preview-row {
+  padding: 6px 0;
+  color: var(--psp-text);
+}
+
+.po-status {
+  margin-left: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--psp-primary);
+  background: #f5f3ff;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.po-preview-synced {
+  font-size: 12px;
+  color: var(--psp-text-muted);
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--psp-border);
+}
+
+@media (max-width: 900px) {
+  .po-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .po-content {
+    padding: 24px 20px;
+  }
+  .po-title {
+    font-size: 26px;
+  }
+  .po-header {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 20px;
+  }
+}

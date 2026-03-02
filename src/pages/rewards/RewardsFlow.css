@@ -1,0 +1,43 @@
+/* Rewards flow */
+.rewards-flow .dashboard-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.rewards-flow .rewards-flow-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--psp-border);
+  background: #fff;
+}
+
+.rewards-content {
+  flex: 1;
+  overflow: auto;
+}
+
+.rewards-flow .rewards-content .wallet-content {
+  padding: 24px 32px;
+}
+
+.rewards-flow .sidebar-sub a.active {
+  background: var(--psp-accent);
+  color: #fff;
+}
+
+.rewards-flow .global-accounts-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.rewards-flow .global-accounts-desc {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  margin: 8px 0 0;
+}

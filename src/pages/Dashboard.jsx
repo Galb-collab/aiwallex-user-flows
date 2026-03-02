@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useOnboarding } from '../context/OnboardingContext'
+import { DashboardHeader } from '../components/DashboardHeader'
 import './Dashboard.css'
 
 export function Dashboard() {
   const { data } = useOnboarding()
-  const email = data.email || 'user@example.com'
+  const email = data.email || 'samlee@content-mobbin.com'
   const businessName = data.businessName || 'SLMobbin'
 
   return (
@@ -13,20 +15,21 @@ export function Dashboard() {
         <div className="sidebar-org">{businessName}</div>
         <nav className="sidebar-nav">
           <a href="#dashboard" className="active">Dashboard</a>
+          <Link to="/flow/dashboard/adding-funds">Add funds</Link>
           <a href="#spend">Spend <span className="tag">New</span></a>
-          <a href="#billing">Billing <span className="tag">New</span></a>
-          <a href="#reports">Reports</a>
-          <a href="#settings">Settings</a>
+          <Link to="/flow/billing">Billing <span className="tag">New</span></Link>
+          <Link to="/flow/reports">Reports</Link>
+          <Link to="/flow/settings">Settings</Link>
         </nav>
         <div className="sidebar-section">
           <div className="sidebar-section-title">{businessName} Account | {businessName}</div>
-          <a href="#wallet">Wallet</a>
-          <a href="#transfers">Transfers</a>
-          <a href="#cards">Cards</a>
-          <a href="#payments">Payments</a>
-          <a href="#rewards">Rewards</a>
+          <Link to="/flow/wallet">Wallet</Link>
+          <Link to="/flow/transfers">Transfers</Link>
+          <Link to="/flow/cards">Cards</Link>
+          <Link to="/flow/dashboard/payments">Payments</Link>
+          <Link to="/flow/rewards">Rewards</Link>
           <a href="#developer">Developer</a>
-          <a href="#security">Security</a>
+          <Link to="/flow/rewards/security">Security</Link>
           <a href="#statements">Statements</a>
         </div>
         <div className="sidebar-footer">
@@ -35,12 +38,7 @@ export function Dashboard() {
         </div>
       </aside>
       <div className="dashboard-main">
-        <header className="dashboard-header">
-          <div className="dashboard-header-right">
-            <span className="user-email">{email}</span>
-            <div className="user-avatar" />
-          </div>
-        </header>
+        <DashboardHeader email={email} />
         <div className="dashboard-content">
           <div className="banner-pending">
             <p>We just need a few more details from you. Complete these tasks to unlock the full potential of your AIwallex account.</p>

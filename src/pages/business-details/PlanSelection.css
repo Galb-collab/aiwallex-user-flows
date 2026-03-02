@@ -1,0 +1,145 @@
+.plan-selection-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.plan-selection-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 48px;
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.plan-selection-header .bd-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.plan-selection-header .bd-close {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 8px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.plan-selection-content {
+  flex: 1;
+  padding: 40px 48px 80px;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.plan-selection-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+.plan-selection-desc {
+  font-size: 15px;
+  color: var(--psp-text-muted);
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.plan-selection-note {
+  font-size: 13px;
+  color: var(--psp-text-muted);
+  margin: 0 0 32px;
+}
+
+.plan-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.plan-card {
+  position: relative;
+  padding: 28px;
+  border: 2px solid var(--psp-border);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.plan-card.selected {
+  border-color: var(--psp-primary);
+}
+
+.plan-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, var(--psp-accent), #ff8c42);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px;
+  text-align: center;
+  border-radius: 14px 14px 0 0;
+  margin: -2px -2px 0 -2px;
+}
+
+.plan-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.plan-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.plan-desc {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  margin: 0 0 16px;
+  line-height: 1.4;
+}
+
+.plan-price {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 20px;
+}
+
+.plan-cta {
+  width: 100%;
+  padding: 12px;
+  background: var(--psp-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.plan-cta:hover {
+  background: var(--psp-primary-hover);
+}
+
+.plan-note {
+  font-size: 12px;
+  color: var(--psp-text-muted);
+  margin: 12px 0 0;
+}
+
+@media (max-width: 900px) {
+  .plan-cards {
+    grid-template-columns: 1fr;
+  }
+}

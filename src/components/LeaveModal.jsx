@@ -1,10 +1,11 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useOnboarding } from '../context/OnboardingContext'
 import './LeaveModal.css'
 
 export function LeaveModal() {
   const navigate = useNavigate()
+  const location = useLocation()
   const { setShowLeaveModal, goToStep, FLOW_STEPS } = useOnboarding()
 
   const handleContinue = () => {
@@ -14,7 +15,8 @@ export function LeaveModal() {
   const handleLeave = () => {
     setShowLeaveModal(false)
     goToStep(FLOW_STEPS.DASHBOARD)
-    navigate('/dashboard')
+    const dashboardPath = location.pathname.replace(/\/onboarding.*$/, '/dashboard')
+    navigate(dashboardPath)
   }
 
   return (

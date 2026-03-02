@@ -1,0 +1,27 @@
+.billing-subscriptions-toolbar {
+  flex-wrap: wrap;
+}
+
+.billing-subscriptions-empty {
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.billing-subscriptions-empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.6;
+}
+
+.billing-subscriptions-empty-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--psp-text);
+  margin: 0 0 8px;
+}
+
+.billing-subscriptions-empty-desc {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  margin: 0 0 20px;
+}

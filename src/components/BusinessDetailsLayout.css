@@ -1,0 +1,138 @@
+.business-details-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f9fafb;
+}
+
+.bd-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #fff;
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.bd-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--psp-text);
+}
+
+.bd-close {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 8px;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--psp-text);
+  cursor: pointer;
+}
+
+.bd-close:hover {
+  background: #e5e7eb;
+}
+
+.bd-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.bd-sidebar {
+  width: 260px;
+  padding: 24px 0;
+  background: #fff;
+  border-right: 1px solid var(--psp-border);
+}
+
+.bd-sidebar-section {
+  padding: 0 20px 16px;
+}
+
+.bd-sidebar-section-header {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--psp-text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bd-sidebar-section.completed .bd-sidebar-section-header {
+  color: var(--psp-text-muted);
+}
+
+.bd-sidebar-section.active .bd-sidebar-section-header {
+  color: var(--psp-primary);
+}
+
+.bd-check {
+  color: #059669;
+  font-size: 16px;
+}
+
+.bd-sidebar-steps {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0 0 0 24px;
+  font-size: 13px;
+  color: var(--psp-text-muted);
+}
+
+.bd-sidebar-steps li.active {
+  color: var(--psp-primary);
+  font-weight: 600;
+}
+
+.bd-sidebar-steps li.completed {
+  color: var(--psp-text-muted);
+}
+
+.bd-main {
+  flex: 1;
+  padding: 32px 48px 80px;
+  overflow: auto;
+  max-width: 640px;
+}
+
+.bd-footer {
+  padding: 16px 48px;
+  background: var(--psp-footer);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.bd-footer .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--psp-accent), #ff8c42);
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.logo-icon.small {
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+}

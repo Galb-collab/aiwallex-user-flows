@@ -1,0 +1,344 @@
+.remove-uploaded-file-flow {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f9fafb;
+}
+
+.remove-uploaded-file-flow .logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--psp-accent, #E85D04), #ff8c42);
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.remove-uploaded-file-flow .logo-icon.small {
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+}
+
+.remove-uploaded-file-flow .business-details-step-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--psp-text);
+}
+
+.remove-uploaded-file-flow .form-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: var(--psp-text);
+}
+
+.remove-uploaded-file-flow .form-note {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+.remove-uploaded-file-flow .form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--psp-text);
+}
+
+.remove-uploaded-file-flow .form-group input,
+.remove-uploaded-file-flow .form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.remove-uploaded-file-flow .bd-footer {
+  padding: 16px 48px;
+  background: var(--psp-footer, #2d2d2d);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.remove-uploaded-file-flow .bd-footer .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ruf-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #fff;
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.ruf-header .bd-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--psp-text);
+}
+
+.ruf-header .bd-close {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 8px;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--psp-text);
+  cursor: pointer;
+}
+
+.ruf-main {
+  flex: 1;
+  padding: 32px 48px 80px;
+}
+
+.ruf-form {
+  max-width: 640px;
+}
+
+.uploaded-file-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  background: #f9fafb;
+  margin-bottom: 12px;
+}
+
+.uploaded-file-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.file-icon {
+  font-size: 28px;
+}
+
+.file-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--psp-text);
+}
+
+.file-meta {
+  font-size: 13px;
+  color: var(--psp-text-muted);
+  margin-top: 2px;
+}
+
+.uploaded-file-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.file-action-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--psp-border);
+}
+
+.file-action-btn:hover {
+  background: #f5f3ff;
+  border-color: var(--psp-primary);
+}
+
+.file-action-remove:hover {
+  background: #fef2f2;
+  border-color: #dc2626;
+}
+
+.btn-upload-secondary {
+  margin-top: 0;
+  background: none;
+  border: none;
+  color: var(--psp-primary);
+  font-weight: 600;
+  padding: 0;
+  cursor: pointer;
+}
+
+.form-required {
+  font-size: 13px;
+  color: #dc2626;
+  margin: 8px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Remove file modal */
+.ruf-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+.ruf-modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 440px;
+  width: 100%;
+  position: relative;
+}
+
+.ruf-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 6px;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--psp-text);
+}
+
+.ruf-modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--psp-text);
+}
+
+.ruf-modal-text {
+  font-size: 15px;
+  color: var(--psp-text-muted);
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+.ruf-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.ruf-modal-btn-secondary {
+  padding: 10px 20px;
+  background: #fff;
+  border: none;
+  color: var(--psp-primary);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.ruf-modal-btn-secondary:hover {
+  background: #f5f3ff;
+}
+
+.ruf-modal-btn-primary {
+  padding: 10px 20px;
+  background: var(--psp-primary);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.ruf-modal-btn-primary:hover {
+  background: var(--psp-primary-hover);
+}
+
+.remove-uploaded-file-flow .bd-footer {
+  margin-top: auto;
+}
+
+.remove-uploaded-file-flow .form-section,
+.remove-uploaded-file-flow .form-group,
+.remove-uploaded-file-flow .form-actions {
+  margin-bottom: 20px;
+}
+
+.remove-uploaded-file-flow .form-actions {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.remove-uploaded-file-flow .form-actions .btn-outline {
+  margin-left: auto;
+  padding: 12px 24px;
+  background: #fff;
+  color: var(--psp-primary);
+  border: 2px solid var(--psp-primary);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.remove-uploaded-file-flow .btn-upload {
+  padding: 12px 24px;
+  background: #fff;
+  border: 2px solid var(--psp-primary);
+  color: var(--psp-primary);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.remove-uploaded-file-flow .btn-back,
+.remove-uploaded-file-flow .btn-save-next {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.remove-uploaded-file-flow .btn-back {
+  background: #fff;
+  color: var(--psp-primary);
+  border: 2px solid var(--psp-primary);
+}
+
+.remove-uploaded-file-flow .btn-save-next {
+  background: var(--psp-primary);
+  color: #fff;
+  border: none;
+}

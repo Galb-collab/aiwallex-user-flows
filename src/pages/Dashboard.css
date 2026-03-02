@@ -119,7 +119,18 @@
 .dashboard-header-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+}
+
+.dashboard-back-flows {
+  color: var(--psp-primary);
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.dashboard-back-flows:hover {
+  text-decoration: underline;
 }
 
 .user-email {

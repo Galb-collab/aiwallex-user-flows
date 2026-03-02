@@ -1,0 +1,70 @@
+/* Payments flow */
+.payments-flow .dashboard-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.payments-flow .payments-flow-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--psp-border);
+  background: #fff;
+}
+
+.payments-content {
+  flex: 1;
+  overflow: auto;
+}
+
+.payments-flow .payments-content .wallet-content {
+  padding: 24px 32px;
+}
+
+.payments-flow .sidebar-sub a.active {
+  background: var(--psp-accent);
+  color: #fff;
+}
+
+/* Global accounts layout (used in Payments index) */
+.payments-flow .global-accounts-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.payments-flow .global-accounts-desc {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  margin: 8px 0 0;
+}
+
+.payments-flow .global-accounts-status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.payments-flow .global-accounts-status-active { background: #d1fae5; color: #059669; }
+.payments-flow .global-accounts-status-pending { background: #fef3c7; color: #b45309; }
+.payments-flow .global-accounts-status-inactive { background: #f3f4f6; color: #6b7280; }
+.payments-flow .global-accounts-status-paid { background: #d1fae5; color: #059669; }
+.payments-flow .global-accounts-status-expired { background: #fee2e2; color: #dc2626; }
+
+.payments-flow .cards-toast-success,
+.payments-flow-content .cards-toast-success {
+  padding: 14px 24px;
+  background: #059669;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+}

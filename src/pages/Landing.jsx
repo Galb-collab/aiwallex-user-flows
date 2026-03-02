@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useOnboarding } from '../context/OnboardingContext'
 import './Landing.css'
 
@@ -13,7 +13,7 @@ export function Landing() {
     if (!email.trim()) return
     updateData({ landingEmail: email.trim(), email: email.trim() })
     goToStep(FLOW_STEPS.COMPANY_SIZE)
-    navigate('/onboarding')
+    navigate('onboarding')
   }
 
   return (
@@ -22,10 +22,13 @@ export function Landing() {
         Limited offer — Earn 10% cashback with AIwallex cards. <button type="button">Claim offer</button>
       </div>
       <header className="landing-header">
-        <span className="logo">
-          <span className="logo-icon">A</span>
-          AIwallex
-        </span>
+        <div className="landing-header-left">
+          <Link to="/" className="back-to-flows">← Flows</Link>
+          <span className="logo">
+            <span className="logo-icon">A</span>
+            AIwallex
+          </span>
+        </div>
         <nav>
           <a href="#products">Products</a>
           <a href="#solutions">Solutions</a>
@@ -34,7 +37,7 @@ export function Landing() {
           <a href="#company">Company</a>
         </nav>
         <div className="landing-actions">
-          <button type="button" className="btn-ghost">Log in</button>
+          <Link to="/flow/logging-in" className="btn-ghost">Log in</Link>
           <button type="button" className="btn-primary">See a demo</button>
         </div>
       </header>

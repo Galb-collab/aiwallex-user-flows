@@ -1,0 +1,26 @@
+.employee-profile-placeholder {
+  max-width: 720px;
+}
+
+.employee-profile-placeholder-content {
+  padding: 48px 0;
+  text-align: center;
+}
+
+.employee-profile-placeholder-content h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--psp-text);
+}
+
+.employee-profile-placeholder-content p {
+  font-size: 16px;
+  color: var(--psp-text-muted);
+  margin: 0 0 24px;
+}
+
+.employee-profile-placeholder-back {
+  color: var(--psp-primary);
+  font-weight: 500;
+}

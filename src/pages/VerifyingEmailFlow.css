@@ -1,0 +1,316 @@
+/* Verifying an email flow */
+
+.verifying-email-flow {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f9fafb;
+}
+
+.vem-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #fff;
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.vem-header .bd-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--psp-text);
+}
+
+.vem-header .bd-close {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 8px;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--psp-text);
+  cursor: pointer;
+}
+
+.vem-header .bd-close:hover {
+  background: #e5e7eb;
+}
+
+.vem-main {
+  flex: 1;
+  padding: 32px 48px 80px;
+  overflow: auto;
+}
+
+.verifying-email-flow .logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--psp-accent), #ff8c42);
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.verifying-email-flow .logo-icon.small {
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+}
+
+/* Review step */
+.vem-review {
+  max-width: 640px;
+}
+
+.vem-review-illus {
+  position: relative;
+  height: 100px;
+  margin-bottom: 24px;
+}
+
+.vem-illus-doc {
+  font-size: 56px;
+  opacity: 0.9;
+}
+
+.vem-illus-magnifier {
+  position: absolute;
+  top: 16px;
+  left: 72px;
+  font-size: 40px;
+}
+
+.vem-email-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: var(--psp-text);
+}
+
+.vem-warning-icon {
+  font-size: 20px;
+  color: #d97706;
+}
+
+.vem-resend-btn {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--psp-text);
+}
+
+.vem-resend-btn:hover {
+  background: #f5f5f5;
+}
+
+.vem-email-success {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: var(--psp-text);
+}
+
+.vem-success-icon {
+  font-size: 20px;
+  color: #059669;
+  font-weight: bold;
+}
+
+.vem-success-sub {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--psp-text-muted);
+}
+
+.vem-wait-btn {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  background: #f3f4f6;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  cursor: default;
+}
+
+.vem-wait-btn:not(:disabled) {
+  background: #fff;
+  color: var(--psp-primary);
+  cursor: pointer;
+}
+
+.vem-wait-btn:not(:disabled):hover {
+  background: #f5f3ff;
+}
+
+.vem-verified-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  background: none;
+  border: none;
+  color: var(--psp-primary);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.vem-verified-link:hover {
+  text-decoration: underline;
+}
+
+.vem-details-card {
+  background: #fff;
+  border: 1px solid var(--psp-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+.vem-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  color: var(--psp-text);
+}
+
+.vem-detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.vem-detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.vem-detail-label {
+  font-size: 13px;
+  color: var(--psp-text-muted);
+}
+
+.vem-detail-value {
+  font-size: 15px;
+  color: var(--psp-text);
+}
+
+.vem-detail-value.vem-readonly {
+  background: #f3f4f6;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: var(--psp-text-muted);
+}
+
+/* Verified step */
+.vem-verified {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding: 24px 0;
+}
+
+.vem-verified-content {
+  flex: 1;
+}
+
+.vem-verified-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--psp-text);
+}
+
+.vem-verified-desc {
+  font-size: 16px;
+  color: var(--psp-text-muted);
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.vem-dashboard-btn {
+  padding: 14px 28px;
+  background: var(--psp-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.vem-dashboard-btn:hover {
+  background: var(--psp-primary-hover);
+}
+
+.vem-verified-illus {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.vem-mailbox {
+  font-size: 120px;
+  display: block;
+  opacity: 0.9;
+}
+
+.vem-check {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background: #059669;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verifying-email-flow .bd-footer {
+  padding: 16px 48px;
+  background: var(--psp-footer);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-top: auto;
+}
+
+.verifying-email-flow .bd-footer .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}

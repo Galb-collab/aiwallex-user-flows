@@ -1,0 +1,132 @@
+.billing-settings-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.billing-settings-tab {
+  padding: 12px 4px;
+  border: none;
+  background: none;
+  font-size: 15px;
+  color: var(--psp-text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.billing-settings-tab.active {
+  color: var(--psp-primary);
+  font-weight: 600;
+  border-bottom-color: var(--psp-primary);
+}
+
+.billing-settings-section {
+  background: #fff;
+  border: 1px solid var(--psp-border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.billing-settings-section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.billing-settings-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--psp-text);
+}
+
+.billing-settings-section-desc {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.billing-settings-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.billing-settings-dl {
+  margin: 0;
+  font-size: 14px;
+}
+
+.billing-settings-dl dt {
+  color: var(--psp-text-muted);
+  font-weight: 500;
+  margin: 12px 0 4px;
+}
+
+.billing-settings-dl dt:first-child {
+  margin-top: 0;
+}
+
+.billing-settings-dl dd {
+  margin: 0;
+  color: var(--psp-text);
+}
+
+.billing-settings-value {
+  margin: 0;
+  font-size: 14px;
+  color: var(--psp-text);
+}
+
+.billing-settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 480px;
+}
+
+.billing-settings-field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--psp-text);
+  margin-bottom: 8px;
+}
+
+.billing-settings-field select,
+.billing-settings-field input,
+.billing-settings-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.billing-settings-field-inline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--psp-text);
+}
+
+.billing-settings-hint {
+  font-size: 13px;
+  color: var(--psp-text-muted);
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+.billing-settings-placeholder {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  margin: 0;
+}

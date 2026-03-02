@@ -1,0 +1,114 @@
+/* Creating a customer form */
+
+.billing-create-customer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.billing-create-customer-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--psp-text);
+}
+
+.billing-create-customer-progress {
+  height: 4px;
+  background: linear-gradient(90deg, var(--psp-primary) 30%, #e5e7eb 30%);
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+
+.billing-create-customer-form {
+  max-width: 560px;
+}
+
+.billing-create-customer-section {
+  margin-bottom: 32px;
+}
+
+.billing-create-customer-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--psp-text);
+}
+
+.billing-create-customer-section-desc {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.billing-form-field {
+  margin-bottom: 16px;
+}
+
+.billing-form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--psp-text);
+  margin-bottom: 8px;
+}
+
+.billing-form-radios {
+  display: flex;
+  gap: 24px;
+}
+
+.billing-form-radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--psp-text);
+  cursor: pointer;
+}
+
+.billing-form-radio input {
+  accent-color: var(--psp-primary);
+}
+
+.billing-form-hint {
+  font-size: 12px;
+  color: var(--psp-text-muted);
+  margin: 4px 0 0;
+}
+
+.billing-create-customer-accordion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  margin: 0 0 4px;
+}
+
+.billing-create-customer-accordion .billing-create-customer-section-title {
+  margin: 0;
+}
+
+.billing-create-customer-chevron {
+  font-size: 12px;
+  color: var(--psp-text-muted);
+}
+
+.billing-create-customer-additional {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--psp-border);
+}
+
+.billing-create-customer-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}

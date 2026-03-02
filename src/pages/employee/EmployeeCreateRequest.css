@@ -1,0 +1,118 @@
+.employee-create-request {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.employee-create-request-header {
+  padding: 24px 48px;
+  border-bottom: 1px solid var(--psp-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.employee-create-request-flows {
+  color: var(--psp-primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.employee-create-request-flows:hover {
+  text-decoration: underline;
+}
+
+.employee-create-request-header .employee-create-request-brand {
+  flex: 1;
+}
+
+.employee-create-request-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--psp-text);
+}
+
+.employee-create-request-close {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--psp-primary);
+  text-decoration: none;
+  border-radius: 8px;
+  background: #f3f4f6;
+}
+
+.employee-create-request-main {
+  flex: 1;
+  padding: 48px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.employee-create-request-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 32px;
+  color: var(--psp-text);
+}
+
+.employee-create-request-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.employee-create-request-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px;
+  background: #fff;
+  border: 2px solid var(--psp-border);
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.employee-create-request-option:hover {
+  border-color: var(--psp-primary);
+  background: #faf5ff;
+}
+
+.option-icon {
+  font-size: 40px;
+  flex-shrink: 0;
+}
+
+.option-content h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--psp-text);
+}
+
+.option-content p {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.employee-create-request-footer {
+  padding: 16px 48px;
+  background: var(--psp-footer);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}

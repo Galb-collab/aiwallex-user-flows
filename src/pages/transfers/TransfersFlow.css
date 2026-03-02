@@ -1,0 +1,30 @@
+/* Transfers flow */
+.transfers-flow .dashboard-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.transfers-flow .transfers-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--psp-border);
+  background: #fff;
+}
+
+.transfers-content {
+  flex: 1;
+  overflow: auto;
+}
+
+.transfers-flow .transfers-content .wallet-content {
+  padding: 24px 32px;
+}
+
+.transfers-flow .scheduling-transfer-card.selected,
+.transfers-flow .conversions-card.selected {
+  border-color: var(--psp-primary);
+  background: #f0fdf4;
+}

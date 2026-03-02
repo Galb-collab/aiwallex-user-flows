@@ -1,0 +1,523 @@
+/* Submitting application flow */
+
+.submitting-application-flow {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f9fafb;
+}
+
+.sub-app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #fff;
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.sub-app-header .bd-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--psp-text);
+}
+
+.sub-app-header .bd-close {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 8px;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--psp-text);
+  cursor: pointer;
+}
+
+.sub-app-header .bd-close:hover {
+  background: #e5e7eb;
+}
+
+.sub-app-main {
+  flex: 1;
+  padding: 32px 48px 80px;
+  overflow: auto;
+}
+
+.sub-app-main .logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--psp-accent), #ff8c42);
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.sub-app-main .logo-icon.small {
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+}
+
+/* Review step */
+.sub-app-review {
+  max-width: 640px;
+}
+
+.sub-app-review-illus {
+  position: relative;
+  height: 120px;
+  margin-bottom: 24px;
+}
+
+.sub-app-illus-doc {
+  font-size: 64px;
+  opacity: 0.9;
+}
+
+.sub-app-illus-magnifier {
+  position: absolute;
+  top: 20px;
+  left: 80px;
+  font-size: 48px;
+}
+
+.sub-app-email-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: var(--psp-text);
+}
+
+.sub-app-warning-icon {
+  font-size: 20px;
+}
+
+.sub-app-resend-btn {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--psp-primary);
+}
+
+.sub-app-resend-btn:hover {
+  background: #f5f3ff;
+}
+
+.sub-app-details-card {
+  background: #fff;
+  border: 1px solid var(--psp-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+}
+
+.sub-app-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  color: var(--psp-text);
+}
+
+.sub-app-detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.sub-app-detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.sub-app-detail-label {
+  font-size: 13px;
+  color: var(--psp-text-muted);
+}
+
+.sub-app-detail-value {
+  font-size: 15px;
+  color: var(--psp-text);
+}
+
+.sub-app-detail-value.input-readonly {
+  background: #f3f4f6;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: var(--psp-text-muted);
+}
+
+/* Submit step */
+.sub-app-submit {
+  max-width: 640px;
+}
+
+.sub-app-advisory {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #f9fafb;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--psp-text);
+}
+
+.sub-app-advisory-icon {
+  font-size: 18px;
+}
+
+.sub-app-advisory-text {
+  flex: 1;
+}
+
+.sub-app-advisory-chevron {
+  color: var(--psp-primary);
+  font-size: 12px;
+}
+
+.sub-app-upload-zone {
+  border: 2px dashed var(--psp-border);
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  margin-bottom: 24px;
+  background: #fff;
+}
+
+.sub-app-upload-zone:hover {
+  border-color: var(--psp-primary);
+  background: #faf5ff;
+}
+
+.sub-app-upload-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.sub-app-upload-label {
+  display: block;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--psp-text);
+  margin-bottom: 4px;
+}
+
+.sub-app-upload-hint {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  margin: 0 0 12px;
+}
+
+.sub-app-choose-file {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--psp-primary);
+  cursor: pointer;
+}
+
+.sub-app-choose-file input {
+  display: none;
+}
+
+.sub-app-upload-specs {
+  font-size: 13px;
+  color: var(--psp-text-muted);
+  margin: 12px 0 0;
+}
+
+.sub-app-file-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: var(--psp-text-muted);
+}
+
+.sub-app-file-list li {
+  padding: 6px 0;
+}
+
+.sub-app-checkboxes {
+  margin-bottom: 24px;
+}
+
+.sub-app-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  color: var(--psp-text);
+  margin-bottom: 16px;
+}
+
+.sub-app-checkbox-label input {
+  margin-top: 4px;
+  accent-color: var(--psp-primary);
+}
+
+.sub-app-checkbox-label .link-terms {
+  color: var(--psp-primary);
+  text-decoration: none;
+}
+
+.sub-app-checkbox-label .link-terms:hover {
+  text-decoration: underline;
+}
+
+.sub-app-signature {
+  margin-bottom: 28px;
+}
+
+.sub-app-signature-wrap {
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.sub-app-signature-canvas {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: 180px;
+  cursor: crosshair;
+}
+
+.sub-app-signature-ack {
+  font-size: 13px;
+  color: var(--psp-text-muted);
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.sub-app-clear-sig {
+  background: none;
+  border: none;
+  color: var(--psp-primary);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.sub-app-clear-sig:hover {
+  text-decoration: underline;
+}
+
+.sub-app-submit .form-actions .btn-save-next:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Thank you step */
+.sub-app-thankyou {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 24px 0;
+}
+
+.sub-app-thankyou-rocket {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.sub-app-thankyou-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 32px;
+  color: var(--psp-text);
+}
+
+.sub-app-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 32px;
+}
+
+.sub-app-progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.sub-app-progress-dot {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--psp-border);
+  background: #fff;
+}
+
+.sub-app-progress-step.completed .sub-app-progress-dot,
+.sub-app-progress-step.in-review .sub-app-progress-dot {
+  background: #059669;
+  border-color: #059669;
+}
+
+.sub-app-progress-step.completed .sub-app-progress-dot::after,
+.sub-app-progress-step.in-review .sub-app-progress-dot::after {
+  content: '✓';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.sub-app-progress-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--psp-text);
+}
+
+.sub-app-progress-status {
+  font-size: 12px;
+  color: var(--psp-text-muted);
+}
+
+.sub-app-progress-line {
+  width: 60px;
+  height: 2px;
+  background: var(--psp-border);
+}
+
+.sub-app-progress-line.completed {
+  background: #059669;
+}
+
+.sub-app-review-card {
+  background: #fff;
+  border: 1px solid var(--psp-border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.sub-app-review-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--psp-text);
+}
+
+.sub-app-review-card-desc {
+  font-size: 15px;
+  color: var(--psp-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.sub-app-dashboard-btn {
+  padding: 14px 32px;
+  background: var(--psp-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 48px;
+}
+
+.sub-app-dashboard-btn:hover {
+  background: var(--psp-primary-hover);
+}
+
+.sub-app-offerings {
+  text-align: left;
+}
+
+.sub-app-offerings-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  color: var(--psp-text);
+}
+
+.sub-app-offering-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border: 1px solid var(--psp-border);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--psp-text);
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.sub-app-offering-card:hover {
+  border-color: var(--psp-primary);
+  background: #faf5ff;
+}
+
+.sub-app-offering-icon {
+  font-size: 32px;
+}
+
+.sub-app-offering-text {
+  flex: 1;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.sub-app-offering-link-icon {
+  font-size: 14px;
+  color: var(--psp-primary);
+}
+
+.submitting-application-flow .bd-footer {
+  padding: 16px 48px;
+  background: var(--psp-footer);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-top: auto;
+}
+
+.submitting-application-flow .bd-footer .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}

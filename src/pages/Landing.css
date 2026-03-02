@@ -30,6 +30,22 @@
   border-bottom: 1px solid var(--psp-border);
 }
 
+.landing-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.back-to-flows {
+  font-size: 14px;
+  color: var(--psp-primary);
+  text-decoration: none;
+}
+
+.back-to-flows:hover {
+  text-decoration: underline;
+}
+
 .landing-header .logo {
   display: flex;
   align-items: center;

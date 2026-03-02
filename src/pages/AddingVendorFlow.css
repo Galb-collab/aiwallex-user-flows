@@ -1,0 +1,212 @@
+/* Adding a vendor flow – Vendors active, add-bill context, Create vendor modal */
+
+.adding-vendor-flow .sidebar-sub a.active {
+  background: var(--psp-accent);
+  color: #fff;
+}
+
+.adding-vendor-flow .sidebar-nav-item.active-wrap a:first-of-type {
+  color: rgba(255, 255, 255, 0.9);
+  background: transparent;
+}
+
+.adding-vendor-add-body {
+  position: relative;
+}
+
+.adding-vendor-preview {
+  opacity: 0.7;
+}
+
+/* Vendor field empty state */
+.adding-vendor-search {
+  margin-bottom: 12px;
+  background: #f9fafb;
+}
+
+.adding-vendor-empty {
+  padding: 16px;
+  background: #f5f5f5;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+}
+
+.adding-vendor-empty p {
+  margin: 0 0 4px;
+  font-size: 14px;
+  color: var(--psp-text);
+}
+
+.adding-vendor-empty-sub {
+  font-size: 13px !important;
+  color: var(--psp-text-muted) !important;
+  margin-bottom: 12px !important;
+}
+
+.adding-vendor-new-btn {
+  padding: 8px 16px;
+  background: var(--psp-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.adding-vendor-new-btn:hover {
+  background: var(--psp-primary-hover);
+}
+
+/* Vendor selected (after create) */
+.adding-vendor-selected {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.adding-vendor-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--psp-text);
+}
+
+.adding-vendor-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.adding-vendor-badge-active {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.adding-vendor-view {
+  margin-left: auto;
+  padding: 6px 12px;
+  border: 1px solid var(--psp-border);
+  border-radius: 6px;
+  background: #fff;
+  font-size: 14px;
+  color: var(--psp-text);
+  cursor: pointer;
+}
+
+/* Create vendor modal */
+.adding-vendor-modal {
+  background: #fff;
+  border-radius: 16px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.adding-vendor-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.adding-vendor-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--psp-text);
+}
+
+.adding-vendor-modal-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.adding-vendor-tab {
+  padding: 14px 4px;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  color: var(--psp-text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.adding-vendor-tab:hover {
+  color: var(--psp-text);
+}
+
+.adding-vendor-tab.active {
+  color: var(--psp-primary);
+  font-weight: 600;
+  border-bottom-color: var(--psp-primary);
+}
+
+.adding-vendor-modal-body {
+  padding: 24px;
+  overflow: auto;
+  flex: 1;
+}
+
+.adding-vendor-section {
+  margin-bottom: 24px;
+}
+
+.adding-vendor-section:last-child {
+  margin-bottom: 0;
+}
+
+.adding-vendor-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--psp-text);
+  margin: 0 0 12px;
+}
+
+.adding-vendor-section-desc {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  margin: 0 0 12px;
+}
+
+.adding-vendor-add-btn {
+  padding: 8px 16px;
+  border: 1px dashed var(--psp-border);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  color: var(--psp-primary);
+  cursor: pointer;
+}
+
+.adding-vendor-add-btn:hover {
+  background: #faf5ff;
+  border-color: var(--psp-primary);
+}
+
+.adding-vendor-docs-placeholder {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  margin: 0;
+}
+
+.adding-vendor-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid var(--psp-border);
+}

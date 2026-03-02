@@ -1,0 +1,234 @@
+.employee-flow {
+  display: flex;
+  min-height: 100vh;
+}
+
+.employee-sidebar {
+  width: 260px;
+  background: var(--psp-footer);
+  color: #fff;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.employee-sidebar-org {
+  padding: 0 24px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 16px;
+}
+
+.employee-org-switcher {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.employee-org-arrow {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.employee-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+}
+
+.employee-sidebar-nav a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.employee-sidebar-nav a:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.employee-sidebar-nav a.active {
+  background: var(--psp-accent);
+  color: #fff;
+}
+
+.employee-nav-icon {
+  font-size: 18px;
+}
+
+.employee-sidebar-footer {
+  margin-top: auto;
+  padding: 20px 24px 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+}
+
+.employee-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.employee-back-flows {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.employee-back-flows:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.employee-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #f9fafb;
+  min-width: 0;
+}
+
+.employee-header {
+  background: #fff;
+  border-bottom: 1px solid var(--psp-border);
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.employee-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.employee-back-personal {
+  background: none;
+  border: none;
+  color: var(--psp-primary);
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.employee-back-personal:hover {
+  text-decoration: underline;
+}
+
+.employee-header-tab {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--psp-text);
+  cursor: pointer;
+  border-bottom: 2px solid var(--psp-accent);
+  padding-bottom: 4px;
+}
+
+.employee-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.employee-profile-wrap {
+  position: relative;
+}
+
+.employee-profile-trigger {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--psp-primary);
+  border: none;
+  cursor: pointer;
+}
+
+.employee-profile-trigger .user-avatar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--psp-primary);
+}
+
+.employee-profile-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: #fff;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  min-width: 200px;
+  padding: 8px 0;
+  z-index: 100;
+}
+
+.employee-profile-email {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.employee-profile-item {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  color: var(--psp-text);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.employee-profile-item:hover {
+  background: #f5f3ff;
+}
+
+.employee-profile-logout {
+  color: #dc2626;
+  border-top: 1px solid var(--psp-border);
+  margin-top: 4px;
+}
+
+.employee-content {
+  flex: 1;
+  padding: 32px;
+  overflow: auto;
+}
+
+.employee-footer {
+  padding: 16px 32px;
+  background: var(--psp-footer);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.employee-footer .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}

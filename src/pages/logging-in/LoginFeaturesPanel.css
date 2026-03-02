@@ -1,0 +1,31 @@
+.login-features-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 380px;
+}
+
+.login-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.login-feature-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.login-feature-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: var(--psp-text);
+}
+
+.login-feature-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--psp-text-muted);
+  margin: 0;
+}
