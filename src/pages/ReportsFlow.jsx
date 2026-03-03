@@ -29,17 +29,17 @@ export function ReportsLayout() {
         <div className="sidebar-org">{BUSINESS_NAME}</div>
         <nav className="sidebar-nav">
           <Link to={flowPath('/flow/dashboard')}>Dashboard</Link>
-          <a href="#spend">Spend <span className="tag">New</span></a>
+          <Link to={flowPath('/flow/spend-general')}>Spend <span className="tag">New</span></Link>
           <Link to={flowPath('/flow/billing')}>Billing <span className="tag">New</span></Link>
           <Link to={flowPath('/flow/reports')} className="active">Reports</Link>
           <Link to={flowPath('/flow/settings')}>Settings</Link>
         </nav>
         <div className="sidebar-section">
           <div className="sidebar-section-title">{BUSINESS_NAME} Account | {BUSINESS_NAME}</div>
-          <a href="#wallet">Wallet</a>
+          <Link to={flowPath('/flow/wallet')}>Wallet</Link>
           <Link to={flowPath('/flow/transfers')}>Transfers</Link>
-          <a href="#cards">Cards</a>
-          <a href="#payments">Payments</a>
+          <Link to={flowPath('/flow/cards')}>Cards</Link>
+          <Link to={flowPath('/flow/payments')}>Payments</Link>
           <Link to={flowPath('/flow/rewards')}>Rewards</Link>
           <Link to={flowPath('/flow/rewards/security')}>Security</Link>
         </div>

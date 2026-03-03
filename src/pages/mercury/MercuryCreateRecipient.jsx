@@ -18,7 +18,7 @@ export function MercuryCreateRecipient() {
 
   const handleCreate = (e) => {
     e.preventDefault()
-    if (address.trim() && city.trim() && zip.trim()) navigate(flowPath('/flow/mercury-dashboard'))
+    if (address.trim() && city.trim() && zip.trim()) navigate(flowPath('/flow/mercury-payment-details'))
   }
 
   return (

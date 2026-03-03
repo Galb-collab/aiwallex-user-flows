@@ -24,7 +24,7 @@ export function MercuryFundAccount() {
           <div className="mercury-sidebar-section">Workflows</div>
           <Link to={flowPath('/flow/mercury-bill-pay')}>Bill Pay</Link>
           <Link to={flowPath('/flow/mercury-invoicing')}>Invoicing <span className="mercury-nav-chevron">▼</span></Link>
-          <Link to={flowPath('/flow/mercury-dashboard')}>Reimbursements</Link>
+          <Link to={flowPath('/flow/mercury-reimbursements')}>Reimbursements</Link>
         </nav>
       </aside>
       <main className="mercury-dashboard-main">

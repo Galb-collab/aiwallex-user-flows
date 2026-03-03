@@ -16,8 +16,8 @@ export function Dashboard() {
       <aside className="sidebar">
         <div className="sidebar-org">{businessName} <span className="sidebar-org-sub">Organisation</span> <span className="sidebar-org-dropdown" aria-hidden>▾</span></div>
         <nav className="sidebar-nav">
-          <a href="#dashboard" className="active">Dashboard</a>
-          <a href="#spend">Spend <span className="tag">New</span></a>
+          <Link to={flowPath('/flow/dashboard')} className="active">Dashboard</Link>
+          <Link to={flowPath('/flow/spend-general')}>Spend <span className="tag">New</span></Link>
           <Link to={flowPath('/flow/billing')}>Billing <span className="tag">New</span></Link>
           <Link to={flowPath('/flow/payments-overview')}>Payments overview</Link>
           <Link to={flowPath('/flow/reports')}>Reports</Link>
@@ -28,11 +28,11 @@ export function Dashboard() {
           <Link to={flowPath('/flow/wallet')}>Wallet</Link>
           <Link to={flowPath('/flow/transfers')}>Transfers</Link>
           <Link to={flowPath('/flow/cards')}>Cards</Link>
-          <Link to={flowPath('/flow/dashboard/payments')}>Payments</Link>
+          <Link to={flowPath('/flow/payments')}>Payments</Link>
           <Link to={flowPath('/flow/rewards')}>Rewards</Link>
-          <a href="#developer">Developer</a>
+          <Link to={flowPath('/flow/settings/developer')}>Developer</Link>
           <Link to={flowPath('/flow/rewards/security')}>Security</Link>
-          <a href="#statements">Statements</a>
+          <Link to={flowPath('/flow/reports')}>Statements</Link>
         </div>
         <div className="sidebar-footer">
           <span className="logo-icon small" style={{ background: info.primaryColor }}>{info.logoLetter}</span>

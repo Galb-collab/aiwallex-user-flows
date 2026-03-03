@@ -25,7 +25,7 @@ export function MercuryDashboard() {
           <div className="mercury-sidebar-section">Workflows</div>
           <Link to={flowPath('/flow/mercury-bill-pay')}>Bill Pay</Link>
           <Link to={flowPath('/flow/mercury-invoicing')}>Invoicing <span className="mercury-nav-chevron">▼</span></Link>
-          <Link to={flowPath('/flow/mercury-dashboard')}>Reimbursements</Link>
+          <Link to={flowPath('/flow/mercury-reimbursements')}>Reimbursements</Link>
         </nav>
       </aside>
       <main className="mercury-dashboard-main">
@@ -43,7 +43,7 @@ export function MercuryDashboard() {
           <div className="mercury-topbar-right">
             <span className="mercury-nav-link">Move Money ▼</span>
             <span className="mercury-icon-btn">🔔</span>
-            <span className="mercury-icon-btn mercury-avatar">👤</span>
+            <Link to={flowPath('/flow/mercury-settings')} className="mercury-icon-btn mercury-avatar" title="Settings">👤</Link>
           </div>
         </header>
 
@@ -53,10 +53,10 @@ export function MercuryDashboard() {
             <button type="button" className="mercury-btn-primary mercury-btn-inline">Send</button>
             <button type="button" className="mercury-btn-secondary mercury-btn-inline">Request</button>
             <button type="button" className="mercury-btn-secondary mercury-btn-inline" onClick={() => setShowTransferModal(true)}>Transfer</button>
-            <button type="button" className="mercury-btn-secondary mercury-btn-inline">Deposit</button>
-            <button type="button" className="mercury-btn-secondary mercury-btn-inline">Pay Bill</button>
-            <button type="button" className="mercury-btn-secondary mercury-btn-inline">Create Invoice</button>
-            <span className="mercury-link">Customize</span>
+            <Link to={flowPath('/flow/mercury-fund-account')} className="mercury-btn-secondary mercury-btn-inline" style={{ textDecoration: 'none' }}>Deposit</Link>
+            <Link to={flowPath('/flow/mercury-bill-pay')} className="mercury-btn-secondary mercury-btn-inline" style={{ textDecoration: 'none' }}>Pay Bill</Link>
+            <Link to={flowPath('/flow/mercury-invoicing')} className="mercury-btn-secondary mercury-btn-inline" style={{ textDecoration: 'none' }}>Create Invoice</Link>
+            <Link to={flowPath('/flow/mercury-categories')} className="mercury-link">Customize</Link>
           </div>
           <div className="mercury-dashboard-cards">
             <div className="mercury-balance-card">

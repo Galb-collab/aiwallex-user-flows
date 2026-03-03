@@ -25,7 +25,7 @@ export function BillingFlow() {
           <Link to={flowPath('/flow/dashboard')}>Dashboard</Link>
           <Link to={flowPath('/flow/spend-general')}>Spend <span className="tag">New</span></Link>
           <div className="sidebar-nav-item active-wrap">
-            <a href="#billing" className="active">Billing <span className="tag">New</span></a>
+            <Link to={flowPath('/flow/billing')} className="active">Billing <span className="tag">New</span></Link>
             <div className="sidebar-sub">
               <Link to={flowPath('/flow/billing/customers')} className={isCustomersArea ? 'active' : ''}>Customers</Link>
               <Link to={flowPath('/flow/billing/products')} className={isProductsArea ? 'active' : ''}>Products</Link>
@@ -35,7 +35,7 @@ export function BillingFlow() {
             </div>
           </div>
           <Link to={flowPath('/flow/payments-overview')}>Payments overview</Link>
-          <a href="#reports">Reports</a>
+          <Link to={flowPath('/flow/reports')}>Reports</Link>
           <Link to={flowPath('/flow/settings')}>Settings</Link>
         </nav>
         <div className="sidebar-section">
@@ -43,7 +43,7 @@ export function BillingFlow() {
           <Link to={flowPath('/flow/wallet')}>Wallet</Link>
           <Link to={flowPath('/flow/transfers')}>Transfers</Link>
           <Link to={flowPath('/flow/cards')}>Cards</Link>
-          <a href="#payments">Payments</a>
+          <Link to={flowPath('/flow/payments')}>Payments</Link>
           <Link to={flowPath('/flow/rewards')}>Rewards</Link>
           <Link to={flowPath('/flow/rewards/security')}>Security</Link>
         </div>

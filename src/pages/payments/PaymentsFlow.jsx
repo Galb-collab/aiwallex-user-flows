@@ -39,7 +39,7 @@ export function PaymentsFlow() {
               <Link to={flowPath('/flow/payments/updating-email-notification')} className={isEmailNotification ? 'active' : ''}>Updating an email notification</Link>
             </div>
           </div>
-          <a href="#reports">Reports</a>
+          <Link to={flowPath('/flow/reports')}>Reports</Link>
           <Link to={flowPath('/flow/settings')}>Settings</Link>
         </nav>
         <div className="sidebar-section">

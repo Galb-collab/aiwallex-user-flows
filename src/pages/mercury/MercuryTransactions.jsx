@@ -16,7 +16,12 @@ export function MercuryTransactions() {
         <nav className="mercury-sidebar-nav">
           <Link to={flowPath('/flow/mercury-dashboard')}>Home</Link>
           <Link to={flowPath('/flow/mercury-transactions')} className="active">Transactions</Link>
+          <Link to={flowPath('/flow/mercury-create-recipient')}>Payments</Link>
+          <Link to={flowPath('/flow/mercury-requests')}>Requests</Link>
           <Link to={flowPath('/flow/mercury-cards')}>Cards</Link>
+          <Link to={flowPath('/flow/mercury-bill-pay')}>Bill Pay</Link>
+          <Link to={flowPath('/flow/mercury-invoicing')}>Invoicing</Link>
+          <Link to={flowPath('/flow/mercury-reimbursements')}>Reimbursements</Link>
         </nav>
       </aside>
       <main style={{ flex: 1, padding: 32 }}>

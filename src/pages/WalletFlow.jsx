@@ -27,7 +27,7 @@ export function WalletFlow() {
           <Link to={flowPath('/flow/spend-general')}>Spend <span className="tag">New</span></Link>
           <Link to={flowPath('/flow/billing')}>Billing <span className="tag">New</span></Link>
           <Link to={flowPath('/flow/payments-overview')}>Payments overview</Link>
-          <a href="#reports">Reports</a>
+          <Link to={flowPath('/flow/reports')}>Reports</Link>
           <Link to={flowPath('/flow/settings')}>Settings</Link>
         </nav>
         <div className="sidebar-section">
@@ -41,7 +41,7 @@ export function WalletFlow() {
           </div>
           <Link to={flowPath('/flow/transfers')}>Transfers</Link>
           <Link to={flowPath('/flow/cards')}>Cards</Link>
-          <a href="#payments">Payments</a>
+          <Link to={flowPath('/flow/payments')}>Payments</Link>
           <Link to={flowPath('/flow/rewards')}>Rewards</Link>
           <Link to={flowPath('/flow/rewards/security')}>Security</Link>
         </div>

@@ -28,15 +28,15 @@ export function BillsFlow() {
             </div>
           </div>
           <Link to={flowPath('/flow/billing')}>Billing <span className="tag">New</span></Link>
-          <a href="#reports">Reports</a>
+          <Link to={flowPath('/flow/reports')}>Reports</Link>
           <Link to={flowPath('/flow/settings')}>Settings</Link>
         </nav>
         <div className="sidebar-section">
           <div className="sidebar-section-title">{BUSINESS_NAME} Account | {BUSINESS_NAME}</div>
-          <a href="#wallet">Wallet</a>
+          <Link to={flowPath('/flow/wallet')}>Wallet</Link>
           <Link to={flowPath('/flow/transfers')}>Transfers</Link>
           <Link to={flowPath('/flow/cards')}>Cards</Link>
-          <a href="#payments">Payments</a>
+          <Link to={flowPath('/flow/payments')}>Payments</Link>
           <Link to={flowPath('/flow/rewards')}>Rewards</Link>
           <Link to={flowPath('/flow/rewards/security')}>Security</Link>
         </div>

@@ -214,6 +214,11 @@ import { MercuryCategories } from './pages/mercury/MercuryCategories'
 import { MercuryNotifications } from './pages/mercury/MercuryNotifications'
 import { MercuryProfilePicture } from './pages/mercury/MercuryProfilePicture'
 import { MercuryChangePassword } from './pages/mercury/MercuryChangePassword'
+import { MercurySettings } from './pages/mercury/MercurySettings'
+import { MercuryRequests } from './pages/mercury/MercuryRequests'
+import { MercuryReimbursements } from './pages/mercury/MercuryReimbursements'
+import { MercuryACHConfirmation } from './pages/mercury/MercuryACHConfirmation'
+import { MercurySettingsIndex } from './pages/mercury/MercurySettingsIndex'
 
 function CompanyGate() {
   const { company } = useParams()
@@ -324,6 +329,12 @@ function App() {
           <Route path="mercury-notifications" element={<MercuryNotifications />} />
           <Route path="mercury-profile-picture" element={<MercuryProfilePicture />} />
           <Route path="mercury-change-password" element={<MercuryChangePassword />} />
+          <Route path="mercury-settings" element={<MercurySettings />}>
+            <Route index element={<MercurySettingsIndex />} />
+          </Route>
+          <Route path="mercury-requests" element={<MercuryRequests />} />
+          <Route path="mercury-reimbursements" element={<MercuryReimbursements />} />
+          <Route path="mercury-ach-confirmation" element={<MercuryACHConfirmation />} />
           <Route path="logging-in" element={<LoggingInFlow />}>
             <Route index element={<LoginPage />} />
             <Route path="forgot-password" element={<ForgotPasswordPage />} />

@@ -59,31 +59,31 @@ export function CompletingSetupSpendFlow() {
       <aside className="sidebar">
         <div className="sidebar-org">{BUSINESS_NAME}</div>
         <nav className="sidebar-nav">
-          <a href="#dashboard">Dashboard</a>
+          <Link to={flowPath('/flow/dashboard')}>Dashboard</Link>
           <div className="sidebar-nav-item active-wrap">
-            <a href="#spend" className="active">Spend <span className="tag">New</span></a>
+            <Link to={flowPath('/flow/spend-general')} className="active">Spend <span className="tag">New</span></Link>
             <div className="sidebar-sub">
               <Link to={flowPath('/flow/spend-general/expenses-spend')}>Expenses</Link>
               <Link to={flowPath('/flow/bills')}>Bills</Link>
-              <a href="#purchase-orders">Purchase orders</a>
+              <Link to={flowPath('/flow/spend-general/purchase-orders')}>Purchase orders</Link>
               <Link to={flowPath('/flow/vendors')}>Vendors</Link>
               <Link to={flowPath('/flow/completing-setup-spend')} className="active">Complete setup</Link>
               <Link to={flowPath('/flow/requests')}>Requests</Link>
             </div>
           </div>
           <Link to={flowPath('/flow/billing')}>Billing <span className="tag">New</span></Link>
-          <a href="#reports">Reports</a>
+          <Link to={flowPath('/flow/reports')}>Reports</Link>
           <Link to={flowPath('/flow/settings')}>Settings</Link>
         </nav>
         <div className="sidebar-section">
           <div className="sidebar-section-title">{BUSINESS_NAME} Account | {BUSINESS_NAME}</div>
-          <a href="#wallet">Wallet</a>
+          <Link to={flowPath('/flow/wallet')}>Wallet</Link>
           <Link to={flowPath('/flow/transfers')}>Transfers</Link>
           <Link to={flowPath('/flow/cards')}>Cards</Link>
-          <a href="#payments">Payments</a>
+          <Link to={flowPath('/flow/payments')}>Payments</Link>
           <Link to={flowPath('/flow/rewards')}>Rewards</Link>
           <Link to={flowPath('/flow/rewards/security')}>Security</Link>
-          <a href="#statements">Statements</a>
+          <Link to={flowPath('/flow/reports')}>Statements</Link>
         </div>
         <div className="sidebar-footer">
           <span className="logo-icon small">A</span>

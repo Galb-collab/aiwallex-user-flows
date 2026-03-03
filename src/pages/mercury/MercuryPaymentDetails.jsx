@@ -12,7 +12,7 @@ export function MercuryPaymentDetails() {
 
   const handleSchedule = (e) => {
     e.preventDefault()
-    if (amount && date) navigate(flowPath('/flow/mercury-dashboard'))
+    if (amount && date) navigate(flowPath('/flow/mercury-ach-confirmation'))
   }
 
   return (

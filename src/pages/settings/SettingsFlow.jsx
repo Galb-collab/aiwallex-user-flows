@@ -41,7 +41,7 @@ export function SettingsFlow() {
           <Link to={flowPath('/flow/cards')}>Cards</Link>
           <Link to={flowPath('/flow/payments')}>Payments</Link>
           <Link to={flowPath('/flow/rewards')}>Rewards</Link>
-          <a href="#reports">Reports</a>
+          <Link to={flowPath('/flow/reports')}>Reports</Link>
           <div className="sidebar-nav-item active-wrap">
             <span className="active">Settings</span>
             <div className="sidebar-sub">

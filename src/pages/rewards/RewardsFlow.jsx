@@ -42,7 +42,7 @@ export function RewardsFlow() {
               <Link to={flowPath('/flow/rewards/disabling-two-factor-authentication')} className={isDisabling2FA ? 'active' : ''}>Disabling two-factor authentication</Link>
             </div>
           </div>
-          <a href="#reports">Reports</a>
+          <Link to={flowPath('/flow/reports')}>Reports</Link>
           <Link to={flowPath('/flow/settings')}>Settings</Link>
         </nav>
         <div className="sidebar-section">

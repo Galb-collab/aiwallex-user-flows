@@ -53,6 +53,8 @@ const MERCURY_FLOWS = [
   { path: '/flow/mercury-bill-pay', icon: '📋', title: 'Bill Pay', description: 'Upload bill, inbox, outstanding, mobbin@ap.mercury.com.' },
   { path: '/flow/mercury-invoicing', icon: '🧾', title: 'Invoicing', description: 'Invoice list, open/paid, create invoice.' },
   { path: '/flow/mercury-categories', icon: '⚙', title: 'Settings', description: 'Categories, Notifications, Profile picture, Change password.' },
+  { path: '/flow/mercury-requests', icon: '📋', title: 'Requests', description: 'Request payment, view payment links, mark as paid.' },
+  { path: '/flow/mercury-reimbursements', icon: '💰', title: 'Reimbursements', description: 'Manage team expense reimbursements.' },
 ]
 
 export function FlowSelector() {
