@@ -70,6 +70,11 @@
   box-shadow: 0 12px 40px rgba(107, 78, 255, 0.15);
 }
 
+.company-card:nth-child(3):hover {
+  border-color: #1a2744;
+  box-shadow: 0 12px 40px rgba(26, 39, 68, 0.2);
+}
+
 .company-card-logo-img {
   height: 48px;
   width: auto;

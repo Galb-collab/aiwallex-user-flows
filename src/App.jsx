@@ -179,10 +179,43 @@ import { RevolutSpendingControls } from './pages/revolut/RevolutSpendingControls
 import { RevolutAccountingSoftware } from './pages/revolut/RevolutAccountingSoftware'
 import { RevolutCardSelection } from './pages/revolut/RevolutCardSelection'
 import { RevolutCardRequest } from './pages/revolut/RevolutCardRequest'
+import { MercuryLanding } from './pages/mercury/MercuryLanding'
+import { MercuryLogin } from './pages/mercury/MercuryLogin'
+import { MercurySignupFlow } from './pages/mercury/MercurySignupFlow'
+import { MercurySignupCompanyName } from './pages/mercury/MercurySignupCompanyName'
+import { MercurySignupCallsign } from './pages/mercury/MercurySignupCallsign'
+import { MercurySignupEligibility } from './pages/mercury/MercurySignupEligibility'
+import { MercurySignupLegalName } from './pages/mercury/MercurySignupLegalName'
+import { MercurySignupEmailPassword } from './pages/mercury/MercurySignupEmailPassword'
+import { MercurySignupEmailVerify } from './pages/mercury/MercurySignupEmailVerify'
+import { MercuryApplicationFlow } from './pages/mercury/MercuryApplicationFlow'
+import { MercuryApplicationCompanyInfo } from './pages/mercury/MercuryApplicationCompanyInfo'
+import { MercuryApplicationCompanyAddress } from './pages/mercury/MercuryApplicationCompanyAddress'
+import { MercuryApplicationOwnership } from './pages/mercury/MercuryApplicationOwnership'
+import { MercuryApplicationDocuments } from './pages/mercury/MercuryApplicationDocuments'
+import { MercuryApplicationExpectedActivity } from './pages/mercury/MercuryApplicationExpectedActivity'
+import { MercuryApplicationFollowUp } from './pages/mercury/MercuryApplicationFollowUp'
+import { MercuryAllSet } from './pages/mercury/MercuryAllSet'
+import { MercuryPasskey } from './pages/mercury/MercuryPasskey'
+import { MercuryFundAccount } from './pages/mercury/MercuryFundAccount'
+import { MercuryAddTeamMember } from './pages/mercury/MercuryAddTeamMember'
+import { Mercury2FA } from './pages/mercury/Mercury2FA'
+import { MercuryDashboard } from './pages/mercury/MercuryDashboard'
+import { MercuryTransactions } from './pages/mercury/MercuryTransactions'
+import { MercuryCards } from './pages/mercury/MercuryCards'
+import { MercuryCreateCard } from './pages/mercury/MercuryCreateCard'
+import { MercuryCreateRecipient } from './pages/mercury/MercuryCreateRecipient'
+import { MercuryPaymentDetails } from './pages/mercury/MercuryPaymentDetails'
+import { MercuryBillPay } from './pages/mercury/MercuryBillPay'
+import { MercuryInvoicing } from './pages/mercury/MercuryInvoicing'
+import { MercuryCategories } from './pages/mercury/MercuryCategories'
+import { MercuryNotifications } from './pages/mercury/MercuryNotifications'
+import { MercuryProfilePicture } from './pages/mercury/MercuryProfilePicture'
+import { MercuryChangePassword } from './pages/mercury/MercuryChangePassword'
 
 function CompanyGate() {
   const { company } = useParams()
-  if (company !== 'airwallex' && company !== 'revolut') {
+  if (company !== 'airwallex' && company !== 'revolut' && company !== 'mercury') {
     return <Navigate to="/" replace />
   }
   return (
@@ -196,7 +229,11 @@ function FlowRouteGuard() {
   const { company, basePath } = useCompany()
   const { pathname } = useLocation()
   const isRevolutFlow = pathname.includes('/flow/revolut')
+  const isMercuryFlow = pathname.includes('/flow/mercury')
   if (company === COMPANY.REVOLUT && !isRevolutFlow) {
+    return <Navigate to={basePath()} replace />
+  }
+  if (company === COMPANY.MERCURY && !isMercuryFlow) {
     return <Navigate to={basePath()} replace />
   }
   return <Outlet />
@@ -249,6 +286,43 @@ function App() {
           <Route path="revolut-accounting-software" element={<RevolutAccountingSoftware />} />
           <Route path="revolut-card-selection" element={<RevolutCardSelection />} />
           <Route path="revolut-card-request" element={<RevolutCardRequest />} />
+          <Route path="mercury-landing" element={<MercuryLanding />} />
+          <Route path="mercury-login" element={<MercuryLogin />} />
+          <Route path="mercury-signup" element={<MercurySignupFlow />}>
+            <Route index element={<Navigate to="company-name" replace />} />
+            <Route path="company-name" element={<MercurySignupCompanyName />} />
+            <Route path="callsign" element={<MercurySignupCallsign />} />
+            <Route path="eligibility" element={<MercurySignupEligibility />} />
+            <Route path="legal-name" element={<MercurySignupLegalName />} />
+            <Route path="email-password" element={<MercurySignupEmailPassword />} />
+            <Route path="email-verify" element={<MercurySignupEmailVerify />} />
+          </Route>
+          <Route path="mercury-application" element={<MercuryApplicationFlow />}>
+            <Route index element={<Navigate to="company-info" replace />} />
+            <Route path="company-info" element={<MercuryApplicationCompanyInfo />} />
+            <Route path="company-address" element={<MercuryApplicationCompanyAddress />} />
+            <Route path="ownership" element={<MercuryApplicationOwnership />} />
+            <Route path="documents" element={<MercuryApplicationDocuments />} />
+            <Route path="expected-activity" element={<MercuryApplicationExpectedActivity />} />
+            <Route path="follow-up" element={<MercuryApplicationFollowUp />} />
+          </Route>
+          <Route path="mercury-all-set" element={<MercuryAllSet />} />
+          <Route path="mercury-passkey" element={<MercuryPasskey />} />
+          <Route path="mercury-fund-account" element={<MercuryFundAccount />} />
+          <Route path="mercury-add-team-member" element={<MercuryAddTeamMember />} />
+          <Route path="mercury-2fa" element={<Mercury2FA />} />
+          <Route path="mercury-dashboard" element={<MercuryDashboard />} />
+          <Route path="mercury-transactions" element={<MercuryTransactions />} />
+          <Route path="mercury-cards" element={<MercuryCards />} />
+          <Route path="mercury-create-card" element={<MercuryCreateCard />} />
+          <Route path="mercury-create-recipient" element={<MercuryCreateRecipient />} />
+          <Route path="mercury-payment-details" element={<MercuryPaymentDetails />} />
+          <Route path="mercury-bill-pay" element={<MercuryBillPay />} />
+          <Route path="mercury-invoicing" element={<MercuryInvoicing />} />
+          <Route path="mercury-categories" element={<MercuryCategories />} />
+          <Route path="mercury-notifications" element={<MercuryNotifications />} />
+          <Route path="mercury-profile-picture" element={<MercuryProfilePicture />} />
+          <Route path="mercury-change-password" element={<MercuryChangePassword />} />
           <Route path="logging-in" element={<LoggingInFlow />}>
             <Route index element={<LoginPage />} />
             <Route path="forgot-password" element={<ForgotPasswordPage />} />

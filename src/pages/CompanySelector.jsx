@@ -19,6 +19,14 @@ const COMPANIES = [
     color: '#0075EB',
     logoUrl: '/revolut-logo.png',
   },
+  {
+    id: 'mercury',
+    name: 'Mercury',
+    tagline: 'Banking for startups',
+    logoLetter: 'M',
+    color: '#1a2744',
+    logoUrl: '/mercury-logo.png',
+  },
 ]
 
 export function CompanySelector() {
@@ -61,7 +69,7 @@ export function CompanySelector() {
         </div>
       </main>
       <footer className="company-selector-footer">
-        <span>User Flows · Airwallex & Revolut</span>
+        <span>User Flows · Airwallex, Revolut & Mercury</span>
       </footer>
     </div>
   )

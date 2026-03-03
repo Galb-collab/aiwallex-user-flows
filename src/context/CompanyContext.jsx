@@ -6,6 +6,7 @@ const CompanyContext = createContext(null)
 export const COMPANY = {
   AIRWALLEX: 'airwallex',
   REVOLUT: 'revolut',
+  MERCURY: 'mercury',
 }
 
 export const COMPANY_INFO = {
@@ -21,11 +22,20 @@ export const COMPANY_INFO = {
     logoLetter: 'R',
     primaryColor: '#0075EB',
   },
+  [COMPANY.MERCURY]: {
+    name: 'Mercury',
+    displayName: 'Mercury',
+    logoLetter: 'M',
+    primaryColor: '#1a2744',
+    logoUrl: '/mercury-logo.png',
+  },
 }
 
 export function CompanyProvider({ children }) {
   const { company } = useParams()
-  const validCompany = company === COMPANY.REVOLUT ? COMPANY.REVOLUT : COMPANY.AIRWALLEX
+  const validCompany = [COMPANY.AIRWALLEX, COMPANY.REVOLUT, COMPANY.MERCURY].includes(company)
+    ? company
+    : COMPANY.AIRWALLEX
 
   const flowPath = (path) => {
     const cleanPath = path.startsWith('/') ? path : `/${path}`

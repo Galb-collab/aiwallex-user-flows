@@ -48,18 +48,47 @@ const REVOLUT_FLOWS = [
   { path: '/flow/revolut-card-request', icon: '📝', title: 'Card request', description: 'Add note for approver.' },
 ]
 
+// Mercury flows (from Mercury web Dec 2025 images)
+const MERCURY_FLOWS = [
+  { path: '/flow/mercury-landing', icon: '🏠', title: 'Landing', description: 'Powerful banking. Simplified finances. Email input, Open Account, Contact Sales, Log In.' },
+  { path: '/flow/mercury-login', icon: '🔐', title: 'Log in', description: 'Email and password login.' },
+  { path: '/flow/mercury-signup', icon: '📝', title: 'Sign up', description: 'Company name, Callsign, Eligibility, Legal name, Email/Password, Email verification.' },
+  { path: '/flow/mercury-application', icon: '📋', title: 'Application', description: 'Company info, Address, Ownership, Documents, Expected activity, Follow-up questions.' },
+  { path: '/flow/mercury-all-set', icon: '✅', title: 'All set', description: 'Post-application summary, timeline, Set up first deposit.' },
+  { path: '/flow/mercury-passkey', icon: '🔑', title: 'Passkey', description: 'Log in faster with Face ID, fingerprint, or security key.' },
+  { path: '/flow/mercury-fund-account', icon: '💰', title: 'Fund account', description: 'Domestic wire, ACH transfer, routing/account numbers.' },
+  { path: '/flow/mercury-add-team-member', icon: '👥', title: 'Add team member', description: 'Legal name, email, role, virtual card, spend controls.' },
+  { path: '/flow/mercury-2fa', icon: '🔒', title: '2FA backup codes', description: 'Save backup codes for account recovery.' },
+  { path: '/flow/mercury-dashboard', icon: '📊', title: 'Dashboard', description: 'Home, Send/Request/Transfer/Deposit/Pay Bill/Create Invoice, balance, accounts, Bill Pay, Invoicing.' },
+  { path: '/flow/mercury-transactions', icon: '📄', title: 'Transactions', description: 'Data views, filters, transaction list, net change, money in/out.' },
+  { path: '/flow/mercury-cards', icon: '💳', title: 'Cards', description: 'Card list, card details, spend controls.' },
+  { path: '/flow/mercury-create-card', icon: '➕', title: 'Create card', description: 'Virtual/physical, cardholder, nickname, spend controls.' },
+  { path: '/flow/mercury-create-recipient', icon: '👤', title: 'Create recipient', description: 'Email, nickname, address, tax documents.' },
+  { path: '/flow/mercury-payment-details', icon: '💸', title: 'Payment details', description: 'Amount, memo, date, Schedule ACH.' },
+  { path: '/flow/mercury-bill-pay', icon: '📋', title: 'Bill Pay', description: 'Upload bill, inbox, outstanding, mobbin@ap.mercury.com.' },
+  { path: '/flow/mercury-invoicing', icon: '🧾', title: 'Invoicing', description: 'Invoice list, open/paid, create invoice.' },
+  { path: '/flow/mercury-categories', icon: '📁', title: 'Categories', description: 'Customize transaction categories.' },
+  { path: '/flow/mercury-notifications', icon: '🔔', title: 'Notifications', description: 'Email, push, SMS preferences.' },
+  { path: '/flow/mercury-profile-picture', icon: '🖼', title: 'Profile picture', description: 'Upload profile photo.' },
+  { path: '/flow/mercury-change-password', icon: '🔑', title: 'Change password', description: 'Current, new, confirm password.' },
+]
+
 export function FlowSelector() {
   const navigate = useNavigate()
   const { flowPath, basePath, info, company } = useCompany()
   const [viewMode, setViewMode] = useState('thumbnails') // 'thumbnails' | 'list'
-  const flows = company === COMPANY.AIRWALLEX ? AIRWALLEX_FLOWS : company === COMPANY.REVOLUT ? REVOLUT_FLOWS : []
+  const flows = company === COMPANY.AIRWALLEX ? AIRWALLEX_FLOWS : company === COMPANY.REVOLUT ? REVOLUT_FLOWS : company === COMPANY.MERCURY ? MERCURY_FLOWS : []
   const hasFlows = flows.length > 0
 
   return (
     <div className="flow-selector">
       <header className="flow-selector-header">
         <Link to={basePath()} className="logo">
-          <span className="logo-icon" style={{ background: info.primaryColor }}>{info.logoLetter}</span>
+          {info.logoUrl ? (
+            <img src={info.logoUrl} alt={info.name} className="logo-icon logo-icon-img" />
+          ) : (
+            <span className="logo-icon" style={{ background: info.primaryColor }}>{info.logoLetter}</span>
+          )}
           {info.name}
         </Link>
         <Link to="/" className="flows-label">← All companies</Link>
@@ -111,12 +140,19 @@ export function FlowSelector() {
         ) : (
           <div className="flow-selector-empty">
             <p className="flow-selector-empty-text">No flows yet.</p>
-            <p className="flow-selector-empty-subtext">Revolut flows will be added here.</p>
+            <p className="flow-selector-empty-subtext">{info.displayName} flows will be added here.</p>
           </div>
         )}
       </main>
       <footer className="flow-selector-footer">
-        <span className="footer-logo"><span className="logo-icon small" style={{ background: info.primaryColor }}>{info.logoLetter}</span> {info.name.toLowerCase()}</span>
+        <span className="footer-logo">
+          {info.logoUrl ? (
+            <img src={info.logoUrl} alt="" className="logo-icon small logo-icon-img" />
+          ) : (
+            <span className="logo-icon small" style={{ background: info.primaryColor }}>{info.logoLetter}</span>
+          )}{' '}
+          {info.name.toLowerCase()}
+        </span>
         <span>{info.displayName} User Flows</span>
       </footer>
     </div>
