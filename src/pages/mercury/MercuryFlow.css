@@ -102,6 +102,13 @@
   margin-bottom: 8px;
 }
 
+.mercury-input-hint {
+  display: block;
+  font-size: 12px;
+  color: var(--mercury-muted);
+  margin: 4px 0 16px;
+}
+
 .mercury-btn-primary {
   width: 100%;
   padding: 14px 24px;
@@ -184,6 +191,10 @@
 }
 
 .mercury-link:hover {
+  text-decoration: underline;
+}
+
+.mercury-link-underline {
   text-decoration: underline;
 }
 
@@ -294,6 +305,16 @@ textarea.mercury-input {
   flex-shrink: 0;
 }
 
+.mercury-form-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.mercury-form-two-col .mercury-input {
+  margin-bottom: 0;
+}
+
 /* Two-column layout - stacks on small screens */
 .mercury-two-col {
   display: flex;
@@ -328,4 +349,723 @@ a.mercury-btn-primary {
 .mercury-link-block {
   display: block;
   margin-bottom: 16px;
+}
+
+/* ========== Landing page (image 0) ========== */
+.mercury-landing-page {
+  min-height: 100vh;
+  padding-bottom: 0;
+}
+
+.mercury-landing-header {
+  max-width: 1200px;
+  width: 100%;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.mercury-landing-nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mercury-nav-chevron {
+  font-size: 10px;
+  opacity: 0.7;
+  margin-left: 2px;
+}
+
+.mercury-btn-nav {
+  width: auto !important;
+  padding: 10px 20px !important;
+  margin: 0 !important;
+}
+
+.mercury-landing-hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  max-width: 800px;
+}
+
+.mercury-landing-headline {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--mercury-text);
+}
+
+.mercury-landing-subheadline {
+  font-size: 18px;
+  color: var(--mercury-muted);
+  margin: 0 0 32px;
+}
+
+.mercury-landing-subheadline sup {
+  font-size: 0.6em;
+  vertical-align: super;
+}
+
+.mercury-landing-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  max-width: 500px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.mercury-landing-cta .mercury-input {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 0;
+}
+
+.mercury-landing-cta .mercury-btn-primary,
+.mercury-landing-cta .mercury-btn-secondary {
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+/* Embedded dashboard preview */
+.mercury-landing-dashboard-preview {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 24px 48px;
+}
+
+.mercury-dashboard-preview-inner {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.mercury-dashboard-preview-topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--mercury-border);
+}
+
+.mercury-company-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.mercury-company-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--mercury-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.mercury-search-bar {
+  flex: 1;
+  max-width: 400px;
+  padding: 10px 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--mercury-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mercury-search-icon {
+  font-size: 14px;
+}
+
+.mercury-kbd {
+  margin-left: auto;
+  padding: 2px 6px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--mercury-muted);
+}
+
+.mercury-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mercury-icon-btn {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.mercury-dashboard-preview-body {
+  display: flex;
+  min-height: 320px;
+}
+
+.mercury-dashboard-preview-sidebar {
+  width: 200px;
+  padding: 16px;
+  border-right: 1px solid var(--mercury-border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mercury-sidebar-item {
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--mercury-text);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mercury-sidebar-item.active {
+  background: #eef2ff;
+  color: var(--mercury-primary);
+  font-weight: 600;
+}
+
+.mercury-sidebar-section {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mercury-muted);
+  padding: 16px 12px 4px;
+  text-transform: uppercase;
+}
+
+.mercury-badge {
+  background: var(--mercury-primary);
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.mercury-dashboard-preview-main {
+  flex: 1;
+  padding: 24px;
+}
+
+.mercury-welcome {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+.mercury-action-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.mercury-dashboard-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.mercury-balance-card,
+.mercury-accounts-card {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.mercury-balance-card h3,
+.mercury-accounts-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.mercury-check {
+  color: var(--mercury-primary);
+  font-size: 12px;
+}
+
+.mercury-balance-amount {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.mercury-balance-period {
+  font-size: 12px;
+  color: var(--mercury-muted);
+  margin: 0 0 12px;
+}
+
+.mercury-balance-graph {
+  height: 60px;
+  background: linear-gradient(180deg, rgba(107, 78, 255, 0.2) 0%, transparent 100%);
+  border-radius: 4px;
+}
+
+.mercury-account-row {
+  font-size: 14px;
+  padding: 6px 0;
+  color: var(--mercury-text);
+}
+
+.mercury-landing-footer {
+  width: 100%;
+  background: #1a2744;
+  color: #fff;
+  font-size: 12px;
+  padding: 16px 24px;
+  text-align: center;
+}
+
+/* ========== Application flow - Follow-up (image 54) ========== */
+.mercury-application-header {
+  width: 100%;
+  padding: 20px 24px;
+  border-bottom: 2px solid var(--mercury-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+}
+
+.mercury-application-followup {
+  flex: 1;
+  max-width: 900px;
+  width: 100%;
+  padding: 48px 24px;
+  align-self: flex-start;
+}
+
+.mercury-application-sidebar {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.mercury-step-progress-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--mercury-text);
+}
+
+.mercury-step-progress-item {
+  padding: 10px 0;
+  font-size: 14px;
+  color: var(--mercury-muted);
+}
+
+.mercury-step-progress-item.completed {
+  color: var(--mercury-text);
+}
+
+.mercury-step-progress-item.active {
+  background: #f3f4f6;
+  margin: 0 -12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--mercury-primary);
+  font-weight: 600;
+}
+
+.mercury-application-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.mercury-label-question {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.mercury-form-section {
+  margin-bottom: 28px;
+}
+
+.mercury-radio-group,
+.mercury-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mercury-radio-option,
+.mercury-checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid var(--mercury-border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--mercury-text);
+}
+
+.mercury-radio-option:hover,
+.mercury-checkbox-option:hover {
+  border-color: var(--mercury-primary);
+  background: #fafaff;
+}
+
+.mercury-radio-option input,
+.mercury-checkbox-option input {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.mercury-address-block {
+  background: #f9fafb;
+  border: 1px solid var(--mercury-border);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 14px;
+  color: var(--mercury-text);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.mercury-upload-zone {
+  border: 2px dashed var(--mercury-border);
+  border-radius: 8px;
+  padding: 32px;
+  text-align: center;
+  cursor: pointer;
+  background: #fafafa;
+  transition: border-color 0.2s, background 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.mercury-upload-zone:hover {
+  border-color: var(--mercury-primary);
+  background: #f5f3ff;
+}
+
+.mercury-upload-icon {
+  font-size: 24px;
+  color: var(--mercury-muted);
+}
+
+.mercury-upload-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--mercury-text);
+}
+
+.mercury-upload-hint {
+  font-size: 12px;
+  color: var(--mercury-muted);
+}
+
+.mercury-upload-file {
+  font-size: 12px;
+  color: var(--mercury-primary);
+}
+
+.mercury-help-icon {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--mercury-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(107, 78, 255, 0.4);
+}
+
+/* ========== Fund account & Dashboard (image 17) ========== */
+.mercury-dashboard-sidebar {
+  width: 220px;
+  min-width: 220px;
+  padding: 24px;
+  border-right: 1px solid var(--mercury-border);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.mercury-sidebar-logo {
+  margin-bottom: 32px;
+}
+
+.mercury-dashboard-topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--mercury-border);
+  background: #fff;
+}
+
+.mercury-dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--mercury-bg);
+}
+
+.mercury-fund-account-content {
+  flex: 1;
+  padding: 32px;
+  max-width: var(--mercury-dashboard-width);
+}
+
+.mercury-breadcrumb {
+  font-size: 14px;
+  color: var(--mercury-muted);
+  margin: 0 0 8px;
+}
+
+.mercury-fund-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.mercury-fund-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--mercury-border);
+}
+
+.mercury-fund-wire h3,
+.mercury-fund-ach h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mercury-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #e5e7eb;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mercury-muted);
+}
+
+.mercury-fund-desc {
+  font-size: 14px;
+  color: var(--mercury-muted);
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.mercury-fund-field {
+  margin-bottom: 16px;
+}
+
+.mercury-fund-field .mercury-label {
+  margin-bottom: 4px;
+}
+
+.mercury-copy-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: monospace;
+  font-size: 14px;
+  padding: 10px 12px;
+  background: #f9fafb;
+  border: 1px solid var(--mercury-border);
+  border-radius: 8px;
+}
+
+.mercury-copy-field span {
+  flex: 1;
+}
+
+.mercury-copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.mercury-copy-btn:hover {
+  opacity: 1;
+}
+
+.mercury-fund-dashboard-section {
+  margin-top: 32px;
+}
+
+.mercury-fund-cards {
+  margin-top: 24px;
+}
+
+.mercury-fund-balance .mercury-balance-amount,
+.mercury-fund-accounts .mercury-account-row {
+  font-size: 16px;
+}
+
+.mercury-accounts-desc {
+  font-size: 14px;
+  color: var(--mercury-muted);
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.mercury-dashboard-content {
+  flex: 1;
+  padding: 32px;
+  max-width: var(--mercury-dashboard-width);
+}
+
+/* ========== Transfer funds modal (image 95) ========== */
+.mercury-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+.mercury-transfer-modal {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 480px;
+  width: 100%;
+  padding: 24px;
+  position: relative;
+}
+
+.mercury-transfer-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.mercury-modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--mercury-muted);
+  padding: 4px;
+}
+
+.mercury-modal-close:hover {
+  color: var(--mercury-text);
+}
+
+.mercury-transfer-modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 24px;
+}
+
+.mercury-transfer-card {
+  background: #fff;
+  border: 1px solid var(--mercury-border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.mercury-transfer-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 20px;
+}
+
+.mercury-transfer-field {
+  margin-bottom: 16px;
+}
+
+.mercury-transfer-field .mercury-input {
+  margin-bottom: 0;
+}
+
+.mercury-transfer-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--mercury-text);
+  cursor: pointer;
+  margin: 16px 0;
+}
+
+.mercury-transfer-toggle input {
+  width: 18px;
+  height: 18px;
+}
+
+.mercury-transfer-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.mercury-transfer-actions .mercury-btn-primary,
+.mercury-transfer-actions .mercury-btn-secondary {
+  margin-top: 0;
+}
+
+.mercury-transfer-auto {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.mercury-transfer-auto:hover {
+  border-color: var(--mercury-primary);
+  background: #fafaff;
+}
+
+.mercury-transfer-auto-icon {
+  font-size: 20px;
+  color: var(--mercury-muted);
+}
+
+.mercury-transfer-auto span:last-child {
+  margin-left: auto;
 }

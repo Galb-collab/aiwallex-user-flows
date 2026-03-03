@@ -28,7 +28,7 @@ export function MercurySignupCallsign() {
         <form onSubmit={handleNext}>
           <label className="mercury-label">Callsign</label>
           <input type="text" className="mercury-input" placeholder="mobbin" value={callsign} onChange={(e) => setCallsign(e.target.value)} required />
-          <span style={{ fontSize: 12, color: 'var(--mercury-muted)' }}>Numbers, letters, and dashes only, please.</span>
+          <span className="mercury-input-hint">Numbers, letters, and dashes only, please.</span>
           <button type="submit" className="mercury-btn-primary" disabled={!callsign.trim()}>Next</button>
         </form>
       </div>

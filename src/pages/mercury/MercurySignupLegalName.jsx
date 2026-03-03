@@ -27,10 +27,16 @@ export function MercurySignupLegalName() {
         <h1 className="mercury-step-title">Create your account</h1>
         <p className="mercury-step-subtitle">What&apos;s your legal name?</p>
         <form onSubmit={handleNext}>
-          <label className="mercury-label">First name</label>
-          <input type="text" className="mercury-input" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
-          <label className="mercury-label">Last name</label>
-          <input type="text" className="mercury-input" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+          <div className="mercury-form-row mercury-form-two-col">
+            <div>
+              <label className="mercury-label">First name</label>
+              <input type="text" className="mercury-input" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+            </div>
+            <div>
+              <label className="mercury-label">Last name</label>
+              <input type="text" className="mercury-input" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+            </div>
+          </div>
           <button type="submit" className="mercury-btn-primary" disabled={!firstName.trim() || !lastName.trim()}>Next</button>
         </form>
       </div>
