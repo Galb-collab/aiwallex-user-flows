@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../BillingFlow.css'
 import './CreatingACustomer.css'
 import './CreatingAProduct.css'
 
 export function CreatingAProduct() {
+  const { flowPath } = useCompany()
   const [productName, setProductName] = useState('')
   const [description, setDescription] = useState('')
   const [productUnit, setProductUnit] = useState('')
@@ -35,7 +37,7 @@ export function CreatingAProduct() {
       <div className="billing-main billing-create-product">
         <div className="billing-create-customer-header">
           <h1 className="billing-create-customer-title">Create product</h1>
-          <Link to="/flow/billing/products" className="bills-modal-close" aria-label="Close">×</Link>
+          <Link to={flowPath('/flow/billing/products')} className="bills-modal-close" aria-label="Close">×</Link>
         </div>
         <div className="billing-create-customer-progress" aria-hidden />
 
@@ -43,7 +45,7 @@ export function CreatingAProduct() {
           <div className="billing-create-product-success-icon" aria-hidden>🤝</div>
           <h2 className="billing-create-product-success-title">Your product has been created</h2>
           <p className="billing-create-product-success-id">
-            <Link to="/flow/billing/products" className="billing-create-product-id-link">Product ID: {createdProduct.id}</Link>
+            <Link to={flowPath('/flow/billing/products')} className="billing-create-product-id-link">Product ID: {createdProduct.id}</Link>
           </p>
           <div className="billing-create-product-card">
             <div className="billing-create-product-card-icon">🪑</div>
@@ -52,7 +54,7 @@ export function CreatingAProduct() {
               <p className="billing-create-product-card-desc">{createdProduct.description}</p>
             </div>
             <Link
-              to="/flow/billing/creating-a-price"
+              to={flowPath('/flow/billing/creating-a-price')}
               state={{ fromProduct: true, productId: createdProduct.id, productName: createdProduct.name }}
               className="billing-create-product-new-price-btn"
             >
@@ -66,7 +68,7 @@ export function CreatingAProduct() {
             <button type="button" className="bills-btn bills-btn-secondary" onClick={handleCreateAnother}>
               Create another
             </button>
-            <Link to="/flow/billing/products" className="bills-btn bills-btn-primary">
+            <Link to={flowPath('/flow/billing/products')} className="bills-btn bills-btn-primary">
               View product
             </Link>
           </div>
@@ -98,7 +100,7 @@ export function CreatingAProduct() {
     <div className="billing-main billing-create-customer">
       <div className="billing-create-customer-header">
         <h1 className="billing-create-customer-title">Create product</h1>
-        <Link to="/flow/billing/products" className="bills-modal-close" aria-label="Close">×</Link>
+        <Link to={flowPath('/flow/billing/products')} className="bills-modal-close" aria-label="Close">×</Link>
       </div>
       <div className="billing-create-customer-progress" aria-hidden />
 
@@ -157,7 +159,7 @@ export function CreatingAProduct() {
         </section>
 
         <div className="billing-create-customer-actions">
-          <Link to="/flow/billing/products" className="bills-btn bills-btn-secondary">Cancel</Link>
+          <Link to={flowPath('/flow/billing/products')} className="bills-btn bills-btn-secondary">Cancel</Link>
           <button type="submit" className="bills-btn bills-btn-primary">Create product</button>
         </div>
       </form>

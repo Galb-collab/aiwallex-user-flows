@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const MOCK_WORKFLOWS = [
   { id: '1', name: 'High-value transfers', threshold: '10,000 SGD', status: 'Active' },
@@ -8,17 +9,18 @@ const MOCK_WORKFLOWS = [
 
 export function DeactivatingWorkflowPage() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [step, setStep] = useState(1)
   const [selectedId, setSelectedId] = useState(null)
   const [confirmed, setConfirmed] = useState(false)
 
   const selected = MOCK_WORKFLOWS.find((w) => w.id === selectedId)
-  const handleClose = () => navigate('/flow/transfers')
+  const handleClose = () => navigate(flowPath('/flow/transfers'))
 
   if (step === 1) {
     return (
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/transfers" className="wallet-back-link">← Back</Link>
+        <Link to={flowPath('/flow/transfers')} className="wallet-back-link">← Back</Link>
         <h1 className="wallet-section-title">Deactivating a workflow</h1>
         <p className="creating-conversion-desc">Select the workflow you want to deactivate.</p>
 
@@ -55,7 +57,7 @@ export function DeactivatingWorkflowPage() {
   if (step === 2) {
     return (
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/transfers" className="wallet-back-link">← Back</Link>
+        <Link to={flowPath('/flow/transfers')} className="wallet-back-link">← Back</Link>
         <h1 className="wallet-section-title">Confirm deactivation</h1>
         <p className="creating-conversion-desc">
           Are you sure you want to deactivate &quot;{selected?.name}&quot;? Transfers above {selected?.threshold} will no longer require approval.
@@ -92,7 +94,7 @@ export function DeactivatingWorkflowPage() {
         <p className="creating-conversion-success-text">
           &quot;{selected?.name}&quot; has been deactivated. Transfers above {selected?.threshold} will no longer require approval.
         </p>
-        <Link to="/flow/transfers" className="wallet-btn wallet-btn-primary">Back to Transfers</Link>
+        <Link to={flowPath('/flow/transfers')} className="wallet-btn wallet-btn-primary">Back to Transfers</Link>
       </div>
     </div>
   )

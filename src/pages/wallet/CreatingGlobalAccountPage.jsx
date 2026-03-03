@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const CURRENCIES = [
   { code: 'SGD', name: 'Singapore Dollar', country: 'Singapore', flag: '🇸🇬' },
@@ -11,16 +12,17 @@ const CURRENCIES = [
 
 export function CreatingGlobalAccountPage() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [step, setStep] = useState(1)
   const [selectedCurrency, setSelectedCurrency] = useState(null)
   const [accountName, setAccountName] = useState('')
 
-  const handleClose = () => navigate('/flow/wallet/global-accounts')
+  const handleClose = () => navigate(flowPath('/flow/wallet/global-accounts'))
 
   if (step === 1) {
     return (
       <div className="wallet-content creating-global-account">
-        <Link to="/flow/wallet/global-accounts" className="wallet-back-link">← Back</Link>
+        <Link to={flowPath('/flow/wallet/global-accounts')} className="wallet-back-link">← Back</Link>
         <h1 className="wallet-section-title">Create a global account</h1>
         <p className="creating-conversion-desc">Choose the currency for your new global account.</p>
 
@@ -60,7 +62,7 @@ export function CreatingGlobalAccountPage() {
   if (step === 2) {
     return (
       <div className="wallet-content creating-global-account">
-        <Link to="/flow/wallet/global-accounts" className="wallet-back-link">← Back</Link>
+        <Link to={flowPath('/flow/wallet/global-accounts')} className="wallet-back-link">← Back</Link>
         <h1 className="wallet-section-title">Account details</h1>
         <p className="creating-conversion-desc">Give your global account a name to identify it easily.</p>
 
@@ -97,7 +99,7 @@ export function CreatingGlobalAccountPage() {
   if (step === 3) {
     return (
       <div className="wallet-content creating-global-account">
-        <Link to="/flow/wallet/global-accounts" className="wallet-back-link">← Back</Link>
+        <Link to={flowPath('/flow/wallet/global-accounts')} className="wallet-back-link">← Back</Link>
         <h1 className="wallet-section-title">Review and create</h1>
 
         <div className="wallet-overview-card creating-conversion-review">
@@ -133,8 +135,8 @@ export function CreatingGlobalAccountPage() {
         <p className="creating-conversion-success-text">
           Your {selectedCurrency?.code} global account &quot;{accountName}&quot; has been created. It may take a few moments to become active.
         </p>
-        <Link to="/flow/wallet/global-accounts" className="wallet-btn wallet-btn-primary">View global accounts</Link>
-        <Link to="/flow/wallet" className="wallet-btn-link creating-conversion-skip">Back to wallet</Link>
+        <Link to={flowPath('/flow/wallet/global-accounts')} className="wallet-btn wallet-btn-primary">View global accounts</Link>
+        <Link to={flowPath('/flow/wallet')} className="wallet-btn-link creating-conversion-skip">Back to wallet</Link>
       </div>
     </div>
   )

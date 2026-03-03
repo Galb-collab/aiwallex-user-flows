@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../bills/BillsFlow.css'
 import '../BillingFlow.css'
 import './BillingCustomers.css'
 
 export function CustomerDetails() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [tab, setTab] = useState('overview')
   const [createDropdownOpen, setCreateDropdownOpen] = useState(false)
 
@@ -16,7 +18,7 @@ export function CustomerDetails() {
           <h1 className="billing-title">Customers</h1>
           <p className="billing-customers-subtitle">Create and manage your customers.</p>
         </div>
-        <Link to="/flow/billing/creating-a-customer" className="billing-btn billing-btn-primary">
+        <Link to={flowPath('/flow/billing/creating-a-customer')} className="billing-btn billing-btn-primary">
           + New customer
         </Link>
       </div>
@@ -68,7 +70,7 @@ export function CustomerDetails() {
       </div>
 
       {/* Customer details drawer */}
-      <div className="billing-customer-drawer-backdrop" onClick={() => navigate('/flow/billing/customers')} aria-hidden />
+      <div className="billing-customer-drawer-backdrop" onClick={() => navigate(flowPath('/flow/billing/customers'))} aria-hidden />
       <div className="billing-customer-drawer" onClick={(e) => e.stopPropagation()}>
         <div className="billing-customer-drawer-header">
           <div className="billing-customer-drawer-title-wrap">
@@ -81,7 +83,7 @@ export function CustomerDetails() {
           <button
             type="button"
             className="bills-modal-close"
-            onClick={() => navigate('/flow/billing/customers')}
+            onClick={() => navigate(flowPath('/flow/billing/customers'))}
             aria-label="Close"
           >
             ×
@@ -217,7 +219,7 @@ export function CustomerDetails() {
             {createDropdownOpen && (
               <div className="billing-customer-drawer-create-dropdown">
                 <Link
-                  to="/flow/billing/creating-an-invoice"
+                  to={flowPath('/flow/billing/creating-an-invoice')}
                   state={{ fromCustomerDetails: true }}
                   onClick={() => setCreateDropdownOpen(false)}
                   className="billing-customer-drawer-create-item"

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import { useBusinessProfile, BUSINESS_PROFILE_STEPS } from '../context/BusinessProfileContext'
 import './BusinessDetailsLayout.css'
 
@@ -36,13 +37,14 @@ const STEP_LABELS = {
 
 export function BusinessProfileLayout({ children }) {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const { step, BUSINESS_PROFILE_STEPS: STEPS, STEP_ORDER } = useBusinessProfile()
 
   const completedSteps = STEP_ORDER.slice(0, STEP_ORDER.indexOf(step))
 
   const handleClose = () => {
     if (window.confirm('Leave verification? Progress is saved.')) {
-      navigate('/flow/completing-business-details')
+      navigate(flowPath('/flow/completing-business-details'))
     }
   }
 

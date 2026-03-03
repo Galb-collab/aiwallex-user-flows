@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function AddingAssistantPage() {
+  const { flowPath } = useCompany()
   const [email, setEmail] = useState('')
   const [role, setRole] = useState('viewer')
   const [invited, setInvited] = useState(false)
-
   const handleInvite = () => {
     setInvited(true)
   }
@@ -20,7 +21,7 @@ export function AddingAssistantPage() {
             <p className="creating-conversion-success-text">
               An invitation has been sent to {email}. They will receive an email to join as an assistant.
             </p>
-            <Link to="/flow/profile" className="wallet-btn wallet-btn-primary">Back to Profile</Link>
+            <Link to={flowPath('/flow/profile')} className="wallet-btn wallet-btn-primary">Back to Profile</Link>
           </div>
         </div>
       </div>
@@ -30,7 +31,7 @@ export function AddingAssistantPage() {
   return (
     <div className="profile-content">
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/profile" className="wallet-back-link">← Back to Profile</Link>
+        <Link to={flowPath('/flow/profile')} className="wallet-back-link">← Back to Profile</Link>
         <h1 className="wallet-section-title">Adding an assistant</h1>
         <p className="creating-conversion-desc">Invite team members to help manage your account. They will have access based on the role you assign.</p>
 
@@ -55,7 +56,7 @@ export function AddingAssistantPage() {
         </div>
 
         <div className="scheduling-transfer-footer" style={{ marginTop: 24 }}>
-          <Link to="/flow/profile" className="wallet-btn">Cancel</Link>
+          <Link to={flowPath('/flow/profile')} className="wallet-btn">Cancel</Link>
           <button
             type="button"
             className="wallet-btn wallet-btn-primary"

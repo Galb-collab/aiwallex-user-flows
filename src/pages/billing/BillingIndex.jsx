@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../BillingFlow.css'
 
 export function BillingIndex() {
+  const { flowPath } = useCompany()
   const [createOpen, setCreateOpen] = useState(false)
 
   return (
@@ -32,9 +34,9 @@ export function BillingIndex() {
           </button>
           {createOpen && (
             <div className="billing-create-dropdown">
-              <Link to="/flow/billing/creating-a-customer" className="billing-create-item" onClick={() => setCreateOpen(false)}>Customer</Link>
-              <Link to="/flow/billing/creating-a-product" className="billing-create-item" onClick={() => setCreateOpen(false)}>Product</Link>
-              <Link to="/flow/billing/creating-an-invoice" className="billing-create-item" onClick={() => setCreateOpen(false)}>Invoice</Link>
+              <Link to={flowPath('/flow/billing/creating-a-customer')} className="billing-create-item" onClick={() => setCreateOpen(false)}>Customer</Link>
+              <Link to={flowPath('/flow/billing/creating-a-product')} className="billing-create-item" onClick={() => setCreateOpen(false)}>Product</Link>
+              <Link to={flowPath('/flow/billing/creating-an-invoice')} className="billing-create-item" onClick={() => setCreateOpen(false)}>Invoice</Link>
               <a href="#subscription" className="billing-create-item" onClick={() => setCreateOpen(false)}>Subscription</a>
             </div>
           )}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const CURRENCY_INFO = {
   SGD: { name: 'Singapore Dollar', flag: '🇸🇬', available: '5.00', pending: '0.00', account: '5.00' },
@@ -14,21 +15,22 @@ const TRANSACTIONS = [
 ]
 
 export function CashBalanceDetailsPage() {
+  const { flowPath } = useCompany()
   const { currency } = useParams()
   const info = CURRENCY_INFO[currency] || CURRENCY_INFO.SGD
   const code = currency || 'SGD'
 
   return (
     <div className="wallet-content">
-      <Link to="/flow/wallet" className="wallet-back-link">← Back</Link>
+      <Link to={flowPath('/flow/wallet')} className="wallet-back-link">← Back</Link>
       <div className="wallet-detail-header">
         <h1 className="wallet-section-title" style={{ margin: 0 }}>
           {code} Cash balance
         </h1>
         <div className="wallet-detail-actions">
           <button type="button" className="wallet-btn">Add funds</button>
-          <Link to="/flow/wallet/new-conversion" className="wallet-btn">Convert</Link>
-          <Link to="/flow/wallet/new-transfer" className="wallet-btn wallet-btn-primary">New transfer</Link>
+          <Link to={flowPath('/flow/wallet/new-conversion')} className="wallet-btn">Convert</Link>
+          <Link to={flowPath('/flow/wallet/new-transfer')} className="wallet-btn wallet-btn-primary">New transfer</Link>
         </div>
       </div>
 

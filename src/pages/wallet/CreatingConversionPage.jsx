@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import { GivingFeedbackModal } from './GivingFeedbackModal'
 
 const CURRENCIES = [
@@ -13,6 +14,7 @@ const RATE_SGD_USD = 1.30258
 
 export function CreatingConversionPage() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [step, setStep] = useState(1)
   const [sellCurrency, setSellCurrency] = useState('SGD')
   const [buyCurrency, setBuyCurrency] = useState('USD')
@@ -33,7 +35,7 @@ export function CreatingConversionPage() {
     }
   }
 
-  const handleClose = () => navigate('/flow/wallet')
+  const handleClose = () => navigate(flowPath('/flow/wallet'))
 
   const handleConfirm = () => {
     setStep(3)
@@ -45,7 +47,7 @@ export function CreatingConversionPage() {
 
   const handleFeedbackDone = () => {
     setShowFeedback(false)
-    navigate('/flow/wallet')
+    navigate(flowPath('/flow/wallet'))
   }
 
   if (step === 1) {

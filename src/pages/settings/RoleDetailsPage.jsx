@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const MOCK_ROLES = {
   admin: { name: 'Admin', desc: 'Full access to all features', users: 2, permissions: ['All permissions'] },
@@ -9,13 +10,14 @@ const MOCK_ROLES = {
 }
 
 export function RoleDetailsPage() {
+  const { flowPath } = useCompany()
   const { roleId } = useParams()
   const role = MOCK_ROLES[roleId] || MOCK_ROLES.admin
 
   return (
     <div className="settings-content">
       <div className="wallet-content">
-        <Link to="/flow/settings/creating-a-user" className="wallet-back-link">← Back to Creating a user</Link>
+        <Link to={flowPath('/flow/settings/creating-a-user')} className="wallet-back-link">← Back to Creating a user</Link>
         <h1 className="wallet-section-title">Role details</h1>
         <p className="global-accounts-desc">View and manage this role.</p>
 

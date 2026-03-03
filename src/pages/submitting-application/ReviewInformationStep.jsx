@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import { useSubmittingApplication } from '../../context/SubmittingApplicationContext'
 
 export function ReviewInformationStep() {
+  const { flowPath } = useCompany()
   const { goToSubmit } = useSubmittingApplication()
 
   return (
@@ -21,7 +23,7 @@ export function ReviewInformationStep() {
         <div>
           <strong>Your email has not been confirmed</strong> For security purposes, you will need to confirm your email before submitting your account verification.
         </div>
-        <Link to="/flow/completing-business-details/submitting-application/verifying-email" className="sub-app-resend-btn">Verify email</Link>
+        <Link to={flowPath('/flow/completing-business-details/submitting-application/verifying-email')} className="sub-app-resend-btn">Verify email</Link>
       </div>
 
       <section className="sub-app-details-card">

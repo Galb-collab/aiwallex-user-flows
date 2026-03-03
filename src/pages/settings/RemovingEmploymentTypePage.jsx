@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const MOCK_TYPES = [
   { id: '1', name: 'Full-time', count: 12 },
@@ -8,6 +9,7 @@ const MOCK_TYPES = [
 ]
 
 export function RemovingEmploymentTypePage() {
+  const { flowPath } = useCompany()
   const [selectedId, setSelectedId] = useState(null)
   const [confirmed, setConfirmed] = useState(false)
   const [removed, setRemoved] = useState(false)
@@ -24,7 +26,7 @@ export function RemovingEmploymentTypePage() {
             <p className="creating-conversion-success-text">
               The employment type &quot;{selected?.name}&quot; has been removed. Users with this type will need to be reassigned.
             </p>
-            <Link to="/flow/settings/creating-a-user" className="wallet-btn wallet-btn-primary">Back to Creating a user</Link>
+            <Link to={flowPath('/flow/settings/creating-a-user')} className="wallet-btn wallet-btn-primary">Back to Creating a user</Link>
           </div>
         </div>
       </div>
@@ -34,7 +36,7 @@ export function RemovingEmploymentTypePage() {
   return (
     <div className="settings-content">
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/settings/creating-a-user" className="wallet-back-link">← Back to Creating a user</Link>
+        <Link to={flowPath('/flow/settings/creating-a-user')} className="wallet-back-link">← Back to Creating a user</Link>
         <h1 className="wallet-section-title">Removing employment type</h1>
         <p className="creating-conversion-desc">Select an employment type to remove. Users with this type will need to be reassigned to another type.</p>
 
@@ -67,7 +69,7 @@ export function RemovingEmploymentTypePage() {
         )}
 
         <div className="scheduling-transfer-footer" style={{ marginTop: 24 }}>
-          <Link to="/flow/settings/creating-a-user" className="wallet-btn">Cancel</Link>
+          <Link to={flowPath('/flow/settings/creating-a-user')} className="wallet-btn">Cancel</Link>
           <button
             type="button"
             className="wallet-btn"

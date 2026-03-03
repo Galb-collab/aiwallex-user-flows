@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import { DashboardHeader } from '../components/DashboardHeader'
 
 const ADDING_ITEMS_PATH = '/flow/spend-general/expenses-spend/uploading-a-receipt/adding-items'
@@ -12,6 +13,7 @@ const BUSINESS_NAME = 'SLMobbin'
 const EMAIL = 'samlee@content-mobbin.com'
 
 export function UploadingReceiptFlow() {
+  const { flowPath } = useCompany()
   const [panelOpen, setPanelOpen] = useState(false)
   const [uploadStep, setUploadStep] = useState('upload')
   const [showMatchModal, setShowMatchModal] = useState(false)
@@ -49,29 +51,29 @@ export function UploadingReceiptFlow() {
       <aside className="sidebar">
         <div className="sidebar-org">{BUSINESS_NAME}</div>
         <nav className="sidebar-nav">
-          <Link to="/flow/dashboard">Dashboard</Link>
+          <Link to={flowPath('/flow/dashboard')}>Dashboard</Link>
           <div className="sidebar-nav-item active-wrap">
-            <Link to="/flow/spend-general">Spend <span className="tag">New</span></Link>
+            <Link to={flowPath('/flow/spend-general')}>Spend <span className="tag">New</span></Link>
             <div className="sidebar-sub">
-              <Link to="/flow/spend-general/expenses-spend" className="active">Expenses</Link>
-              <Link to="/flow/spend-general">Bills</Link>
-              <Link to="/flow/spend-general">Purchase orders</Link>
-              <Link to="/flow/spend-general">Vendors</Link>
-              <Link to="/flow/spend-general">Requests</Link>
+              <Link to={flowPath('/flow/spend-general/expenses-spend')} className="active">Expenses</Link>
+              <Link to={flowPath('/flow/spend-general')}>Bills</Link>
+              <Link to={flowPath('/flow/spend-general')}>Purchase orders</Link>
+              <Link to={flowPath('/flow/spend-general')}>Vendors</Link>
+              <Link to={flowPath('/flow/spend-general')}>Requests</Link>
             </div>
           </div>
-          <Link to="/flow/billing">Billing <span className="tag">New</span></Link>
+          <Link to={flowPath('/flow/billing')}>Billing <span className="tag">New</span></Link>
           <a href="#reports">Reports</a>
-          <Link to="/flow/settings">Settings</Link>
+          <Link to={flowPath('/flow/settings')}>Settings</Link>
         </nav>
         <div className="sidebar-section">
           <div className="sidebar-section-title">{BUSINESS_NAME} Account | {BUSINESS_NAME}</div>
           <a href="#wallet">Wallet</a>
-          <Link to="/flow/transfers">Transfers</Link>
+          <Link to={flowPath('/flow/transfers')}>Transfers</Link>
           <a href="#cards">Cards</a>
           <a href="#payments">Payments</a>
-          <Link to="/flow/rewards">Rewards</Link>
-          <Link to="/flow/rewards/security">Security</Link>
+          <Link to={flowPath('/flow/rewards')}>Rewards</Link>
+          <Link to={flowPath('/flow/rewards/security')}>Security</Link>
         </div>
         <div className="sidebar-footer">
           <span className="logo-icon small">A</span>
@@ -82,7 +84,7 @@ export function UploadingReceiptFlow() {
       <div className="dashboard-main">
         <DashboardHeader email={EMAIL} className="expenses-header">
           <nav className="expenses-tabs">
-            <Link to="/flow/spend-general/expenses-spend" className="expenses-tab-back">← Expenses</Link>
+            <Link to={flowPath('/flow/spend-general/expenses-spend')} className="expenses-tab-back">← Expenses</Link>
             <button type="button" className="active">Summary</button>
           </nav>
         </DashboardHeader>
@@ -270,7 +272,7 @@ export function UploadingReceiptFlow() {
                     <input type="search" className="ur-match-search" placeholder="Search by report name, reimbursement description, or merchant" />
                     <button type="button" className="ur-btn ur-btn-new-report">+ New reimbursement report</button>
                     <div className="ur-match-report-list">
-                      <Link to={ADDING_ITEMS_PATH} className="ur-match-report-item" onClick={() => setShowMatchModal(false)}>
+                      <Link to={flowPath(ADDING_ITEMS_PATH)} className="ur-match-report-item" onClick={() => setShowMatchModal(false)}>
                         <span className="ur-match-report-name">Reimbursement report 2025-11-27</span>
                         <span className="ur-match-report-meta">0 SGD · 0 reimbursements</span>
                         <span className="ur-match-report-status">Draft</span>

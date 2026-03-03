@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function CreatingAUserPage() {
+  const { flowPath } = useCompany()
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [role, setRole] = useState('viewer')
@@ -21,7 +23,7 @@ export function CreatingAUserPage() {
             <p className="creating-conversion-success-text">
               An invitation has been sent to {email}. They will receive an email to join your organisation.
             </p>
-            <Link to="/flow/settings/creating-a-user" className="wallet-btn wallet-btn-primary">Back to Creating a user</Link>
+            <Link to={flowPath('/flow/settings/creating-a-user')} className="wallet-btn wallet-btn-primary">Back to Creating a user</Link>
           </div>
         </div>
       </div>
@@ -31,37 +33,37 @@ export function CreatingAUserPage() {
   return (
     <div className="settings-content">
       <div className="wallet-content">
-        <Link to="/flow/settings" className="wallet-back-link">← Back to Settings</Link>
+        <Link to={flowPath('/flow/settings')} className="wallet-back-link">← Back to Settings</Link>
         <h1 className="wallet-section-title">Creating a user</h1>
         <p className="global-accounts-desc">Invite users, manage roles, departments, locations, and employment types.</p>
 
         <div className="scheduling-transfer-options conversions-options" style={{ marginTop: 24 }}>
-          <Link to="/flow/settings/creating-a-user/adding-a-custom-role" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/settings/creating-a-user/adding-a-custom-role')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">🎭</span>
             <span className="scheduling-transfer-card-title">Adding a custom role</span>
             <span className="scheduling-transfer-card-subtitle">Create roles with specific permissions.</span>
           </Link>
-          <Link to="/flow/settings/creating-a-user/cancelling-an-invitation" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/settings/creating-a-user/cancelling-an-invitation')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">❌</span>
             <span className="scheduling-transfer-card-title">Cancelling an invitation</span>
             <span className="scheduling-transfer-card-subtitle">Cancel pending user invitations.</span>
           </Link>
-          <Link to="/flow/settings/creating-a-user/creating-a-department" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/settings/creating-a-user/creating-a-department')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">🏢</span>
             <span className="scheduling-transfer-card-title">Creating a department</span>
             <span className="scheduling-transfer-card-subtitle">Add departments to organise users.</span>
           </Link>
-          <Link to="/flow/settings/creating-a-user/creating-a-location" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/settings/creating-a-user/creating-a-location')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">📍</span>
             <span className="scheduling-transfer-card-title">Creating a location</span>
             <span className="scheduling-transfer-card-subtitle">Add locations for offices and regions.</span>
           </Link>
-          <Link to="/flow/settings/creating-a-user/removing-employment-type" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/settings/creating-a-user/removing-employment-type')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">👤</span>
             <span className="scheduling-transfer-card-title">Removing employment type</span>
             <span className="scheduling-transfer-card-subtitle">Remove employment types and reassign users.</span>
           </Link>
-          <Link to="/flow/settings/creating-a-user/role-details/admin" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/settings/creating-a-user/role-details/admin')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">📋</span>
             <span className="scheduling-transfer-card-title">Role details</span>
             <span className="scheduling-transfer-card-subtitle">View and manage role permissions.</span>

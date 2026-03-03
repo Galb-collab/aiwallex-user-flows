@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import './AcceptingPaymentFlow.css'
 
 const REPORT_DATE = '18 November 2025'
@@ -17,10 +18,11 @@ const ACTIVITY_AFTER_PAY = [
 
 export function AcceptingPaymentFlow() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [showConfirmModal, setShowConfirmModal] = useState(false)
   const [paymentDone, setPaymentDone] = useState(false)
 
-  const handleClose = () => navigate('/flow/dashboard')
+  const handleClose = () => navigate(flowPath('/flow/dashboard'))
   const handlePay = () => setShowConfirmModal(true)
   const handleCancelConfirm = () => setShowConfirmModal(false)
   const handleConfirmPayment = () => {

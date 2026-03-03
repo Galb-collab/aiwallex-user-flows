@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../bills/BillsFlow.css'
 import './RequestsFlow.css'
 
 export function ApprovingARequest() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
 
   return (
     <div className="bills-content">
@@ -13,7 +15,7 @@ export function ApprovingARequest() {
           <h1 className="bills-page-title">Spend requests</h1>
           <p className="bills-page-subtitle">Create spend requests and manage their progress.</p>
         </div>
-        <Link to="/flow/requests/creating-requests" className="bills-btn bills-btn-primary">+ Create request</Link>
+        <Link to={flowPath('/flow/requests/creating-requests')} className="bills-btn bills-btn-primary">+ Create request</Link>
       </div>
 
       <div className="bills-cards">
@@ -36,6 +38,8 @@ export function ApprovingARequest() {
         <input type="search" className="bills-search" placeholder="Search by description" aria-label="Search by description" />
         <select className="bills-filter"><option>Category</option></select>
         <select className="bills-filter"><option>Requested by</option></select>
+        <select className="bills-filter"><option>Request type</option></select>
+        <select className="bills-filter"><option>Status</option></select>
       </div>
 
       <div className="bills-table-wrap">
@@ -56,7 +60,7 @@ export function ApprovingARequest() {
               <td><input type="checkbox" aria-label="Select" onClick={e => e.stopPropagation()} /></td>
               <td>2025-11-27</td>
               <td>Card</td>
-              <td>Subscriptions <span style={{ display: 'block', fontSize: '12px', color: 'var(--psp-text-muted)' }}>Software subscriptions</span></td>
+              <td>Team Expenses <span style={{ display: 'block', fontSize: '12px', color: 'var(--psp-text-muted)' }}>General expenses</span></td>
               <td>Sam Lee</td>
               <td>1,000.00 SGD total</td>
               <td><span className="requests-status-pending">Pending your approval</span></td>
@@ -65,7 +69,7 @@ export function ApprovingARequest() {
               <td><input type="checkbox" aria-label="Select" /></td>
               <td>2025-11-27</td>
               <td>Card</td>
-              <td>Team Expenses <span style={{ display: 'block', fontSize: '12px', color: 'var(--psp-text-muted)' }}>General expenses</span></td>
+              <td>Subscriptions <span style={{ display: 'block', fontSize: '12px', color: 'var(--psp-text-muted)' }}>Software subscriptions</span></td>
               <td>Sam Lee</td>
               <td>1,000.00 SGD total</td>
               <td><span className="requests-status-resubmission">Resubmission required</span></td>
@@ -75,19 +79,19 @@ export function ApprovingARequest() {
       </div>
 
       {/* Request detail drawer - always visible in this sub-flow to show approval UI */}
-      <div className="requests-drawer-backdrop" onClick={() => navigate('/flow/requests')} aria-hidden />
+      <div className="requests-drawer-backdrop" onClick={() => navigate(flowPath('/flow/requests'))} aria-hidden />
       <div className="requests-drawer" onClick={e => e.stopPropagation()}>
         <div className="requests-drawer-header">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <div>
               <h2 className="requests-drawer-title">Spend request</h2>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '8px' }}>
-                <span className="requests-drawer-title" style={{ fontSize: '16px' }}>Subscriptions</span>
+                <span className="requests-drawer-title" style={{ fontSize: '16px' }}>Team Expenses</span>
                 <span className="requests-status-pending">Pending your approval</span>
               </div>
               <p className="requests-drawer-subtitle" style={{ marginTop: '4px' }}>Card request • Submitted by Sam Lee on 2025-11-27</p>
             </div>
-            <button type="button" className="bills-modal-close" onClick={() => navigate('/flow/requests')} aria-label="Close">×</button>
+            <button type="button" className="bills-modal-close" onClick={() => navigate(flowPath('/flow/requests'))} aria-label="Close">×</button>
           </div>
         </div>
         <div className="requests-drawer-body">

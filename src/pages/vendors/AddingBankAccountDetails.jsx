@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../bills/BillsFlow.css'
 import './VendorsFlow.css'
 
 export function AddingBankAccountDetails() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [mode, setMode] = useState(null) // 'new' | 'copy'
 
   const handleAdd = () => {
-    navigate('/flow/vendors')
+    navigate(flowPath('/flow/vendors'))
   }
 
   return (
@@ -18,7 +20,7 @@ export function AddingBankAccountDetails() {
           <h1 className="bills-page-title">Vendors</h1>
           <p className="bills-page-subtitle">Create and manage approved vendors for your organisation.</p>
         </div>
-        <Link to="/flow/vendors" className="bills-btn bills-btn-secondary">← Back to Vendors</Link>
+        <Link to={flowPath('/flow/vendors')} className="bills-btn bills-btn-secondary">← Back to Vendors</Link>
       </div>
 
       <div className="vendors-table-wrap">
@@ -45,11 +47,11 @@ export function AddingBankAccountDetails() {
       </div>
 
       {/* Add bank account details modal */}
-      <div className="bills-modal-backdrop" onClick={() => navigate('/flow/vendors')}>
+      <div className="bills-modal-backdrop" onClick={() => navigate(flowPath('/flow/vendors'))}>
         <div className="vendors-add-bank-modal" onClick={e => e.stopPropagation()}>
           <div className="adding-vendor-modal-header">
             <h2 className="adding-vendor-modal-title">Add bank account details</h2>
-            <button type="button" className="bills-modal-close" onClick={() => navigate('/flow/vendors')} aria-label="Close">×</button>
+            <button type="button" className="bills-modal-close" onClick={() => navigate(flowPath('/flow/vendors'))} aria-label="Close">×</button>
           </div>
           <div className="adding-vendor-modal-body" style={{ padding: '24px' }}>
             {mode === null && (
@@ -130,7 +132,7 @@ export function AddingBankAccountDetails() {
             )}
           </div>
           <div className="adding-vendor-modal-footer">
-            <button type="button" className="bills-btn bills-btn-secondary" onClick={() => mode ? setMode(null) : navigate('/flow/vendors')}>Cancel</button>
+            <button type="button" className="bills-btn bills-btn-secondary" onClick={() => mode ? setMode(null) : navigate(flowPath('/flow/vendors'))}>Cancel</button>
             <button type="button" className="bills-btn bills-btn-primary" onClick={handleAdd}>Add</button>
           </div>
         </div>

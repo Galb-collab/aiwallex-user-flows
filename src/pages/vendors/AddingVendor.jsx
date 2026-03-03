@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../bills/BillsFlow.css'
 import '../AddingVendorFlow.css'
 
 export function AddingVendor() {
+  const { flowPath } = useCompany()
   const [createVendorOpen, setCreateVendorOpen] = useState(false)
   const [vendorCreated, setVendorCreated] = useState(false)
   const [createTab, setCreateTab] = useState('general')
@@ -17,7 +19,7 @@ export function AddingVendor() {
     <div className="bills-content">
       <div className="bills-add-header">
         <h1 className="bills-add-title">Add new bill</h1>
-        <Link to="/flow/vendors" className="bills-modal-close" aria-label="Close">×</Link>
+        <Link to={flowPath('/flow/vendors')} className="bills-modal-close" aria-label="Close">×</Link>
       </div>
 
       <div className="bills-add-body adding-vendor-add-body">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const MOCK_TRANSFER = {
   id: '1',
@@ -16,6 +17,7 @@ const MOCK_TRANSFER = {
 export function TransferDetailsPage() {
   const { transferId } = useParams()
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [cancelStep, setCancelStep] = useState(0) // 0: hidden, 1: confirm, 2: success
   const [cancelReason, setCancelReason] = useState('')
 
@@ -27,12 +29,12 @@ export function TransferDetailsPage() {
     setCancelStep(0)
     setCancelReason('')
   }
-  const handleBackAfterCancel = () => navigate('/flow/transfers')
+  const handleBackAfterCancel = () => navigate(flowPath('/flow/transfers'))
 
   return (
     <div className="transfers-content">
       <div className="wallet-content">
-        <Link to="/flow/transfers" className="wallet-back-link">← Back to Transfers</Link>
+        <Link to={flowPath('/flow/transfers')} className="wallet-back-link">← Back to Transfers</Link>
         <h1 className="wallet-section-title">Transfer details</h1>
 
         <div className="wallet-overview-card" style={{ marginTop: 24 }}>

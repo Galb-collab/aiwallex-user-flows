@@ -1,11 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function ProfileSecurityPage() {
+  const { flowPath } = useCompany()
+
   return (
     <div className="profile-content">
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/profile" className="wallet-back-link">← Back to Profile</Link>
+        <Link to={flowPath('/flow/profile')} className="wallet-back-link">← Back to Profile</Link>
         <h1 className="wallet-section-title">Security</h1>
         <p className="creating-conversion-desc">Manage your account security settings.</p>
 
@@ -15,7 +18,7 @@ export function ProfileSecurityPage() {
             <span>Status</span>
             <span><strong>Enabled</strong> — Authenticator app</span>
           </div>
-          <Link to="/flow/rewards/disabling-two-factor-authentication" className="wallet-btn" style={{ marginTop: 16, borderColor: '#dc2626', color: '#dc2626' }}>
+          <Link to={flowPath('/flow/rewards/disabling-two-factor-authentication')} className="wallet-btn" style={{ marginTop: 16, borderColor: '#dc2626', color: '#dc2626' }}>
             Disable 2FA
           </Link>
         </div>

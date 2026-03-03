@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../bills/BillsFlow.css'
 import '../BillingFlow.css'
 import './BillingCustomers.css'
@@ -25,6 +26,7 @@ const INVOICES = [
 ]
 
 export function BillingInvoices() {
+  const { flowPath } = useCompany()
   const [selectedInvoice, setSelectedInvoice] = useState(INVOICES[0])
   const [paymentStatus, setPaymentStatus] = useState({ 'inv-1': 'unpaid' })
   const [voidedIds, setVoidedIds] = useState({})
@@ -54,7 +56,7 @@ export function BillingInvoices() {
           <h1 className="billing-title">Invoices</h1>
           <p className="billing-customers-subtitle">Create, issue, and manage invoices</p>
         </div>
-        <Link to="/flow/billing/creating-an-invoice" className="billing-btn billing-btn-primary">
+        <Link to={flowPath('/flow/billing/creating-an-invoice')} className="billing-btn billing-btn-primary">
           + New invoice
         </Link>
       </div>

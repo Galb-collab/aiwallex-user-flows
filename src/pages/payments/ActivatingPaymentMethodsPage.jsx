@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const PAYMENT_METHODS = [
   { id: 'cards', name: 'Card payments', status: 'Active', desc: 'Accept Visa, Mastercard, and other major cards' },
@@ -9,6 +10,7 @@ const PAYMENT_METHODS = [
 ]
 
 export function ActivatingPaymentMethodsPage() {
+  const { flowPath } = useCompany()
   const [methods, setMethods] = useState(PAYMENT_METHODS)
 
   const toggleStatus = (id) => {
@@ -27,7 +29,7 @@ export function ActivatingPaymentMethodsPage() {
   return (
     <div className="payments-content">
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/payments" className="wallet-back-link">← Back to Payments</Link>
+        <Link to={flowPath('/flow/payments')} className="wallet-back-link">← Back to Payments</Link>
         <h1 className="wallet-section-title">Activating payment methods</h1>
         <p className="creating-conversion-desc">Enable and configure the payment methods you want to accept from your customers.</p>
 

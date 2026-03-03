@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../bills/BillsFlow.css'
 import './VendorsFlow.css'
 
 export function UploadingAFile() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
 
   return (
     <div className="bills-content">
@@ -13,7 +15,7 @@ export function UploadingAFile() {
           <h1 className="bills-page-title">Vendors</h1>
           <p className="bills-page-subtitle">Create and manage approved vendors for your organisation.</p>
         </div>
-        <Link to="/flow/vendors" className="bills-btn bills-btn-secondary">← Back to Vendors</Link>
+        <Link to={flowPath('/flow/vendors')} className="bills-btn bills-btn-secondary">← Back to Vendors</Link>
       </div>
 
       <div className="vendors-table-wrap">
@@ -44,7 +46,7 @@ export function UploadingAFile() {
       </div>
 
       {/* Vendor drawer with Documents tab and upload zone */}
-      <div className="vendors-drawer-backdrop" onClick={() => navigate('/flow/vendors')} aria-hidden />
+      <div className="vendors-drawer-backdrop" onClick={() => navigate(flowPath('/flow/vendors'))} aria-hidden />
       <div className="vendors-drawer" onClick={e => e.stopPropagation()}>
         <div className="vendors-drawer-header">
           <div className="vendors-drawer-title-wrap">
@@ -57,7 +59,7 @@ export function UploadingAFile() {
               </div>
             </div>
           </div>
-          <button type="button" className="bills-modal-close" onClick={() => navigate('/flow/vendors')} aria-label="Close">×</button>
+          <button type="button" className="bills-modal-close" onClick={() => navigate(flowPath('/flow/vendors'))} aria-label="Close">×</button>
         </div>
         <div className="vendors-drawer-tabs">
           <button type="button" className="vendors-drawer-tab">General</button>

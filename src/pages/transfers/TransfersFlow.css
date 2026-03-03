@@ -8,10 +8,314 @@
 .transfers-flow .transfers-header {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 16px 24px;
   border-bottom: 1px solid var(--psp-border);
   background: #fff;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.transfers-tabs {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.transfers-tab {
+  padding: 8px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--psp-text-muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.transfers-tab:hover {
+  color: var(--psp-text);
+}
+
+.transfers-tab.active {
+  color: var(--psp-primary);
+  border-bottom-color: var(--psp-primary);
+}
+
+/* Transfers summary banner */
+.transfers-airwallex-pay-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: #f9fafb;
+  border: 1px solid var(--psp-border);
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.transfers-banner-icon {
+  font-size: 32px;
+}
+
+.transfers-banner-content {
+  flex: 1;
+}
+
+.transfers-banner-title {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--psp-text);
+}
+
+.transfers-banner-desc {
+  margin: 0;
+  font-size: 14px;
+  color: var(--psp-text-muted);
+}
+
+.transfers-banner-link {
+  color: var(--psp-primary);
+}
+
+.transfers-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.transfers-banner-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--psp-text);
+  background: #fff;
+  border: 1px solid var(--psp-border);
+}
+
+.transfers-banner-btn:hover {
+  background: var(--psp-primary);
+  color: #fff;
+  border-color: var(--psp-primary);
+}
+
+.transfers-banner-close {
+  padding: 4px 8px;
+  font-size: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--psp-text-muted);
+}
+
+.transfers-sub-tabs {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.transfers-sub-tab {
+  padding: 8px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--psp-text-muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.transfers-sub-tab.active {
+  color: var(--psp-primary);
+  border-bottom-color: var(--psp-primary);
+}
+
+.transfers-sub-tab:hover:not(.active) {
+  color: var(--psp-text);
+}
+
+.transfers-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.transfers-new-btn {
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+  background: var(--psp-primary);
+  border-radius: 8px;
+}
+
+.transfers-new-btn:hover {
+  opacity: 0.9;
+}
+
+.transfers-search-filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.transfers-search {
+  padding: 8px 12px 8px 36px;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  font-size: 14px;
+  min-width: 280px;
+}
+
+.transfers-filter {
+  padding: 8px 12px;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.transfers-date-range {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--psp-border);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.transfers-date-icon {
+  font-size: 14px;
+}
+
+.transfers-date-sep {
+  color: var(--psp-text-muted);
+}
+
+.transfers-date-range input {
+  border: none;
+  font-size: 16px;
+  width: 100px;
+}
+
+.transfers-date-clear,
+.transfers-export {
+  padding: 4px 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.transfers-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--psp-border);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.transfers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transfers-table th,
+.transfers-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--psp-border);
+}
+
+.transfers-table th {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--psp-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.transfers-th-info {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--psp-text-muted);
+}
+
+.transfers-status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.transfers-status-scheduled {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* Transfer approvals page */
+.transfers-approval-page {
+  padding: 24px 32px;
+}
+
+.transfers-approval-link {
+  color: var(--psp-primary);
+}
+
+.transfers-approval-link:hover {
+  text-decoration: underline;
+}
+
+.transfers-approval-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.transfers-approval-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--psp-border);
+  border-radius: 12px;
+}
+
+.transfers-approval-card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--psp-text);
+}
+
+.transfers-approval-card-desc {
+  margin: 0;
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  line-height: 1.5;
+}
+
+.transfers-approval-setup-btn {
+  align-self: flex-start;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--psp-primary);
+  background: #fff;
+  border: 1px dashed var(--psp-border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.transfers-approval-setup-btn:hover {
+  background: #f5f3ff;
+  border-color: var(--psp-primary);
 }
 
 .transfers-content {

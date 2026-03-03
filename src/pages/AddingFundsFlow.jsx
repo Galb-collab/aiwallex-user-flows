@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import { useAddingFunds, ADDING_FUNDS_STEPS } from '../context/AddingFundsContext'
 import { SelectMethodStep } from './adding-funds/SelectMethodStep'
 import { AccountDetailsStep } from './adding-funds/AccountDetailsStep'
@@ -13,11 +14,12 @@ const STEP_COMPONENTS = {
 
 export function AddingFundsFlow() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const { step } = useAddingFunds()
   const StepComponent = STEP_COMPONENTS[step]
 
   const handleClose = () => {
-    if (window.confirm('Leave Add funds? Progress is saved.')) navigate('/flow/dashboard')
+    if (window.confirm('Leave Add funds? Progress is saved.')) navigate(flowPath('/flow/dashboard'))
   }
 
   return (

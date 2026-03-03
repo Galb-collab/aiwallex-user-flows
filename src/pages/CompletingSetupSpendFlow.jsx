@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import { DashboardHeader } from '../components/DashboardHeader'
 import { useCompletingSetupSpend } from '../context/CompletingSetupSpendContext'
 import './Dashboard.css'
@@ -37,6 +38,7 @@ const TURN_ON_ITEMS = [
 ]
 
 export function CompletingSetupSpendFlow() {
+  const { flowPath } = useCompany()
   const {
     tourStep,
     showTour,
@@ -61,26 +63,26 @@ export function CompletingSetupSpendFlow() {
           <div className="sidebar-nav-item active-wrap">
             <a href="#spend" className="active">Spend <span className="tag">New</span></a>
             <div className="sidebar-sub">
-              <Link to="/flow/spend-general/expenses-spend">Expenses</Link>
-              <Link to="/flow/bills">Bills</Link>
+              <Link to={flowPath('/flow/spend-general/expenses-spend')}>Expenses</Link>
+              <Link to={flowPath('/flow/bills')}>Bills</Link>
               <a href="#purchase-orders">Purchase orders</a>
-              <Link to="/flow/vendors">Vendors</Link>
-              <Link to="/flow/completing-setup-spend" className="active">Complete setup</Link>
-              <Link to="/flow/requests">Requests</Link>
+              <Link to={flowPath('/flow/vendors')}>Vendors</Link>
+              <Link to={flowPath('/flow/completing-setup-spend')} className="active">Complete setup</Link>
+              <Link to={flowPath('/flow/requests')}>Requests</Link>
             </div>
           </div>
-          <Link to="/flow/billing">Billing <span className="tag">New</span></Link>
+          <Link to={flowPath('/flow/billing')}>Billing <span className="tag">New</span></Link>
           <a href="#reports">Reports</a>
-          <Link to="/flow/settings">Settings</Link>
+          <Link to={flowPath('/flow/settings')}>Settings</Link>
         </nav>
         <div className="sidebar-section">
           <div className="sidebar-section-title">{BUSINESS_NAME} Account | {BUSINESS_NAME}</div>
           <a href="#wallet">Wallet</a>
-          <Link to="/flow/transfers">Transfers</Link>
-          <Link to="/flow/cards">Cards</Link>
+          <Link to={flowPath('/flow/transfers')}>Transfers</Link>
+          <Link to={flowPath('/flow/cards')}>Cards</Link>
           <a href="#payments">Payments</a>
-          <Link to="/flow/rewards">Rewards</Link>
-          <Link to="/flow/rewards/security">Security</Link>
+          <Link to={flowPath('/flow/rewards')}>Rewards</Link>
+          <Link to={flowPath('/flow/rewards/security')}>Security</Link>
           <a href="#statements">Statements</a>
         </div>
         <div className="sidebar-footer">
@@ -91,7 +93,7 @@ export function CompletingSetupSpendFlow() {
       <div className="dashboard-main">
         <DashboardHeader email={EMAIL} className="completing-setup-spend-header">
           <nav className="expenses-tabs" style={{ margin: 0 }}>
-            <Link to="/flow/spend-general" className="expenses-tab-back">← Spend</Link>
+            <Link to={flowPath('/flow/spend-general')} className="expenses-tab-back">← Spend</Link>
           </nav>
         </DashboardHeader>
         <div className="spend-content">

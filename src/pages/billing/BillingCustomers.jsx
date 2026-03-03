@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../bills/BillsFlow.css'
 import '../BillingFlow.css'
 import './BillingCustomers.css'
 
 export function BillingCustomers() {
+  const { flowPath } = useCompany()
+
   return (
     <div className="billing-main billing-customers">
       <div className="billing-customers-title-row">
@@ -12,7 +15,7 @@ export function BillingCustomers() {
           <h1 className="billing-title">Customers</h1>
           <p className="billing-customers-subtitle">Create and manage your customers.</p>
         </div>
-        <Link to="/flow/billing/creating-a-customer" className="billing-btn billing-btn-primary">
+        <Link to={flowPath('/flow/billing/creating-a-customer')} className="billing-btn billing-btn-primary">
           + New customer
         </Link>
       </div>
@@ -46,7 +49,7 @@ export function BillingCustomers() {
           <tbody>
             <tr>
               <td>
-                <Link to="/flow/billing/customer-details" className="billing-customer-name-link">
+                <Link to={flowPath('/flow/billing/customer-details')} className="billing-customer-name-link">
                   Alex Smith
                 </Link>
                 <div className="billing-customer-id">bcus_sgpd68bn5hdd2p...</div>

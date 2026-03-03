@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function RedeemRewardsPage() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [amount, setAmount] = useState('')
   const [redeemed, setRedeemed] = useState(false)
 
@@ -10,7 +12,7 @@ export function RedeemRewardsPage() {
 
   const handleRedeem = () => {
     setRedeemed(true)
-    setTimeout(() => navigate('/flow/rewards'), 2500)
+    setTimeout(() => navigate(flowPath('/flow/rewards')), 2500)
   }
 
   if (redeemed) {
@@ -23,7 +25,7 @@ export function RedeemRewardsPage() {
             <p className="creating-conversion-success-text">
               {amount || '0'} SGD has been transferred to your wallet.
             </p>
-            <Link to="/flow/rewards" className="wallet-btn wallet-btn-primary">Back to Rewards</Link>
+            <Link to={flowPath('/flow/rewards')} className="wallet-btn wallet-btn-primary">Back to Rewards</Link>
           </div>
         </div>
       </div>
@@ -33,7 +35,7 @@ export function RedeemRewardsPage() {
   return (
     <div className="rewards-content">
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/rewards" className="wallet-back-link">← Back to Rewards</Link>
+        <Link to={flowPath('/flow/rewards')} className="wallet-back-link">← Back to Rewards</Link>
         <h1 className="wallet-section-title">Redeem rewards</h1>
         <p className="creating-conversion-desc">Transfer your cashback balance to your wallet.</p>
 
@@ -58,7 +60,7 @@ export function RedeemRewardsPage() {
         </div>
 
         <div className="scheduling-transfer-footer" style={{ marginTop: 24 }}>
-          <Link to="/flow/rewards" className="wallet-btn">Cancel</Link>
+          <Link to={flowPath('/flow/rewards')} className="wallet-btn">Cancel</Link>
           <button
             type="button"
             className="wallet-btn wallet-btn-primary"

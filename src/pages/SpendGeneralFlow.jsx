@@ -18,7 +18,7 @@ const SPEND_FEATURES = [
 ]
 
 export function SpendGeneralFlow() {
-  const { info } = useCompany()
+  const { flowPath } = useCompany()
   return (
     <div className="dashboard spend-general">
       <aside className="sidebar">
@@ -28,27 +28,27 @@ export function SpendGeneralFlow() {
           <div className="sidebar-nav-item active-wrap">
             <a href="#spend" className="active">Spend <span className="tag">New</span></a>
             <div className="sidebar-sub">
-              <Link to="/flow/spend-general/expenses-spend">Expenses</Link>
-              <Link to="/flow/bills">Bills</Link>
-              <Link to="/flow/spend-general/purchase-orders">Purchase orders</Link>
-              <Link to="/flow/vendors">Vendors</Link>
-              <Link to="/flow/completing-setup-spend">Complete setup</Link>
-              <Link to="/flow/requests">Requests</Link>
-              <Link to="/flow/cards">Cards</Link>
+              <Link to={flowPath('/flow/spend-general/expenses-spend')}>Expenses</Link>
+              <Link to={flowPath('/flow/bills')}>Bills</Link>
+              <Link to={flowPath('/flow/spend-general/purchase-orders')}>Purchase orders</Link>
+              <Link to={flowPath('/flow/vendors')}>Vendors</Link>
+              <Link to={flowPath('/flow/completing-setup-spend')}>Complete setup</Link>
+              <Link to={flowPath('/flow/requests')}>Requests</Link>
+              <Link to={flowPath('/flow/cards')}>Cards</Link>
             </div>
           </div>
-          <Link to="/flow/billing">Billing <span className="tag">New</span></Link>
+          <Link to={flowPath('/flow/billing')}>Billing <span className="tag">New</span></Link>
           <a href="#reports">Reports</a>
-          <Link to="/flow/settings">Settings</Link>
+          <Link to={flowPath('/flow/settings')}>Settings</Link>
         </nav>
         <div className="sidebar-section">
           <div className="sidebar-section-title">{BUSINESS_NAME} Account | {BUSINESS_NAME}</div>
-          <Link to="/flow/wallet">Wallet</Link>
-          <Link to="/flow/transfers">Transfers</Link>
+          <Link to={flowPath('/flow/wallet')}>Wallet</Link>
+          <Link to={flowPath('/flow/transfers')}>Transfers</Link>
           <a href="#cards">Cards</a>
           <a href="#payments">Payments</a>
-          <Link to="/flow/rewards">Rewards</Link>
-          <Link to="/flow/rewards/security">Security</Link>
+          <Link to={flowPath('/flow/rewards')}>Rewards</Link>
+          <Link to={flowPath('/flow/rewards/security')}>Security</Link>
           <a href="#statements">Statements</a>
         </div>
         <div className="sidebar-footer">
@@ -69,7 +69,7 @@ export function SpendGeneralFlow() {
               <span className="spend-promo-badge">Airwallex Spend</span>
               <h2 className="spend-promo-title">Close faster, spend smarter</h2>
               <p className="spend-promo-desc">Consolidate and automate spend management in one AI-powered platform.</p>
-              <Link to="/flow/completing-setup-spend" className="spend-get-started">Get started</Link>
+              <Link to={flowPath('/flow/completing-setup-spend')} className="spend-get-started">Get started</Link>
             </div>
             <div className="spend-video-card">
               <div className="spend-video-placeholder">
@@ -88,7 +88,7 @@ export function SpendGeneralFlow() {
                 <h3 className="spend-feature-title">{f.title}</h3>
                 <p className="spend-feature-desc">{f.description}</p>
                 {f.path ? (
-                  <Link to={f.path} className="spend-feature-link">{f.action} →</Link>
+                  <Link to={flowPath(f.path)} className="spend-feature-link">{f.action} →</Link>
                 ) : (
                   <a href={`#${f.id}`} className="spend-feature-link">{f.action} →</a>
                 )}

@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function DisablingTwoFactorAuthenticationPage() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [step, setStep] = useState(1)
   const [password, setPassword] = useState('')
   const [confirmed, setConfirmed] = useState(false)
 
-  const handleClose = () => navigate('/flow/rewards/security')
+  const handleClose = () => navigate(flowPath('/flow/rewards/security'))
 
   if (step === 1) {
     return (
       <div className="rewards-content">
         <div className="wallet-content creating-conversion">
-          <Link to="/flow/rewards/security" className="wallet-back-link">← Back to Security</Link>
+          <Link to={flowPath('/flow/rewards/security')} className="wallet-back-link">← Back to Security</Link>
           <h1 className="wallet-section-title">Disabling two-factor authentication</h1>
           <p className="creating-conversion-desc">
             Disabling 2FA will make your account less secure. You will only need your password to sign in. Enter your password to continue.
@@ -50,7 +52,7 @@ export function DisablingTwoFactorAuthenticationPage() {
     return (
       <div className="rewards-content">
         <div className="wallet-content creating-conversion">
-          <Link to="/flow/rewards/security" className="wallet-back-link">← Back to Security</Link>
+          <Link to={flowPath('/flow/rewards/security')} className="wallet-back-link">← Back to Security</Link>
           <h1 className="wallet-section-title">Confirm disable 2FA</h1>
           <p className="creating-conversion-desc">
             Disabling two-factor authentication will reduce your account security. Are you sure you want to continue?
@@ -87,7 +89,7 @@ export function DisablingTwoFactorAuthenticationPage() {
           <p className="creating-conversion-success-text">
             Your account now uses password-only sign in. You can re-enable 2FA later in Security settings.
           </p>
-          <Link to="/flow/rewards/security" className="wallet-btn wallet-btn-primary">Back to Security</Link>
+          <Link to={flowPath('/flow/rewards/security')} className="wallet-btn wallet-btn-primary">Back to Security</Link>
         </div>
       </div>
     </div>

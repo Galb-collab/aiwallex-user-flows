@@ -11,7 +11,7 @@ const BUSINESS_NAME = 'SLMobbin'
 const EMAIL = 'samlee@content-mobbin.com'
 
 export function RewardsFlow() {
-  const { info } = useCompany()
+  const { flowPath } = useCompany()
   const location = useLocation()
   const path = location.pathname
   const isIndex = path === '/flow/rewards' || path.endsWith('/rewards')
@@ -25,34 +25,34 @@ export function RewardsFlow() {
       <aside className="sidebar">
         <div className="sidebar-org">{BUSINESS_NAME}</div>
         <nav className="sidebar-nav">
-          <Link to="/flow/dashboard">Dashboard</Link>
-          <Link to="/flow/spend-general">Spend <span className="tag">New</span></Link>
-          <Link to="/flow/billing">Billing <span className="tag">New</span></Link>
-          <Link to="/flow/payments-overview">Payments overview</Link>
-          <Link to="/flow/transfers">Transfers</Link>
-          <Link to="/flow/cards">Cards</Link>
-          <Link to="/flow/payments">Payments</Link>
+          <Link to={flowPath('/flow/dashboard')}>Dashboard</Link>
+          <Link to={flowPath('/flow/spend-general')}>Spend <span className="tag">New</span></Link>
+          <Link to={flowPath('/flow/billing')}>Billing <span className="tag">New</span></Link>
+          <Link to={flowPath('/flow/payments-overview')}>Payments overview</Link>
+          <Link to={flowPath('/flow/transfers')}>Transfers</Link>
+          <Link to={flowPath('/flow/cards')}>Cards</Link>
+          <Link to={flowPath('/flow/payments')}>Payments</Link>
           <div className="sidebar-nav-item active-wrap">
             <span className="active">Rewards</span>
             <div className="sidebar-sub">
-              <Link to="/flow/rewards" className={isIndex ? 'active' : ''}>Overview</Link>
-              <Link to="/flow/rewards/redeem-rewards" className={isRedeem ? 'active' : ''}>Redeem rewards</Link>
-              <Link to="/flow/rewards/rewards-activity" className={isActivity ? 'active' : ''}>Rewards activity</Link>
-              <Link to="/flow/rewards/security" className={isSecurity ? 'active' : ''}>Security</Link>
-              <Link to="/flow/rewards/disabling-two-factor-authentication" className={isDisabling2FA ? 'active' : ''}>Disabling two-factor authentication</Link>
+              <Link to={flowPath('/flow/rewards')} className={isIndex ? 'active' : ''}>Overview</Link>
+              <Link to={flowPath('/flow/rewards/redeem-rewards')} className={isRedeem ? 'active' : ''}>Redeem rewards</Link>
+              <Link to={flowPath('/flow/rewards/rewards-activity')} className={isActivity ? 'active' : ''}>Rewards activity</Link>
+              <Link to={flowPath('/flow/rewards/security')} className={isSecurity ? 'active' : ''}>Security</Link>
+              <Link to={flowPath('/flow/rewards/disabling-two-factor-authentication')} className={isDisabling2FA ? 'active' : ''}>Disabling two-factor authentication</Link>
             </div>
           </div>
           <a href="#reports">Reports</a>
-          <Link to="/flow/settings">Settings</Link>
+          <Link to={flowPath('/flow/settings')}>Settings</Link>
         </nav>
         <div className="sidebar-section">
           <div className="sidebar-section-title">{BUSINESS_NAME} Account | {BUSINESS_NAME}</div>
-          <Link to="/flow/wallet">Wallet</Link>
-          <Link to="/flow/transfers">Transfers</Link>
-          <Link to="/flow/cards">Cards</Link>
-          <Link to="/flow/payments">Payments</Link>
-          <Link to="/flow/rewards">Rewards</Link>
-          <Link to="/flow/rewards/security">Security</Link>
+          <Link to={flowPath('/flow/wallet')}>Wallet</Link>
+          <Link to={flowPath('/flow/transfers')}>Transfers</Link>
+          <Link to={flowPath('/flow/cards')}>Cards</Link>
+          <Link to={flowPath('/flow/payments')}>Payments</Link>
+          <Link to={flowPath('/flow/rewards')}>Rewards</Link>
+          <Link to={flowPath('/flow/rewards/security')}>Security</Link>
         </div>
         <div className="sidebar-footer">
           <span className="logo-icon small">A</span>

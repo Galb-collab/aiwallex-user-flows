@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const MOCK_INVITATIONS = [
   { id: '1', email: 'jane@company.com', role: 'Member', sent: '2025-02-15' },
@@ -7,6 +8,7 @@ const MOCK_INVITATIONS = [
 ]
 
 export function CancellingAnInvitationPage() {
+  const { flowPath } = useCompany()
   const [selectedId, setSelectedId] = useState(null)
   const [cancelled, setCancelled] = useState(false)
 
@@ -22,7 +24,7 @@ export function CancellingAnInvitationPage() {
             <p className="creating-conversion-success-text">
               The invitation to {selected?.email} has been cancelled. They will no longer receive the invitation email.
             </p>
-            <Link to="/flow/settings/creating-a-user" className="wallet-btn wallet-btn-primary">Back to Creating a user</Link>
+            <Link to={flowPath('/flow/settings/creating-a-user')} className="wallet-btn wallet-btn-primary">Back to Creating a user</Link>
           </div>
         </div>
       </div>
@@ -32,7 +34,7 @@ export function CancellingAnInvitationPage() {
   return (
     <div className="settings-content">
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/settings/creating-a-user" className="wallet-back-link">← Back to Creating a user</Link>
+        <Link to={flowPath('/flow/settings/creating-a-user')} className="wallet-back-link">← Back to Creating a user</Link>
         <h1 className="wallet-section-title">Cancelling an invitation</h1>
         <p className="creating-conversion-desc">Select a pending invitation to cancel. The user will not receive the invitation email.</p>
 
@@ -52,7 +54,7 @@ export function CancellingAnInvitationPage() {
         </div>
 
         <div className="scheduling-transfer-footer" style={{ marginTop: 24 }}>
-          <Link to="/flow/settings/creating-a-user" className="wallet-btn">Cancel</Link>
+          <Link to={flowPath('/flow/settings/creating-a-user')} className="wallet-btn">Cancel</Link>
           <button
             type="button"
             className="wallet-btn"

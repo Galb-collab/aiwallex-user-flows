@@ -20,7 +20,10 @@ export function VendorsIndex() {
           <span className="bills-connect-logo">Xero</span>
           <span className="bills-connect-logo">QuickBooks</span>
         </div>
-        <p>Connect your vendor data to seamlessly sync with your preferred accounting provider.</p>
+        <div className="bills-connect-content">
+          <h3 className="bills-connect-title">Connect to your favourite accounting software</h3>
+          <p className="bills-connect-desc">Connect your vendor data to seamlessly sync with your preferred accounting provider.</p>
+        </div>
         <button type="button" className="bills-connect-btn">Connect</button>
       </div>
 

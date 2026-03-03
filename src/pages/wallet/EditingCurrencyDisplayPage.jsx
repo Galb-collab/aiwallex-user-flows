@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const CURRENCIES_LIST = [
   { code: 'AED', name: 'UAE Dirham', flag: '🇦🇪' },
@@ -13,6 +14,7 @@ const CURRENCIES_LIST = [
 ]
 
 export function EditingCurrencyDisplayPage() {
+  const { flowPath } = useCompany()
   const [search, setSearch] = useState('')
   const [toggles, setToggles] = useState(() =>
     Object.fromEntries(CURRENCIES_LIST.map((c) => [c.code, c.code === 'SGD']))
@@ -28,7 +30,7 @@ export function EditingCurrencyDisplayPage() {
 
   return (
     <div className="wallet-content">
-      <Link to="/flow/wallet" className="wallet-back-link">← Back</Link>
+      <Link to={flowPath('/flow/wallet')} className="wallet-back-link">← Back</Link>
       <h1 className="wallet-section-title">Display currencies</h1>
       <p className="wallet-display-desc">Select which currencies you would like to view in your wallet.</p>
       <div className="wallet-display-search-wrap">

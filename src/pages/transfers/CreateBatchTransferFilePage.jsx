@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function CreateBatchTransferFilePage() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [step, setStep] = useState(1)
   const [fileType, setFileType] = useState('upload') // upload | create
   const [fileName, setFileName] = useState('')
 
-  const handleClose = () => navigate('/flow/transfers')
+  const handleClose = () => navigate(flowPath('/flow/transfers'))
 
   if (step === 1) {
     return (
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/transfers" className="wallet-back-link">← Back</Link>
+        <Link to={flowPath('/flow/transfers')} className="wallet-back-link">← Back</Link>
         <h1 className="wallet-section-title">Create a batch transfer file</h1>
         <p className="creating-conversion-desc">Choose how you want to create your batch transfer file.</p>
 
@@ -50,7 +52,7 @@ export function CreateBatchTransferFilePage() {
   if (step === 2) {
     return (
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/transfers" className="wallet-back-link">← Back</Link>
+        <Link to={flowPath('/flow/transfers')} className="wallet-back-link">← Back</Link>
         <h1 className="wallet-section-title">{fileType === 'upload' ? 'Upload batch file' : 'Create batch file'}</h1>
 
         {fileType === 'upload' ? (
@@ -92,7 +94,7 @@ export function CreateBatchTransferFilePage() {
         <p className="creating-conversion-success-text">
           Your batch transfer file has been {fileType === 'upload' ? 'uploaded' : 'created'} successfully. You can now review and submit it for approval.
         </p>
-        <Link to="/flow/transfers" className="wallet-btn wallet-btn-primary">Back to Transfers</Link>
+        <Link to={flowPath('/flow/transfers')} className="wallet-btn wallet-btn-primary">Back to Transfers</Link>
       </div>
     </div>
   )

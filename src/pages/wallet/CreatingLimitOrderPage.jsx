@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const CURRENCIES = [
   { code: 'SGD', name: 'Singapore Dollar', flag: '🇸🇬' },
@@ -12,6 +13,7 @@ const RATE_SGD_USD = 1.30258
 
 export function CreatingLimitOrderPage() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [step, setStep] = useState(1)
   const [sellCurrency, setSellCurrency] = useState('SGD')
   const [buyCurrency, setBuyCurrency] = useState('USD')
@@ -22,12 +24,12 @@ export function CreatingLimitOrderPage() {
   const rateNum = parseFloat(targetRate) || 0
   const buyNum = rateNum > 0 ? sellNum / rateNum : 0
 
-  const handleClose = () => navigate('/flow/wallet/conversions')
+  const handleClose = () => navigate(flowPath('/flow/wallet/conversions'))
 
   if (step === 1) {
     return (
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/wallet/conversions" className="wallet-back-link">← Back</Link>
+        <Link to={flowPath('/flow/wallet/conversions')} className="wallet-back-link">← Back</Link>
         <h1 className="wallet-section-title">Create limit order</h1>
         <p className="creating-conversion-desc">Your conversion will execute automatically when the rate reaches your target.</p>
 
@@ -90,7 +92,7 @@ export function CreatingLimitOrderPage() {
   if (step === 2) {
     return (
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/wallet/conversions" className="wallet-back-link">← Back</Link>
+        <Link to={flowPath('/flow/wallet/conversions')} className="wallet-back-link">← Back</Link>
         <h1 className="wallet-section-title">Review limit order</h1>
 
         <div className="wallet-overview-card creating-conversion-review">
@@ -126,8 +128,8 @@ export function CreatingLimitOrderPage() {
         <p className="creating-conversion-success-text">
           Your order to convert {sellAmount || '0.00'} {sellCurrency} to {buyCurrency} at 1 {sellCurrency} = {targetRate} {buyCurrency} will execute when the rate is reached.
         </p>
-        <Link to="/flow/wallet/conversions" className="wallet-btn wallet-btn-primary">Back to Conversions</Link>
-        <Link to="/flow/wallet" className="wallet-btn-link creating-conversion-skip">Back to wallet</Link>
+        <Link to={flowPath('/flow/wallet/conversions')} className="wallet-btn wallet-btn-primary">Back to Conversions</Link>
+        <Link to={flowPath('/flow/wallet')} className="wallet-btn-link creating-conversion-skip">Back to wallet</Link>
       </div>
     </div>
   )

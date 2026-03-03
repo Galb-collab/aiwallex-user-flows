@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import { useBusinessProfile, BUSINESS_PROFILE_STEPS } from '../context/BusinessProfileContext'
 import { BusinessProfileLayout } from '../components/BusinessProfileLayout'
 import { IndustryStep } from './business-profile/IndustryStep'
@@ -21,16 +22,17 @@ const STEP_COMPONENTS = {
 
 export function CompletingBusinessProfileFlow() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const { step, BUSINESS_PROFILE_STEPS: STEPS } = useBusinessProfile()
   const StepComponent = STEP_COMPONENTS[step]
 
   if (step === STEPS.DONE) {
-    navigate('/flow/completing-business-details/completing-business-owner', { replace: true })
+    navigate(flowPath('/flow/completing-business-details/completing-business-owner'), { replace: true })
     return null
   }
 
   if (!StepComponent) {
-    navigate('/flow/completing-business-details', { replace: true })
+    navigate(flowPath('/flow/completing-business-details'), { replace: true })
     return null
   }
 

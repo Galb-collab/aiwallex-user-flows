@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const MOCK_CARDS = {
   '1': {
@@ -33,13 +34,14 @@ const MOCK_CARDS = {
 }
 
 export function CardDetailsPage() {
+  const { flowPath } = useCompany()
   const { cardId } = useParams()
   const card = MOCK_CARDS[cardId] || MOCK_CARDS['1']
 
   return (
     <div className="cards-flow-content">
       <div className="wallet-content">
-        <Link to="/flow/cards" className="wallet-back-link">← Back to My cards</Link>
+        <Link to={flowPath('/flow/cards')} className="wallet-back-link">← Back to My cards</Link>
         <h1 className="wallet-section-title">Card details</h1>
 
         <div className="card-details-header" style={{ marginTop: 24, marginBottom: 24 }}>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import { useSubmittingApplication, SUBMITTING_STEPS } from '../context/SubmittingApplicationContext'
 import { ReviewInformationStep } from './submitting-application/ReviewInformationStep'
 import { SubmitApplicationStep } from './submitting-application/SubmitApplicationStep'
@@ -15,11 +16,12 @@ const STEP_COMPONENTS = {
 
 export function SubmittingApplicationFlow() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const { step } = useSubmittingApplication()
   const StepComponent = STEP_COMPONENTS[step]
 
   const handleClose = () => {
-    if (window.confirm('Leave verification? Progress is saved.')) navigate('/flow/completing-business-details')
+    if (window.confirm('Leave verification? Progress is saved.')) navigate(flowPath('/flow/completing-business-details'))
   }
 
   return (

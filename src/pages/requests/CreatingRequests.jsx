@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../bills/BillsFlow.css'
 import './RequestsFlow.css'
 
 export function CreatingRequests() {
+  const { flowPath } = useCompany()
   const [step, setStep] = useState('type') // 'type' | 'form'
   const [requestType, setRequestType] = useState(null) // 'card' | 'po'
 
@@ -11,7 +13,7 @@ export function CreatingRequests() {
     <div className="bills-content">
       <div className="bills-add-header">
         <h1 className="bills-add-title">Create request</h1>
-        <Link to="/flow/requests" className="bills-modal-close" aria-label="Close">×</Link>
+        <Link to={flowPath('/flow/requests')} className="bills-modal-close" aria-label="Close">×</Link>
       </div>
 
       {step === 'type' && (
@@ -94,7 +96,7 @@ export function CreatingRequests() {
           </div>
 
           <div className="bills-add-actions">
-            <Link to="/flow/requests" className="bills-btn bills-btn-secondary">Cancel</Link>
+            <Link to={flowPath('/flow/requests')} className="bills-btn bills-btn-secondary">Cancel</Link>
             <button type="button" className="bills-btn bills-btn-primary" onClick={() => setStep('type')}>Submit request</button>
           </div>
         </>

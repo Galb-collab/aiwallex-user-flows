@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const MOCK_LINKS = [
   { id: '1', name: 'Invoice #INV-001', amount: '150.00 SGD', status: 'Active', created: '2025-02-15' },
@@ -8,12 +9,13 @@ const MOCK_LINKS = [
 ]
 
 export function PaymentLinksPage() {
+  const { flowPath } = useCompany()
   const [links] = useState(MOCK_LINKS)
 
   return (
     <div className="payments-content">
       <div className="wallet-content">
-        <Link to="/flow/payments" className="wallet-back-link">← Back to Payments</Link>
+        <Link to={flowPath('/flow/payments')} className="wallet-back-link">← Back to Payments</Link>
         <h1 className="wallet-section-title">Payment links</h1>
         <p className="global-accounts-desc">Create shareable links for your customers to pay.</p>
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import { useVerifyingEmail, VERIFYING_EMAIL_STEPS } from '../context/VerifyingEmailContext'
 import { ReviewEmailStep } from './verifying-email/ReviewEmailStep'
 import { VerifiedStep } from './verifying-email/VerifiedStep'
@@ -13,11 +14,12 @@ const STEP_COMPONENTS = {
 
 export function VerifyingEmailFlow() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const { step } = useVerifyingEmail()
   const StepComponent = STEP_COMPONENTS[step]
 
   const handleClose = () => {
-    if (window.confirm('Leave verification? Progress is saved.')) navigate('/flow/completing-business-details/submitting-application')
+    if (window.confirm('Leave verification? Progress is saved.')) navigate(flowPath('/flow/completing-business-details/submitting-application'))
   }
 
   return (

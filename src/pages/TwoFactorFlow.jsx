@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import { useTwoFactorAuth, TWO_FA_STEPS } from '../context/TwoFactorAuthContext'
 import { IntroStep } from './two-factor/IntroStep'
 import { ChooseMethodStep } from './two-factor/ChooseMethodStep'
@@ -21,11 +22,12 @@ const STEP_COMPONENTS = {
 
 export function TwoFactorFlow() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const { step, progress } = useTwoFactorAuth()
   const StepComponent = STEP_COMPONENTS[step]
 
   const handleClose = () => {
-    if (window.confirm('Leave 2FA setup? Progress is saved.')) navigate('/flow/completing-business-details')
+    if (window.confirm('Leave 2FA setup? Progress is saved.')) navigate(flowPath('/flow/completing-business-details'))
   }
 
   return (

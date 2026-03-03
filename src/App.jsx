@@ -59,6 +59,8 @@ import { ApprovingARequest } from './pages/requests/ApprovingARequest'
 import { CardsFlow } from './pages/cards/CardsFlow'
 import { CardsIndex } from './pages/cards/CardsIndex'
 import { CardDetailsPage } from './pages/cards/CardDetailsPage'
+import { CardsTransactionsPage } from './pages/cards/CardsTransactionsPage'
+import { CardsSettingsPage } from './pages/cards/CardsSettingsPage'
 import { CreatingACardCompany } from './pages/cards/CreatingACardCompany'
 import { CreatingACard } from './pages/cards/CreatingACard'
 import { BillingFlow } from './pages/BillingFlow'
@@ -96,6 +98,7 @@ import { TransfersIndex } from './pages/transfers/TransfersIndex'
 import { CreateBatchTransferFilePage } from './pages/transfers/CreateBatchTransferFilePage'
 import { SettingUpTransferApprovalWorkflowPage } from './pages/transfers/SettingUpTransferApprovalWorkflowPage'
 import { DeactivatingWorkflowPage } from './pages/transfers/DeactivatingWorkflowPage'
+import { TransfersSettingsPage } from './pages/transfers/TransfersSettingsPage'
 import { TransferDetailsPage } from './pages/transfers/TransferDetailsPage'
 import { PaymentsFlow } from './pages/payments/PaymentsFlow'
 import { PaymentsIndex } from './pages/payments/PaymentsIndex'
@@ -420,6 +423,7 @@ function App() {
         <Route path="create-batch-transfer" element={<CreateBatchTransferFilePage />} />
         <Route path="transfer-approval-workflow" element={<SettingUpTransferApprovalWorkflowPage />} />
         <Route path="deactivating-workflow" element={<DeactivatingWorkflowPage />} />
+        <Route path="settings" element={<TransfersSettingsPage />} />
           </Route>
           <Route path="wallet" element={<WalletFlow />}>
         <Route index element={<WalletBalancesPage />} />
@@ -478,6 +482,8 @@ function App() {
         <Route path="card-details/:cardId" element={<CardDetailsPage />} />
         <Route path="creating-a-card-company" element={<CreatingACardCompany />} />
         <Route path="creating-a-card" element={<CreatingACard />} />
+        <Route path="transactions" element={<CardsTransactionsPage />} />
+        <Route path="settings" element={<CardsSettingsPage />} />
           </Route>
           <Route path="payments" element={<PaymentsFlow />}>
         <Route index element={<PaymentsIndex />} />

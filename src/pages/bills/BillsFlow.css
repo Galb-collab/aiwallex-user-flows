@@ -78,6 +78,23 @@
   margin-bottom: 24px;
 }
 
+.bills-connect-content {
+  flex: 1;
+}
+
+.bills-connect-title {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--psp-text);
+}
+
+.bills-connect-desc {
+  margin: 0;
+  font-size: 14px;
+  color: var(--psp-text-muted);
+}
+
 .bills-connect-logos {
   display: flex;
   gap: 12px;
@@ -90,11 +107,8 @@
   color: var(--psp-text-muted);
 }
 
-.bills-connect-banner p {
+.bills-connect-banner .bills-connect-desc {
   flex: 1;
-  margin: 0;
-  font-size: 14px;
-  color: var(--psp-text);
 }
 
 .bills-connect-btn {

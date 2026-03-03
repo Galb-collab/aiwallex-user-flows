@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../BillingFlow.css'
 import './CreatingAnInvoice.css'
 
@@ -9,6 +10,7 @@ const DEFAULT_PRICES = [{ id: 'p1', amount: 100, label: '$100.00 SGD' }]
 
 export function CreatingAnInvoice() {
   const location = useLocation()
+  const { flowPath } = useCompany()
   const fromCustomerDetails = location.state?.fromCustomerDetails === true
 
   const [billedTo, setBilledTo] = useState(fromCustomerDetails ? DEFAULT_CUSTOMER.name : '')
@@ -100,7 +102,7 @@ export function CreatingAnInvoice() {
       <div className="billing-create-invoice-header">
         <h1 className="billing-create-invoice-title">Create invoice</h1>
         <Link
-          to={fromCustomerDetails ? '/flow/billing/customer-details' : '/flow/billing'}
+          to={fromCustomerDetails ? flowPath('/flow/billing/customer-details') : flowPath('/flow/billing')}
           className="bills-modal-close"
           aria-label="Close"
         >
@@ -135,7 +137,7 @@ export function CreatingAnInvoice() {
             </div>
             {(fromCustomerDetails || billedTo) && (
               <Link
-                to="/flow/billing/customer-details"
+                to={flowPath('/flow/billing/customer-details')}
                 className="billing-create-invoice-view-customer"
               >
                 View customer
@@ -279,7 +281,7 @@ export function CreatingAnInvoice() {
 
         <div className="billing-create-invoice-actions">
           <Link
-            to={fromCustomerDetails ? '/flow/billing/customer-details' : '/flow/billing'}
+            to={fromCustomerDetails ? flowPath('/flow/billing/customer-details') : flowPath('/flow/billing')}
             className="bills-btn bills-btn-secondary"
           >
             Cancel

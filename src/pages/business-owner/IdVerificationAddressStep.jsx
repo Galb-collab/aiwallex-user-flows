@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import { useBusinessOwner } from '../../context/BusinessOwnerContext'
 
 export function IdVerificationAddressStep() {
+  const { flowPath } = useCompany()
   const { data, updateData, nextStep, prevStep } = useBusinessOwner()
 
   return (
@@ -55,7 +57,7 @@ export function IdVerificationAddressStep() {
         <p className="form-note">
           Provide proof of your residential address, such as a recent utility bill, phone bill, bank statement, or government correspondence. The document must be in English and issued within the last 6 months. Supported file formats: PDF, JPG, JPEG, PNG min 32KB max 10MB.
         </p>
-        <Link to="/flow/completing-business-details/completing-business-owner/removing-uploaded-file" className="btn-upload">
+        <Link to={flowPath('/flow/completing-business-details/completing-business-owner/removing-uploaded-file')} className="btn-upload">
           ↑ Upload or manage file
         </Link>
       </div>

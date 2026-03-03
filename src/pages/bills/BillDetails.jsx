@@ -1,13 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import './BillsFlow.css'
 
 export function BillDetails() {
+  const { flowPath } = useCompany()
+
   return (
     <div className="bills-content bills-pay-view">
       <div className="bills-pay-header">
         <h1 className="bills-pay-title">Pay bill</h1>
-        <Link to="/flow/bills" className="bills-modal-close" aria-label="Close">×</Link>
+        <Link to={flowPath('/flow/bills')} className="bills-modal-close" aria-label="Close">×</Link>
       </div>
 
       <div className="bills-pay-body">
@@ -30,7 +33,7 @@ export function BillDetails() {
         </div>
 
         <div className="bills-details-panel">
-          <p className="bills-detail-back"><Link to="/flow/bills">← Back to payment</Link></p>
+          <p className="bills-detail-back"><Link to={flowPath('/flow/bills')}>← Back to payment</Link></p>
           <h2 className="bills-detail-inv">INV0001</h2>
           <span className="bills-status bills-status-awaiting">Awaiting payment</span>
           <p className="bills-detail-sync">This bill will sync once it is approved.</p>

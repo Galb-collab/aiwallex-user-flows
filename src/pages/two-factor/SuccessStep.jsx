@@ -1,8 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function SuccessStep() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
 
   return (
     <div className="tfa-success">
@@ -50,7 +52,7 @@ export function SuccessStep() {
         </div>
       </div>
 
-      <button type="button" className="tfa-btn-primary tfa-done-btn" onClick={() => navigate('/flow/completing-business-details')}>
+      <button type="button" className="tfa-btn-primary tfa-done-btn" onClick={() => navigate(flowPath('/flow/completing-business-details'))}>
         Done
       </button>
     </div>

@@ -23,7 +23,7 @@ const SETTINGS_FIELDS = [
 ]
 
 export function ExpensesFlow() {
-  const { info } = useCompany()
+  const { flowPath } = useCompany()
   const [tab, setTab] = useState('summary')
   const [subTab, setSubTab] = useState('card-expenses')
 
@@ -32,29 +32,29 @@ export function ExpensesFlow() {
       <aside className="sidebar">
         <div className="sidebar-org">{BUSINESS_NAME}</div>
         <nav className="sidebar-nav">
-          <Link to="/flow/dashboard">Dashboard</Link>
+          <Link to={flowPath('/flow/dashboard')}>Dashboard</Link>
           <div className="sidebar-nav-item active-wrap">
-            <Link to="/flow/spend-general">Spend <span className="tag">New</span></Link>
+            <Link to={flowPath('/flow/spend-general')}>Spend <span className="tag">New</span></Link>
             <div className="sidebar-sub">
-              <Link to="/flow/spend-general/expenses-spend" className="active">Expenses</Link>
-              <Link to="/flow/bills">Bills</Link>
-              <Link to="/flow/purchase-orders">Purchase orders</Link>
-              <Link to="/flow/vendors">Vendors</Link>
-              <Link to="/flow/requests">Requests</Link>
+              <Link to={flowPath('/flow/spend-general/expenses-spend')} className="active">Expenses</Link>
+              <Link to={flowPath('/flow/bills')}>Bills</Link>
+              <Link to={flowPath('/flow/spend-general/purchase-orders')}>Purchase orders</Link>
+              <Link to={flowPath('/flow/vendors')}>Vendors</Link>
+              <Link to={flowPath('/flow/requests')}>Requests</Link>
             </div>
           </div>
-          <Link to="/flow/billing">Billing <span className="tag">New</span></Link>
+          <Link to={flowPath('/flow/billing')}>Billing <span className="tag">New</span></Link>
           <a href="#reports">Reports</a>
-          <Link to="/flow/settings">Settings</Link>
+          <Link to={flowPath('/flow/settings')}>Settings</Link>
         </nav>
         <div className="sidebar-section">
           <div className="sidebar-section-title">{BUSINESS_NAME} Account | {BUSINESS_NAME}</div>
           <a href="#wallet">Wallet</a>
-          <Link to="/flow/transfers">Transfers</Link>
-          <Link to="/flow/cards">Cards</Link>
+          <Link to={flowPath('/flow/transfers')}>Transfers</Link>
+          <Link to={flowPath('/flow/cards')}>Cards</Link>
           <a href="#payments">Payments</a>
-          <Link to="/flow/rewards">Rewards</Link>
-          <Link to="/flow/rewards/security">Security</Link>
+          <Link to={flowPath('/flow/rewards')}>Rewards</Link>
+          <Link to={flowPath('/flow/rewards/security')}>Security</Link>
         </div>
         <div className="sidebar-footer">
           <span className="logo-icon small">A</span>
@@ -65,7 +65,7 @@ export function ExpensesFlow() {
       <div className="dashboard-main">
         <DashboardHeader email={EMAIL} className="expenses-header">
           <nav className="expenses-tabs">
-            <Link to="/flow/spend-general" className="expenses-tab-back">← Spend</Link>
+            <Link to={flowPath('/flow/spend-general')} className="expenses-tab-back">← Spend</Link>
             <button type="button" className={tab === 'summary' ? 'active' : ''} onClick={() => setTab('summary')}>Summary</button>
             <button type="button" className={tab === 'automations' ? 'active' : ''} onClick={() => setTab('automations')}>Automations</button>
             <button type="button" className={tab === 'settings' ? 'active' : ''} onClick={() => setTab('settings')}>Settings</button>
@@ -93,7 +93,7 @@ export function ExpensesFlow() {
                 </div>
                 <div className="expenses-title-actions">
                   <button type="button" className="expenses-btn secondary">+ Reimbursement report</button>
-                  <Link to="/flow/spend-general/expenses-spend/uploading-a-receipt" className="expenses-btn primary">Upload receipts</Link>
+                  <Link to={flowPath('/flow/spend-general/expenses-spend/uploading-a-receipt')} className="expenses-btn primary">Upload receipts</Link>
                 </div>
               </div>
 
@@ -116,7 +116,7 @@ export function ExpensesFlow() {
               <div className="expenses-table-section">
                 <div className="expenses-sub-tabs">
                   <button type="button" className={subTab === 'card-expenses' ? 'active' : ''} onClick={() => setSubTab('card-expenses')}>Card expenses</button>
-                  <Link to="/flow/spend-general/expenses-spend/filtering-reimbursement" className={subTab === 'reimbursements' ? 'active' : ''}>Reimbursements</Link>
+                  <Link to={flowPath('/flow/spend-general/expenses-spend/filtering-reimbursement')} className={subTab === 'reimbursements' ? 'active' : ''}>Reimbursements</Link>
                 </div>
                 <div className="expenses-table-toolbar">
                   <input type="search" className="expenses-search" placeholder="Search by employee, card nickname, description, or last 4 digits of card number" />

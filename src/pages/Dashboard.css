@@ -112,8 +112,73 @@
   border-bottom: 1px solid var(--psp-border);
   padding: 16px 32px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.dashboard-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dashboard-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--psp-text);
+  border: 1px solid var(--psp-border);
+  background: #fff;
+}
+
+.dashboard-action-btn:first-of-type {
+  background: var(--psp-primary);
+  color: #fff;
+  border-color: var(--psp-primary);
+}
+
+.dashboard-action-btn:hover {
+  background: var(--psp-primary);
+  color: #fff;
+  border-color: var(--psp-primary);
+}
+
+.dashboard-action-icon {
+  font-size: 16px;
+}
+
+.dashboard-view-funds {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.dashboard-view-funds label {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+}
+
+.dashboard-view-funds-select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--psp-border);
+  font-size: 14px;
+  background: #fff;
+}
+
+.dashboard-view-funds-info {
+  font-size: 14px;
+  color: var(--psp-text-muted);
+  cursor: help;
 }
 
 .dashboard-header-right {
@@ -164,12 +229,41 @@
   flex-wrap: wrap;
 }
 
+.banner-pending-title {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--psp-text);
+  width: 100%;
+}
+
+.banner-pending-desc {
+  margin: 0;
+  font-size: 15px;
+  color: var(--psp-text-muted);
+  flex: 1;
+  min-width: 200px;
+}
+
 .banner-pending p {
   margin: 0;
   font-size: 15px;
   color: var(--psp-text);
   flex: 1;
   min-width: 200px;
+}
+
+.sidebar-org-sub {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+}
+
+.sidebar-org-dropdown {
+  margin-left: 4px;
+  font-size: 12px;
+  opacity: 0.8;
 }
 
 .dashboard-cards {

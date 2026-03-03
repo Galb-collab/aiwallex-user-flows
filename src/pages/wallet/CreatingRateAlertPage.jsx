@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const CURRENCIES = [
   { code: 'SGD', name: 'Singapore Dollar', flag: '🇸🇬' },
@@ -12,18 +13,19 @@ const RATE_SGD_USD = 1.30258
 
 export function CreatingRateAlertPage() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [step, setStep] = useState(1)
   const [sellCurrency, setSellCurrency] = useState('SGD')
   const [buyCurrency, setBuyCurrency] = useState('USD')
   const [targetRate, setTargetRate] = useState('1.35')
   const [direction, setDirection] = useState('above') // above | below
 
-  const handleClose = () => navigate('/flow/wallet/conversions')
+  const handleClose = () => navigate(flowPath('/flow/wallet/conversions'))
 
   if (step === 1) {
     return (
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/wallet/conversions" className="wallet-back-link">← Back</Link>
+        <Link to={flowPath('/flow/wallet/conversions')} className="wallet-back-link">← Back</Link>
         <h1 className="wallet-section-title">Create rate alert</h1>
         <p className="creating-conversion-desc">We will notify you when the exchange rate reaches your target.</p>
 
@@ -94,8 +96,8 @@ export function CreatingRateAlertPage() {
         <p className="creating-conversion-success-text">
           We will notify you when 1 {sellCurrency} = {targetRate} {buyCurrency} ({direction === 'above' ? 'at or above' : 'at or below'}).
         </p>
-        <Link to="/flow/wallet/conversions" className="wallet-btn wallet-btn-primary">Back to Conversions</Link>
-        <Link to="/flow/wallet" className="wallet-btn-link creating-conversion-skip">Back to wallet</Link>
+        <Link to={flowPath('/flow/wallet/conversions')} className="wallet-btn wallet-btn-primary">Back to Conversions</Link>
+        <Link to={flowPath('/flow/wallet')} className="wallet-btn-link creating-conversion-skip">Back to wallet</Link>
       </div>
     </div>
   )

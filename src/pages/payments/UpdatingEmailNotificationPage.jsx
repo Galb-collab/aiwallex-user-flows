@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const NOTIFICATION_OPTIONS = [
   { id: 'payment-received', label: 'Payment received', desc: 'When a customer completes a payment', enabled: true },
@@ -10,6 +11,7 @@ const NOTIFICATION_OPTIONS = [
 ]
 
 export function UpdatingEmailNotificationPage() {
+  const { flowPath } = useCompany()
   const [options, setOptions] = useState(NOTIFICATION_OPTIONS)
   const [saved, setSaved] = useState(false)
 
@@ -25,7 +27,7 @@ export function UpdatingEmailNotificationPage() {
   return (
     <div className="payments-content">
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/payments" className="wallet-back-link">← Back to Payments</Link>
+        <Link to={flowPath('/flow/payments')} className="wallet-back-link">← Back to Payments</Link>
         <h1 className="wallet-section-title">Updating an email notification</h1>
         <p className="creating-conversion-desc">Choose which email notifications you want to receive for your payments.</p>
 
@@ -61,7 +63,7 @@ export function UpdatingEmailNotificationPage() {
         </div>
 
         <div className="scheduling-transfer-footer" style={{ marginTop: 24 }}>
-          <Link to="/flow/payments" className="wallet-btn">Cancel</Link>
+          <Link to={flowPath('/flow/payments')} className="wallet-btn">Cancel</Link>
           <button type="button" className="wallet-btn wallet-btn-primary" onClick={handleSave}>
             Save preferences
           </button>

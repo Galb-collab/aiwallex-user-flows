@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import { useOnboarding } from '../context/OnboardingContext'
 import { Layout } from '../components/Layout'
 import { CompanySize } from './steps/CompanySize'
@@ -28,6 +29,7 @@ const STEP_COMPONENTS = {
 
 export function OnboardingFlow() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const { step, FLOW_STEPS, showLeaveModal } = useOnboarding()
   const StepComponent = STEP_COMPONENTS[step]
 
@@ -37,7 +39,7 @@ export function OnboardingFlow() {
   }
 
   if (!StepComponent) {
-    navigate('/flow/web-onboarding', { replace: true })
+    navigate(flowPath('/flow/web-onboarding'), { replace: true })
     return null
   }
 

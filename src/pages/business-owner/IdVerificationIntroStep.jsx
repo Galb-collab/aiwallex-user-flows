@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import { useBusinessOwner } from '../../context/BusinessOwnerContext'
 
 export function IdVerificationIntroStep() {
+  const { flowPath } = useCompany()
   const { nextStep, prevStep } = useBusinessOwner()
 
   return (
@@ -15,7 +17,7 @@ export function IdVerificationIntroStep() {
         <div className="id-verification-item">
           <span className="id-item-label">Yourself (Applicant)</span>
           <span className="id-item-status">To be submitted</span>
-          <Link to="/flow/completing-business-details/completing-business-owner/verifying-id" className="id-item-edit" aria-label="Edit">✎</Link>
+          <Link to={flowPath('/flow/completing-business-details/completing-business-owner/verifying-id')} className="id-item-edit" aria-label="Edit">✎</Link>
         </div>
         <div className="id-verification-item">
           <span className="id-item-label">Beneficial owner & director</span>

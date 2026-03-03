@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function RewardsIndex() {
+  const { flowPath } = useCompany()
+
   return (
     <div className="rewards-content">
       <div className="wallet-content">
@@ -13,22 +16,22 @@ export function RewardsIndex() {
         </div>
 
         <div className="scheduling-transfer-options conversions-options" style={{ marginTop: 24 }}>
-          <Link to="/flow/rewards/redeem-rewards" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/rewards/redeem-rewards')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">💰</span>
             <span className="scheduling-transfer-card-title">Redeem rewards</span>
             <span className="scheduling-transfer-card-subtitle">Transfer your cashback balance to your wallet.</span>
           </Link>
-          <Link to="/flow/rewards/rewards-activity" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/rewards/rewards-activity')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">📋</span>
             <span className="scheduling-transfer-card-title">Rewards activity</span>
             <span className="scheduling-transfer-card-subtitle">View your cashback earnings and redemptions.</span>
           </Link>
-          <Link to="/flow/rewards/security" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/rewards/security')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">🔒</span>
             <span className="scheduling-transfer-card-title">Security</span>
             <span className="scheduling-transfer-card-subtitle">Manage 2FA, password, and sign-in activity.</span>
           </Link>
-          <Link to="/flow/rewards/disabling-two-factor-authentication" className="scheduling-transfer-card conversions-card">
+          <Link to={flowPath('/flow/rewards/disabling-two-factor-authentication')} className="scheduling-transfer-card conversions-card">
             <span className="scheduling-transfer-card-icon">📴</span>
             <span className="scheduling-transfer-card-title">Disabling two-factor authentication</span>
             <span className="scheduling-transfer-card-subtitle">Turn off 2FA for your account (reduces security).</span>
@@ -50,7 +53,7 @@ export function RewardsIndex() {
               <span>Total earned (this month)</span>
               <span>167.50 SGD</span>
             </div>
-            <Link to="/flow/rewards/redeem-rewards" className="wallet-btn wallet-btn-primary" style={{ marginTop: 16 }}>
+            <Link to={flowPath('/flow/rewards/redeem-rewards')} className="wallet-btn wallet-btn-primary" style={{ marginTop: 16 }}>
               Redeem to wallet
             </Link>
           </div>

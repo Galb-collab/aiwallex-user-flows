@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import './RemoveUploadedFileFlow.css'
 
 const FILE_NAME = 'passport.pdf'
@@ -7,6 +8,7 @@ const FILE_SIZE = '565.1 KB'
 
 export function RemoveUploadedFileFlow() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [hasFile, setHasFile] = useState(true)
   const [showRemoveModal, setShowRemoveModal] = useState(false)
   const [address, setAddress] = useState({ country: 'Singapore', line1: '', line2: '', postalCode: '' })
@@ -25,7 +27,7 @@ export function RemoveUploadedFileFlow() {
   }
 
   const handleClose = () => {
-    if (window.confirm('Leave verification? Progress is saved.')) navigate('/flow/completing-business-details/completing-business-owner')
+    if (window.confirm('Leave verification? Progress is saved.')) navigate(flowPath('/flow/completing-business-details/completing-business-owner'))
   }
 
   return (
@@ -116,7 +118,7 @@ export function RemoveUploadedFileFlow() {
           </div>
 
           <div className="form-actions">
-            <button type="button" className="btn-back" onClick={() => navigate('/flow/completing-business-details/completing-business-owner')}>Back</button>
+            <button type="button" className="btn-back" onClick={() => navigate(flowPath('/flow/completing-business-details/completing-business-owner'))}>Back</button>
             <button type="button" className="btn-outline">Save for later</button>
             <button type="button" className="btn-save-next">Submit</button>
           </div>

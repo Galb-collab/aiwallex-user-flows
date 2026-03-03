@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../bills/BillsFlow.css'
 import '../BillingFlow.css'
 import './BillingCustomers.css'
@@ -12,6 +13,7 @@ const INITIAL_PRODUCTS = [
 ]
 
 export function BillingProducts() {
+  const { flowPath } = useCompany()
   const [products, setProducts] = useState(INITIAL_PRODUCTS)
   const [menuOpenRow, setMenuOpenRow] = useState(null)
   const [deactivateProduct, setDeactivateProduct] = useState(null)
@@ -30,7 +32,7 @@ export function BillingProducts() {
           <h1 className="billing-title">Products</h1>
           <p className="billing-customers-subtitle">Create and manage your products and prices.</p>
         </div>
-        <Link to="/flow/billing/creating-a-product" className="billing-btn billing-btn-primary">
+        <Link to={flowPath('/flow/billing/creating-a-product')} className="billing-btn billing-btn-primary">
           + New product
         </Link>
       </div>
@@ -84,7 +86,7 @@ export function BillingProducts() {
                       <div className="billing-product-menu-backdrop" onClick={() => setMenuOpenRow(null)} aria-hidden />
                       <div className="billing-product-menu-dropdown">
                         <Link
-                          to="/flow/billing/creating-a-price"
+                          to={flowPath('/flow/billing/creating-a-price')}
                           state={{ productName: row.name }}
                           className="billing-product-menu-item"
                           onClick={() => setMenuOpenRow(null)}

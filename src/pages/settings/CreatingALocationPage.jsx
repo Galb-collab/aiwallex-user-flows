@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function CreatingALocationPage() {
+  const { flowPath } = useCompany()
   const [name, setName] = useState('')
   const [address, setAddress] = useState('')
   const [country, setCountry] = useState('')
@@ -17,7 +19,7 @@ export function CreatingALocationPage() {
             <p className="creating-conversion-success-text">
               The location &quot;{name}&quot; has been added. You can assign users to this location.
             </p>
-            <Link to="/flow/settings/creating-a-user" className="wallet-btn wallet-btn-primary">Back to Creating a user</Link>
+            <Link to={flowPath('/flow/settings/creating-a-user')} className="wallet-btn wallet-btn-primary">Back to Creating a user</Link>
           </div>
         </div>
       </div>
@@ -27,7 +29,7 @@ export function CreatingALocationPage() {
   return (
     <div className="settings-content">
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/settings/creating-a-user" className="wallet-back-link">← Back to Creating a user</Link>
+        <Link to={flowPath('/flow/settings/creating-a-user')} className="wallet-back-link">← Back to Creating a user</Link>
         <h1 className="wallet-section-title">Creating a location</h1>
         <p className="creating-conversion-desc">Add a location to organise users and track expenses by office or region.</p>
 
@@ -52,7 +54,7 @@ export function CreatingALocationPage() {
         </div>
 
         <div className="scheduling-transfer-footer" style={{ marginTop: 24 }}>
-          <Link to="/flow/settings/creating-a-user" className="wallet-btn">Cancel</Link>
+          <Link to={flowPath('/flow/settings/creating-a-user')} className="wallet-btn">Cancel</Link>
           <button type="button" className="wallet-btn wallet-btn-primary" onClick={() => setSaved(true)} disabled={!name.trim()}>
             Create location
           </button>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 const GLOBAL_ACCOUNTS = [
   { id: '1', currency: 'SGD', name: 'Singapore Dollar Account', country: 'Singapore', status: 'Active', balance: '10.00 SGD' },
@@ -8,6 +9,8 @@ const GLOBAL_ACCOUNTS = [
 ]
 
 export function GlobalAccountsPage() {
+  const { flowPath } = useCompany()
+
   return (
     <div className="wallet-content">
       <div className="global-accounts-header">
@@ -15,7 +18,7 @@ export function GlobalAccountsPage() {
           <h1 className="wallet-section-title" style={{ margin: 0 }}>Global accounts</h1>
           <p className="global-accounts-desc">Hold and manage funds in multiple currencies with local account details.</p>
         </div>
-        <Link to="/flow/wallet/global-accounts/new" className="wallet-btn wallet-btn-primary">
+        <Link to={flowPath('/flow/wallet/global-accounts/new')} className="wallet-btn wallet-btn-primary">
           Create global account
         </Link>
       </div>
@@ -50,7 +53,7 @@ export function GlobalAccountsPage() {
                 </td>
                 <td>{row.balance}</td>
                 <td>
-                  <Link to={`/flow/wallet/balance/${row.currency}`} className="wallet-btn-link">View balance</Link>
+                  <Link to={flowPath(`/flow/wallet/balance/${row.currency}`)} className="wallet-btn-link">View balance</Link>
                 </td>
               </tr>
             ))}

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../bills/BillsFlow.css'
 
 export function UpdatingCompanyProfilePage() {
+  const { flowPath } = useCompany()
   const [saved, setSaved] = useState(false)
   const [companyName, setCompanyName] = useState('MOBBIN PTE. LTD.')
   const [displayName, setDisplayName] = useState('Mobbin')
@@ -17,7 +19,7 @@ export function UpdatingCompanyProfilePage() {
   return (
     <div className="payments-content">
       <div className="wallet-content creating-conversion">
-        <Link to="/flow/payments" className="wallet-back-link">← Back to Payments</Link>
+        <Link to={flowPath('/flow/payments')} className="wallet-back-link">← Back to Payments</Link>
         <h1 className="wallet-section-title">Updating a company profile</h1>
         <p className="creating-conversion-desc">Your company profile is shown to customers during checkout. Keep it up to date.</p>
 
@@ -61,7 +63,7 @@ export function UpdatingCompanyProfilePage() {
         </div>
 
         <div className="scheduling-transfer-footer" style={{ marginTop: 24 }}>
-          <Link to="/flow/payments" className="wallet-btn">Cancel</Link>
+          <Link to={flowPath('/flow/payments')} className="wallet-btn">Cancel</Link>
           <button type="button" className="wallet-btn wallet-btn-primary" onClick={handleSave}>
             Save changes
           </button>

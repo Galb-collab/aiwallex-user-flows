@@ -1,11 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function PlanAndBillingPage() {
+  const { flowPath } = useCompany()
+
   return (
     <div className="settings-content">
       <div className="wallet-content">
-        <Link to="/flow/settings" className="wallet-back-link">← Back to Settings</Link>
+        <Link to={flowPath('/flow/settings')} className="wallet-back-link">← Back to Settings</Link>
         <h1 className="wallet-section-title">Plan & billing</h1>
         <p className="global-accounts-desc">Manage your subscription plan and billing details.</p>
 

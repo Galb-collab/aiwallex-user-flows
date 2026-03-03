@@ -1,11 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function SecurityPage() {
+  const { flowPath } = useCompany()
+
   return (
     <div className="rewards-content">
       <div className="wallet-content">
-        <Link to="/flow/rewards" className="wallet-back-link">← Back to Rewards</Link>
+        <Link to={flowPath('/flow/rewards')} className="wallet-back-link">← Back to Rewards</Link>
         <h1 className="wallet-section-title">Security</h1>
         <p className="global-accounts-desc">Manage your account security settings.</p>
 
@@ -20,7 +23,7 @@ export function SecurityPage() {
             <span>Add an extra layer of security when signing in. 2FA is currently enabled on your account.</span>
           </div>
           <div style={{ marginTop: 16, display: 'flex', gap: 12 }}>
-            <Link to="/flow/rewards/disabling-two-factor-authentication" className="wallet-btn" style={{ borderColor: '#dc2626', color: '#dc2626' }}>
+            <Link to={flowPath('/flow/rewards/disabling-two-factor-authentication')} className="wallet-btn" style={{ borderColor: '#dc2626', color: '#dc2626' }}>
               Disable 2FA
             </Link>
           </div>

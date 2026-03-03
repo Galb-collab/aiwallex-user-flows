@@ -1,9 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import { useVerifyingID } from '../../context/VerifyingIDContext'
 
 export function PersonalDetailsStep() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const { personal, updatePersonal, goToGovernmentId } = useVerifyingID()
 
   return (
@@ -84,7 +86,7 @@ export function PersonalDetailsStep() {
       </div>
 
       <div className="form-actions">
-        <button type="button" className="btn-back" onClick={() => navigate('/flow/completing-business-details/completing-business-owner')}>Back</button>
+        <button type="button" className="btn-back" onClick={() => navigate(flowPath('/flow/completing-business-details/completing-business-owner'))}>Back</button>
         <button type="button" className="btn-outline">Save for later</button>
         <button type="button" className="btn-save-next" onClick={goToGovernmentId}>
           Submit

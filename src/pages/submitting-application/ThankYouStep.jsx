@@ -1,8 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 
 export function ThankYouStep() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
 
   return (
     <div className="sub-app-thankyou">
@@ -36,13 +38,13 @@ export function ThankYouStep() {
         </p>
       </div>
 
-      <button type="button" className="sub-app-dashboard-btn" onClick={() => navigate('/flow/completing-business-details')}>
+      <button type="button" className="sub-app-dashboard-btn" onClick={() => navigate(flowPath('/flow/completing-business-details'))}>
         Back to business details
       </button>
-      <button type="button" className="sub-app-dashboard-btn btn-outline" onClick={() => navigate('/flow/completing-business-details/setting-up-two-factor-authentication')} style={{ marginTop: 8 }}>
+      <button type="button" className="sub-app-dashboard-btn btn-outline" onClick={() => navigate(flowPath('/flow/completing-business-details/setting-up-two-factor-authentication'))} style={{ marginTop: 8 }}>
         Set up two-factor authentication
       </button>
-      <button type="button" className="sub-app-dashboard-btn btn-outline" onClick={() => navigate('/flow/web-onboarding/dashboard')} style={{ marginTop: 8 }}>
+      <button type="button" className="sub-app-dashboard-btn btn-outline" onClick={() => navigate(flowPath('/flow/web-onboarding/dashboard'))} style={{ marginTop: 8 }}>
         Return to Dashboard
       </button>
 

@@ -4,7 +4,7 @@ import { useCompany } from '../../context/CompanyContext'
 import './EmployeeVerifyPhone.css'
 
 export function EmployeeVerifyPhonePage() {
-  const { flowPath, info } = useCompany()
+  const { flowPath, basePath } = useCompany()
   const navigate = useNavigate()
   const [code, setCode] = useState('')
   const [resendTimer, setResendTimer] = useState(56)
@@ -23,8 +23,8 @@ export function EmployeeVerifyPhonePage() {
   return (
     <div className="employee-verify-phone">
       <header className="employee-verify-header">
-        <Link to="/" className="employee-verify-flows">← Flows</Link>
-        <Link to="/" className="employee-verify-logo">
+        <Link to={basePath()} className="employee-verify-flows">← Flows</Link>
+        <Link to={basePath()} className="employee-verify-logo">
           <span className="logo-icon">A</span>
           Airwallex
         </Link>

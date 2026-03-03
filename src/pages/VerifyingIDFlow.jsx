@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCompany } from '../context/CompanyContext'
 import { useVerifyingID, VERIFYING_ID_STEPS } from '../context/VerifyingIDContext'
 import { PersonalDetailsStep } from './verifying-id/PersonalDetailsStep'
 import { GovernmentIdStep } from './verifying-id/GovernmentIdStep'
@@ -15,11 +16,12 @@ const STEP_COMPONENTS = {
 
 export function VerifyingIDFlow() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const { step } = useVerifyingID()
   const StepComponent = STEP_COMPONENTS[step]
 
   const handleClose = () => {
-    if (window.confirm('Leave verification? Progress is saved.')) navigate('/flow/completing-business-details/completing-business-owner')
+    if (window.confirm('Leave verification? Progress is saved.')) navigate(flowPath('/flow/completing-business-details/completing-business-owner'))
   }
 
   return (

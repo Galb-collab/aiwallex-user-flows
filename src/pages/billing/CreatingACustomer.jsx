@@ -1,23 +1,25 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCompany } from '../../context/CompanyContext'
 import '../bills/BillsFlow.css'
 import '../BillingFlow.css'
 import './CreatingACustomer.css'
 
 export function CreatingACustomer() {
   const navigate = useNavigate()
+  const { flowPath } = useCompany()
   const [customerType, setCustomerType] = useState('business') // 'business' | 'individual'
   const [additionalOpen, setAdditionalOpen] = useState(false)
 
   const handleCreateCustomer = () => {
-    navigate('/flow/billing/customer-details')
+    navigate(flowPath('/flow/billing/customer-details'))
   }
 
   return (
     <div className="billing-main billing-create-customer">
       <div className="billing-create-customer-header">
         <h1 className="billing-create-customer-title">Create customer</h1>
-        <Link to="/flow/billing" className="bills-modal-close" aria-label="Close">×</Link>
+        <Link to={flowPath('/flow/billing')} className="bills-modal-close" aria-label="Close">×</Link>
       </div>
       <div className="billing-create-customer-progress" aria-hidden />
 
@@ -99,7 +101,7 @@ export function CreatingACustomer() {
         </section>
 
         <div className="billing-create-customer-actions">
-          <Link to="/flow/billing" className="bills-btn bills-btn-secondary">Cancel</Link>
+          <Link to={flowPath('/flow/billing')} className="bills-btn bills-btn-secondary">Cancel</Link>
           <button type="button" className="bills-btn bills-btn-primary" onClick={handleCreateCustomer}>Create customer</button>
         </div>
       </div>
