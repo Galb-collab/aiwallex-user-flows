@@ -23,54 +23,37 @@ const AIRWALLEX_FLOWS = [
   { path: '/flow/settings', icon: '⚙', title: 'Settings', description: 'Connections, Creating a user, Developer, Plan & billing, Updating card expenses approvals.' },
 ]
 
-// Revolut Business flows (from all 563 screens)
+// Revolut Business flows (combined connected flows)
 const REVOLUT_FLOWS = [
   { path: '/flow/revolut-splash', icon: '⏳', title: 'Splash', description: 'Revolut R logo on dark background.' },
   { path: '/flow/revolut-landing', icon: '🏠', title: 'Landing', description: 'Go beyond business as usual. Get started, Log in, Sign up.' },
-  { path: '/flow/revolut-login', icon: '🔐', title: 'Log in', description: 'Welcome back, email, Google/Apple, QR code login.' },
-  { path: '/flow/revolut-signup', icon: '📝', title: 'Sign up', description: 'Country, email, verify email, phone, verify phone, passcode, business type.' },
-  { path: '/flow/revolut-onboarding/verify-details', icon: '📋', title: 'Business onboarding', description: 'Name, citizenship, monthly volume, website, tax residency, corporate personnel, verify details.' },
-  { path: '/flow/revolut-onboarding/residence-permit', icon: '📄', title: 'Residence permit', description: 'Document upload for KYC verification.' },
-  { path: '/flow/revolut-dashboard', icon: '📊', title: 'Dashboard', description: 'Home, balance, widgets, transactions, finish setup.' },
-  { path: '/flow/revolut-add-money', icon: '💰', title: 'Add money', description: 'Revtag (share modal), Account details, Exchange.' },
-  { path: '/flow/revolut-account-details', icon: '🏦', title: 'Account details', description: 'IBAN, BIC/SWIFT, bank name for transfers.' },
-  { path: '/flow/revolut-exchange', icon: '💱', title: 'Exchange', description: 'Sell/buy currency, rate, confirmation, allowance.' },
-  { path: '/flow/revolut-transfer', icon: '🔄', title: 'Transfer', description: 'To Revolut (Revtag), bank account, or international.' },
-  { path: '/flow/revolut-bank-account-details', icon: '🏦', title: 'Bank account details', description: 'Business/Individual, Country, Currency, BIC/SWIFT.' },
-  { path: '/flow/revolut-transfer-revtag', icon: 'R', title: 'Enter Revtag', description: 'Name and @revtag for Revolut transfer.' },
-  { path: '/flow/revolut-transfer-review', icon: '✅', title: 'Review transfer', description: 'Reference, amount, fees, recipient, Send, success.' },
-  { path: '/flow/revolut-recipient-address', icon: '📍', title: 'Recipient address', description: 'Address form with receipt/invoice viewer.' },
+  { path: '/flow/revolut-login', icon: '🔐', title: 'Log in', description: 'Welcome back, email, Google/Apple, QR code login. Leads to Dashboard.' },
+  { path: '/flow/revolut-signup', icon: '📝', title: 'Sign up', description: 'Country → email → verify email → phone → verify phone → passcode → business type. Leads to onboarding.' },
+  { path: '/flow/revolut-onboarding', icon: '📋', title: 'Business onboarding', description: 'Name → citizenship → monthly volume → website → tax residency → corporate personnel → verify details → residence permit.' },
+  { path: '/flow/revolut-dashboard', icon: '📊', title: 'Dashboard', description: 'Home, balance, widgets, transactions, finish setup. Links to Add money, Transfer, Cards, Receipts, etc.' },
+  { path: '/flow/revolut-add-money', icon: '💰', title: 'Add money', description: 'Revtag, Account details (IBAN/ BIC/SWIFT), Exchange (sell/buy currency).' },
+  { path: '/flow/revolut-transfer', icon: '🔄', title: 'Transfer', description: 'To Revolut (Revtag), bank account, or international → Recipient address → Review transfer.' },
+  { path: '/flow/revolut-card-selection', icon: '💳', title: 'Cards', description: 'Card selection (Plastic/Metal, Gold) → Card request (add note for approver).' },
   { path: '/flow/revolut-receipts', icon: '🧾', title: 'My receipts', description: 'Upload, drag-and-drop, receipt list with Match found.' },
   { path: '/flow/revolut-billing-details', icon: '🏠', title: 'Billing details', description: 'Country, address, ZIP, town/city.' },
   { path: '/flow/revolut-spending-controls', icon: '⚙', title: 'Spending controls', description: 'Limits, categories, merchants, expenses, autofreeze.' },
   { path: '/flow/revolut-accounting-software', icon: '📊', title: 'Accounting software', description: 'Select Xero, QuickBooks, etc.' },
-  { path: '/flow/revolut-card-selection', icon: '💳', title: 'Card selection', description: 'Plastic/Metal, Gold, Get Metal Gold.' },
-  { path: '/flow/revolut-card-request', icon: '📝', title: 'Card request', description: 'Add note for approver.' },
 ]
 
-// Mercury flows (from Mercury web Dec 2025 images)
+// Mercury flows (combined connected flows)
 const MERCURY_FLOWS = [
   { path: '/flow/mercury-landing', icon: '🏠', title: 'Landing', description: 'Powerful banking. Simplified finances. Email input, Open Account, Contact Sales, Log In.' },
-  { path: '/flow/mercury-login', icon: '🔐', title: 'Log in', description: 'Email and password login.' },
-  { path: '/flow/mercury-signup', icon: '📝', title: 'Sign up', description: 'Company name, Callsign, Eligibility, Legal name, Email/Password, Email verification.' },
-  { path: '/flow/mercury-application', icon: '📋', title: 'Application', description: 'Company info, Address, Ownership, Documents, Expected activity, Follow-up questions.' },
-  { path: '/flow/mercury-all-set', icon: '✅', title: 'All set', description: 'Post-application summary, timeline, Set up first deposit.' },
-  { path: '/flow/mercury-passkey', icon: '🔑', title: 'Passkey', description: 'Log in faster with Face ID, fingerprint, or security key.' },
-  { path: '/flow/mercury-fund-account', icon: '💰', title: 'Fund account', description: 'Domestic wire, ACH transfer, routing/account numbers.' },
-  { path: '/flow/mercury-add-team-member', icon: '👥', title: 'Add team member', description: 'Legal name, email, role, virtual card, spend controls.' },
-  { path: '/flow/mercury-2fa', icon: '🔒', title: '2FA backup codes', description: 'Save backup codes for account recovery.' },
+  { path: '/flow/mercury-login', icon: '🔐', title: 'Log in', description: 'Email and password login. Leads to Dashboard.' },
+  { path: '/flow/mercury-signup', icon: '📝', title: 'Sign up', description: 'Company name → Callsign → Eligibility → Legal name → Email/Password → Email verification. Leads to Application.' },
+  { path: '/flow/mercury-application', icon: '📋', title: 'Application', description: 'Company info → Address → Ownership → Documents → Expected activity → Follow-up. Leads to All set.' },
+  { path: '/flow/mercury-all-set', icon: '✅', title: 'Post-application', description: 'All set → Fund account (wire/ACH) → Passkey → Add team member → 2FA backup codes.' },
   { path: '/flow/mercury-dashboard', icon: '📊', title: 'Dashboard', description: 'Home, Send/Request/Transfer/Deposit/Pay Bill/Create Invoice, balance, accounts, Bill Pay, Invoicing.' },
   { path: '/flow/mercury-transactions', icon: '📄', title: 'Transactions', description: 'Data views, filters, transaction list, net change, money in/out.' },
-  { path: '/flow/mercury-cards', icon: '💳', title: 'Cards', description: 'Card list, card details, spend controls.' },
-  { path: '/flow/mercury-create-card', icon: '➕', title: 'Create card', description: 'Virtual/physical, cardholder, nickname, spend controls.' },
-  { path: '/flow/mercury-create-recipient', icon: '👤', title: 'Create recipient', description: 'Email, nickname, address, tax documents.' },
-  { path: '/flow/mercury-payment-details', icon: '💸', title: 'Payment details', description: 'Amount, memo, date, Schedule ACH.' },
+  { path: '/flow/mercury-cards', icon: '💳', title: 'Cards', description: 'Card list, card details, Create card (virtual/physical, spend controls).' },
+  { path: '/flow/mercury-create-recipient', icon: '💸', title: 'Payments', description: 'Create recipient (email, address, tax docs) → Payment details (amount, memo, Schedule ACH).' },
   { path: '/flow/mercury-bill-pay', icon: '📋', title: 'Bill Pay', description: 'Upload bill, inbox, outstanding, mobbin@ap.mercury.com.' },
   { path: '/flow/mercury-invoicing', icon: '🧾', title: 'Invoicing', description: 'Invoice list, open/paid, create invoice.' },
-  { path: '/flow/mercury-categories', icon: '📁', title: 'Categories', description: 'Customize transaction categories.' },
-  { path: '/flow/mercury-notifications', icon: '🔔', title: 'Notifications', description: 'Email, push, SMS preferences.' },
-  { path: '/flow/mercury-profile-picture', icon: '🖼', title: 'Profile picture', description: 'Upload profile photo.' },
-  { path: '/flow/mercury-change-password', icon: '🔑', title: 'Change password', description: 'Current, new, confirm password.' },
+  { path: '/flow/mercury-categories', icon: '⚙', title: 'Settings', description: 'Categories, Notifications, Profile picture, Change password.' },
 ]
 
 export function FlowSelector() {
