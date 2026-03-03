@@ -18,10 +18,10 @@ export function MercuryCreateCard() {
 
   return (
     <div className="mercury-flow-layout">
-      <div className="mercury-step" style={{ maxWidth: 900, flexDirection: 'row', gap: 48 }}>
+      <div className="mercury-step mercury-two-col" style={{ maxWidth: 900, padding: '48px 24px', minHeight: 'auto' }}>
         <main style={{ flex: 1 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
-            <h1>Create a card</h1>
+            <h1 className="mercury-step-title">Create a card</h1>
             <button type="button" className="mercury-step-back" onClick={() => navigate(-1)}>×</button>
           </div>
           <form onSubmit={handleCreate}>
@@ -60,7 +60,7 @@ export function MercuryCreateCard() {
             <button type="submit" className="mercury-btn-primary">Create Card</button>
           </form>
         </main>
-        <aside style={{ width: 320, flexShrink: 0 }}>
+        <aside style={{ width: 320 }}>
           <div style={{ background: '#fff', borderRadius: 16, padding: 24, border: '1px solid var(--mercury-border)', aspectRatio: '1.6' }}>
             <div style={{ fontSize: 12, marginBottom: 24 }}>Virtual Debit</div>
             <div style={{ fontSize: 12, marginBottom: 8 }}>Daily spending limit: $1,000.00</div>

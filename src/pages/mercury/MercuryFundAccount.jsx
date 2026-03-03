@@ -8,7 +8,7 @@ export function MercuryFundAccount() {
 
   return (
     <div className="mercury-flow-layout">
-      <header style={{ display: 'flex', alignItems: 'center', gap: 24, padding: 20, borderBottom: '1px solid var(--mercury-border)', width: '100%', maxWidth: 'var(--mercury-dashboard-width)', alignSelf: 'stretch' }}>
+      <header style={{ display: 'flex', alignItems: 'center', gap: 24, padding: 20, borderBottom: '1px solid var(--mercury-border)', width: '100%', maxWidth: 'var(--mercury-dashboard-width)', alignSelf: 'stretch', background: '#fff', flexWrap: 'wrap' }}>
         <Link to={basePath()} className="mercury-logo">
           <img src="/mercury-logo.png" alt="Mercury" />
           Mobbin
@@ -30,12 +30,12 @@ export function MercuryFundAccount() {
             <p style={{ fontFamily: 'monospace', margin: '0 0 16px' }}>••••••••••</p>
             <p className="mercury-label">Account number</p>
             <p style={{ fontFamily: 'monospace', margin: '0 0 16px' }}>••••••••••</p>
-            <button type="button" className="mercury-btn-primary" style={{ width: 'auto' }}>Download Wire Details</button>
+            <button type="button" className="mercury-btn-primary mercury-btn-inline">Download Wire Details</button>
           </div>
           <div style={{ background: '#fff', borderRadius: 12, padding: 24, border: '1px solid var(--mercury-border)' }}>
             <h3 style={{ margin: '0 0 8px' }}>ACH transfer</h3>
             <p style={{ fontSize: 12, color: 'var(--mercury-muted)', margin: '0 0 16px' }}>Arrives within 3-5 days. Limits may apply. Add Mercury as a trusted account first to avoid any issues.</p>
-            <button type="button" className="mercury-btn-primary" style={{ width: 'auto' }}>Connect Bank Account</button>
+            <button type="button" className="mercury-btn-primary mercury-btn-inline">Connect Bank Account</button>
           </div>
         </div>
         <Link to={flowPath('/flow/mercury-dashboard')} className="mercury-link" style={{ display: 'block', marginTop: 24 }}>Other deposit options</Link>

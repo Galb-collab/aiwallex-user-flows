@@ -20,8 +20,8 @@ export function MercuryApplicationOwnership() {
   }
 
   return (
-    <div className="mercury-step" style={{ maxWidth: 900, flexDirection: 'row', gap: 48 }}>
-      <aside style={{ width: 200, flexShrink: 0 }}>
+    <div className="mercury-step mercury-two-col" style={{ maxWidth: 900, padding: '48px 24px' }}>
+      <aside style={{ width: 200 }}>
         <div style={{ fontSize: 24, fontWeight: 700, marginBottom: 24 }}>3/6</div>
         <div style={{ padding: '8px 0', color: 'var(--mercury-muted)' }}>✓ Company info</div>
         <div style={{ padding: '8px 0', color: 'var(--mercury-muted)' }}>✓ Company address</div>

@@ -28,7 +28,7 @@ export function MercuryApplicationCompanyInfo() {
   }
 
   return (
-    <div className="mercury-step" style={{ maxWidth: 900, flexDirection: 'row', gap: 48 }}>
+    <div className="mercury-step mercury-two-col" style={{ maxWidth: 900, padding: '48px 24px' }}>
       <aside style={{ width: 200, flexShrink: 0 }}>
         <div style={{ fontSize: 24, fontWeight: 700, marginBottom: 24 }}>1/6</div>
         {STEPS.map((s, i) => (
@@ -55,7 +55,7 @@ export function MercuryApplicationCompanyInfo() {
           <input type="tel" className="mercury-input" placeholder="+1" value={phone} onChange={(e) => setPhone(e.target.value)} />
           <label className="mercury-label">Employer Identification Number (EIN)</label>
           <input type="text" className="mercury-input" placeholder="00-0000000" value={ein} onChange={(e) => setEin(e.target.value)} />
-          <a href="#ein" className="mercury-link">Need an EIN?</a>
+          <a href="#ein" className="mercury-link mercury-link-block">Need an EIN?</a>
           <label className="mercury-label">Company website</label>
           <input type="url" className="mercury-input" value={website} onChange={(e) => setWebsite(e.target.value)} />
           <label className="mercury-label">Company type</label>

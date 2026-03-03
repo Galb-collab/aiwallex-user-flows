@@ -119,6 +119,11 @@
   opacity: 0.9;
 }
 
+.mercury-btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* Inline buttons (e.g. Send, Request in dashboard) */
 .mercury-btn-inline {
   margin-top: 0;
@@ -184,11 +189,19 @@
 
 .mercury-checkbox {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   font-size: 14px;
   color: var(--mercury-text);
   margin: 12px 0;
+  cursor: pointer;
+}
+
+.mercury-checkbox input[type="checkbox"],
+.mercury-checkbox input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
   cursor: pointer;
 }
 
@@ -253,4 +266,66 @@ textarea.mercury-input {
   background: #eef2ff;
   color: var(--mercury-primary);
   font-weight: 600;
+}
+
+/* Dashboard sidebar - scroll if needed */
+.mercury-dashboard-layout aside {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+/* Form row - input + button side by side */
+.mercury-form-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.mercury-form-row .mercury-input {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 0;
+}
+
+.mercury-form-row .mercury-btn-primary {
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+/* Two-column layout - stacks on small screens */
+.mercury-two-col {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.mercury-two-col main {
+  flex: 1;
+  min-width: 280px;
+}
+
+.mercury-two-col aside {
+  flex-shrink: 0;
+}
+
+/* Card/button as link - no extra margin when inline */
+a.mercury-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Step back - larger click target */
+.mercury-step-back {
+  font-size: 24px;
+  line-height: 1;
+  padding: 4px 8px;
+}
+
+/* Inline link with spacing */
+.mercury-link-block {
+  display: block;
+  margin-bottom: 16px;
 }

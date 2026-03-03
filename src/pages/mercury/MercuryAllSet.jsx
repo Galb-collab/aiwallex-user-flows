@@ -8,7 +8,7 @@ export function MercuryAllSet() {
 
   return (
     <div className="mercury-flow-layout">
-      <div className="mercury-step" style={{ maxWidth: 900, flexDirection: 'row', gap: 48, minHeight: 'auto' }}>
+      <div className="mercury-step mercury-two-col" style={{ maxWidth: 900, minHeight: 'auto', padding: '48px 24px' }}>
       <main style={{ flex: 1 }}>
         <p style={{ fontSize: 14, color: 'var(--mercury-muted)', marginBottom: 8 }}>MOBBIN</p>
         <h1 className="mercury-step-title">You&apos;re all set</h1>
@@ -26,7 +26,7 @@ export function MercuryAllSet() {
         </ul>
         <Link to={flowPath('/flow/mercury-fund-account')} className="mercury-btn-primary" style={{ display: 'inline-block', textAlign: 'center', textDecoration: 'none' }}>Set up first deposit</Link>
       </main>
-      <aside style={{ width: 280, flexShrink: 0 }}>
+      <aside style={{ width: 280 }}>
         <h3 style={{ fontSize: 16, marginBottom: 16 }}>Application timeline</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <div>

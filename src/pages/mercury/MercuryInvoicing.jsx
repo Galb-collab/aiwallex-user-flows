@@ -24,7 +24,7 @@ export function MercuryInvoicing() {
           <h1 style={{ fontSize: 24, fontWeight: 700, margin: 0 }}>Invoicing</h1>
           <button type="button" className="mercury-btn-primary" style={{ width: 'auto' }}>+ Create Invoice</button>
         </div>
-        <div style={{ display: 'flex', gap: 24, marginBottom: 24 }}>
+        <div style={{ display: 'flex', gap: 24, marginBottom: 24, flexWrap: 'wrap' }}>
           <div style={{ background: '#fff', padding: 16, borderRadius: 8, border: '1px solid var(--mercury-border)', flex: 1 }}>
             <p style={{ fontSize: 12, color: 'var(--mercury-muted)', margin: 0 }}>Overdue</p>
             <p style={{ fontSize: 18, fontWeight: 600, margin: 0 }}>-</p>
@@ -38,7 +38,7 @@ export function MercuryInvoicing() {
             <p style={{ fontSize: 18, fontWeight: 600, margin: 0 }}>1 invoice - $10.60</p>
           </div>
         </div>
-        <div style={{ background: '#fff', borderRadius: 12, border: '1px solid var(--mercury-border)', overflow: 'hidden' }}>
+        <div style={{ background: '#fff', borderRadius: 12, border: '1px solid var(--mercury-border)', overflow: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
               <tr style={{ background: '#f9fafb' }}>

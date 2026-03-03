@@ -15,12 +15,12 @@ export function MercuryLanding() {
 
   return (
     <div className="mercury-flow-layout">
-      <header className="mercury-header" style={{ maxWidth: '1200px', width: '100%', flexShrink: 0 }}>
+      <header className="mercury-header" style={{ maxWidth: '1200px', width: '100%', flexShrink: 0, flexWrap: 'wrap', gap: 16 }}>
         <Link to={basePath()} className="mercury-logo">
           <img src="/mercury-logo.png" alt="Mercury" />
           MERCURY
         </Link>
-        <nav style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
+        <nav style={{ display: 'flex', gap: 24, alignItems: 'center', flexWrap: 'wrap' }}>
           <a href="#products" className="mercury-nav-link">Products</a>
           <a href="#solutions" className="mercury-nav-link">Solutions</a>
           <a href="#resources" className="mercury-nav-link">Resources</a>
@@ -37,18 +37,17 @@ export function MercuryLanding() {
         <p style={{ fontSize: 18, color: 'var(--mercury-muted)', margin: '0 0 32px' }}>
           Apply in 10 minutes for online business banking that transforms how you operate.
         </p>
-        <form onSubmit={handleOpenAccount} style={{ display: 'flex', gap: 12, maxWidth: 400, margin: '0 auto' }}>
+        <form onSubmit={handleOpenAccount} className="mercury-form-row" style={{ maxWidth: 400, margin: '0 auto', width: '100%' }}>
           <input
             type="email"
             className="mercury-input"
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            style={{ margin: 0 }}
           />
-          <button type="submit" className="mercury-btn-primary" style={{ margin: 0, width: 'auto' }}>Open Account</button>
+          <button type="submit" className="mercury-btn-primary">Open Account</button>
         </form>
-        <button type="button" className="mercury-btn-secondary" style={{ marginTop: 16, width: 'auto' }}>Contact Sales</button>
+        <button type="button" className="mercury-btn-secondary mercury-btn-inline" style={{ marginTop: 16 }}>Contact Sales</button>
       </main>
     </div>
   )

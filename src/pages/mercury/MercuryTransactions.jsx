@@ -28,7 +28,7 @@ export function MercuryTransactions() {
           <button type="button" className="mercury-btn-secondary mercury-btn-inline">Keywords</button>
           <button type="button" className="mercury-btn-secondary mercury-btn-inline">Amount</button>
         </div>
-        <div style={{ display: 'flex', gap: 24, marginBottom: 24 }}>
+        <div style={{ display: 'flex', gap: 24, marginBottom: 24, flexWrap: 'wrap' }}>
           <div style={{ background: '#fff', padding: 16, borderRadius: 8, border: '1px solid var(--mercury-border)', flex: 1 }}>
             <p style={{ fontSize: 12, color: 'var(--mercury-muted)', margin: 0 }}>Net change this month</p>
             <p style={{ fontSize: 18, fontWeight: 600, margin: 0 }}>-$2.55</p>
@@ -42,7 +42,7 @@ export function MercuryTransactions() {
             <p style={{ fontSize: 18, fontWeight: 600, margin: 0 }}>-$2.55</p>
           </div>
         </div>
-        <div style={{ background: '#fff', borderRadius: 12, border: '1px solid var(--mercury-border)', overflow: 'hidden' }}>
+        <div style={{ background: '#fff', borderRadius: 12, border: '1px solid var(--mercury-border)', overflow: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
               <tr style={{ background: '#f9fafb' }}>

@@ -43,7 +43,7 @@ export function MercuryDashboard() {
             <h3 style={{ margin: '0 0 16px' }}>Accounts</h3>
             <p style={{ margin: '0 0 8px' }}>Checking ••2502 — $987.85</p>
             <p style={{ margin: '0 0 16px' }}>Savings ••5679 — $1,000.00</p>
-            <Link to={flowPath('/flow/mercury-dashboard')} className="mercury-btn-primary" style={{ display: 'inline-block', textDecoration: 'none' }}>+ Create account</Link>
+            <Link to={flowPath('/flow/mercury-dashboard')} className="mercury-btn-primary mercury-btn-inline" style={{ textDecoration: 'none' }}>+ Create account</Link>
           </div>
           <div style={{ background: '#fff', borderRadius: 12, padding: 24, border: '1px solid var(--mercury-border)' }}>
             <h3 style={{ margin: '0 0 8px' }}>Bill Pay</h3>

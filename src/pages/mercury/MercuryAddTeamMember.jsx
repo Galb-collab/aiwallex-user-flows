@@ -25,12 +25,12 @@ export function MercuryAddTeamMember() {
         <div className="mercury-card" style={{ maxWidth: 480 }}>
           <h1 className="mercury-step-title">Add team member</h1>
           <form onSubmit={handleAdd}>
-            <div style={{ display: 'flex', gap: 16 }}>
-              <div style={{ flex: 1 }}>
+            <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+              <div style={{ flex: '1 1 140px', minWidth: 0 }}>
                 <label className="mercury-label">Legal first name</label>
                 <input type="text" className="mercury-input" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
               </div>
-              <div style={{ flex: 1 }}>
+              <div style={{ flex: '1 1 140px', minWidth: 0 }}>
                 <label className="mercury-label">Legal last name</label>
                 <input type="text" className="mercury-input" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
               </div>

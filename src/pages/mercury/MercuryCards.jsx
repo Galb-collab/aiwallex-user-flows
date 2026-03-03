@@ -22,13 +22,13 @@ export function MercuryCards() {
       <main style={{ flex: 1, padding: 32 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
           <h1 style={{ fontSize: 24, fontWeight: 700, margin: 0 }}>Cards</h1>
-          <Link to={flowPath('/flow/mercury-create-card')} className="mercury-btn-primary" style={{ width: 'auto', textDecoration: 'none' }}>+ Create Card</Link>
+          <Link to={flowPath('/flow/mercury-create-card')} className="mercury-btn-primary mercury-btn-inline" style={{ textDecoration: 'none' }}>+ Create Card</Link>
         </div>
         <div style={{ display: 'flex', gap: 8, marginBottom: 24 }}>
           <button type="button" className="mercury-btn-primary mercury-btn-inline">Manage</button>
           <button type="button" className="mercury-btn-secondary mercury-btn-inline">Subscriptions</button>
         </div>
-        <div style={{ background: '#fff', borderRadius: 12, border: '1px solid var(--mercury-border)', overflow: 'hidden' }}>
+        <div style={{ background: '#fff', borderRadius: 12, border: '1px solid var(--mercury-border)', overflow: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
               <tr style={{ background: '#f9fafb' }}>

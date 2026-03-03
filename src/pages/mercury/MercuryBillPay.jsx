@@ -24,7 +24,7 @@ export function MercuryBillPay() {
           <h1 style={{ fontSize: 24, fontWeight: 700, margin: 0 }}>Bill Pay</h1>
           <button type="button" className="mercury-btn-primary" style={{ width: 'auto' }}>↑ Upload Bill</button>
         </div>
-        <div style={{ display: 'flex', gap: 24, marginBottom: 24 }}>
+        <div style={{ display: 'flex', gap: 24, marginBottom: 24, flexWrap: 'wrap' }}>
           <div style={{ background: '#fff', padding: 16, borderRadius: 8, border: '1px solid var(--mercury-border)', flex: 1 }}>
             <p style={{ fontSize: 12, color: 'var(--mercury-muted)', margin: 0 }}>Total outstanding</p>
             <p style={{ fontSize: 18, fontWeight: 600, margin: 0 }}>0 ($0.00)</p>
