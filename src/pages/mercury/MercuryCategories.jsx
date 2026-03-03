@@ -9,8 +9,9 @@ export function MercuryCategories() {
   const [category, setCategory] = useState('')
 
   return (
-    <div className="mercury-step">
-      <div className="mercury-card" style={{ maxWidth: 560 }}>
+    <div className="mercury-flow-layout">
+      <div className="mercury-step" style={{ maxWidth: 560 }}>
+        <div className="mercury-card">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
           <h1 className="mercury-step-title">Customize transaction categories</h1>
           <button type="button" className="mercury-step-back" onClick={() => navigate(-1)}>×</button>
@@ -24,6 +25,7 @@ export function MercuryCategories() {
           </div>
           <button type="button" className="mercury-btn-primary">Create Category</button>
         </form>
+        </div>
       </div>
     </div>
   )

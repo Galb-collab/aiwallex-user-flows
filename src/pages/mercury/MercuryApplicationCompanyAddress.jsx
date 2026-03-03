@@ -50,7 +50,7 @@ export function MercuryApplicationCompanyAddress() {
           <input type="text" className="mercury-input" value={province} onChange={(e) => setProvince(e.target.value)} />
           <label className="mercury-label">Postal code</label>
           <input type="text" className="mercury-input" value={postal} onChange={(e) => setPostal(e.target.value)} required />
-          <div style={{ display: 'flex', gap: 16, marginTop: 24 }}>
+          <div className="mercury-btn-group">
             <button type="button" className="mercury-btn-secondary" onClick={() => navigate(-1)}>Back</button>
             <button type="submit" className="mercury-btn-primary" style={{ flex: 1 }}>Next</button>
           </div>

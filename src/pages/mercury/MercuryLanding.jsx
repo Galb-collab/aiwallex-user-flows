@@ -15,19 +15,19 @@ export function MercuryLanding() {
 
   return (
     <div className="mercury-flow-layout">
-      <header className="mercury-header" style={{ maxWidth: '1200px', width: '100%' }}>
+      <header className="mercury-header" style={{ maxWidth: '1200px', width: '100%', flexShrink: 0 }}>
         <Link to={basePath()} className="mercury-logo">
           <img src="/mercury-logo.png" alt="Mercury" />
           MERCURY
         </Link>
         <nav style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
-          <a href="#products">Products</a>
-          <a href="#solutions">Solutions</a>
-          <a href="#resources">Resources</a>
-          <a href="#about">About</a>
-          <a href="#pricing">Pricing</a>
-          <Link to={flowPath('/flow/mercury-login')}>Log In</Link>
-          <button type="button" className="mercury-btn-primary" style={{ width: 'auto', padding: '10px 20px' }} onClick={() => navigate(flowPath('/flow/mercury-signup/company-name'))}>
+          <a href="#products" className="mercury-nav-link">Products</a>
+          <a href="#solutions" className="mercury-nav-link">Solutions</a>
+          <a href="#resources" className="mercury-nav-link">Resources</a>
+          <a href="#about" className="mercury-nav-link">About</a>
+          <a href="#pricing" className="mercury-nav-link">Pricing</a>
+          <Link to={flowPath('/flow/mercury-login')} className="mercury-nav-link">Log In</Link>
+          <button type="button" className="mercury-btn-primary" style={{ width: 'auto', padding: '10px 20px', margin: 0 }} onClick={() => navigate(flowPath('/flow/mercury-signup/company-name'))}>
             Open Account
           </button>
         </nav>

@@ -31,7 +31,7 @@ export function MercuryApplicationDocuments() {
             <p style={{ color: 'var(--mercury-muted)' }}>Drag and drop or click to upload</p>
             <p style={{ fontSize: 12, color: 'var(--mercury-muted)', marginTop: 8 }}>PDF, PNG, or JPEG. Max 10MB</p>
           </div>
-          <div style={{ display: 'flex', gap: 16 }}>
+          <div className="mercury-btn-group">
             <button type="button" className="mercury-btn-secondary" onClick={() => navigate(-1)}>Back</button>
             <button type="submit" className="mercury-btn-primary" style={{ flex: 1 }}>Next</button>
           </div>

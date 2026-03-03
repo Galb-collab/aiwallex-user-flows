@@ -51,7 +51,7 @@ export function MercuryApplicationExpectedActivity() {
             <option value="100k+">$100,000+</option>
           </select>
           <span style={{ fontSize: 12, color: 'var(--mercury-muted)' }}>Estimate in USD</span>
-          <div style={{ display: 'flex', gap: 16, marginTop: 24 }}>
+          <div className="mercury-btn-group">
             <button type="button" className="mercury-btn-secondary" onClick={() => navigate(-1)}>Back</button>
             <button type="submit" className="mercury-btn-primary" style={{ flex: 1 }}>Next</button>
           </div>

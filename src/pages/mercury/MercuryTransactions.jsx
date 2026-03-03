@@ -7,26 +7,26 @@ export function MercuryTransactions() {
   const { flowPath, basePath } = useCompany()
 
   return (
-    <div className="mercury-flow-layout" style={{ alignItems: 'stretch' }}>
+    <div className="mercury-flow-layout mercury-dashboard-layout">
       <aside style={{ width: 220, minWidth: 220, borderRight: '1px solid var(--mercury-border)', padding: 24, background: '#fff' }}>
         <Link to={basePath()} className="mercury-logo" style={{ marginBottom: 32 }}>
           <img src="/mercury-logo.png" alt="Mercury" />
           Mobbin
         </Link>
-        <nav style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-          <Link to={flowPath('/flow/mercury-dashboard')} style={{ padding: '12px 16px', borderRadius: 8, color: 'var(--mercury-text)', textDecoration: 'none' }}>Home</Link>
-          <Link to={flowPath('/flow/mercury-transactions')} style={{ padding: '12px 16px', borderRadius: 8, background: '#eef2ff', color: 'var(--mercury-primary)', fontWeight: 600, textDecoration: 'none' }}>Transactions</Link>
-          <Link to={flowPath('/flow/mercury-cards')} style={{ padding: '12px 16px', borderRadius: 8, color: 'var(--mercury-text)', textDecoration: 'none' }}>Cards</Link>
+        <nav className="mercury-sidebar-nav">
+          <Link to={flowPath('/flow/mercury-dashboard')}>Home</Link>
+          <Link to={flowPath('/flow/mercury-transactions')} className="active">Transactions</Link>
+          <Link to={flowPath('/flow/mercury-cards')}>Cards</Link>
         </nav>
       </aside>
       <main style={{ flex: 1, padding: 32 }}>
         <h1 style={{ fontSize: 24, fontWeight: 700, margin: '0 0 24px' }}>Transactions</h1>
-        <div style={{ display: 'flex', gap: 12, marginBottom: 24 }}>
-          <button type="button" className="mercury-btn-secondary" style={{ width: 'auto' }}>Data Views</button>
-          <button type="button" className="mercury-btn-secondary" style={{ width: 'auto' }}>Filters</button>
-          <button type="button" className="mercury-btn-secondary" style={{ width: 'auto' }}>Date</button>
-          <button type="button" className="mercury-btn-secondary" style={{ width: 'auto' }}>Keywords</button>
-          <button type="button" className="mercury-btn-secondary" style={{ width: 'auto' }}>Amount</button>
+        <div style={{ display: 'flex', gap: 12, marginBottom: 24, flexWrap: 'wrap' }}>
+          <button type="button" className="mercury-btn-secondary mercury-btn-inline">Data Views</button>
+          <button type="button" className="mercury-btn-secondary mercury-btn-inline">Filters</button>
+          <button type="button" className="mercury-btn-secondary mercury-btn-inline">Date</button>
+          <button type="button" className="mercury-btn-secondary mercury-btn-inline">Keywords</button>
+          <button type="button" className="mercury-btn-secondary mercury-btn-inline">Amount</button>
         </div>
         <div style={{ display: 'flex', gap: 24, marginBottom: 24 }}>
           <div style={{ background: '#fff', padding: 16, borderRadius: 8, border: '1px solid var(--mercury-border)', flex: 1 }}>

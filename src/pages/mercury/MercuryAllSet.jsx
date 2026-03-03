@@ -7,7 +7,8 @@ export function MercuryAllSet() {
   const { flowPath } = useCompany()
 
   return (
-    <div className="mercury-step" style={{ maxWidth: 900, flexDirection: 'row', gap: 48 }}>
+    <div className="mercury-flow-layout">
+      <div className="mercury-step" style={{ maxWidth: 900, flexDirection: 'row', gap: 48, minHeight: 'auto' }}>
       <main style={{ flex: 1 }}>
         <p style={{ fontSize: 14, color: 'var(--mercury-muted)', marginBottom: 8 }}>MOBBIN</p>
         <h1 className="mercury-step-title">You&apos;re all set</h1>
@@ -46,6 +47,7 @@ export function MercuryAllSet() {
         <h3 style={{ fontSize: 16, marginBottom: 8, marginTop: 32 }}>Questions?</h3>
         <p style={{ fontSize: 14, color: 'var(--mercury-muted)', margin: 0 }}>Our support team can help: <a href="mailto:help@mercury.com" className="mercury-link">help@mercury.com</a></p>
       </aside>
+      </div>
     </div>
   )
 }

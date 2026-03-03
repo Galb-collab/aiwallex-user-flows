@@ -15,8 +15,9 @@ export function MercuryChangePassword() {
   }
 
   return (
-    <div className="mercury-step">
-      <div className="mercury-card" style={{ maxWidth: 480 }}>
+    <div className="mercury-flow-layout">
+      <div className="mercury-step" style={{ maxWidth: 480 }}>
+        <div className="mercury-card">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
           <h1 className="mercury-step-title">Change password</h1>
           <button type="button" className="mercury-step-back" onClick={() => navigate(-1)}>×</button>
@@ -29,11 +30,12 @@ export function MercuryChangePassword() {
           <p style={{ fontSize: 12, color: 'var(--mercury-muted)', margin: '0 0 16px' }}>At least 10 characters</p>
           <label className="mercury-label">Confirm new password</label>
           <input type="password" className="mercury-input" value={confirm} onChange={(e) => setConfirm(e.target.value)} required />
-          <div style={{ display: 'flex', gap: 12, marginTop: 24 }}>
+          <div className="mercury-btn-group">
             <button type="button" className="mercury-btn-secondary" onClick={() => navigate(-1)}>Cancel</button>
             <button type="submit" className="mercury-btn-primary" style={{ flex: 1 }}>Update password</button>
           </div>
         </form>
+        </div>
       </div>
     </div>
   )

@@ -8,15 +8,15 @@ export function MercuryFundAccount() {
 
   return (
     <div className="mercury-flow-layout">
-      <header style={{ display: 'flex', alignItems: 'center', gap: 24, padding: 20, borderBottom: '1px solid var(--mercury-border)', width: '100%', maxWidth: 'var(--mercury-dashboard-width)' }}>
+      <header style={{ display: 'flex', alignItems: 'center', gap: 24, padding: 20, borderBottom: '1px solid var(--mercury-border)', width: '100%', maxWidth: 'var(--mercury-dashboard-width)', alignSelf: 'stretch' }}>
         <Link to={basePath()} className="mercury-logo">
           <img src="/mercury-logo.png" alt="Mercury" />
           Mobbin
         </Link>
         <nav style={{ display: 'flex', gap: 16, flex: 1 }}>
-          <Link to={flowPath('/flow/mercury-dashboard')}>Home</Link>
-          <Link to={flowPath('/flow/mercury-transactions')}>Transactions</Link>
-          <Link to={flowPath('/flow/mercury-cards')}>Cards</Link>
+          <Link to={flowPath('/flow/mercury-dashboard')} className="mercury-nav-link">Home</Link>
+          <Link to={flowPath('/flow/mercury-transactions')} className="mercury-nav-link">Transactions</Link>
+          <Link to={flowPath('/flow/mercury-cards')} className="mercury-nav-link">Cards</Link>
         </nav>
       </header>
       <main style={{ flex: 1, padding: 32, maxWidth: 'var(--mercury-dashboard-width)', width: '100%' }}>

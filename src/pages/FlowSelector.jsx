@@ -25,7 +25,6 @@ const AIRWALLEX_FLOWS = [
 
 // Revolut Business flows (combined connected flows)
 const REVOLUT_FLOWS = [
-  { path: '/flow/revolut-splash', icon: '⏳', title: 'Splash', description: 'Revolut R logo on dark background.' },
   { path: '/flow/revolut-landing', icon: '🏠', title: 'Landing', description: 'Go beyond business as usual. Get started, Log in, Sign up.' },
   { path: '/flow/revolut-login', icon: '🔐', title: 'Log in', description: 'Welcome back, email, Google/Apple, QR code login. Leads to Dashboard.' },
   { path: '/flow/revolut-signup', icon: '📝', title: 'Sign up', description: 'Country → email → verify email → phone → verify phone → passcode → business type. Leads to onboarding.' },

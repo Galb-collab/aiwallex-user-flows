@@ -22,8 +22,9 @@ export function MercuryCreateRecipient() {
   }
 
   return (
-    <div className="mercury-step">
-      <div className="mercury-card" style={{ maxWidth: 560 }}>
+    <div className="mercury-flow-layout">
+      <div className="mercury-step" style={{ maxWidth: 560 }}>
+        <div className="mercury-card">
         <h1 className="mercury-step-title">Create Recipient</h1>
         <form onSubmit={handleCreate}>
           <label className="mercury-label">Email (optional)</label>
@@ -50,11 +51,12 @@ export function MercuryCreateRecipient() {
           <input type="text" className="mercury-input" value={state} onChange={(e) => setState(e.target.value)} />
           <label className="mercury-label">Postal / ZIP code</label>
           <input type="text" className="mercury-input" value={zip} onChange={(e) => setZip(e.target.value)} required />
-          <div style={{ display: 'flex', gap: 16, marginTop: 24 }}>
+          <div className="mercury-btn-group">
             <button type="button" className="mercury-btn-secondary" onClick={() => navigate(-1)}>Go Back</button>
             <button type="submit" className="mercury-btn-primary" style={{ flex: 1 }}>Create Recipient</button>
           </div>
         </form>
+        </div>
       </div>
     </div>
   )

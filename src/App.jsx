@@ -144,7 +144,6 @@ import { EmployeeChangePasswordPage } from './pages/employee/EmployeeChangePassw
 import { EmployeeProfilePlaceholder } from './pages/employee/EmployeeProfilePlaceholder'
 import { CompanySelector } from './pages/CompanySelector'
 import { RevolutLanding } from './pages/revolut/RevolutLanding'
-import { RevolutSplash } from './pages/revolut/RevolutSplash'
 import { RevolutLogin } from './pages/revolut/RevolutLogin'
 import { RevolutSignupFlow } from './pages/revolut/RevolutSignupFlow'
 import { RevolutSignupCountry } from './pages/revolut/RevolutSignupCountry'
@@ -246,7 +245,6 @@ function App() {
       <Route path=":company" element={<CompanyGate />}>
         <Route index element={<FlowSelector />} />
         <Route path="flow" element={<FlowRouteGuard />}>
-          <Route path="revolut-splash" element={<RevolutSplash />} />
           <Route path="revolut-landing" element={<RevolutLanding />} />
           <Route path="revolut-login" element={<RevolutLogin />} />
           <Route path="revolut-signup" element={<RevolutSignupFlow />}>

@@ -7,8 +7,9 @@ export function MercuryProfilePicture() {
   const navigate = useNavigate()
 
   return (
-    <div className="mercury-step">
-      <div className="mercury-card" style={{ maxWidth: 480 }}>
+    <div className="mercury-flow-layout">
+      <div className="mercury-step" style={{ maxWidth: 480 }}>
+        <div className="mercury-card">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
           <h1 className="mercury-step-title">Profile picture</h1>
           <button type="button" className="mercury-step-back" onClick={() => navigate(-1)}>×</button>
@@ -18,8 +19,9 @@ export function MercuryProfilePicture() {
           <span style={{ fontSize: 48, color: '#9ca3af' }}>+</span>
         </div>
         <div style={{ display: 'flex', gap: 12 }}>
-          <button type="button" className="mercury-btn-secondary">Upload</button>
-          <button type="button" className="mercury-btn-secondary" onClick={() => navigate(-1)}>Remove</button>
+          <button type="button" className="mercury-btn-secondary mercury-btn-inline">Upload</button>
+          <button type="button" className="mercury-btn-secondary mercury-btn-inline" onClick={() => navigate(-1)}>Remove</button>
+        </div>
         </div>
       </div>
     </div>

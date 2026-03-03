@@ -40,7 +40,7 @@ export function MercuryApplicationFollowUp() {
             <option value="revenue">Revenue</option>
             <option value="self">Self</option>
           </select>
-          <div style={{ display: 'flex', gap: 16, marginTop: 24 }}>
+          <div className="mercury-btn-group">
             <button type="button" className="mercury-btn-secondary" onClick={() => navigate(-1)}>Back</button>
             <button type="submit" className="mercury-btn-primary" style={{ flex: 1 }}>Review Your Application</button>
           </div>

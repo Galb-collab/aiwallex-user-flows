@@ -54,7 +54,7 @@ export function MercuryAddTeamMember() {
             </select>
             <label className="mercury-label">Spending limit</label>
             <input type="text" className="mercury-input" placeholder="$ 0" value={spendingLimit} onChange={(e) => setSpendingLimit(e.target.value)} />
-            <div style={{ display: 'flex', gap: 16, marginTop: 24 }}>
+            <div className="mercury-btn-group">
               <button type="button" className="mercury-btn-secondary" onClick={() => navigate(-1)}>Cancel</button>
               <button type="submit" className="mercury-btn-primary" style={{ flex: 1 }}>Add</button>
             </div>

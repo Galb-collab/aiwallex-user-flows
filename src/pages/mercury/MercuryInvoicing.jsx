@@ -7,16 +7,16 @@ export function MercuryInvoicing() {
   const { flowPath, basePath } = useCompany()
 
   return (
-    <div className="mercury-flow-layout" style={{ alignItems: 'stretch' }}>
+    <div className="mercury-flow-layout mercury-dashboard-layout">
       <aside style={{ width: 220, minWidth: 220, borderRight: '1px solid var(--mercury-border)', padding: 24, background: '#fff' }}>
         <Link to={basePath()} className="mercury-logo" style={{ marginBottom: 32 }}>
           <img src="/mercury-logo.png" alt="Mercury" />
           Mobbin
         </Link>
-        <nav style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-          <Link to={flowPath('/flow/mercury-dashboard')} style={{ padding: '12px 16px', borderRadius: 8, color: 'var(--mercury-text)', textDecoration: 'none' }}>Home</Link>
-          <Link to={flowPath('/flow/mercury-transactions')} style={{ padding: '12px 16px', borderRadius: 8, color: 'var(--mercury-text)', textDecoration: 'none' }}>Transactions</Link>
-          <Link to={flowPath('/flow/mercury-invoicing')} style={{ padding: '12px 16px', borderRadius: 8, background: '#eef2ff', color: 'var(--mercury-primary)', fontWeight: 600, textDecoration: 'none' }}>Invoicing</Link>
+        <nav className="mercury-sidebar-nav">
+          <Link to={flowPath('/flow/mercury-dashboard')}>Home</Link>
+          <Link to={flowPath('/flow/mercury-transactions')}>Transactions</Link>
+          <Link to={flowPath('/flow/mercury-invoicing')} className="active">Invoicing</Link>
         </nav>
       </aside>
       <main style={{ flex: 1, padding: 32 }}>

@@ -11,8 +11,9 @@ export function MercuryNotifications() {
   const [sms, setSms] = useState(false)
 
   return (
-    <div className="mercury-step">
-      <div className="mercury-card" style={{ maxWidth: 560 }}>
+    <div className="mercury-flow-layout">
+      <div className="mercury-step" style={{ maxWidth: 560 }}>
+        <div className="mercury-card">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
           <h1 className="mercury-step-title">Notifications</h1>
           <button type="button" className="mercury-step-back" onClick={() => navigate(-1)}>×</button>
@@ -32,7 +33,8 @@ export function MercuryNotifications() {
             <span>SMS notifications</span>
           </label>
         </div>
-        <button type="button" className="mercury-btn-primary" style={{ marginTop: 24 }} onClick={() => navigate(-1)}>Save</button>
+        <button type="button" className="mercury-btn-primary" onClick={() => navigate(-1)}>Save</button>
+        </div>
       </div>
     </div>
   )

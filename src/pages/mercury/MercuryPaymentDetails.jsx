@@ -33,7 +33,7 @@ export function MercuryPaymentDetails() {
             <label className="mercury-label">Date</label>
             <input type="date" className="mercury-input" value={date} onChange={(e) => setDate(e.target.value)} required />
             <p style={{ fontSize: 12, color: 'var(--mercury-muted)', margin: '0 0 24px' }}>ACH payments typically arrive within 1-3 business days.</p>
-            <div style={{ display: 'flex', gap: 12 }}>
+            <div className="mercury-btn-group">
               <button type="button" className="mercury-btn-secondary" onClick={() => navigate(-1)}>Cancel</button>
               <button type="submit" className="mercury-btn-primary" style={{ flex: 1 }}>Schedule ACH</button>
             </div>
