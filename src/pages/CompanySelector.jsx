@@ -48,6 +48,7 @@ export function CompanySelector() {
       <main className="company-selector-main">
         <h1 className="company-selector-title">Choose a company</h1>
         <p className="company-selector-subtitle">Select which company's flows you want to explore.</p>
+        <span className="company-selector-badge">Built with Cursor</span>
         <div className="company-cards">
           {COMPANIES.map((company) => (
             <button
@@ -72,6 +73,7 @@ export function CompanySelector() {
               )}
               <h2 className="company-card-name">{company.name}</h2>
               <p className="company-card-tagline">{company.tagline}</p>
+              <span className="company-card-badge">Built with Cursor</span>
             </button>
           ))}
         </div>
