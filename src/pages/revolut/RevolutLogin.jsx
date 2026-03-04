@@ -47,6 +47,10 @@ export function RevolutLogin() {
           <p className="revolut-qr-desc">Scan this code with your phone camera to log in instantly</p>
         </div>
       </div>
+      <footer className="revolut-login-footer">
+        <button type="button" className="revolut-footer-link">English (United Kingdom) ▼</button>
+        <a href="#privacy" className="revolut-footer-link">Privacy Policy</a>
+      </footer>
     </div>
   )
 }

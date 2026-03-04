@@ -27,6 +27,14 @@ const COMPANIES = [
     color: '#1a2744',
     logoUrl: '/mercury-logo.png',
   },
+  {
+    id: 'wize',
+    name: 'Wize',
+    tagline: '',
+    logoLetter: 'W',
+    color: '#7CB342',
+    logoUrl: '/wize-logo.png',
+  },
 ]
 
 export function CompanySelector() {
@@ -69,7 +77,7 @@ export function CompanySelector() {
         </div>
       </main>
       <footer className="company-selector-footer">
-        <span>User Flows · Airwallex, Revolut & Mercury</span>
+        <span>User Flows · Airwallex, Revolut, Mercury & Wize</span>
       </footer>
     </div>
   )

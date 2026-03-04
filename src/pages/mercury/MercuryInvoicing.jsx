@@ -8,58 +8,81 @@ export function MercuryInvoicing() {
 
   return (
     <div className="mercury-flow-layout mercury-dashboard-layout">
-      <aside style={{ width: 220, minWidth: 220, borderRight: '1px solid var(--mercury-border)', padding: 24, background: '#fff' }}>
-        <Link to={basePath()} className="mercury-logo" style={{ marginBottom: 32 }}>
+      <aside className="mercury-dashboard-sidebar">
+        <Link to={basePath()} className="mercury-logo mercury-sidebar-logo">
           <img src="/mercury-logo.png" alt="Mercury" />
           Mobbin
         </Link>
         <nav className="mercury-sidebar-nav">
           <Link to={flowPath('/flow/mercury-dashboard')}>Home</Link>
+          <Link to={flowPath('/flow/mercury-transactions')}>Tasks <span className="mercury-badge">10</span></Link>
           <Link to={flowPath('/flow/mercury-transactions')}>Transactions</Link>
-          <Link to={flowPath('/flow/mercury-create-recipient')}>Payments</Link>
-          <Link to={flowPath('/flow/mercury-requests')}>Requests</Link>
+          <Link to={flowPath('/flow/mercury-create-recipient')}>Payments <span className="mercury-nav-chevron">▼</span></Link>
           <Link to={flowPath('/flow/mercury-cards')}>Cards</Link>
+          <Link to={flowPath('/flow/mercury-dashboard')}>Capital</Link>
+          <Link to={flowPath('/flow/mercury-dashboard')}>Accounts <span className="mercury-nav-chevron">▼</span></Link>
+          <div className="mercury-sidebar-section">Workflows</div>
           <Link to={flowPath('/flow/mercury-bill-pay')}>Bill Pay</Link>
-          <Link to={flowPath('/flow/mercury-invoicing')} className="active">Invoicing</Link>
+          <Link to={flowPath('/flow/mercury-invoicing')} className="active">Invoicing <span className="mercury-nav-chevron">▼</span></Link>
           <Link to={flowPath('/flow/mercury-reimbursements')}>Reimbursements</Link>
         </nav>
       </aside>
-      <main style={{ flex: 1, padding: 32 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
-          <h1 style={{ fontSize: 24, fontWeight: 700, margin: 0 }}>Invoicing</h1>
-          <button type="button" className="mercury-btn-primary" style={{ width: 'auto' }}>+ Create Invoice</button>
-        </div>
-        <div style={{ display: 'flex', gap: 24, marginBottom: 24, flexWrap: 'wrap' }}>
-          <div style={{ background: '#fff', padding: 16, borderRadius: 8, border: '1px solid var(--mercury-border)', flex: 1 }}>
-            <p style={{ fontSize: 12, color: 'var(--mercury-muted)', margin: 0 }}>Overdue</p>
-            <p style={{ fontSize: 18, fontWeight: 600, margin: 0 }}>-</p>
+      <main className="mercury-dashboard-main">
+        <header className="mercury-dashboard-topbar">
+          <div className="mercury-company-selector">
+            <div className="mercury-company-avatar">M</div>
+            <span>Mobbin</span>
+            <span className="mercury-nav-chevron">▼</span>
           </div>
-          <div style={{ background: '#fff', padding: 16, borderRadius: 8, border: '1px solid var(--mercury-border)', flex: 1 }}>
-            <p style={{ fontSize: 12, color: 'var(--mercury-muted)', margin: 0 }}>Paid</p>
-            <p style={{ fontSize: 18, fontWeight: 600, margin: 0 }}>-</p>
+          <div className="mercury-search-bar">
+            <span className="mercury-search-icon">🔍</span>
+            Search for anything
+            <span className="mercury-kbd">⌘K</span>
           </div>
-          <div style={{ background: '#fff', padding: 16, borderRadius: 8, border: '1px solid var(--mercury-border)', flex: 1 }}>
-            <p style={{ fontSize: 12, color: 'var(--mercury-muted)', margin: 0 }}>Open</p>
-            <p style={{ fontSize: 18, fontWeight: 600, margin: 0 }}>1 invoice - $10.60</p>
+          <div className="mercury-topbar-right">
+            <span className="mercury-nav-link">Move Money ▼</span>
+            <button type="button" className="mercury-icon-btn" aria-label="Settings">⚙</button>
+            <button type="button" className="mercury-icon-btn mercury-notification-btn" aria-label="Notifications">🔔</button>
+            <div className="mercury-topbar-avatar">JL</div>
           </div>
-        </div>
-        <div style={{ background: '#fff', borderRadius: 12, border: '1px solid var(--mercury-border)', overflow: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-            <thead>
-              <tr style={{ background: '#f9fafb' }}>
-                <th style={{ padding: 12, textAlign: 'left', fontSize: 12, color: 'var(--mercury-muted)' }}>Invoice</th>
-                <th style={{ padding: 12, textAlign: 'left', fontSize: 12, color: 'var(--mercury-muted)' }}>Amount</th>
-                <th style={{ padding: 12, textAlign: 'left', fontSize: 12, color: 'var(--mercury-muted)' }}>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style={{ borderTop: '1px solid var(--mercury-border)' }}>
-                <td style={{ padding: 12 }}>INV-001</td>
-                <td style={{ padding: 12 }}>$10.60</td>
-                <td style={{ padding: 12 }}>Open</td>
-              </tr>
-            </tbody>
-          </table>
+        </header>
+        <div className="mercury-dashboard-content">
+          <div className="mercury-page-header">
+            <h1 className="mercury-page-title">Invoicing</h1>
+            <button type="button" className="mercury-btn-primary mercury-btn-inline">+ Create Invoice</button>
+          </div>
+          <div className="mercury-transactions-summary">
+            <div className="mercury-summary-card">
+              <p>Overdue</p>
+              <strong>−</strong>
+            </div>
+            <div className="mercury-summary-card">
+              <p>Paid</p>
+              <strong>−</strong>
+            </div>
+            <div className="mercury-summary-card">
+              <p>Open</p>
+              <strong>1 invoice · $10.60</strong>
+            </div>
+          </div>
+          <div className="mercury-transactions-table-wrap">
+            <table className="mercury-transactions-table">
+              <thead>
+                <tr>
+                  <th>Invoice</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>INV-001</td>
+                  <td>$10.60</td>
+                  <td><span className="mercury-status-badge mercury-status-pending">Open</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </main>
     </div>

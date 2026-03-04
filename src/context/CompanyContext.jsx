@@ -7,6 +7,7 @@ export const COMPANY = {
   AIRWALLEX: 'airwallex',
   REVOLUT: 'revolut',
   MERCURY: 'mercury',
+  WIZE: 'wize',
 }
 
 export const COMPANY_INFO = {
@@ -29,11 +30,18 @@ export const COMPANY_INFO = {
     primaryColor: '#1a2744',
     logoUrl: '/mercury-logo.png',
   },
+  [COMPANY.WIZE]: {
+    name: 'Wize',
+    displayName: 'Wize',
+    logoLetter: 'W',
+    primaryColor: '#7CB342',
+    logoUrl: '/wize-logo.png',
+  },
 }
 
 export function CompanyProvider({ children }) {
   const { company } = useParams()
-  const validCompany = [COMPANY.AIRWALLEX, COMPANY.REVOLUT, COMPANY.MERCURY].includes(company)
+  const validCompany = [COMPANY.AIRWALLEX, COMPANY.REVOLUT, COMPANY.MERCURY, COMPANY.WIZE].includes(company)
     ? company
     : COMPANY.AIRWALLEX
 

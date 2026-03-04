@@ -181,19 +181,25 @@
 }
 
 /* Landing */
+.revolut-landing-page {
+  background: #000 !important;
+}
 .revolut-landing {
   width: 100%;
   max-width: var(--revolut-dashboard-width);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .revolut-landing-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px;
-  border-bottom: 1px solid #2d3d4f;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  z-index: 2;
 }
 .revolut-landing-logo {
   font-size: 20px;
@@ -216,6 +222,7 @@
 .revolut-landing-actions {
   display: flex;
   gap: 16px;
+  align-items: center;
 }
 .revolut-landing-login {
   color: #fff;
@@ -224,12 +231,15 @@
 }
 .revolut-landing-signup {
   padding: 10px 20px;
-  background: #fff;
-  color: #0f1419;
-  border: none;
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid #fff;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
+}
+.revolut-landing-signup:hover {
+  background: rgba(255,255,255,0.1);
 }
 .revolut-landing-hero {
   flex: 1;
@@ -238,93 +248,195 @@
   justify-content: space-between;
   padding: 48px 24px;
   gap: 48px;
+  position: relative;
+  z-index: 2;
+}
+.revolut-landing-geometry {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #000 0%, #000 45%, #0d1117 70%, #161b22 100%);
+  z-index: 0;
+}
+.revolut-landing-geometry::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 55%;
+  background: linear-gradient(135deg, transparent 0%, rgba(22,27,34,0.9) 30%, rgba(13,17,23,0.95) 100%);
+  pointer-events: none;
 }
 .revolut-landing-content h1 {
   font-size: 40px;
   font-weight: 700;
   margin: 0 0 16px;
+  line-height: 1.2;
 }
 .revolut-landing-content p {
   font-size: 18px;
   color: #8b98a5;
   margin: 0 0 32px;
 }
-.revolut-landing-cta {
+.revolut-btn-landing {
+  background: #2d3748 !important;
+  color: #fff !important;
   max-width: 200px !important;
+}
+.revolut-btn-landing:hover {
+  background: #3d4d5f !important;
 }
 .revolut-card-preview {
   width: 320px;
   height: 200px;
-  background: linear-gradient(135deg, #1e2a38 0%, #2d3d4f 100%);
   border-radius: 16px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
+  flex-direction: column;
+  padding: 24px;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.revolut-card-business {
+  background: #0d0d0d;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+.revolut-card-business .revolut-card-chip {
+  width: 40px;
+  height: 30px;
+  background: linear-gradient(135deg, #c0c0c0, #a0a0a0);
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 24px;
+}
+.revolut-card-business .revolut-card-brand {
+  font-size: 14px;
   font-weight: 600;
-  border: 1px solid #2d3d4f;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.5px;
 }
 
 /* Dashboard */
 .revolut-dashboard {
   width: 100%;
-  max-width: var(--revolut-dashboard-width);
+  max-width: 100%;
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
+}
+.revolut-dashboard-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid #2d3d4f;
+  background: #0f1419;
+}
+.revolut-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.revolut-topbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.revolut-topbar-r {
+  width: 32px;
+  height: 32px;
+  background: #2d3d4f;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.revolut-topbar-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+.revolut-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.revolut-topbar-icon {
+  background: none;
+  border: none;
+  color: #8b98a5;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 8px;
+}
+.revolut-topbar-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #0075eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+.revolut-dashboard-body {
+  display: flex;
+  flex: 1;
 }
 .revolut-sidebar {
   width: 220px;
   min-width: 220px;
   border-right: 1px solid #2d3d4f;
   padding: 24px;
-}
-.revolut-sidebar-header {
-  margin-bottom: 32px;
+  background: #0f1419;
 }
 .revolut-sidebar-back {
   display: block;
   color: #8b98a5;
   text-decoration: none;
   font-size: 14px;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
 }
 .revolut-sidebar-back:hover {
   color: #0075eb;
 }
-.revolut-sidebar-logo {
-  font-size: 18px;
-  font-weight: 700;
-}
 .revolut-sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 .revolut-sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   padding: 12px 16px;
   color: #8b98a5;
   text-decoration: none;
   border-radius: 8px;
+  font-size: 15px;
 }
 .revolut-sidebar-nav a:hover,
 .revolut-sidebar-nav a.active {
   background: #1e2a38;
   color: #fff;
 }
+.revolut-nav-icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
+.revolut-nav-chevron {
+  margin-left: auto;
+  font-size: 12px;
+  opacity: 0.6;
+}
 .revolut-dashboard-main {
   flex: 1;
-  padding: 32px;
-}
-.revolut-dashboard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 32px;
-}
-.revolut-dashboard-header h1 {
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0;
+  padding: 24px;
+  min-width: 0;
 }
 .revolut-balance-card {
   background: #1e2a38;
@@ -333,20 +445,121 @@
   margin-bottom: 24px;
   border: 1px solid #2d3d4f;
 }
-.revolut-balance-label {
-  display: block;
-  font-size: 14px;
-  color: #8b98a5;
-  margin-bottom: 8px;
+.revolut-balance-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
 }
 .revolut-balance-amount {
   font-size: 32px;
   font-weight: 700;
 }
-.revolut-quick-actions {
-  display: flex;
-  gap: 16px;
+.revolut-balance-dropdown {
+  font-size: 12px;
+  color: #8b98a5;
 }
+.revolut-balance-label {
+  display: block;
+  font-size: 14px;
+  color: #8b98a5;
+  margin-bottom: 16px;
+}
+.revolut-balance-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.revolut-balance-icon {
+  background: #2d3d4f;
+  border: none;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+.revolut-add-money-btn {
+  padding: 10px 20px !important;
+  font-size: 14px !important;
+}
+.revolut-transactions-card {
+  background: #1e2a38;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #2d3d4f;
+}
+.revolut-transactions-header {
+  display: grid;
+  grid-template-columns: 40px 2fr 1fr 1fr 1.2fr 1fr;
+  gap: 16px;
+  padding: 12px 0;
+  font-size: 12px;
+  color: #8b98a5;
+  margin-bottom: 8px;
+}
+.revolut-transaction-item {
+  display: grid;
+  grid-template-columns: 40px 2fr 1fr 1fr 1.2fr 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #2d3d4f;
+  font-size: 14px;
+}
+.revolut-transaction-item:last-of-type {
+  border-bottom: none;
+}
+.revolut-tx-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #2d3d4f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+.revolut-tx-desc { flex: 1; }
+.revolut-tx-date { color: #8b98a5; }
+.revolut-tx-status em { color: #ff8c00; font-style: italic; }
+.revolut-tx-amount { font-weight: 600; text-align: right; }
+.revolut-see-all { display: block; margin-top: 16px; }
+.revolut-dashboard-right {
+  width: 320px;
+  min-width: 320px;
+  padding: 24px;
+  border-left: 1px solid #2d3d4f;
+}
+.revolut-setup-card .revolut-widget-progress {
+  font-size: 14px;
+  color: #0075eb;
+  margin-bottom: 8px;
+}
+.revolut-setup-card h3 { margin: 0 0 8px; }
+.revolut-setup-card p { margin: 0 0 16px; font-size: 14px; color: #8b98a5; }
+.revolut-widget-total { margin-bottom: 12px; }
+.revolut-widget-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid #2d3d4f;
+}
+.revolut-widget-item:last-child { border-bottom: none; }
+.revolut-widget-icon { font-size: 20px; }
+.revolut-widget-value { margin-left: auto; font-weight: 600; }
+.revolut-widget-sub { font-size: 12px; color: #8b98a5; margin-left: auto; }
+.revolut-widget-arrow { color: #8b98a5; }
+.revolut-widget-link { color: #fff !important; }
+.revolut-widget-link:hover { background: #2d3d4f; border-radius: 8px; }
+.revolut-quick-actions { display: flex; gap: 16px; }
 .revolut-quick-action {
   display: flex;
   align-items: center;
@@ -359,12 +572,8 @@
   text-decoration: none;
   font-size: 16px;
 }
-.revolut-quick-action:hover {
-  background: #2d3d4f;
-}
-.revolut-quick-icon {
-  font-size: 20px;
-}
+.revolut-quick-action:hover { background: #2d3d4f; }
+.revolut-quick-icon { font-size: 20px; }
 
 /* Add money */
 .revolut-add-money-options,
@@ -511,12 +720,24 @@
 .revolut-qr-title { font-size: 18px; font-weight: 600; margin: 16px 0 8px; }
 .revolut-qr-desc { font-size: 14px; color: #8b98a5; }
 
+@media (max-width: 1024px) {
+  .revolut-dashboard-right { display: none; }
+  .revolut-transactions-header { display: none; }
+  .revolut-transaction-item {
+    grid-template-columns: 40px 1fr auto;
+    gap: 12px;
+  }
+  .revolut-tx-created, .revolut-tx-date { display: none; }
+  .revolut-tx-status { grid-column: span 1; }
+  .revolut-tx-amount { text-align: right; }
+}
+
 @media (max-width: 768px) {
   .revolut-login-page { flex-direction: column; align-items: center; }
   .revolut-login-qr { order: -1; }
   .revolut-landing-hero { flex-direction: column; text-align: center; }
   .revolut-landing-nav { display: none; }
-  .revolut-dashboard { flex-direction: column; }
+  .revolut-dashboard-body { flex-direction: column; }
   .revolut-sidebar {
     width: 100%;
     min-width: 100%;
@@ -525,11 +746,19 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
     flex-wrap: wrap;
+    padding: 16px;
   }
-  .revolut-sidebar-nav { flex-direction: row; flex-wrap: wrap; }
+  .revolut-sidebar-back { margin-bottom: 0; margin-right: 16px; }
+  .revolut-sidebar-nav { flex-direction: row; flex-wrap: wrap; flex: 1; }
+  .revolut-sidebar-nav a { padding: 8px 12px; font-size: 13px; }
+  .revolut-nav-chevron { display: none; }
+  .revolut-dashboard-topbar { flex-wrap: wrap; gap: 16px; }
+  .revolut-topbar-right .revolut-topbar-avatar:last-child { display: none; }
+  .revolut-balance-actions { flex-wrap: wrap; }
   .revolut-step.revolut-split-layout { flex-direction: column; }
+  .revolut-login-footer { position: relative; flex-direction: column; gap: 8px; }
 }
 
 /* Onboarding */
@@ -633,7 +862,78 @@
 .revolut-modal-title { font-size: 20px; font-weight: 700; margin: 0 0 8px; }
 .revolut-modal-subtitle { font-size: 14px; color: #8b98a5; margin: 0 0 24px; }
 .revolut-revtag-modal .revolut-revtag-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.revolut-revtag-handle { margin: 8px 0 24px; font-size: 18px; }
+.revolut-revtag-share-title { font-size: 14px; font-weight: 600; margin: 0 0 12px; }
+.revolut-revtag-copy, .revolut-revtag-send {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+}
+.revolut-revtag-copy {
+  background: #2d3d4f;
+  color: #fff;
+}
+.revolut-revtag-copy.copied { background: #3d4d5f; }
+.revolut-link-copied { color: #88a8f2; font-size: 12px; margin-left: 4px; }
+.revolut-revtag-send {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #2d3d4f;
+}
 .revolut-copied-badge { background: #2d3d4f; padding: 6px 12px; border-radius: 8px; font-size: 12px; }
+.revolut-add-option { position: relative; }
+.revolut-add-option-content { flex: 1; min-width: 0; }
+.revolut-add-info {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #2d3d4f;
+  color: #8b98a5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.revolut-select-wrapper { position: relative; margin-bottom: 16px; }
+.revolut-select-flag {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  pointer-events: none;
+}
+.revolut-select { padding-left: 48px !important; }
+.revolut-link-block { display: block; margin-top: 16px; }
+.revolut-switch-lang { margin-top: 8px; }
+.revolut-login-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: transparent;
+  z-index: 10;
+}
+.revolut-footer-link {
+  background: none;
+  border: none;
+  color: #8b98a5;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.revolut-footer-link:hover { color: #fff; }
 
 /* Verify details */
 .revolut-verify-section { margin-bottom: 24px; }
@@ -652,11 +952,30 @@
   cursor: pointer;
 }
 .revolut-verify-item:hover { background: #2d3d4f; }
+.revolut-verify-icon-wrap { position: relative; flex-shrink: 0; }
 .revolut-verify-icon { font-size: 20px; }
-.revolut-verify-item p { flex: 1; margin: 0; }
-.revolut-status-badge { font-size: 12px; padding: 4px 8px; border-radius: 6px; }
-.revolut-status-badge.requires { background: rgba(255,140,0,0.2); color: #ff8c00; }
-.revolut-status-badge.verified { background: rgba(0,200,0,0.2); color: #00c800; }
+.revolut-verify-overlay {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.revolut-verify-overlay.requires { background: #ff8c00; color: #000; }
+.revolut-verify-overlay.verified { background: #00c853; color: #fff; }
+.revolut-verify-content { flex: 1; min-width: 0; }
+.revolut-verify-content p { margin: 0 0 4px; }
+.revolut-verify-item p { margin: 0; }
+.revolut-status-badge { font-size: 12px; padding: 2px 0; display: block; }
+.revolut-status-badge.requires { color: #ff6b35; background: none; }
+.revolut-status-badge.verified { color: #00c853; background: none; }
 .revolut-verify-chevron { color: #8b98a5; }
 
 /* Residence permit / Upload */
@@ -929,7 +1248,24 @@
 .revolut-receipt-info { flex: 1; display: flex; flex-direction: column; gap: 4px; }
 .revolut-receipt-name { font-size: 14px; }
 .revolut-receipt-meta { font-size: 12px; color: #8b98a5; }
-.revolut-receipt-status { color: #ff8c00; }
+.revolut-receipt-status { color: #8b98a5; }
+.revolut-receipt-match { color: #00c853 !important; }
+.revolut-receipt-icon-wrap { position: relative; flex-shrink: 0; }
+.revolut-receipt-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 16px;
+  height: 16px;
+  background: #ff8c00;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+}
 .revolut-receipt-delete { background: none; border: none; color: #8b98a5; cursor: pointer; }
 
 /* Dashboard widgets */

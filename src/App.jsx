@@ -222,7 +222,7 @@ import { MercurySettingsIndex } from './pages/mercury/MercurySettingsIndex'
 
 function CompanyGate() {
   const { company } = useParams()
-  if (company !== 'airwallex' && company !== 'revolut' && company !== 'mercury') {
+  if (company !== 'airwallex' && company !== 'revolut' && company !== 'mercury' && company !== 'wize') {
     return <Navigate to="/" replace />
   }
   return (
@@ -237,10 +237,14 @@ function FlowRouteGuard() {
   const { pathname } = useLocation()
   const isRevolutFlow = pathname.includes('/flow/revolut')
   const isMercuryFlow = pathname.includes('/flow/mercury')
+  const isWizeFlow = pathname.includes('/flow/wize')
   if (company === COMPANY.REVOLUT && !isRevolutFlow) {
     return <Navigate to={basePath()} replace />
   }
   if (company === COMPANY.MERCURY && !isMercuryFlow) {
+    return <Navigate to={basePath()} replace />
+  }
+  if (company === COMPANY.WIZE && !isWizeFlow) {
     return <Navigate to={basePath()} replace />
   }
   return <Outlet />

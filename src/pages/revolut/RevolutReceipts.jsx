@@ -16,7 +16,7 @@ export function RevolutReceipts() {
         <Link to={flowPath('/flow/revolut-dashboard')} className="revolut-step-back">←</Link>
         <h1 className="revolut-step-title">My receipts</h1>
         <p className="revolut-step-subtitle">
-          You can send receipts from revolut.com to revolut.com to match them to outstanding expenses or request reimbursements.
+          You can send receipts from your email to revolut.com to match them to outstanding expenses or request reimbursements.
         </p>
         <div className="revolut-receipt-upload">
           <div className="revolut-receipt-dropzone">
@@ -28,10 +28,13 @@ export function RevolutReceipts() {
         <div className="revolut-receipt-list">
           {SAMPLE_RECEIPTS.map((r, i) => (
             <div key={i} className="revolut-receipt-item">
-              <span className="revolut-receipt-file-icon">📄</span>
+              <div className="revolut-receipt-icon-wrap">
+                <span className="revolut-receipt-file-icon">📄</span>
+                <span className="revolut-receipt-badge" aria-hidden>!</span>
+              </div>
               <div className="revolut-receipt-info">
                 <span className="revolut-receipt-name">{r.name}</span>
-                <span className="revolut-receipt-meta">{r.date} · <span className="revolut-receipt-status">{r.status}</span></span>
+                <span className="revolut-receipt-meta">{r.date} · <span className="revolut-receipt-status revolut-receipt-match">{r.status}</span></span>
               </div>
               <button type="button" className="revolut-receipt-delete" aria-label="Delete">🗑</button>
             </div>

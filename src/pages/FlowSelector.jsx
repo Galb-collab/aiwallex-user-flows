@@ -57,11 +57,13 @@ const MERCURY_FLOWS = [
   { path: '/flow/mercury-reimbursements', icon: '💰', title: 'Reimbursements', description: 'Manage team expense reimbursements.' },
 ]
 
+const WIZE_FLOWS = []
+
 export function FlowSelector() {
   const navigate = useNavigate()
   const { flowPath, basePath, info, company } = useCompany()
   const [viewMode, setViewMode] = useState('thumbnails') // 'thumbnails' | 'list'
-  const flows = company === COMPANY.AIRWALLEX ? AIRWALLEX_FLOWS : company === COMPANY.REVOLUT ? REVOLUT_FLOWS : company === COMPANY.MERCURY ? MERCURY_FLOWS : []
+  const flows = company === COMPANY.AIRWALLEX ? AIRWALLEX_FLOWS : company === COMPANY.REVOLUT ? REVOLUT_FLOWS : company === COMPANY.MERCURY ? MERCURY_FLOWS : company === COMPANY.WIZE ? WIZE_FLOWS : []
   const hasFlows = flows.length > 0
 
   return (

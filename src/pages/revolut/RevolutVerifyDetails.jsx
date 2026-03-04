@@ -15,42 +15,72 @@ export function RevolutVerifyDetails() {
       <div className="revolut-verify-section">
         <h3 className="revolut-section-title">Requests</h3>
         <Link to={flowPath('/flow/revolut-onboarding/residence-permit')} className="revolut-verify-item revolut-verify-requires">
-          <span className="revolut-verify-icon">📄</span>
-          <p>Proof of power of attorney</p>
-          <span className="revolut-status-badge requires">Requires action</span>
+          <div className="revolut-verify-icon-wrap">
+            <span className="revolut-verify-icon">📄</span>
+            <span className="revolut-verify-overlay requires">!</span>
+          </div>
+          <div className="revolut-verify-content">
+            <p>Proof of power of attorney</p>
+            <span className="revolut-status-badge requires">Requires action</span>
+          </div>
           <span className="revolut-verify-chevron">›</span>
         </Link>
         <Link to={flowPath('/flow/revolut-onboarding/residence-permit')} className="revolut-verify-item revolut-verify-requires">
-          <span className="revolut-verify-icon">📄</span>
-          <p>Proof of directors structure</p>
-          <span className="revolut-status-badge requires">Requires action</span>
+          <div className="revolut-verify-icon-wrap">
+            <span className="revolut-verify-icon">📄</span>
+            <span className="revolut-verify-overlay requires">!</span>
+          </div>
+          <div className="revolut-verify-content">
+            <p>Proof of directors structure</p>
+            <span className="revolut-status-badge requires">Requires action</span>
+          </div>
           <span className="revolut-verify-chevron">›</span>
         </Link>
         <Link to={flowPath('/flow/revolut-onboarding/residence-permit')} className="revolut-verify-item revolut-verify-requires">
-          <span className="revolut-verify-icon">📄</span>
-          <p>Proof of shareholders structure</p>
-          <span className="revolut-status-badge requires">Requires action</span>
+          <div className="revolut-verify-icon-wrap">
+            <span className="revolut-verify-icon">📄</span>
+            <span className="revolut-verify-overlay requires">!</span>
+          </div>
+          <div className="revolut-verify-content">
+            <p>Proof of shareholders structure</p>
+            <span className="revolut-status-badge requires">Requires action</span>
+          </div>
           <span className="revolut-verify-chevron">›</span>
         </Link>
       </div>
       <div className="revolut-verify-section">
         <h3 className="revolut-section-title">Key corporate personnel</h3>
         <div className="revolut-verify-item revolut-verify-verified">
-          <span className="revolut-personnel-avatar">JL</span>
-          <p>Ji Ho Lim</p>
-          <span className="revolut-status-badge verified">Verified</span>
+          <div className="revolut-verify-icon-wrap">
+            <span className="revolut-personnel-avatar">JL</span>
+            <span className="revolut-verify-overlay verified">✓</span>
+          </div>
+          <div className="revolut-verify-content">
+            <p>Ji Ho Lim</p>
+            <span className="revolut-status-badge verified">Verified</span>
+          </div>
           <span className="revolut-verify-chevron">›</span>
         </div>
         <div className="revolut-verify-item revolut-verify-verified">
-          <span className="revolut-personnel-avatar">LJ</span>
-          <p>Liau Jian-Jie</p>
-          <span className="revolut-status-badge verified">Verified</span>
+          <div className="revolut-verify-icon-wrap">
+            <span className="revolut-personnel-avatar">LJ</span>
+            <span className="revolut-verify-overlay verified">✓</span>
+          </div>
+          <div className="revolut-verify-content">
+            <p>Liau Jian-Jie</p>
+            <span className="revolut-status-badge verified">Verified</span>
+          </div>
           <span className="revolut-verify-chevron">›</span>
         </div>
         <div className="revolut-verify-item revolut-verify-verified">
-          <span className="revolut-personnel-avatar">LL</span>
-          <p>Liew Liew</p>
-          <span className="revolut-status-badge verified">Verified</span>
+          <div className="revolut-verify-icon-wrap">
+            <span className="revolut-personnel-avatar">LL</span>
+            <span className="revolut-verify-overlay verified">✓</span>
+          </div>
+          <div className="revolut-verify-content">
+            <p>Liew Liew</p>
+            <span className="revolut-status-badge verified">Verified</span>
+          </div>
           <span className="revolut-verify-chevron">›</span>
         </div>
       </div>

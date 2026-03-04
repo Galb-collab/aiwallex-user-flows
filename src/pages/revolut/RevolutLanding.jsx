@@ -8,7 +8,7 @@ export function RevolutLanding() {
   const { flowPath, basePath } = useCompany()
 
   return (
-    <div className="revolut-flow-layout">
+    <div className="revolut-flow-layout revolut-landing-page">
       <div className="revolut-landing">
         <header className="revolut-landing-header">
           <Link to={basePath()} className="revolut-landing-logo">Revolut</Link>
@@ -24,15 +24,19 @@ export function RevolutLanding() {
           </div>
         </header>
         <main className="revolut-landing-hero">
+          <div className="revolut-landing-geometry" aria-hidden />
           <div className="revolut-landing-content">
             <h1>Go beyond business as usual.</h1>
             <p>Take your finances further with the account designed for efficiency, and built for business.</p>
-            <button type="button" className="revolut-btn-primary revolut-landing-cta" onClick={() => navigate(flowPath('/flow/revolut-signup'))}>
+            <button type="button" className="revolut-landing-cta revolut-btn-landing" onClick={() => navigate(flowPath('/flow/revolut-signup'))}>
               Get started
             </button>
           </div>
           <div className="revolut-landing-visual">
-            <div className="revolut-card-preview">Revolut Business</div>
+            <div className="revolut-card-preview revolut-card-business">
+              <span className="revolut-card-chip" />
+              <span className="revolut-card-brand">Revolut Business</span>
+            </div>
           </div>
         </main>
       </div>

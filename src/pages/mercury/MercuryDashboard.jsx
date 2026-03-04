@@ -37,42 +37,77 @@ export function MercuryDashboard() {
           </div>
           <div className="mercury-search-bar">
             <span className="mercury-search-icon">🔍</span>
-            Search or jump to
+            Search for anything
             <span className="mercury-kbd">⌘K</span>
           </div>
           <div className="mercury-topbar-right">
             <span className="mercury-nav-link">Move Money ▼</span>
-            <span className="mercury-icon-btn">🔔</span>
-            <Link to={flowPath('/flow/mercury-settings')} className="mercury-icon-btn mercury-avatar" title="Settings">👤</Link>
+            <button type="button" className="mercury-icon-btn" aria-label="Settings">⚙</button>
+            <button type="button" className="mercury-icon-btn mercury-notification-btn" aria-label="Notifications">🔔</button>
+            <div className="mercury-topbar-avatar" title="Profile">JL</div>
           </div>
         </header>
 
         <div className="mercury-dashboard-content">
           <h1 className="mercury-welcome">Welcome, Jane</h1>
           <div className="mercury-action-buttons">
-            <button type="button" className="mercury-btn-primary mercury-btn-inline">Send</button>
-            <button type="button" className="mercury-btn-secondary mercury-btn-inline">Request</button>
-            <button type="button" className="mercury-btn-secondary mercury-btn-inline" onClick={() => setShowTransferModal(true)}>Transfer</button>
-            <Link to={flowPath('/flow/mercury-fund-account')} className="mercury-btn-secondary mercury-btn-inline" style={{ textDecoration: 'none' }}>Deposit</Link>
-            <Link to={flowPath('/flow/mercury-bill-pay')} className="mercury-btn-secondary mercury-btn-inline" style={{ textDecoration: 'none' }}>Pay Bill</Link>
-            <Link to={flowPath('/flow/mercury-invoicing')} className="mercury-btn-secondary mercury-btn-inline" style={{ textDecoration: 'none' }}>Create Invoice</Link>
+            <button type="button" className="mercury-btn-primary mercury-btn-inline">✈ Send</button>
+            <button type="button" className="mercury-btn-secondary mercury-btn-inline" onClick={() => setShowTransferModal(true)}>↔ Transfer</button>
+            <Link to={flowPath('/flow/mercury-fund-account')} className="mercury-btn-secondary mercury-btn-inline mercury-btn-link">+ Deposit</Link>
+            <button type="button" className="mercury-btn-secondary mercury-btn-inline">↔ Request</button>
+            <Link to={flowPath('/flow/mercury-bill-pay')} className="mercury-btn-secondary mercury-btn-inline mercury-btn-link">↑ Upload Bill</Link>
+            <Link to={flowPath('/flow/mercury-invoicing')} className="mercury-btn-secondary mercury-btn-inline mercury-btn-link">📄 Create Invoice</Link>
             <Link to={flowPath('/flow/mercury-categories')} className="mercury-link">Customize</Link>
           </div>
-          <div className="mercury-dashboard-cards">
-            <div className="mercury-balance-card">
-              <h3>Mercury Balance <span className="mercury-check">✓</span></h3>
-              <p className="mercury-balance-amount">$12,582,210.27</p>
-              <p className="mercury-balance-period">Last 30 Days</p>
+          <div className="mercury-dashboard-widgets">
+            <div className="mercury-widget mercury-balance-widget">
+              <h3>Mercury balance <span className="mercury-check">✓</span></h3>
+              <p className="mercury-balance-amount">$1,987.85</p>
+              <div className="mercury-balance-meta">
+                <span className="mercury-balance-period">Last 30 days</span>
+                <span className="mercury-balance-change negative">−$14.15</span>
+              </div>
               <div className="mercury-balance-graph" />
             </div>
-            <div className="mercury-accounts-card">
+            <div className="mercury-widget mercury-accounts-widget">
               <h3>Accounts</h3>
-              <div className="mercury-account-row">Payroll — $1,149,093.31</div>
-              <div className="mercury-account-row">Operating Expenses — $1,323,267.12</div>
-              <div className="mercury-account-row">Treasury — $6,038,617.42</div>
-              <div className="mercury-account-row">Accounts Payable — $226,727.82</div>
-              <div className="mercury-account-row">Accounts Receivable — $0.00</div>
-              <span className="mercury-link">+2 View all accounts</span>
+              <div className="mercury-account-item">
+                <span className="mercury-account-icon">●</span>
+                <span>Checking ..2502</span>
+                <span className="mercury-account-balance">$987.85</span>
+              </div>
+              <div className="mercury-account-item">
+                <span className="mercury-account-icon">●</span>
+                <span>Savings ..5679</span>
+                <span className="mercury-account-balance">$1,000.00</span>
+              </div>
+              <div className="mercury-widget-sub">
+                <p>Accounts for all your needs</p>
+                <button type="button" className="mercury-btn-secondary mercury-btn-inline mercury-btn-sm">+ Create account</button>
+              </div>
+              <div className="mercury-widget-sub mercury-automate">
+                <p>Automate transfers</p>
+                <span className="mercury-automate-arrow">→</span>
+              </div>
+            </div>
+            <div className="mercury-widget mercury-billpay-widget">
+              <h3>Bill Pay</h3>
+              <div className="mercury-widget-stats">
+                <span><strong>Outstanding</strong> 1</span>
+                <span><strong>Overdue</strong> −</span>
+                <span><strong>Due soon</strong> 1</span>
+              </div>
+              <p className="mercury-widget-meta">Inbox 0 items · $0</p>
+              <Link to={flowPath('/flow/mercury-bill-pay')} className="mercury-link">View &gt;</Link>
+            </div>
+            <div className="mercury-widget mercury-invoicing-widget">
+              <h3>Invoicing</h3>
+              <div className="mercury-widget-stats">
+                <span><strong>Overdue</strong> −</span>
+                <span><strong>Paid</strong> −</span>
+              </div>
+              <p className="mercury-widget-meta">Open 1 invoice · $10.60</p>
+              <Link to={flowPath('/flow/mercury-invoicing')} className="mercury-link">View &gt;</Link>
             </div>
           </div>
         </div>
