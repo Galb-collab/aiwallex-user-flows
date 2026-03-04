@@ -9,7 +9,7 @@ export function MercuryInvoicing() {
   return (
     <div className="mercury-flow-layout mercury-dashboard-layout">
       <aside className="mercury-dashboard-sidebar">
-        <Link to={basePath()} className="mercury-logo mercury-sidebar-logo">
+        <Link to={flowPath('/flow/mercury-dashboard')} className="mercury-logo mercury-sidebar-logo">
           <img src="/mercury-logo.png" alt="Mercury" />
           Mobbin
         </Link>
@@ -40,10 +40,11 @@ export function MercuryInvoicing() {
             <span className="mercury-kbd">⌘K</span>
           </div>
           <div className="mercury-topbar-right">
+            <Link to={basePath()} className="mercury-step-back" style={{ marginRight: 16 }}>← Flows</Link>
             <span className="mercury-nav-link">Move Money ▼</span>
-            <button type="button" className="mercury-icon-btn" aria-label="Settings">⚙</button>
+            <Link to={flowPath('/flow/mercury-settings')} className="mercury-icon-btn" aria-label="Settings">⚙</Link>
             <button type="button" className="mercury-icon-btn mercury-notification-btn" aria-label="Notifications">🔔</button>
-            <div className="mercury-topbar-avatar">JL</div>
+            <Link to={flowPath('/flow/mercury-settings')} className="mercury-topbar-avatar" title="Settings">JL</Link>
           </div>
         </header>
         <div className="mercury-dashboard-content">

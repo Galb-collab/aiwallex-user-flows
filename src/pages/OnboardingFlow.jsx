@@ -34,7 +34,7 @@ export function OnboardingFlow() {
   const StepComponent = STEP_COMPONENTS[step]
 
   if (step === FLOW_STEPS.DASHBOARD) {
-    navigate('dashboard', { replace: true })
+    navigate(flowPath('/flow/web-onboarding/dashboard'), { replace: true })
     return null
   }
 

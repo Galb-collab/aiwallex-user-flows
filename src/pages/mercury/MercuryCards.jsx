@@ -9,10 +9,11 @@ export function MercuryCards() {
   return (
     <div className="mercury-flow-layout mercury-dashboard-layout">
       <aside style={{ width: 220, minWidth: 220, borderRight: '1px solid var(--mercury-border)', padding: 24, background: '#fff' }}>
-        <Link to={basePath()} className="mercury-logo" style={{ marginBottom: 32 }}>
+        <Link to={flowPath('/flow/mercury-dashboard')} className="mercury-logo" style={{ marginBottom: 16 }}>
           <img src="/mercury-logo.png" alt="Mercury" />
           Mobbin
         </Link>
+        <Link to={basePath()} className="mercury-step-back" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, marginBottom: 32 }}>← Flows</Link>
         <nav className="mercury-sidebar-nav">
           <Link to={flowPath('/flow/mercury-dashboard')}>Home</Link>
           <Link to={flowPath('/flow/mercury-transactions')}>Transactions</Link>

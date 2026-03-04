@@ -4,7 +4,7 @@ import { useCompany } from '../../context/CompanyContext'
 import './MercuryFlow.css'
 
 export function MercuryReimbursements() {
-  const { flowPath } = useCompany()
+  const { flowPath, basePath } = useCompany()
 
   return (
     <div className="mercury-flow-layout mercury-dashboard-layout">
@@ -41,9 +41,11 @@ export function MercuryReimbursements() {
             <span className="mercury-kbd">⌘K</span>
           </div>
           <div className="mercury-topbar-right">
+            <Link to={basePath()} className="mercury-step-back" style={{ marginRight: 16 }}>← Flows</Link>
             <span className="mercury-nav-link">Move Money ▼</span>
-            <span className="mercury-icon-btn">🔔</span>
-            <span className="mercury-icon-btn mercury-avatar">JL</span>
+            <Link to={flowPath('/flow/mercury-settings')} className="mercury-icon-btn" aria-label="Settings">⚙</Link>
+            <button type="button" className="mercury-icon-btn mercury-notification-btn" aria-label="Notifications">🔔</button>
+            <Link to={flowPath('/flow/mercury-settings')} className="mercury-topbar-avatar" title="Settings">JL</Link>
           </div>
         </header>
         <div className="mercury-dashboard-content" style={{ padding: 32 }}>

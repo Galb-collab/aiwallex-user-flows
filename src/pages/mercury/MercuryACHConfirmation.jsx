@@ -1,10 +1,9 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useCompany } from '../../context/CompanyContext'
 import './MercuryFlow.css'
 
 export function MercuryACHConfirmation() {
-  const navigate = useNavigate()
   const { flowPath } = useCompany()
 
   return (
@@ -12,7 +11,7 @@ export function MercuryACHConfirmation() {
       <div className="mercury-step" style={{ maxWidth: 480 }}>
         <div className="mercury-card">
           <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 24 }}>
-            <button type="button" className="mercury-modal-close" onClick={() => navigate(flowPath('/flow/mercury-bill-pay'))} aria-label="Close">✕</button>
+            <Link to={flowPath('/flow/mercury-dashboard')} className="mercury-modal-close" aria-label="Close">✕</Link>
           </div>
           <h1 className="mercury-step-title">You&apos;ve scheduled an ACH payment.</h1>
           <div style={{ background: '#f9fafb', borderRadius: 12, padding: 24, marginBottom: 24, border: '1px solid var(--mercury-border)' }}>
@@ -25,9 +24,10 @@ export function MercuryACHConfirmation() {
             <p style={{ fontSize: 24, fontWeight: 700, margin: '0 0 8px' }}>$10.60</p>
             <p style={{ fontSize: 14, color: 'var(--mercury-muted)', margin: 0 }}>Pay once on Nov 12, 2025.</p>
           </div>
-          <button type="button" className="mercury-btn-primary" onClick={() => navigate(flowPath('/flow/mercury-bill-pay'))}>
-            Back to Bill Pay
-          </button>
+          <div style={{ display: 'flex', gap: 12 }}>
+            <Link to={flowPath('/flow/mercury-create-recipient')} className="mercury-btn-secondary" style={{ textDecoration: 'none' }}>Back to Payments</Link>
+            <Link to={flowPath('/flow/mercury-dashboard')} className="mercury-btn-primary" style={{ textDecoration: 'none' }}>Back to Dashboard</Link>
+          </div>
         </div>
         <div className="mercury-help-icon">?</div>
       </div>

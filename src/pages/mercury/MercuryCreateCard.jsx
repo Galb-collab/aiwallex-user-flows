@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useCompany } from '../../context/CompanyContext'
 import './MercuryFlow.css'
 
@@ -22,7 +22,9 @@ export function MercuryCreateCard() {
         <main style={{ flex: 1 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
             <h1 className="mercury-step-title">Create a card</h1>
-            <button type="button" className="mercury-step-back" onClick={() => navigate(-1)}>×</button>
+            <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+              <Link to={flowPath('/flow/mercury-cards')} className="mercury-step-back" style={{ marginBottom: 0 }}>← Cards</Link>
+            </div>
           </div>
           <form onSubmit={handleCreate}>
             <h3 style={{ fontSize: 16, marginBottom: 16 }}>Basics</h3>

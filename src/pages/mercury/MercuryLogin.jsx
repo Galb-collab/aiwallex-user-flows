@@ -22,7 +22,7 @@ export function MercuryLogin() {
             <img src="/mercury-logo.png" alt="Mercury" />
             MERCURY
           </Link>
-          <Link to={flowPath('/flow/mercury-landing')} className="mercury-link">Log in &gt;</Link>
+          <Link to={flowPath('/flow/mercury-signup/company-name')} className="mercury-link">Create account &gt;</Link>
         </div>
         <div className="mercury-card">
           <h1 className="mercury-step-title">Welcome back</h1>

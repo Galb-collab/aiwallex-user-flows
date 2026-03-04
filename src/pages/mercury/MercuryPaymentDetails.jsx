@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useCompany } from '../../context/CompanyContext'
 import './MercuryFlow.css'
 
@@ -21,7 +21,7 @@ export function MercuryPaymentDetails() {
         <div className="mercury-card">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
             <h1 className="mercury-step-title">Payment details</h1>
-            <button type="button" className="mercury-step-back" onClick={() => navigate(-1)}>×</button>
+            <Link to={flowPath('/flow/mercury-create-recipient')} className="mercury-step-back">×</Link>
           </div>
           <p style={{ margin: '0 0 8px' }}>Recipient: Mobbin</p>
           <p style={{ fontSize: 14, color: 'var(--mercury-muted)', margin: '0 0 24px' }}>••••••••••</p>
@@ -34,7 +34,7 @@ export function MercuryPaymentDetails() {
             <input type="date" className="mercury-input" value={date} onChange={(e) => setDate(e.target.value)} required />
             <p style={{ fontSize: 12, color: 'var(--mercury-muted)', margin: '0 0 24px' }}>ACH payments typically arrive within 1-3 business days.</p>
             <div className="mercury-btn-group">
-              <button type="button" className="mercury-btn-secondary" onClick={() => navigate(-1)}>Cancel</button>
+              <Link to={flowPath('/flow/mercury-create-recipient')} className="mercury-btn-secondary" style={{ textDecoration: 'none' }}>Cancel</Link>
               <button type="submit" className="mercury-btn-primary" style={{ flex: 1 }}>Schedule ACH</button>
             </div>
           </form>

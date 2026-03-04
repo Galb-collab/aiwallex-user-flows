@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useCompany } from '../../context/CompanyContext'
 import './MercuryFlow.css'
 
@@ -52,7 +52,7 @@ export function MercuryCreateRecipient() {
           <label className="mercury-label">Postal / ZIP code</label>
           <input type="text" className="mercury-input" value={zip} onChange={(e) => setZip(e.target.value)} required />
           <div className="mercury-btn-group">
-            <button type="button" className="mercury-btn-secondary" onClick={() => navigate(-1)}>Go Back</button>
+            <Link to={flowPath('/flow/mercury-dashboard')} className="mercury-btn-secondary" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>Go Back</Link>
             <button type="submit" className="mercury-btn-primary" style={{ flex: 1 }}>Create Recipient</button>
           </div>
         </form>

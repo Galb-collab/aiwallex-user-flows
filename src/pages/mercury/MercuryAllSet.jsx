@@ -17,12 +17,26 @@ export function MercuryAllSet() {
           <p style={{ margin: 0 }}>Your account selections have been saved - we&apos;re still reviewing your application and will get back to you soon.</p>
         </div>
         <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px' }}>
-          {['Set up your first deposit', 'Invite team members', 'Set up cards', 'Manage reimbursements', 'Enable two-factor authentication'].map((item, i) => (
-            <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '8px 0' }}>
-              <span style={{ color: 'green' }}>✓</span>
-              {item}
-            </li>
-          ))}
+          <li style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '8px 0' }}>
+            <span style={{ color: 'green' }}>✓</span>
+            <Link to={flowPath('/flow/mercury-fund-account')} className="mercury-link">Set up your first deposit</Link>
+          </li>
+          <li style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '8px 0' }}>
+            <span style={{ color: 'green' }}>✓</span>
+            <Link to={flowPath('/flow/mercury-add-team-member')} className="mercury-link">Invite team members</Link>
+          </li>
+          <li style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '8px 0' }}>
+            <span style={{ color: 'green' }}>✓</span>
+            <Link to={flowPath('/flow/mercury-create-card')} className="mercury-link">Set up cards</Link>
+          </li>
+          <li style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '8px 0' }}>
+            <span style={{ color: 'green' }}>✓</span>
+            <Link to={flowPath('/flow/mercury-reimbursements')} className="mercury-link">Manage reimbursements</Link>
+          </li>
+          <li style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '8px 0' }}>
+            <span style={{ color: 'green' }}>✓</span>
+            <Link to={flowPath('/flow/mercury-2fa')} className="mercury-link">Enable two-factor authentication</Link>
+          </li>
         </ul>
         <Link to={flowPath('/flow/mercury-fund-account')} className="mercury-btn-primary" style={{ display: 'inline-block', textAlign: 'center', textDecoration: 'none' }}>Set up first deposit</Link>
       </main>

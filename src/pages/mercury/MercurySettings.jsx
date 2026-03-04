@@ -4,7 +4,7 @@ import { useCompany } from '../../context/CompanyContext'
 import './MercuryFlow.css'
 
 export function MercurySettings() {
-  const { flowPath } = useCompany()
+  const { flowPath, basePath } = useCompany()
 
   return (
     <div className="mercury-flow-layout mercury-dashboard-layout">
@@ -14,9 +14,8 @@ export function MercurySettings() {
           Mobbin
         </Link>
         <nav className="mercury-sidebar-nav" style={{ marginTop: 8 }}>
-          <Link to={flowPath('/flow/mercury-dashboard')} className="mercury-step-back" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, marginBottom: 24 }}>
-            ← Settings
-          </Link>
+          <Link to={basePath()} className="mercury-step-back" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, marginBottom: 8 }}>← Flows</Link>
+          <Link to={flowPath('/flow/mercury-dashboard')} className="mercury-step-back" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, marginBottom: 24 }}>← Back to Dashboard</Link>
           <div className="mercury-sidebar-section" style={{ marginTop: 16 }}>Company</div>
           <Link to={flowPath('/flow/mercury-categories')}>Categories</Link>
           <div className="mercury-sidebar-section" style={{ marginTop: 16 }}>Personal</div>
