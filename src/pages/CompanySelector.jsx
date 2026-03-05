@@ -10,6 +10,7 @@ const COMPANIES = [
     logoLetter: 'A',
     color: '#6B4EFF',
     logoUrl: '/airwallex-logo.png',
+    badge: 'Built with Cursor',
   },
   {
     id: 'revolut',
@@ -18,6 +19,17 @@ const COMPANIES = [
     logoLetter: 'R',
     color: '#0075EB',
     logoUrl: '/revolut-logo.png',
+    badge: 'Built with Cursor',
+  },
+  {
+    id: 'revolut-lovable',
+    name: 'Revolut',
+    tagline: 'One app for all things money',
+    logoLetter: 'R',
+    color: '#0075EB',
+    logoUrl: '/revolut-logo.png',
+    badge: 'Created by Lovable',
+    externalUrl: 'https://revolut-proto.lovable.app/',
   },
   {
     id: 'mercury',
@@ -26,6 +38,7 @@ const COMPANIES = [
     logoLetter: 'M',
     color: '#1a2744',
     logoUrl: '/mercury-logo.png',
+    badge: 'Built with Cursor',
   },
   {
     id: 'wize',
@@ -34,6 +47,7 @@ const COMPANIES = [
     logoLetter: 'W',
     color: '#7CB342',
     logoUrl: '/wize-logo.png',
+    badge: 'Built with Cursor',
   },
 ]
 
@@ -55,7 +69,7 @@ export function CompanySelector() {
               key={company.id}
               type="button"
               className="company-card"
-              onClick={() => navigate(`/${company.id}`)}
+              onClick={() => company.externalUrl ? window.location.assign(company.externalUrl) : navigate(`/${company.id}`)}
             >
               {company.logoUrl ? (
                 <img
@@ -73,7 +87,9 @@ export function CompanySelector() {
               )}
               <h2 className="company-card-name">{company.name}</h2>
               <p className="company-card-tagline">{company.tagline}</p>
-              <span className="company-card-badge">Built with Cursor</span>
+              <span className={`company-card-badge ${company.badge === 'Created by Lovable' ? 'company-card-badge--lovable' : ''}`}>
+                {company.badge || 'Built with Cursor'}
+              </span>
             </button>
           ))}
         </div>
