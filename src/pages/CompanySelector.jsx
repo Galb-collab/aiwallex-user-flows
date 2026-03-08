@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './CompanySelector.css'
 
@@ -41,6 +41,19 @@ const COMPANIES = [
     badge: 'Built with Cursor',
   },
   {
+    id: 'mercury-lovable',
+    name: 'Mercury',
+    tagline: 'Banking for startups',
+    logoLetter: 'M',
+    color: '#1a2744',
+    logoUrl: '/mercury-logo.png',
+    badge: 'Created by Lovable',
+    externalUrls: {
+      onboarding: 'https://mercury-mock.lovable.app/',
+      dashboard: 'https://mercury-mock.lovable.app/dashboard',
+    },
+  },
+  {
     id: 'wize',
     name: 'Wize',
     tagline: '',
@@ -53,6 +66,17 @@ const COMPANIES = [
 
 export function CompanySelector() {
   const navigate = useNavigate()
+  const [lovableModal, setLovableModal] = useState(null)
+
+  const handleCompanyClick = (company) => {
+    if (company.externalUrls) {
+      setLovableModal(company)
+    } else if (company.externalUrl) {
+      window.location.assign(company.externalUrl)
+    } else {
+      navigate(`/${company.id}`)
+    }
+  }
 
   return (
     <div className="company-selector">
@@ -68,8 +92,8 @@ export function CompanySelector() {
             <button
               key={company.id}
               type="button"
-              className="company-card"
-              onClick={() => company.externalUrl ? window.location.assign(company.externalUrl) : navigate(`/${company.id}`)}
+              className={`company-card ${company.id === 'mercury-lovable' ? 'company-card--mercury' : ''}`}
+              onClick={() => handleCompanyClick(company)}
             >
               {company.logoUrl ? (
                 <img
@@ -93,6 +117,39 @@ export function CompanySelector() {
             </button>
           ))}
         </div>
+
+        {lovableModal && (
+          <div className="company-selector-modal-overlay" onClick={() => setLovableModal(null)}>
+            <div className="company-selector-modal" onClick={(e) => e.stopPropagation()}>
+              <h3 className="company-selector-modal-title">Choose where to start</h3>
+              <p className="company-selector-modal-subtitle">{lovableModal.name} by Lovable</p>
+              <div className="company-selector-modal-actions">
+                <button
+                  type="button"
+                  className="company-selector-modal-btn"
+                  onClick={() => window.location.assign(lovableModal.externalUrls.onboarding)}
+                >
+                  Start with Onboarding
+                </button>
+                <button
+                  type="button"
+                  className="company-selector-modal-btn company-selector-modal-btn--primary"
+                  onClick={() => window.location.assign(lovableModal.externalUrls.dashboard)}
+                >
+                  Go to Dashboard
+                </button>
+              </div>
+              <button
+                type="button"
+                className="company-selector-modal-close"
+                onClick={() => setLovableModal(null)}
+                aria-label="Close"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        )}
       </main>
       <footer className="company-selector-footer">
         <span>User Flows · Airwallex, Revolut, Mercury & Wize</span>
