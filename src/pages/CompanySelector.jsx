@@ -19,17 +19,11 @@ const COMPANIES = [
     logoLetter: 'R',
     color: '#0075EB',
     logoUrl: '/revolut-logo.png',
-    badge: 'Built with Cursor',
-  },
-  {
-    id: 'revolut-lovable',
-    name: 'Revolut',
-    tagline: 'One app for all things money',
-    logoLetter: 'R',
-    color: '#0075EB',
-    logoUrl: '/revolut-logo.png',
-    badge: 'Created by Lovable',
-    externalUrl: 'https://revolut-proto.lovable.app/',
+    badge: 'Cursor & Lovable',
+    choiceOptions: [
+      { label: 'Built with Cursor', action: 'navigate', path: '/revolut' },
+      { label: 'Created by Lovable', action: 'external', url: 'https://revolut-proto.lovable.app/' },
+    ],
   },
   {
     id: 'mercury',
@@ -38,20 +32,12 @@ const COMPANIES = [
     logoLetter: 'M',
     color: '#1a2744',
     logoUrl: '/mercury-logo.png',
-    badge: 'Built with Cursor',
-  },
-  {
-    id: 'mercury-lovable',
-    name: 'Mercury',
-    tagline: 'Banking for startups',
-    logoLetter: 'M',
-    color: '#1a2744',
-    logoUrl: '/mercury-logo.png',
-    badge: 'Created by Lovable',
-    externalUrls: {
-      onboarding: 'https://mercury-mock.lovable.app/',
-      dashboard: 'https://mercury-mock.lovable.app/dashboard',
-    },
+    badge: 'Cursor & Lovable',
+    choiceOptions: [
+      { label: 'Built with Cursor', action: 'navigate', path: '/mercury' },
+      { label: 'Created by Lovable — Onboarding', action: 'external', url: 'https://mercury-mock.lovable.app/' },
+      { label: 'Created by Lovable — Dashboard', action: 'external', url: 'https://mercury-mock.lovable.app/dashboard' },
+    ],
   },
   {
     id: 'wize',
@@ -66,11 +52,11 @@ const COMPANIES = [
 
 export function CompanySelector() {
   const navigate = useNavigate()
-  const [lovableModal, setLovableModal] = useState(null)
+  const [choiceModal, setChoiceModal] = useState(null)
 
   const handleCompanyClick = (company) => {
-    if (company.externalUrls) {
-      setLovableModal(company)
+    if (company.choiceOptions) {
+      setChoiceModal(company)
     } else if (company.externalUrl) {
       window.location.assign(company.externalUrl)
     } else {
@@ -92,7 +78,7 @@ export function CompanySelector() {
             <button
               key={company.id}
               type="button"
-              className={`company-card ${company.id === 'mercury-lovable' ? 'company-card--mercury' : ''}`}
+              className={`company-card ${company.id === 'mercury' ? 'company-card--mercury' : ''} ${company.id === 'revolut' ? 'company-card--revolut' : ''}`}
               onClick={() => handleCompanyClick(company)}
             >
               {company.logoUrl ? (
@@ -111,38 +97,41 @@ export function CompanySelector() {
               )}
               <h2 className="company-card-name">{company.name}</h2>
               <p className="company-card-tagline">{company.tagline}</p>
-              <span className={`company-card-badge ${company.badge === 'Created by Lovable' ? 'company-card-badge--lovable' : ''}`}>
+              <span className={`company-card-badge ${company.choiceOptions ? 'company-card-badge--choice' : ''}`}>
                 {company.badge || 'Built with Cursor'}
               </span>
             </button>
           ))}
         </div>
 
-        {lovableModal && (
-          <div className="company-selector-modal-overlay" onClick={() => setLovableModal(null)}>
+        {choiceModal && (
+          <div className="company-selector-modal-overlay" onClick={() => setChoiceModal(null)}>
             <div className="company-selector-modal" onClick={(e) => e.stopPropagation()}>
-              <h3 className="company-selector-modal-title">Choose where to start</h3>
-              <p className="company-selector-modal-subtitle">{lovableModal.name} by Lovable</p>
+              <h3 className="company-selector-modal-title">Choose which version to open</h3>
+              <p className="company-selector-modal-subtitle">{choiceModal.name}</p>
               <div className="company-selector-modal-actions">
-                <button
-                  type="button"
-                  className="company-selector-modal-btn"
-                  onClick={() => window.location.assign(lovableModal.externalUrls.onboarding)}
-                >
-                  Start with Onboarding
-                </button>
-                <button
-                  type="button"
-                  className="company-selector-modal-btn company-selector-modal-btn--primary"
-                  onClick={() => window.location.assign(lovableModal.externalUrls.dashboard)}
-                >
-                  Go to Dashboard
-                </button>
+                {choiceModal.choiceOptions.map((option, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    className={`company-selector-modal-btn ${i === 0 ? 'company-selector-modal-btn--primary' : ''}`}
+                    onClick={() => {
+                      if (option.action === 'navigate') {
+                        setChoiceModal(null)
+                        navigate(option.path)
+                      } else if (option.action === 'external') {
+                        window.location.assign(option.url)
+                      }
+                    }}
+                  >
+                    {option.label}
+                  </button>
+                ))}
               </div>
               <button
                 type="button"
                 className="company-selector-modal-close"
-                onClick={() => setLovableModal(null)}
+                onClick={() => setChoiceModal(null)}
                 aria-label="Close"
               >
                 ✕

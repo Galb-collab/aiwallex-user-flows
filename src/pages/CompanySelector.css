@@ -82,9 +82,12 @@
   box-shadow: 0 12px 40px rgba(107, 78, 255, 0.15);
 }
 
-.company-card--mercury:hover,
-.company-card:nth-child(4):hover,
-.company-card:nth-child(5):hover {
+.company-card--revolut:hover {
+  border-color: #0075EB;
+  box-shadow: 0 12px 40px rgba(0, 117, 235, 0.15);
+}
+
+.company-card--mercury:hover {
   border-color: #1a2744;
   box-shadow: 0 12px 40px rgba(26, 39, 68, 0.2);
 }
@@ -136,6 +139,11 @@
 .company-card-badge--lovable {
   background: rgba(34, 197, 94, 0.15);
   color: #16a34a;
+}
+
+.company-card-badge--choice {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(34, 197, 94, 0.2) 100%);
+  color: #4f46e5;
 }
 
 .company-selector-modal-overlay {
