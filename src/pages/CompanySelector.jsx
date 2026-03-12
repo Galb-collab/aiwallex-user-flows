@@ -10,7 +10,7 @@ const COMPANIES = [
     logoLetter: 'A',
     color: '#6B4EFF',
     logoUrl: '/airwallex-logo.png',
-    badge: 'Built with Cursor',
+    badge: 'User flows only',
   },
   {
     id: 'revolut',
@@ -21,8 +21,8 @@ const COMPANIES = [
     logoUrl: '/revolut-logo.png',
     badge: 'Cursor & Lovable',
     choiceOptions: [
-      { label: 'Built with Cursor', action: 'navigate', path: '/revolut' },
-      { label: 'Created by Lovable', action: 'external', url: 'https://revolut-proto.lovable.app/' },
+      { label: 'User flows', action: 'navigate', path: '/revolut' },
+      { label: 'Full product capabilities', action: 'external', url: 'https://revolut-proto.lovable.app/' },
     ],
   },
   {
@@ -34,9 +34,9 @@ const COMPANIES = [
     logoUrl: '/mercury-logo.png',
     badge: 'Cursor & Lovable',
     choiceOptions: [
-      { label: 'Built with Cursor', action: 'navigate', path: '/mercury' },
-      { label: 'Created by Lovable — Onboarding', action: 'external', url: 'https://mercury-mock.lovable.app/' },
-      { label: 'Created by Lovable — Dashboard', action: 'external', url: 'https://mercury-mock.lovable.app/dashboard' },
+      { label: 'User flows', action: 'navigate', path: '/mercury' },
+      { label: 'Full onboarding journey', action: 'external', url: 'https://mercury-mock.lovable.app/' },
+      { label: 'Full user journey', action: 'external', url: 'https://mercury-mock.lovable.app/dashboard' },
     ],
   },
   {
@@ -46,7 +46,7 @@ const COMPANIES = [
     logoLetter: 'W',
     color: '#7CB342',
     logoUrl: '/wize-logo.png',
-    badge: 'Built with Cursor',
+    badge: 'Coming soon',
   },
 ]
 
@@ -72,7 +72,6 @@ export function CompanySelector() {
       <main className="company-selector-main">
         <h1 className="company-selector-title">Choose a company</h1>
         <p className="company-selector-subtitle">Select which company's flows you want to explore.</p>
-        <span className="company-selector-badge">Built with Cursor</span>
         <div className="company-cards">
           {COMPANIES.map((company) => (
             <button
