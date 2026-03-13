@@ -72,6 +72,13 @@ export function CompanySelector() {
       <main className="company-selector-main">
         <h1 className="company-selector-title">Choose a company</h1>
         <p className="company-selector-subtitle">Select which company's flows you want to explore.</p>
+        <div className="company-selector-explanation">
+          <h3 className="company-selector-explanation-title">What you&apos;ll get</h3>
+          <p className="company-selector-explanation-text">
+            Interactive user flows that walk you through real product experiences—signup, onboarding, dashboards, payments, and more. 
+            For Revolut and Mercury, choose between <strong>user flows</strong> (step-by-step walkthroughs) or <strong>full product capabilities</strong> (complete interactive prototypes).
+          </p>
+        </div>
         <div className="company-cards">
           {COMPANIES.map((company) => (
             <button
